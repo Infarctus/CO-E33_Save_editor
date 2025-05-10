@@ -3,14 +3,12 @@ import {
   copyFile,
   mkdir,
   exists,
-  readTextFile,
 } from "@tauri-apps/plugin-fs";
-import { basename, join, appLocalDataDir } from "@tauri-apps/api/path";
+import { basename, join, appLocalDataDir, } from "@tauri-apps/api/path";
 import { Command } from "@tauri-apps/plugin-shell";
 
 // Constants for configuration
 const SAVE_HANDLING_DIR_NAME = "data"; // Directory within appLocalDataDir for backups and temp files
-const UESAVE_SCOPE_COMMAND = "run-uesave"; // This must match the 'name' in tauri.conf.json shell scope
 
 export interface SaveProcessResult {
   success: boolean;
@@ -81,16 +79,12 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
       "-o",
       tempJsonPath,
     ];
-
-    console.log(
-      `Executing uesave via scope command: ${UESAVE_SCOPE_COMMAND} ${uesaveArgsSavetoJson.join(
-        " "
-      )}`
-    );
     const command = Command.sidecar(
       "assets/uesave",
       uesaveArgsSavetoJson
     );
+    
+    console.log("Executing command:", command);
     const { stdout, stderr, code } = await command.execute();
 
     if (code !== 0) {
