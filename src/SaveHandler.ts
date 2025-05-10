@@ -1,10 +1,6 @@
 import { open } from "@tauri-apps/plugin-dialog";
-import {
-  copyFile,
-  mkdir,
-  exists,
-} from "@tauri-apps/plugin-fs";
-import { basename, join, appLocalDataDir, } from "@tauri-apps/api/path";
+import { copyFile, mkdir, exists } from "@tauri-apps/plugin-fs";
+import { basename, join, appLocalDataDir } from "@tauri-apps/api/path";
 import { Command } from "@tauri-apps/plugin-shell";
 
 // Constants for configuration
@@ -49,12 +45,12 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
     const backupDestinationPath = await join(backupDir, `${fileName}.bak`);
     const tempJsonPath = await join(
       saveHandlingBasePath,
-      fileName.replace(".sav", ".json") 
+      fileName.replace(".sav", ".json")
     );
 
     // 2. Copy the file for backup
     try {
-      console.log("Folder ",backupDir,"exists?:")
+      console.log("Folder ", backupDir, "exists?:");
       const backupDirExists = await exists(backupDir);
       if (!backupDirExists) {
         await mkdir(backupDir, { recursive: true });
@@ -79,11 +75,8 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
       "-o",
       tempJsonPath,
     ];
-    const command = Command.sidecar(
-      "assets/uesave",
-      uesaveArgsSavetoJson
-    );
-    
+    const command = Command.sidecar("assets/uesave", uesaveArgsSavetoJson);
+
     console.log("Executing command:", command);
     const { stdout, stderr, code } = await command.execute();
 
@@ -108,7 +101,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
 
     return {
       success: true,
-            tempJsonPath,
+      tempJsonPath,
       originalSavPath,
       message: `File '${fileName}' backed up and converted to JSON successfully. Ready for editing.`,
     };
