@@ -104,3 +104,21 @@ button {
     background-color: #0f0f0f69;
   }
 }
+
+
+
+.infoBanner {
+  position: fixed; /* Fixes the banner to the viewport */
+  bottom: 0; /* Positions it at the bottom */
+  left: 0; /* Aligns it to the left */
+  right: 0; /* Stretches it to the right */
+  height: 30px; /* Set the height of the banner */
+  background-color: #333; /* Background color */
+  color: white; /* Text color */
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: left; /* Center horizontally */
+  font-size: 14px; /* Font size */
+  z-index: 1000; /* Ensure it is above other content */
+  margin-left: 5px;
+}
