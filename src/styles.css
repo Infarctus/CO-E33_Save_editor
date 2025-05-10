@@ -1,19 +1,10 @@
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.typescript:hover {
-  filter: drop-shadow(0 0 2em #2d79c7);
-}
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
   color: #0f0f0f;
   background-color: #f6f6f6;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,37 +12,61 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.container {
-  margin: 0;
-  padding-top: 10vh;
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.drawer {
+  width: 200px;
+  border-right: 1px solid #ddd;
+  padding: 0.8rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.spacer {
+  margin-top: 3px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
 }
 
 
-.row {
+.nav-list {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+.nav-item:hover,
+.nav-item.active {
+  background-color: #263D3A;
 }
 
-a:hover {
-  color: #535bf2;
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  fill: white;
 }
 
-h1 {
-  text-align: center;
+.content {
+  flex: 1;
+  padding: 1rem;
+  display: block;
 }
 
-input,
-button {
+.tab-button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -62,27 +77,37 @@ button {
   background-color: #ffffff;
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-button {
   cursor: pointer;
 }
 
-button:hover {
+.tab-button:hover {
   border-color: #396cd8;
 }
-button:active {
+
+.tab-button:active {
   border-color: #396cd8;
   background-color: #e8e8e8;
 }
 
-input,
-button {
-  outline: none;
+.tab-panel {
+  display: none;
 }
 
-#greet-input {
-  margin-right: 5px;
+.infoBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 14px;
+  z-index: 1000;
+  margin-left: 5px;
+  border-top: 1px solid #ddd;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -91,34 +116,17 @@ button {
     background-color: #2f2f2f;
   }
 
-  a:hover {
-    color: #24c8db;
-  }
-
-  input,
-  button {
+  .tab-button {
     color: #ffffff;
     background-color: #0f0f0f98;
   }
-  button:active {
+
+  .tab-button:active {
     background-color: #0f0f0f69;
   }
-}
 
-
-
-.infoBanner {
-  position: fixed; /* Fixes the banner to the viewport */
-  bottom: 0; /* Positions it at the bottom */
-  left: 0; /* Aligns it to the left */
-  right: 0; /* Stretches it to the right */
-  height: 30px; /* Set the height of the banner */
-  background-color: #333; /* Background color */
-  color: white; /* Text color */
-  display: flex; /* Use flexbox for centering */
-  align-items: center; /* Center vertically */
-  justify-content: left; /* Center horizontally */
-  font-size: 14px; /* Font size */
-  z-index: 1000; /* Ensure it is above other content */
-  margin-left: 5px;
+  .infoBanner {
+    background-color: #333;
+    color: white;
+  }
 }

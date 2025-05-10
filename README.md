@@ -11,3 +11,5 @@ This template should help get you started developing with Tauri in vanilla HTML,
 - Rename app
 - Implement tabs for different functionalities
 - A lock system (avois having pultiple instances of the app running at the same time ? OR put backups in time-related dirs. Than way there's almost no chance of collision)
+
+Icons from https://dribbble.com/shots/6592214-120-UI-Pack-icon-free-download
