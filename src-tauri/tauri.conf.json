@@ -23,7 +23,7 @@
     }
   },
   "bundle": {
-    "externalBin": ["uesave"],
+    "externalBin": ["assets/uesave"],
     "active": true,
     "targets": "all",
     "icon": [
@@ -36,12 +36,7 @@
   },
   "plugins": {
     "shell":{
-      "all": {
-        "scope": [
-          "open",
-          "openWith"
-        ]
-      }
+      "open": true
     }
   }
 }

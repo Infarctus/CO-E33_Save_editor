@@ -9,7 +9,26 @@
     "core:default",
     "opener:default",
     "dialog:default",
+
+
     "fs:default",
-    "shell:default"
+    "fs:allow-app-write-recursive",
+
+
+    "shell:default",
+    "shell:allow-execute",
+    {
+      "identifier": "fs:scope",
+      "allow": [{ "path": "$APPLOCALDATA/data/*" }]
+    },
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "name": "assets/uesave",
+          "sidecar": true
+        }
+      ]
+    }
   ]
 }
