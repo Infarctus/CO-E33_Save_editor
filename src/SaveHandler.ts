@@ -9,7 +9,7 @@ import { basename, join, appLocalDataDir } from "@tauri-apps/api/path";
 import { Command } from "@tauri-apps/plugin-shell";
 
 // Constants for configuration
-const SAVE_HANDLING_DIR_NAME = "save_editor_data"; // Directory within appLocalDataDir for backups and temp files
+const SAVE_HANDLING_DIR_NAME = "data"; // Directory within appLocalDataDir for backups and temp files
 const UESAVE_SCOPE_COMMAND = "run-uesave"; // This must match the 'name' in tauri.conf.json shell scope
 
 export interface SaveProcessResult {
@@ -56,6 +56,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
 
     // 2. Copy the file for backup
     try {
+      console.log("Folder ",backupDir,"exists?:")
       const backupDirExists = await exists(backupDir);
       if (!backupDirExists) {
         await mkdir(backupDir, { recursive: true });
@@ -87,7 +88,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
       )}`
     );
     const command = Command.sidecar(
-      "./assets/uesave.exe",
+      "assets/uesave",
       uesaveArgsSavetoJson
     );
     const { stdout, stderr, code } = await command.execute();
