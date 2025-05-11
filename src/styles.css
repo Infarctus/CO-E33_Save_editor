@@ -90,7 +90,8 @@ background-color: #42381E;
   display: block;
 }
 
-.tab-button {
+.tab-button,
+button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -115,6 +116,17 @@ background-color: #42381E;
 
 .tab-panel {
   display: none;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between; /* Space between h2 and button */
+  align-items: center; /* Align items vertically */
+}
+
+#CommitRawJsonChanges {
+  margin-left: auto; 
 }
 
 .infoBanner {
