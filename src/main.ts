@@ -1,7 +1,6 @@
-import { invoke } from "@tauri-apps/api/core";
-import { initNavigation, updateNavStates } from "./navigation";
-import { initFileManagement, workingFileCurrent } from "./filemanagement";
-import { handleJsonAndConvertToSaveFile, handleSaveFileAndExtractToJson, OpenProcessResult } from "./SaveHandler.ts";
+import { initNavigation, switchTab, updateNavStates } from "./navigation";
+import { initFileManagement } from "./filemanagement";
+import { renderCharacterPanel } from "./charactersPanel";
 
 let InfoBannerEl: HTMLDivElement | null;
 let DebugListEl: HTMLUListElement | null;
@@ -12,7 +11,9 @@ window.addEventListener("DOMContentLoaded", () => {
   overrideConsoleAndSetDebug();
   initNavigation();
   initFileManagement();
+  renderCharacterPanel();
   updateNavStates(false);
+  switchTab("Characters");
   console.log("hi")
   console.warn("this is a warning")
   console.error("this is an error")

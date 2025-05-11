@@ -18,13 +18,16 @@
 }
 
 .drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 200px;
   border-right: 1px solid #ddd;
   padding: 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  height: 100%;
+  height: calc(100vh - 35px);
 }
 
 .spacer {
@@ -82,6 +85,7 @@ background-color: #42381E;
 
 .content {
   flex: 1;
+  margin-left: 210px;
   padding: 1rem;
   display: block;
 }

@@ -2,6 +2,15 @@ let panels: { [key: string]: HTMLElement } = {};
 
 function initNavigation() {
   const drawer = document.querySelector(".drawer");
+
+  panels = {
+    SaveFile: document.querySelector("#SaveFilePanel") as HTMLElement,
+    Characters: document.querySelector("#CharactersPanel") as HTMLElement,
+    Inventory: document.querySelector("#InventoryPanel") as HTMLElement,
+    Backups: document.querySelector("#BackupsPanel") as HTMLElement,
+    Debug: document.querySelector("#DebugPanel") as HTMLElement,
+  };
+  
   drawer?.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
