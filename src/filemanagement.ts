@@ -23,7 +23,7 @@ function initFileManagement() {
     }
     workingFileCurrent=null;
     updateNavStates(false);
-    switchTab("SaveFile");
+    switchTab("SaveFilePanel");
 
     handleSaveFileAndExtractToJson()
       .then((saveProcessResult) => {
