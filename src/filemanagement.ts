@@ -1,5 +1,6 @@
 import { switchTab, updateNavStates } from "./navigation.ts";
 import { handleJsonAndConvertToSaveFile, handleSaveFileAndExtractToJson, OpenProcessResult } from "./SaveHandler.ts";
+import { getMappingJson } from "./mappingjson/mappingjson.ts";
 
 let workingFileCurrent: OpenProcessResult | null;
 let saveNeeded: boolean = false;
@@ -30,6 +31,9 @@ function initFileManagement() {
           workingFileCurrent = saveProcessResult;
           console.log("Opened save OK: " + workingFileCurrent.message);
           updateNavStates(true);
+          if(saveProcessResult.tempJsonPath) {
+            getMappingJson(saveProcessResult.tempJsonPath);
+          }
         } else {
           console.error(saveProcessResult.message);
         }
