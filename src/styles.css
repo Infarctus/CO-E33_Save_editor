@@ -100,7 +100,7 @@ background-color: #42381E;
   cursor: pointer;
 }
 
-.tab-button:hover {
+.tab-button:not([disabled]):hover {
   border-color: #396cd8;
 }
 
