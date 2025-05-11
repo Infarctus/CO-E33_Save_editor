@@ -1,16 +1,23 @@
 import { open } from "@tauri-apps/plugin-dialog";
-import { copyFile, mkdir, exists } from "@tauri-apps/plugin-fs";
+import { copyFile, mkdir, exists, remove } from "@tauri-apps/plugin-fs";
 import { basename, join, appLocalDataDir } from "@tauri-apps/api/path";
 import { Command } from "@tauri-apps/plugin-shell";
 
 // Constants for configuration
 const SAVE_HANDLING_DIR_NAME = "data"; // Directory within appLocalDataDir for backups and temp files
+const uesaveExePath = "assets/uesave";
 
-export interface SaveProcessResult {
+export interface OpenProcessResult {
   success: boolean;
   message: string;
   tempJsonPath?: string;
   originalSavPath?: string;
+}
+
+export interface SaveProcessResult {
+  success: boolean;
+  message: string;
+  savEdToPath?: string;
 }
 
 /**
@@ -18,7 +25,7 @@ export interface SaveProcessResult {
  * and reading the resulting JSON data.
  * @returns A promise resolving to a SaveProcessResult object.
  */
-export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResult> {
+export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResult> {
   try {
     const originalSavPath = await open({
       multiple: false,
@@ -75,7 +82,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
       "-o",
       tempJsonPath,
     ];
-    const command = Command.sidecar("assets/uesave", uesaveArgsSavetoJson);
+    const command = Command.sidecar(uesaveExePath, uesaveArgsSavetoJson);
 
     console.log("Executing command:", command);
     const { stdout, stderr, code } = await command.execute();
@@ -113,5 +120,102 @@ export async function handleSaveFileAndExtractToJson(): Promise<SaveProcessResul
         (error as Error).message || String(error)
       }`,
     };
+  }
+}
+
+
+
+/**
+ * Handles converting a JSON file back to a .sav file, validating it, and saving it.
+ * @param {string} jsonPath - Path to the JSON file to convert.
+ * @param {string} targetSavPath - Path where the final .sav file should be saved (original save file location).
+ * @returns {Promise<SaveProcessResult>}
+ */
+export async function handleJsonAndConvertToSaveFile(
+  jsonPath: string,
+  targetSavPath: string
+): Promise<SaveProcessResult> {
+  if (!(await exists(jsonPath))) {
+    return {
+      success: false,
+      message: "Temporary JSON file path is invalid or file does not exist.",
+    };
+  }
+  if (!targetSavPath) {
+    return {
+      success: false,
+      message: "Target .sav file path not provided.",
+    };
+  }
+
+  const userDataPath = await appLocalDataDir();
+  const saveHandlingBasePath = await join(userDataPath, SAVE_HANDLING_DIR_NAME);
+  const fileName = await basename(targetSavPath);
+  // Intermediate file for conversion and testing
+  const intermediateSavPath = await join(saveHandlingBasePath, `CONVERSION_TEST_${fileName}`);
+
+  const uesaveArgsJsonToSav = [
+    "from-json",
+    "-i",
+    jsonPath,
+    "-o",
+    intermediateSavPath,
+  ];
+
+  const uesaveArgsVerifyConversion = ["test-resave", intermediateSavPath];
+
+  try {
+    // 1. Convert JSON to intermediate .sav
+    const command = Command.sidecar(uesaveExePath, uesaveArgsJsonToSav);
+    const { stdout, stderr, code } = await command.execute();
+    if (code !== 0) {
+      return {
+        success: false,
+        message: `uesave failed (code ${code}): ${stderr || stdout || "No output from uesave"}`,
+      };
+    }
+    if (stderr) console.warn(`uesave from-json stderr: ${stderr}`);
+    if (stdout) console.log(`uesave from-json stdout: ${stdout}`);
+    console.log(`JSON converted to intermediate SAV: ${intermediateSavPath}`);
+
+    // 2. Verify the intermediate .sav file
+    const verifyCommand = Command.sidecar(uesaveExePath, uesaveArgsVerifyConversion);
+    const { stdout: verifyStdout, stderr: verifyStderr, code: verifyCode } = await verifyCommand.execute();
+    if (verifyCode !== 0) {
+      return {
+        success: false,
+        message: `uesave failed (code ${verifyCode}): ${verifyStderr || verifyStdout || "No output from uesave"}`,
+      };
+    }
+    if (verifyStderr) console.warn(`uesave test-resave stderr: ${verifyStderr}`);
+    if (verifyStdout) console.log(`uesave test-resave stdout: ${verifyStdout}`);
+    console.log(`Intermediate SAV verified: ${intermediateSavPath}`);
+
+    // 3. Copy intermediate .sav to target .sav path (overwriting original)
+    await copyFile(intermediateSavPath, targetSavPath);
+    console.log(`Verified SAV file copied to: ${targetSavPath}`);
+
+    return {
+      success: true,
+      message: `File '${fileName}' successfully updated from JSON and saved.`,
+    };
+  } catch (error: any) {
+    console.error(`Error during uesave or file operations: ${error.message}`);
+    return {
+      success: false,
+      message: `Failed to convert JSON back to .sav or validate the file: ${error.message}`,
+    };
+  } finally {
+    // 4. Clean up intermediate .sav file
+    if (await exists(intermediateSavPath)) {
+      try {
+        await remove(intermediateSavPath);
+        console.log(`Cleaned up intermediate file: ${intermediateSavPath}`);
+      } catch (cleanupError) {
+        console.error(
+          `Error cleaning up intermediate file ${intermediateSavPath}: ${cleanupError}`,
+        );
+      }
+    }
   }
 }
