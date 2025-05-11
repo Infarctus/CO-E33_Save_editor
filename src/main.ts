@@ -65,14 +65,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     handleSaveFileAndExtractToJson()
       .then((saveProcessResult) => {
-
+        
         if (saveProcessResult.success) {
-          console.log("Opened save OK: " + saveProcessResult.message);
+          workingFileCurrent = saveProcessResult;
+          console.log("Opened save OK: " + workingFileCurrent.message);
+          updateNavStates();
         }
         
         else console.error(saveProcessResult.message);
-        workingFileCurrent = saveProcessResult;
-        updateNavStates();
       })
       .catch(
         (reason) => (console.error(`Open file promise rejected. ${reason}`))
@@ -201,7 +201,7 @@ function updateNavStates() {
   document.querySelectorAll(".fileopen-dependant").forEach((item) => {
     if (item.nodeName == "BUTTON") {
       (item as HTMLButtonElement).disabled = !anyFileOpen;
-    } else     item.ariaDisabled = anyFileOpen ? "false": "true";
+    } else     item.ariaDisabled = anyFileOpen ? null: "true";
   });
 }
 
