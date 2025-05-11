@@ -17,21 +17,23 @@ let overwriteFileBtn: HTMLButtonElement | null;
 let panels: { [key: string]: HTMLElement } = {};
 
 
-
+let workingFileCurrent: OpenProcessResult | null
+let saveNeeded: boolean = false;
 
 
 
 window.addEventListener("DOMContentLoaded", () => {
 
   InfoBannerEl = document.querySelector("#infoBanner");
-overrideConsoleAndSetDebug();
-console.log("hi")
-console.warn("this is a warning")
-console.error("this is an error")
+  overrideConsoleAndSetDebug();
+  updateNavStates()
+  console.log("hi")
+  console.warn("this is a warning")
+  console.error("this is an error")
 
 
 
-  
+
   openFileBtn = document.querySelector("#OpenFile");
   exportFileBtn = document.querySelector("#ExportFile");
   overwriteFileBtn = document.querySelector("#OverwriteFile");
@@ -50,15 +52,32 @@ console.error("this is an error")
     alert("Please check the html - some expected elements are not here");
   }
   openFileBtn?.addEventListener("click", async () => {
+    
+    if (workingFileCurrent != null && saveNeeded) {
+      if (!confirm("Clicking OK will DISCARD the changes made to the file you're currently editing.\nSave it before opening another one if needed.")) {
+        return;
+      }
+      saveNeeded=false;
+    }
+    workingFileCurrent=null;
+    updateNavStates();
+    switchTab("SaveFile");
+
     handleSaveFileAndExtractToJson()
       .then((saveProcessResult) => {
-        if (!saveProcessResult.success)
-          console.error(saveProcessResult.message);
-        else console.error("Opened save OK");
+
+        if (saveProcessResult.success) {
+          console.log("Opened save OK: " + saveProcessResult.message);
+          updateNavStates();
+        }
+
+        else console.error(saveProcessResult.message);
+        workingFileCurrent = saveProcessResult;
       })
       .catch(
         (reason) => (console.error(`Open file promise rejected. ${reason}`))
       );
+console.log("updating nave after trying to open it")
   });
 
   exportFileBtn?.addEventListener("click", async () => {
@@ -67,9 +86,9 @@ console.error("this is an error")
     if (jsonPath && targetSavPath) {
       const result = await handleJsonAndConvertToSaveFile(jsonPath, targetSavPath);
       if (result.success) {
-        InfoBannerEl!.innerText = result.message;
+        console.log(result.message);
       } else {
-        InfoBannerEl!.innerText = result.message;
+        console.error(result.message);
       }
     } else {
       InfoBannerEl!.innerText = "Error: JSON path or target SAV path not found.";
@@ -100,6 +119,7 @@ console.error("this is an error")
     const navItem = target.closest(".nav-item") as HTMLElement | null;
     if (!navItem) return;
 
+    if (navItem.ariaDisabled == "true") return;
     const tab = navItem.getAttribute("data-tab");
 
     document.querySelectorAll(".nav-item").forEach((item) => {
@@ -173,5 +193,13 @@ console = {
   },
   // Override other console functions as needed
 };
+}
+
+function updateNavStates() {
+  const anyFileOpen: boolean = (workingFileCurrent != null)
+  console.log("Currently any file open:", anyFileOpen)
+  document.querySelectorAll(".fileopen-dependant").forEach((item) => {
+    item.ariaDisabled = anyFileOpen ? "false": "true";
+  });
 }
 

@@ -84,7 +84,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
     ];
     const command = Command.sidecar(uesaveExePath, uesaveArgsSavetoJson);
 
-    console.log("Executing command:", command);
+    console.log("Executing command:", uesaveExePath, uesaveArgsSavetoJson);
     const { stdout, stderr, code } = await command.execute();
 
     if (code !== 0) {

@@ -42,8 +42,8 @@
 
 .log-message {
   padding-left: 3px;
-  border-top: 1px solid #ddd;
-  border-left: 1px solid #ddd;
+  border-top: 1px solid #8d8d8d;
+  border-left: 1px solid #8d8d8d;
 }
 
 .log-warn {
@@ -68,7 +68,7 @@ background-color: #42381E;
   transition: background 0.2s ease;
 }
 
-.nav-item:hover,
+.nav-item:not([aria-disabled]):hover,
 .nav-item.active {
   background-color: #263D3A;
 }
