@@ -27,6 +27,12 @@
             <img src="/src/icons/inventory.svg" alt="Inventory" class="nav-icon" />
             <span>Inventory</span>
           </li>
+        </li>
+        <li data-tab="RawJson" class="nav-item fileopen-dependant">
+          <img src="/src/icons/backups.svg" alt="Raw json" class="nav-icon" />
+          <span>Raw json</span>
+        </li>
+
           <li data-tab="Backups" class="nav-item">
             <img src="/src/icons/backups.svg" alt="Backups" class="nav-icon" />
             <span>Backups</span>
@@ -57,6 +63,11 @@
         <div id="BackupsPanel" class="tab-panel" style="display: none;">
           <h2>Backups Tab</h2>
           <p>Content for Backups.</p>
+        </div>
+        <div id="RawJsonPanel" class="tab-panel" style="display: none;">
+          <h2>Raw json</h2>
+          <p>Careful. You might break things.</p>
+          <div class="RawJsonEditor"></div>
         </div>
 
         <div id="DebugPanel" class="tab-panel" style="display: none;">

@@ -7,10 +7,11 @@ function initNavigation() {
     SaveFile: document.querySelector("#SaveFilePanel") as HTMLElement,
     Characters: document.querySelector("#CharactersPanel") as HTMLElement,
     Inventory: document.querySelector("#InventoryPanel") as HTMLElement,
+    RawJson: document.querySelector("#RawJsonPanel") as HTMLElement,
     Backups: document.querySelector("#BackupsPanel") as HTMLElement,
     Debug: document.querySelector("#DebugPanel") as HTMLElement,
   };
-  
+
   drawer?.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
 
@@ -42,7 +43,9 @@ function updateNavStates(anyFileOpen: boolean) {
   });
 }
 
+
 function switchTab(tabName: string): void {
+    
     // Hide all panel elements.
     Object.keys(panels).forEach((key) => {
       const panel = panels[key];
@@ -57,6 +60,8 @@ function switchTab(tabName: string): void {
     console.error(`Panel for ${tabName} not found.`)
   }
   }
+  
+
   
 
 export { initNavigation, updateNavStates, switchTab };
