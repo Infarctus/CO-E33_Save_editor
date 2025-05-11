@@ -1,30 +1,40 @@
 import { invoke } from "@tauri-apps/api/core";
 import {
+  handleJsonAndConvertToSaveFile,
   handleSaveFileAndExtractToJson,
-  SaveProcessResult,
+  OpenProcessResult,
 } from "./SaveHandler.ts";
 
 let InfoBannerEl: HTMLDivElement | null;
+let DebugListEl: HTMLUListElement | null;
 
 let openFileBtn: HTMLButtonElement | null;
 let exportFileBtn: HTMLButtonElement | null;
 let overwriteFileBtn: HTMLButtonElement | null;
-let charactersTabBtn: HTMLButtonElement | null;
-let inventoryTabBtn: HTMLButtonElement | null;
-let backupsTabBtn: HTMLButtonElement | null;
+
 
 
 let panels: { [key: string]: HTMLElement } = {};
 
 
+
+
+
+
 window.addEventListener("DOMContentLoaded", () => {
+
   InfoBannerEl = document.querySelector("#infoBanner");
+overrideConsoleAndSetDebug();
+console.log("hi")
+console.warn("this is a warning")
+console.error("this is an error")
+
+
+
   
   openFileBtn = document.querySelector("#OpenFile");
   exportFileBtn = document.querySelector("#ExportFile");
   overwriteFileBtn = document.querySelector("#OverwriteFile");
-
-
 
 
 
@@ -33,21 +43,37 @@ window.addEventListener("DOMContentLoaded", () => {
     Characters: document.querySelector("#CharactersPanel") as HTMLElement,
     Inventory: document.querySelector("#InventoryPanel") as HTMLElement,
     Backups: document.querySelector("#BackupsPanel") as HTMLElement,
+    Debug: document.querySelector("#DebugPanel") as HTMLElement,
   };
 
   if (!openFileBtn || !InfoBannerEl || !exportFileBtn || !overwriteFileBtn) {
     alert("Please check the html - some expected elements are not here");
   }
-  openFileBtn?.addEventListener("click", async (e) => {
+  openFileBtn?.addEventListener("click", async () => {
     handleSaveFileAndExtractToJson()
       .then((saveProcessResult) => {
         if (!saveProcessResult.success)
-          InfoBannerEl!.innerText = saveProcessResult.message;
-        else InfoBannerEl!.innerText = `OK`;
+          console.error(saveProcessResult.message);
+        else console.error("Opened save OK");
       })
       .catch(
-        (reason) => (InfoBannerEl!.innerText = `Promise rejected. ${reason}`)
+        (reason) => (console.error(`Open file promise rejected. ${reason}`))
       );
+  });
+
+  exportFileBtn?.addEventListener("click", async () => {
+    const jsonPath = panels["SaveFile"].getAttribute("data-json-path");
+    const targetSavPath = panels["SaveFile"].getAttribute("data-target-sav-path");
+    if (jsonPath && targetSavPath) {
+      const result = await handleJsonAndConvertToSaveFile(jsonPath, targetSavPath);
+      if (result.success) {
+        InfoBannerEl!.innerText = result.message;
+      } else {
+        InfoBannerEl!.innerText = result.message;
+      }
+    } else {
+      InfoBannerEl!.innerText = "Error: JSON path or target SAV path not found.";
+    }
   });
 
 
@@ -111,4 +137,41 @@ function switchTab(tabName: string): void {
   }
 }
 
+
+function overrideConsoleAndSetDebug() {
+
+  DebugListEl = document.querySelector("#logList");
+  
+  function addDebugLogToDebugPanel(message: string, logLevel: string | null = null) {
+    const newLogEntry = document.createElement("div");
+    newLogEntry.classList.add("log-message")
+    if (logLevel != null) newLogEntry.classList.add("log-"+logLevel)
+    newLogEntry.innerText = message;
+
+    DebugListEl?.prepend(newLogEntry);
+  
+  }
+
+  const originalConsole = console;
+
+console = {
+  ...originalConsole,
+  log: (...args: any[]) => {
+    originalConsole.log(...args);
+    addDebugLogToDebugPanel(args.join(' '), "log");
+    InfoBannerEl!.innerText = args.join(' ');
+  },
+  error: (...args: any[]) => {
+    originalConsole.error(...args);
+    addDebugLogToDebugPanel(args.join(' '), "error");
+    InfoBannerEl!.innerText = args.join(' ');
+  },
+  warn: (...args: any[]) => {
+    originalConsole.warn(...args);
+    addDebugLogToDebugPanel(args.join(' '), "warn");
+    InfoBannerEl!.innerText = args.join(' ');
+  },
+  // Override other console functions as needed
+};
+}
 

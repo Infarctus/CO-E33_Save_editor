@@ -34,6 +34,26 @@
 }
 
 
+.log-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid #ddd;
+}
+
+.log-message {
+  padding-left: 3px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+.log-warn {
+background-color: #42381E;
+}
+
+.log-error {
+  background-color: #4B2F36;
+  }
+
 .nav-list {
   list-style: none;
   padding: 0;

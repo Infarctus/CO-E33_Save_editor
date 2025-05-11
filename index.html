@@ -31,6 +31,10 @@
             <img src="/src/icons/backups.svg" alt="Backups" class="nav-icon" />
             <span>Backups</span>
           </li>
+          <li data-tab="Debug" class="nav-item">
+            <img src="/src/icons/backups.svg" alt="Debug" class="nav-icon" />
+            <span>Debug</span>
+          </li>
         </ul>
 
       </aside>
@@ -53,6 +57,16 @@
         <div id="BackupsPanel" class="tab-panel" style="display: none;">
           <h2>Backups Tab</h2>
           <p>Content for Backups.</p>
+        </div>
+
+        <div id="DebugPanel" class="tab-panel" style="display: none;">
+          <h2>Debugging logs and stuff</h2>
+          <div style="overflow: scroll;">
+            <ul class="log-list" id="logList">
+              
+            </ul>
+          </div>
+          
         </div>
 
       </main>
