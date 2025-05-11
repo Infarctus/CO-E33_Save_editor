@@ -88,6 +88,9 @@ background-color: #42381E;
   margin-left: 210px;
   padding: 1rem;
   display: block;
+  overflow: scroll;
+  /* height: calc(100vh - 160px); */
+
 }
 
 .tab-button,
