@@ -12,18 +12,18 @@
     <div class="layout">
       
       <aside class="drawer">
-        <button id="OpenFile" class="tab-button">Open File</button>
-        <button id="ExportFile" class="tab-button">Export File</button>
-        <button id="OverwriteFile" class="tab-button">Overwrite File</button>
+        <button id="OpenFile" class="tab-button ">Open File</button>
+        <button id="ExportFile" class="tab-button fileopen-dependant">Export File</button>
+        <button id="OverwriteFile" class="tab-button fileopen-dependant">Overwrite File</button>
 
         <div class="spacer"></div>
 
         <ul class="nav-list">
-          <li data-tab="Characters" class="nav-item">
+          <li data-tab="Characters" class="nav-item fileopen-dependant">
             <img src="src-tauri/icons/characters.svg" alt="Characters" class="nav-icon" />
             <span>Characters</span>
           </li>
-          <li data-tab="Inventory" class="nav-item">
+          <li data-tab="Inventory" class="nav-item fileopen-dependant">
             <img src="/src/icons/inventory.svg" alt="Inventory" class="nav-icon" />
             <span>Inventory</span>
           </li>
