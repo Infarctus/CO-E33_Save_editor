@@ -10,16 +10,16 @@ const json = {
     city: "New York",
     hobbies: ["reading", "traveling", "swimming"],
     address: {
-      street: "123 Main St",
-      zip: "10001"
+        street: "123 Main St",
+        zip: "10001"
     }
-  };
+};
 
-  export function updateRawJsonEditor() {
-      const container = document.querySelector('.RawJsonEditor') as HTMLElement;
-      editor = new JSONEditor(container, {
+export function updateRawJsonEditor() {
+    const container = document.querySelector('.RawJsonEditor') as HTMLElement;
+    editor = new JSONEditor(container, {
         mode: 'tree', // You can also use 'view', 'form', 'text', etc.
-      });
-      editor.set(json); // Set the initial JSON data
+    });
+    editor.set(json); // Set the initial JSON data
 
-  }
+}
