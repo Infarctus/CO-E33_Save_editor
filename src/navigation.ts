@@ -56,6 +56,8 @@ function switchTab(tabName: string): void {
   if (panels[tabName]) {
     panels[tabName].style.display = "block";
     console.log(`${tabName} Tab Activated`)
+    const event = new CustomEvent('tabActivated'+tabName);
+    document.dispatchEvent(event);
   } else {
     console.error(`Panel for ${tabName} not found.`)
   }

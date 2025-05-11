@@ -1,60 +1,48 @@
 import JSONEditor from 'jsoneditor';
 import 'jsoneditor/dist/jsoneditor.css';
+import { workingFileCurrent } from './filemanagement';
+import { getMappingJsonFromJson, json } from './mappingjson/mappingjson';
 
 
 let editor: JSONEditor | null;
 
-const json = {
-    name: "John Doe",
-    age: 30,
-    city: "New York",
-    hobbies: ["reading", "traveling", "swimming"],
-    address: {
-        street: "123 Main St",
-        zip: "10001"
+export function initRawJsonEditor() {
+
+
+    const commitButton = document.getElementById("CommitRawJsonChanges");
+
+    if (commitButton) {
+        commitButton.addEventListener("click", () => {
+            console.log("Commited raw json changes")
+            const jsonDataMaybe =editor?.get();
+            if (workingFileCurrent != null && jsonDataMaybe != null) {
+
+                getMappingJsonFromJson(jsonDataMaybe)
+            }
+        });
     }
-};
 
 
+    document.addEventListener('tabActivatedRawJson', (event) => {
+        console.log("RawJson tab recieved tabActivatedRawJson", JSON.stringify(event))
 
-export function updateRawJsonEditor() {
+            console.log("RawJson tab recieved an activated event")
+            if (workingFileCurrent != null)
+                updateRawJsonEditor(json);
+            else updateRawJsonEditor("Nothing to show !");
+    });
+
+}
+
+
+function updateRawJsonEditor(startJsonObject: any) {
     const container = document.querySelector('.RawJsonEditor') as HTMLElement;
-    if (editor == null) {
-        const commitButton = document.getElementById("CommitRawJsonChanges");
-    
-        if (commitButton) {
-            commitButton.addEventListener("click", () => {
-                const jsonData = getJsonFromEditor();
-                if (jsonData) {
-                    console.log("JSON Object:", jsonData.jsonObject);
-                    console.log("JSON String:", jsonData.jsonString);
-                }
-            });
-        }
-    
-    }
+    if (editor != null) editor.destroy();
+
     editor = new JSONEditor(container, {
         mode: 'tree', // You can also use 'view', 'form', 'text', etc.
     });
-    editor.set(json); // Set the initial JSON data
-
+    editor.set(startJsonObject); // Set the initial JSON data
 }
 
 
-function getJsonFromEditor() {
-    if (editor) {
-        // Get the JSON object
-        const jsonObject = editor.get();
-
-        // Get the JSON as plain text
-        const jsonString = JSON.stringify(jsonObject, null, 2); // Pretty print with 2 spaces
-
-        return {
-            jsonObject,
-            jsonString
-        };
-    } else {
-        console.error("Editor is not initialized.");
-        return null;
-    }
-}
