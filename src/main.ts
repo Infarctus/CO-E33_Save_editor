@@ -1,6 +1,6 @@
 import { initNavigation, switchTab, updateNavStates } from "./navigation";
 import { initFileManagement } from "./filemanagement";
-import { renderCharacterPanel } from "./charactersPanel";
+import { initCharacterPanel, renderCharacterPanel } from "./charactersPanel";
 import { initRawJsonEditor } from "./rawEditor";
 
 let InfoBannerEl: HTMLDivElement | null;
@@ -15,7 +15,8 @@ window.addEventListener("DOMContentLoaded", () => {
   renderCharacterPanel();
   updateNavStates(false);
   initRawJsonEditor();
-  switchTab("RawJson");
+  initCharacterPanel() 
+  switchTab("RawJson"); // this is a debug statement
   console.log("hi")
   console.warn("this is a warning")
   console.error("this is an error")
