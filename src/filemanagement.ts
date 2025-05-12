@@ -2,6 +2,7 @@ import { switchTab, updateNavStates } from "./navigation.ts";
 import { handleJsonAndConvertToSaveFile, handleSaveFileAndExtractToJson, OpenProcessResult, SaveProcessResult } from "./SaveHandler.ts";
 import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./mappingjson/mappingjson.ts";
 import { save } from "@tauri-apps/plugin-dialog";
+import { renderCharacterPanel } from "./charactersPanel.ts";
 
 let workingFileCurrent: OpenProcessResult | null;
 let saveNeeded: boolean = false;
@@ -33,6 +34,7 @@ function initFileManagement() {
           updateNavStates(true);
           if (saveProcessResult.tempJsonPath) {
             getMappingJsonFromFile(saveProcessResult.tempJsonPath);
+            renderCharacterPanel()
           }
         } else {
           console.error(saveProcessResult.message);

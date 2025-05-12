@@ -8,11 +8,11 @@ export interface CharactersCollection_0Mapping {
   }>;
 }
 
-interface KeyCharacters {
+export interface KeyCharacters {
   Name: string;
 }
 
-interface CharacterValue {
+export interface CharacterValue {
   Struct: CharacterValueStruct;
 }
 
