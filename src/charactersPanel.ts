@@ -1,3 +1,8 @@
+import { workingFileCurrent } from "./filemanagement";
+import { CharacterValue, KeyCharacters } from "./mappingjson/CharactersCollection_0Mapping";
+import { IntTag, DoubleTag, StringTag, getValueFromTag, IntSingleton } from "./mappingjson/GeneralMappings";
+import { jsonMapping } from "./mappingjson/mappingjson";
+
 // Define types for our character data
 interface CharacterDataEditable {
     Name: string;
@@ -55,7 +60,7 @@ interface CharacterDataEditable {
     "ExtraSkill2"
   ];
   
-  const allowedCustomizations = [
+  const allowedCustomizationsFace = [
     "SkinGustave_Default_Red",
     "SkinGustave_Default_Blue",
     "SkinGustave_Default_Green"
@@ -72,6 +77,14 @@ interface CharacterDataEditable {
         console.log("Initializing characters panel!")
     }
     panel.innerHTML = "<h2>Characters Tab</h2>"; // Reset content
+
+    if (workingFileCurrent == null) {
+      const tempErrMsg = document.createElement("p");
+      tempErrMsg.style.color="red"
+      tempErrMsg.innerText = "No file is currently open, how did you get here ?"
+      panel.appendChild(tempErrMsg);
+      return;
+    }
   
     // A scrollable container for the character sections.
     const scrollContainer = document.createElement("div");
@@ -81,8 +94,9 @@ interface CharacterDataEditable {
     scrollContainer.style.padding = "1rem";
     scrollContainer.style.gap = "1rem";
   
-    characters.forEach((character, index) => {
-      const characterSection = createCharacterSection(character, index);
+
+    jsonMapping.root.properties.CharactersCollection_0.Map.forEach((value, index) => {
+      const characterSection = createCharacterSection(value, index);
       scrollContainer.appendChild(characterSection);
     });
   
@@ -90,7 +104,10 @@ interface CharacterDataEditable {
   }
   
   // Create a section (card) for one character
-  function createCharacterSection(character: CharacterDataEditable, charIndex: number): HTMLElement {
+  function createCharacterSection(character: {
+      key: KeyCharacters;
+      value: CharacterValue;
+    }, characterIndex: number): HTMLElement {
     const section = document.createElement("section");
     section.style.border = "1px solid #ccc";
     section.style.padding = "1rem";
@@ -101,13 +118,13 @@ interface CharacterDataEditable {
   
     // Title and image (here we hard-code a placeholder image)
     const title = document.createElement("h3");
-    title.textContent = character.Name;
+    title.textContent = character.key.Name;
     section.appendChild(title);
   
     // Image container (replace src with actual image path later)
     const image = document.createElement("img");
     image.src = "https://via.placeholder.com/150"; // placeholder image
-    image.alt = character.Name;
+    image.alt = character.key.Name;
     image.style.width = "40%";
     image.style.height = "auto";
     section.appendChild(image);
@@ -120,11 +137,10 @@ interface CharacterDataEditable {
     propertiesContainer.appendChild(
       createPropertyEditor(
         "Available Action Points",
-        character.AvailableActionPoints,
-        "number",
+        character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0,
         (newValue) => {
-          character.AvailableActionPoints = Number(newValue);
-          console.log(`Character ${character.Name} AvailableActionPoints updated to ${newValue}`);
+          character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0.Int = Number(newValue);
+          console.log(`Character ${character.key.Name} AvailableActionPoints updated to ${newValue}`);
         }
       )
     );
@@ -133,11 +149,10 @@ interface CharacterDataEditable {
     propertiesContainer.appendChild(
       createPropertyEditor(
         "Current Experience",
-        character.CurrentExperience,
-        "number",
+        character.value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0,
         (newValue) => {
-          character.CurrentExperience = Number(newValue);
-          console.log(`Character ${character.Name} CurrentExperience updated to ${newValue}`);
+          character.value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0.Int = Number(newValue);
+          console.log(`Character ${character.key.Name} CurrentExperience updated to ${newValue}`);
         }
       )
     );
@@ -146,11 +161,10 @@ interface CharacterDataEditable {
     propertiesContainer.appendChild(
       createPropertyEditor(
         "Current Level",
-        character.CurrentLevel,
-        "number",
+        character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0,
         (newValue) => {
-          character.CurrentLevel = Number(newValue);
-          console.log(`Character ${character.Name} CurrentLevel updated to ${newValue}`);
+          character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue);
+          console.log(`Character ${character.key.Name} CurrentLevel updated to ${newValue}`);
         }
       )
     );
@@ -162,47 +176,63 @@ interface CharacterDataEditable {
     attribTitle.textContent = "Assigned Attribute Points";
     attribContainer.appendChild(attribTitle);
   
-    for (const [attrib, points] of Object.entries(character.AssignedAttributePoints)) {
+    for (const [idkWhatThisIs, points] of Object.entries(character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map)) {
       attribContainer.appendChild(
         createPropertyEditor(
-          attrib,
-          points,
-          "number",
+          idkWhatThisIs + ","+points.key.Byte.Label,
+          points.value,
           (newValue) => {
-            character.AssignedAttributePoints[attrib] = Number(newValue);
-            console.log(`Character ${character.Name} Attribute ${attrib} updated to ${newValue}`);
+            console.log("Not implemented bc idk how it works lol")
+            // character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map[idkWhatThisIs] = Number(newValue);
+            console.log(`Character ${character.key.Name} Attribute ${idkWhatThisIs} updated to ${newValue}`);
           }
         )
       );
     }
     propertiesContainer.appendChild(attribContainer);
-  
+
     // Editable list for UnlockedSkills
-    propertiesContainer.appendChild(createSkillsEditor("Unlocked Skills", character.UnlockedSkills, allowedSkills, (newList) => {
-      character.UnlockedSkills = newList;
-      console.log(`Character ${character.Name} UnlockedSkills updated to ${newList.join(", ")}`);
-      // Optionally update equipped skills options if needed
-    }));
-  
+    propertiesContainer.appendChild(createSkillsEditor("Unlocked Skills",
+      character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name,
+      allowedSkills,
+      (newList) => {
+        character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList;
+        console.log(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join(", ")}`);
+        // Optionally update equipped skills options if needed
+      }));
+
     // Editable list for EquippedSkills (max 6)
-    propertiesContainer.appendChild(createSkillsEditor("Equipped Skills (Max 6)", character.EquippedSkills, character.UnlockedSkills, (newList) => {
+    propertiesContainer.appendChild(createSkillsEditor("Equipped Skills (Max 6)", character.value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name, [], (newList) => {
       if (newList.length > 6) {
         alert("You cannot equip more than 6 skills.");
         newList = newList.slice(0, 6);
       }
-      character.EquippedSkills = newList;
-      console.log(`Character ${character.Name} EquippedSkills updated to ${newList.join(", ")}`);
+      character.value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name = newList;
+      console.log(`Character ${character.key.Name} EquippedSkills updated to ${newList.join(", ")}`);
     }));
   
     // Dropdown for CharacterCustomization
     propertiesContainer.appendChild(
       createDropdownEditor(
-        "Character Customization",
-        character.CharacterCustomization,
-        allowedCustomizations,
+        "Character Customization (face)",
+        character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0,
+        allowedCustomizationsFace,
         (newValue) => {
-          character.CharacterCustomization = newValue;
-          console.log(`Character ${character.Name} Customization updated to ${newValue}`);
+          character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name = newValue;
+          console.log(`Character ${character.key.Name} Face Customization updated to ${newValue}`);
+        }
+      )
+    );
+
+
+    propertiesContainer.appendChild(
+      createDropdownEditor(
+        "Character Customization (skin)",
+        character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0,
+        allowedCustomizationsFace,
+        (newValue) => {
+          character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0.Name = newValue;
+          console.log(`Character ${character.key.Name} Skin Customization updated to ${newValue}`);
         }
       )
     );
@@ -215,8 +245,7 @@ interface CharacterDataEditable {
   // For number type as default, it creates an input type number
   function createPropertyEditor(
     labelText: string,
-    value: number | string,
-    inputType: "number" | "text",
+    value: IntTag | DoubleTag | StringTag | IntSingleton,
     onChange: (newValue: number | string) => void
   ): HTMLElement {
     const container = document.createElement("div");
@@ -229,8 +258,8 @@ interface CharacterDataEditable {
     label.style.flex = "1";
   
     const input = document.createElement("input");
-    input.type = inputType;
-    input.value = value.toString();
+    input.type = ('Name' in value) ? "text" : "number";
+    input.value = getValueFromTag(value);
     input.style.flex = "1";
     input.addEventListener("change", (event) => {
       const target = event.target as HTMLInputElement;
@@ -326,7 +355,7 @@ interface CharacterDataEditable {
   // Create a dropdown editor for simple selection.
   function createDropdownEditor(
     labelText: string,
-    currentValue: string,
+    currentValue: StringTag,
     options: string[],
     onChange: (newValue: string) => void
   ): HTMLElement {
@@ -347,7 +376,7 @@ interface CharacterDataEditable {
       optionEl.textContent = optValue;
       select.appendChild(optionEl);
     });
-    select.value = currentValue;
+    select.value = currentValue.Name;
     select.addEventListener("change", (event) => {
       const target = event.target as HTMLSelectElement;
       onChange(target.value);

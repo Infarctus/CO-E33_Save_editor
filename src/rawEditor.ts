@@ -1,7 +1,7 @@
 import JSONEditor from 'jsoneditor';
 import 'jsoneditor/dist/jsoneditor.css';
 import { workingFileCurrent } from './filemanagement';
-import { getMappingJsonFromJson, json } from './mappingjson/mappingjson';
+import { getMappingJsonFromJson, jsonMapping } from './mappingjson/mappingjson';
 
 
 let editor: JSONEditor | null;
@@ -28,7 +28,7 @@ export function initRawJsonEditor() {
 
             console.log("RawJson tab recieved an activated event")
             if (workingFileCurrent != null)
-                updateRawJsonEditor(json);
+                updateRawJsonEditor(jsonMapping);
             else updateRawJsonEditor("Nothing to show !");
     });
 
