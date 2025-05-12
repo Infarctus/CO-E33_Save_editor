@@ -33,8 +33,9 @@ function initFileManagement() {
           console.log("Opened save OK: " + workingFileCurrent.message);
           updateNavStates(true);
           if (saveProcessResult.tempJsonPath) {
-            getMappingJsonFromFile(saveProcessResult.tempJsonPath);
-            renderCharacterPanel()
+            getMappingJsonFromFile(saveProcessResult.tempJsonPath).then(() =>
+              renderCharacterPanel()
+            );
           }
         } else {
           console.error(saveProcessResult.message);
