@@ -22,12 +22,6 @@ function initNavigation() {
     if (navItem.ariaDisabled == "true") return;
     const tab = navItem.getAttribute("data-tab");
 
-    document.querySelectorAll(".nav-item").forEach((item) => {
-      item.classList.remove("active");
-    });
-    // Mark the clicked item as active
-    navItem.classList.add("active");
-
     if (tab) {
       switchTab(tab);
     }
@@ -46,6 +40,12 @@ function updateNavStates(anyFileOpen: boolean) {
 
 function switchTab(tabName: string): void {
     
+  document.querySelectorAll(".nav-item").forEach((item) => {
+    if (!(item.getAttribute("data-tab") == tabName))    item.classList.remove("active");
+    else item.classList.add("active");
+  });
+
+
     // Hide all panel elements.
     Object.keys(panels).forEach((key) => {
       const panel = panels[key];
