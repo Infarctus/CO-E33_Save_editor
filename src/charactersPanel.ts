@@ -2,6 +2,7 @@ import { workingFileCurrent } from "./filemanagement";
 import { CharacterValue, KeyCharacters } from "./mappingjson/CharactersCollection_0Mapping";
 import { IntTag, DoubleTag, StringTag, getValueFromTag, IntSingleton } from "./mappingjson/GeneralMappings";
 import { jsonMapping } from "./mappingjson/mappingjson";
+import { ECharacterAttributeEnum } from "./mappingjson/Enumeratordef";
 
 // Define types for our character data
 interface CharacterDataEditable {
@@ -176,15 +177,15 @@ interface CharacterDataEditable {
     attribTitle.textContent = "Assigned Attribute Points";
     attribContainer.appendChild(attribTitle);
   
-    for (const [idkWhatThisIs, points] of Object.entries(character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map)) {
+    for (const [index, points] of Object.entries(character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map)) {
+      const currpointlabel : number = parseInt(points.key.Byte.Label.slice(-1));
       attribContainer.appendChild(
         createPropertyEditor(
-          idkWhatThisIs + ","+points.key.Byte.Label,
+          ECharacterAttributeEnum[currpointlabel],
           points.value,
           (newValue) => {
-            console.log("Not implemented bc idk how it works lol")
-            // character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map[idkWhatThisIs] = Number(newValue);
-            console.log(`Character ${character.key.Name} Attribute ${idkWhatThisIs} updated to ${newValue}`);
+            jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map[Number(index)].value.Int = Number(newValue);
+            console.log(`Character ${character.key.Name} Attribute ${index} updated to ${newValue}`);
           }
         )
       );

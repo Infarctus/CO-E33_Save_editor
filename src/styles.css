@@ -88,7 +88,7 @@ background-color: #42381E;
   margin-left: 210px;
   padding: 1rem;
   display: block;
-  overflow: scroll;
+  overflow: auto;
   /* height: calc(100vh - 160px); */
 
 }
