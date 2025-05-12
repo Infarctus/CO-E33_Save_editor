@@ -66,6 +66,15 @@ interface CharacterDataEditable {
     "SkinGustave_Default_Blue",
     "SkinGustave_Default_Green"
   ];
+
+
+  export function initCharacterPanel() {
+       document.addEventListener('tabActivatedCharacters', (event) => {
+            console.log("tabActivatedCharacters activated", JSON.stringify(event))
+                  renderCharacterPanel()
+
+        });
+  }
   
   
   // Render the overall character panel
@@ -79,10 +88,10 @@ interface CharacterDataEditable {
     }
     panel.innerHTML = "<h2>Characters Tab</h2>"; // Reset content
 
-    if (workingFileCurrent == null) {
+    if (workingFileCurrent == null || jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null) {
       const tempErrMsg = document.createElement("p");
       tempErrMsg.style.color="red"
-      tempErrMsg.innerText = "No file is currently open, how did you get here ?"
+      tempErrMsg.innerText = "The file you opened (if any) doesn't look like an CO:E33 save file"
       panel.appendChild(tempErrMsg);
       return;
     }
@@ -110,11 +119,7 @@ interface CharacterDataEditable {
       value: CharacterValue;
     }, characterIndex: number): HTMLElement {
     const section = document.createElement("section");
-    section.style.border = "1px solid #ccc";
-    section.style.padding = "1rem";
-    section.style.minWidth = "300px";
-    section.style.maxWidth = "400px";
-    section.style.borderRadius = "4px";
+    section.classList.add("characterBox")
     // section.style.backgroundColor = "#f9f9f9";
   
     // Title and image (here we hard-code a placeholder image)
@@ -146,17 +151,17 @@ interface CharacterDataEditable {
       )
     );
   
-    // Numeric input for CurrentExperience
-    propertiesContainer.appendChild(
-      createPropertyEditor(
-        "Current Experience",
-        character.value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0,
-        (newValue) => {
-          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0.Int = Number(newValue);
-          console.log(`Character ${character.key.Name} CurrentExperience updated to ${newValue}`);
-        }
-      )
-    );
+    // // Numeric input for CurrentExperience
+    // propertiesContainer.appendChild(
+    //   createPropertyEditor(
+    //     "Current Experience",
+    //     character.value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0,
+    //     (newValue) => {
+    //       jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0.Int = Number(newValue);
+    //       console.log(`Character ${character.key.Name} CurrentExperience updated to ${newValue}`);
+    //     }
+    //   )
+    // );
   
     // Numeric input for CurrentLevel
     propertiesContainer.appendChild(
@@ -172,6 +177,8 @@ interface CharacterDataEditable {
   
     // For each AssignedAttributePoints (list of key/value pairs)
     const attribContainer = document.createElement("div");
+    attribContainer.classList.add("characterEditModule")
+    
     attribContainer.style.marginTop = "1rem";
     const attribTitle = document.createElement("h4");
     attribTitle.textContent = "Assigned Attribute Points";
@@ -194,39 +201,20 @@ interface CharacterDataEditable {
 
     // Editable list for UnlockedSkills
     propertiesContainer.appendChild(
-      createSkillsEditor("Unlocked Skills",
-      character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name,
-      allowedSkills,
-      (newList) => {
-        
-        jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList;
-        console.log(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join(", ")}`);
-        // Optionally update equipped skills options if needed
-      }));
-
-    // Editable list for EquippedSkills (max 6)
-    propertiesContainer.appendChild(
-      createSkillsEditor("Equipped Skills (Max 6)", character.value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name, [], (newList) => {
-      if (newList.length > 6) {
-        alert("You cannot equip more than 6 skills.");
-        newList = newList.slice(0, 6);
-      }
-      jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name = newList;
-      console.log(`Character ${character.key.Name} EquippedSkills updated to ${newList.join(", ")}`);
-    }));
-  
-    // Dropdown for CharacterCustomization
-    propertiesContainer.appendChild(
-      createDropdownEditor(
-        "Character Customization (face)",
-        character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0,
-        allowedCustomizationsFace,
-        (newValue) => {
-          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name = newValue;
-          console.log(`Character ${character.key.Name} Face Customization updated to ${newValue}`);
+      createSkillsEditor("Skills",
+        character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name,
+        allowedSkills,
+        (newList) => {
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList;
+          console.log(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join(", ")}`);
+          // Optionally update equipped skills options if needed
         }
       )
     );
+
+
+  
+
 
 
     propertiesContainer.appendChild(
@@ -253,6 +241,8 @@ interface CharacterDataEditable {
     onChange: (newValue: number | string) => void
   ): HTMLElement {
     const container = document.createElement("div");
+    container.classList.add("characterEditModule")
+
     container.style.display = "flex";
     container.style.justifyContent = "space-between";
     container.style.marginBottom = "0.5rem";
@@ -277,84 +267,104 @@ interface CharacterDataEditable {
     return container;
   }
   
-  // Create an editor for a list of skills.
-  // This function creates a container that shows the current skills, and allows adding/removing items.
-  function createSkillsEditor(
-    titleText: string,
-    currentList: string[],
-    availableOptions: string[],
-    onUpdate: (newList: string[]) => void
-  ): HTMLElement {
-    const container = document.createElement("div");
-    container.style.marginTop = "1rem";
-  
-    const title = document.createElement("h4");
-    title.textContent = titleText;
-    container.appendChild(title);
-  
-    const listDiv = document.createElement("div");
-    listDiv.style.display = "flex";
-    listDiv.style.flexWrap = "wrap";
-    listDiv.style.gap = "0.5rem";
-    container.appendChild(listDiv);
-  
-    // Function to refresh the list display
-    const refreshList = () => {
-      listDiv.innerHTML = "";
-      currentList.forEach((skill, index) => {
-        const skillItem = document.createElement("div");
-        skillItem.style.border = "1px solid #999";
-        skillItem.style.padding = "0.25rem 0.5rem";
-        skillItem.style.borderRadius = "4px";
-        skillItem.style.display = "flex";
-        skillItem.style.alignItems = "center";
-        skillItem.textContent = skill;
-  
-        // Remove button
-        const removeBtn = document.createElement("button");
-        removeBtn.textContent = "x";
-        removeBtn.style.marginLeft = "0.5rem";
-        removeBtn.addEventListener("click", () => {
+// Create an editor for a list of skills.
+// This function creates a container that shows the current skills, and allows adding/removing items.
+function createSkillsEditor(
+  titleText: string,
+  currentList: string[],
+  availableOptions: string[],
+  onUpdate: (newList: string[]) => void
+): HTMLElement {
+  const container = document.createElement("div");
+  container.classList.add("characterEditModule")
+
+  container.style.marginTop = "1rem";
+
+  const title = document.createElement("h4");
+  title.textContent = titleText;
+  container.appendChild(title);
+
+  const table = document.createElement("table");
+  table.style.width = "100%";
+  table.style.borderCollapse = "collapse";
+  container.appendChild(table);
+
+  const searchRow = table.insertRow(0);
+  const searchCell = searchRow.insertCell(0);
+  searchCell.colSpan = 2;
+  const searchInput = document.createElement("input");
+  searchInput.type = "search";
+  searchInput.placeholder = "Search items";
+  searchInput.addEventListener("input", () => {
+    const filterText = searchInput.value.toLowerCase();
+    const availableSkills = availableOptions.filter(skill => skill.toLowerCase().includes(filterText) && !currentList.includes(skill));
+    const selectedSkills = currentList.filter(skill => skill.toLowerCase().includes(filterText));
+    updateSkillsTable(availableSkills, selectedSkills);
+  });
+  searchCell.appendChild(searchInput);
+
+  const headersRow = table.insertRow(1);
+  const selectedSkillsHeader = headersRow.insertCell(0);
+  selectedSkillsHeader.classList.add("skillEditorTitle")
+  selectedSkillsHeader.textContent = "Owned";
+  const availableSkillsHeader = headersRow.insertCell(1);
+  availableSkillsHeader.classList.add("skillEditorTitle")
+  availableSkillsHeader.textContent = "Not owned";
+
+
+  const skillsRow = table.insertRow(2);
+  const selectedSkillsCell = skillsRow.insertCell(0);
+  selectedSkillsCell.classList.add("skillsEditorSkillsContainer")
+  const availableSkillsCell = skillsRow.insertCell(1);
+  availableSkillsCell.classList.add("skillsEditorSkillsContainer")
+
+  const availableSkills = availableOptions.filter(skill => !currentList.includes(skill));
+  const selectedSkills = currentList;
+
+  updateSkillsTable(availableSkills, selectedSkills);
+
+  function updateSkillsTable(availableSkills: string[], selectedSkills: string[]) {
+    selectedSkillsCell.innerHTML = "";
+    availableSkillsCell.innerHTML = "";
+    selectedSkills.forEach(skill => {
+      const skillItem = document.createElement("div");
+      skillItem.classList.add("skillEditorItem")
+      skillItem.textContent = skill;
+      skillItem.addEventListener("click", () => {
+        const index = currentList.indexOf(skill);
+        if (index !== -1) {
           currentList.splice(index, 1);
-          refreshList();
+          availableOptions.push(skill);
+          availableOptions.sort(); // to avoid duplicates
+          const index2 = availableOptions.indexOf(skill, index + 1);
+          if (index2 !== -1) {
+            availableOptions.splice(index2, 1);
+          }
+          updateSkillsTable(availableOptions.filter(s => !currentList.includes(s)), currentList);
           onUpdate([...currentList]);
-        });
-        skillItem.appendChild(removeBtn);
-        listDiv.appendChild(skillItem);
+        }
       });
-    };
-  
-    refreshList();
-  
-    // Dropdown to add a new skill
-    const addSkillSelect = document.createElement("select");
-    // default empty option
-    const defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.textContent = "-- Add Skill --";
-    addSkillSelect.appendChild(defaultOption);
-  
-    availableOptions.forEach((option) => {
-      const opt = document.createElement("option");
-      opt.value = option;
-      opt.textContent = option;
-      addSkillSelect.appendChild(opt);
+      selectedSkillsCell.appendChild(skillItem);
     });
-    addSkillSelect.addEventListener("change", (event) => {
-      const target = event.target as HTMLSelectElement;
-      const selected = target.value;
-      if (selected && !currentList.includes(selected)) {
-        currentList.push(selected);
-        refreshList();
+    availableSkills.forEach(skill => {
+      const skillItem = document.createElement("div");
+      skillItem.classList.add("skillEditorItem")
+      skillItem.textContent = skill;
+      skillItem.addEventListener("click", () => {
+        currentList.push(skill);
+        const index = availableOptions.indexOf(skill);
+        if (index !== -1) {
+          availableOptions.splice(index, 1);
+        }
+        updateSkillsTable(availableOptions.filter(s => !currentList.includes(s)), currentList);
         onUpdate([...currentList]);
-      }
-      // Reset selection
-      target.value = "";
+      });
+      availableSkillsCell.appendChild(skillItem);
     });
-    container.appendChild(addSkillSelect);
-  
-    return container;
   }
+
+  return container;
+}
   
   // Create a dropdown editor for simple selection.
   function createDropdownEditor(
@@ -364,6 +374,8 @@ interface CharacterDataEditable {
     onChange: (newValue: string) => void
   ): HTMLElement {
     const container = document.createElement("div");
+    container.classList.add("characterEditModule")
+
     container.style.display = "flex";
     container.style.justifyContent = "space-between";
     container.style.marginTop = "1rem";
