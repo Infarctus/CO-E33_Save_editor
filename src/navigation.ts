@@ -61,7 +61,7 @@ function switchTab(tabName: string): void {
   } else {
     console.error(`Panel for ${tabName} not found.`)
   }
-  }
+}
   
 
   
