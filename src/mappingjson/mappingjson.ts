@@ -2,16 +2,16 @@ import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
 import { CharactersCollection_0Mapping } from "./CharactersCollection_0Mapping";
 import { workingFileCurrent } from "../filemanagement";
 
-export let json: BeginMapping;
+export let jsonMapping: BeginMapping;
 
 export async function getMappingJsonFromFile(jsonptath: string) {
   const stringjson: string = await readTextFile(jsonptath);
-  json = JSON.parse(stringjson);
-  console.debug(json);
+  jsonMapping = JSON.parse(stringjson);
+  console.debug(jsonMapping);
 }
 
 export async function getMappingJsonFromJson(jsonObject: any) {
-  json = jsonObject;
+  jsonMapping = jsonObject;
   console.log("Updated mappings value directly from json")
 
 }
@@ -19,7 +19,7 @@ export async function getMappingJsonFromJson(jsonObject: any) {
 export async function saveMappingJsonToDisk(targetPath: string): Promise<boolean> {
   // This function saves our in-memory json into the target path.
   try {
-  await writeTextFile(targetPath, JSON.stringify(json, null, 2));
+  await writeTextFile(targetPath, JSON.stringify(jsonMapping, null, 2));
   console.log(`JSON saved to ${targetPath}`);
   return true
   } catch (err) {
