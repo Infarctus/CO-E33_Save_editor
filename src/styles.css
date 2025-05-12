@@ -76,6 +76,13 @@ background-color: #42381E;
   background-color: #263D3A;
 }
 
+[aria-disabled]:hover,
+[disabled]:hover {
+  cursor: not-allowed;
+}
+
+
+
 .nav-icon {
   width: 24px;
   height: 24px;
@@ -91,6 +98,10 @@ background-color: #42381E;
   overflow: auto;
   /* height: calc(100vh - 160px); */
 
+}
+
+.hidden {
+  display: none;
 }
 
 .tab-button,
@@ -127,6 +138,47 @@ button {
   justify-content: space-between; /* Space between h2 and button */
   align-items: center; /* Align items vertically */
 }
+
+
+
+
+/* CHARACTERS BOX RELATED STUFF */
+.characterBox {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  min-width: 400px;
+  max-width:  500px;
+  border-end-start-radius: 4px;
+
+}
+
+.characterEditModule {
+  background-color: #263D3A;
+}
+
+.skillEditorTitle {
+  width: 50%;
+  text-decoration:  solid;
+  border: 2px solid #999;
+  text-align: center;
+
+}
+.skillEditorItem {
+  border: 1px solid #999;
+  padding: 0.25rem 0.5rem;
+  border-end-start-radius: 4px;
+  vertical-align: text-bottom;
+  cursor: pointer;
+}
+
+.skillsEditorSkillsContainer {
+  width: 50%;
+  vertical-align: top;
+
+}
+
+/* END CHARACTERS BOX RELATED STUFF */
+
 
 #CommitRawJsonChanges {
   margin-left: auto; 
