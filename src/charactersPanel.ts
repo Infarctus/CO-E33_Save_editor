@@ -139,7 +139,7 @@ interface CharacterDataEditable {
         "Available Action Points",
         character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0,
         (newValue) => {
-          character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0.Int = Number(newValue);
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0.Int = Number(newValue);
           console.log(`Character ${character.key.Name} AvailableActionPoints updated to ${newValue}`);
         }
       )
@@ -151,7 +151,7 @@ interface CharacterDataEditable {
         "Current Experience",
         character.value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0,
         (newValue) => {
-          character.value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0.Int = Number(newValue);
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0.Int = Number(newValue);
           console.log(`Character ${character.key.Name} CurrentExperience updated to ${newValue}`);
         }
       )
@@ -163,7 +163,7 @@ interface CharacterDataEditable {
         "Current Level",
         character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0,
         (newValue) => {
-          character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue);
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue);
           console.log(`Character ${character.key.Name} CurrentLevel updated to ${newValue}`);
         }
       )
@@ -192,22 +192,25 @@ interface CharacterDataEditable {
     propertiesContainer.appendChild(attribContainer);
 
     // Editable list for UnlockedSkills
-    propertiesContainer.appendChild(createSkillsEditor("Unlocked Skills",
+    propertiesContainer.appendChild(
+      createSkillsEditor("Unlocked Skills",
       character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name,
       allowedSkills,
       (newList) => {
-        character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList;
+        
+        jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList;
         console.log(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join(", ")}`);
         // Optionally update equipped skills options if needed
       }));
 
     // Editable list for EquippedSkills (max 6)
-    propertiesContainer.appendChild(createSkillsEditor("Equipped Skills (Max 6)", character.value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name, [], (newList) => {
+    propertiesContainer.appendChild(
+      createSkillsEditor("Equipped Skills (Max 6)", character.value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name, [], (newList) => {
       if (newList.length > 6) {
         alert("You cannot equip more than 6 skills.");
         newList = newList.slice(0, 6);
       }
-      character.value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name = newList;
+      jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0.Array.Base.Name = newList;
       console.log(`Character ${character.key.Name} EquippedSkills updated to ${newList.join(", ")}`);
     }));
   
@@ -218,7 +221,7 @@ interface CharacterDataEditable {
         character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0,
         allowedCustomizationsFace,
         (newValue) => {
-          character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name = newValue;
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name = newValue;
           console.log(`Character ${character.key.Name} Face Customization updated to ${newValue}`);
         }
       )
@@ -231,7 +234,7 @@ interface CharacterDataEditable {
         character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0,
         allowedCustomizationsFace,
         (newValue) => {
-          character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0.Name = newValue;
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0.Name = newValue;
           console.log(`Character ${character.key.Name} Skin Customization updated to ${newValue}`);
         }
       )
