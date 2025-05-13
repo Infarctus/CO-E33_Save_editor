@@ -3,10 +3,12 @@
 import { type FC, useState, useEffect } from "react"
 import type { OpenProcessResult } from "../types/fileTypes"
 import { getECharacterAttributeEnumValue } from "../types/enums"
+import type { BeginMapping, StringTag } from "../types/jsonMapping"
+import { getValueFromTag } from "../utils/jsonMapping"
 
 interface CharactersPanelProps {
   workingFileCurrent: OpenProcessResult | null
-  jsonMapping: any
+  jsonMapping: BeginMapping | null
   triggerSaveNeeded: () => void
 }
 
@@ -34,22 +36,6 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
     )
   }
 
-  const getValueFromTag = (tag: any): string => {
-    if ("Double" in tag) {
-      return tag.Double.toString()
-    } else if ("Int" in tag) {
-      return tag.Int.toString()
-    } else if ("Bool" in tag) {
-      return tag.Bool.toString()
-    } else if ("Name" in tag) {
-      return tag.Name.toString()
-    } else if ("Array" in tag) {
-      return tag.Array.Base.Name.join(", ")
-    } else {
-      return "Unknown tag " + JSON.stringify(tag)
-    }
-  }
-
   return (
     <div id="CharactersPanel">
       <h2>Characters Tab</h2>
@@ -63,7 +49,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
           gap: "1rem",
         }}
       >
-        {jsonMapping.root.properties.CharactersCollection_0.Map.map((character: any, index: number) => (
+        {jsonMapping.root.properties.CharactersCollection_0.Map.map((character, index) => (
           <CharacterSection
             key={index}
             character={character}
@@ -82,7 +68,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
 interface CharacterSectionProps {
   character: any
   characterIndex: number
-  jsonMapping: any
+  jsonMapping: BeginMapping
   triggerSaveNeeded: () => void
   allowedSkills: string[]
   allowedCustomizationsFace: string[]
@@ -210,22 +196,6 @@ interface PropertyEditorProps {
 }
 
 const PropertyEditor: FC<PropertyEditorProps> = ({ labelText, value, onChange, positiveOnly = true }) => {
-  const getValueFromTag = (tag: any): string => {
-    if ("Double" in tag) {
-      return tag.Double.toString()
-    } else if ("Int" in tag) {
-      return tag.Int.toString()
-    } else if ("Bool" in tag) {
-      return tag.Bool.toString()
-    } else if ("Name" in tag) {
-      return tag.Name.toString()
-    } else if ("Array" in tag) {
-      return tag.Array.Base.Name.join(", ")
-    } else {
-      return "Unknown tag " + JSON.stringify(tag)
-    }
-  }
-
   return (
     <div
       className="characterEditModule"
@@ -338,7 +308,7 @@ const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, available
 
 interface DropdownEditorProps {
   labelText: string
-  currentValue: any
+  currentValue: StringTag
   options: string[]
   onChange: (newValue: string) => void
 }
