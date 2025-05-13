@@ -241,15 +241,15 @@ select {
   /* font-weight: 500; */
   /* font-family: inherit; */
   /* color: #0f0f0f; */
-  background-color: #0a9dff98;
+  background-color: #0f0f0f98;
   /* transition: border-color 0.25s; */
   /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); */
   /* cursor: pointer; */
-  color: #af0000;
+  color: #ffffff;
 }
 
 select>option {
-    background-color: #00ff0d;
+    background-color: #0f0f0fc9;
 }
 
 
