@@ -2,7 +2,7 @@
 
 import { type FC, useState, useEffect } from "react"
 import type { OpenProcessResult } from "../types/fileTypes"
-import { ECharacterAttributeEnum } from "../types/enums"
+import { getECharacterAttributeEnumValue } from "../types/enums"
 
 interface CharactersPanelProps {
   workingFileCurrent: OpenProcessResult | null
@@ -130,7 +130,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             return (
               <PropertyEditor
                 key={index}
-                labelText={ECharacterAttributeEnum[currpointlabel]}
+                labelText={getECharacterAttributeEnumValue(currpointlabel)}
                 value={points.value}
                 onChange={(newValue) => {
                   triggerSaveNeeded()
