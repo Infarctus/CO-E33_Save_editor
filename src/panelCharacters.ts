@@ -171,23 +171,9 @@ interface CharacterDataEditable {
     
     attribContainer.style.marginTop = "1rem";
     const attribTitle = document.createElement("h4");
-    attribTitle.textContent = "Attribute Points";
+    attribTitle.textContent = "Attribute Points (max of total is 3*level)";
     attribContainer.appendChild(attribTitle);
 
-
-      
-    // Numeric input for AvailableActionPoints
-    attribContainer.appendChild(
-      createPropertyEditor(
-        "Available Points",
-        character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0,
-        (newValue) => {
-          triggerSaveNeeded()
-          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0.Int = Number(newValue);
-          console.log(`Character ${character.key.Name} AvailableActionPoints updated to ${newValue}`);
-        }
-      )
-    );
 
   
     for (const [index, points] of Object.entries(character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map)) {
