@@ -1,0 +1,96 @@
+"use client"
+
+import type { FC } from "react"
+
+interface SidebarProps {
+  activeTab: string
+  onTabChange: (tab: string) => Promise<boolean>
+  onOpenFile: () => void
+  onExportFile: () => void
+  onOverwriteFile: () => void
+  anyFileOpen: boolean
+}
+
+const Sidebar: FC<SidebarProps> = ({
+  activeTab,
+  onTabChange,
+  onOpenFile,
+  onExportFile,
+  onOverwriteFile,
+  anyFileOpen,
+}) => {
+  return (
+    <aside className="drawer">
+      <button id="OpenFile" className="tab-button" onClick={onOpenFile}>
+        Open File
+      </button>
+
+      <button id="ExportFile" className="tab-button fileopen-dependant" onClick={onExportFile} disabled={!anyFileOpen}>
+        Export File
+      </button>
+
+      <button
+        id="OverwriteFile"
+        className="tab-button fileopen-dependant"
+        onClick={onOverwriteFile}
+        disabled={!anyFileOpen}
+      >
+        Overwrite File
+      </button>
+
+      <div className="spacer"></div>
+
+      <ul className="nav-list">
+        <li
+          data-tab="Characters"
+          className={`nav-item fileopen-dependant ${activeTab === "Characters" ? "active" : ""}`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Characters")}
+        >
+          <img src="src-tauri/icons/btnCharacters.svg" alt="Characters" className="nav-icon" />
+          <span>Characters</span>
+        </li>
+
+        <li
+          data-tab="Inventory"
+          className={`nav-item fileopen-dependant hidden ${activeTab === "Inventory" ? "active" : ""}`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Inventory")}
+        >
+          <img src="/src/icons/inventory.svg" alt="Inventory" className="nav-icon" />
+          <span>Inventory</span>
+        </li>
+
+        <li
+          data-tab="RawJson"
+          className={`nav-item fileopen-dependant ${activeTab === "RawJson" ? "active" : ""}`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("RawJson")}
+        >
+          <img src="src-tauri/icons/btnRawEditor.svg" alt="Raw json" className="nav-icon" />
+          <span>Raw json</span>
+        </li>
+
+        <li
+          data-tab="Backups"
+          className={`nav-item hidden ${activeTab === "Backups" ? "active" : ""}`}
+          onClick={() => onTabChange("Backups")}
+        >
+          <img src="/src/icons/backups.svg" alt="Backups" className="nav-icon" />
+          <span>Backups</span>
+        </li>
+
+        <li
+          data-tab="Debug"
+          className={`nav-item ${activeTab === "Debug" ? "active" : ""}`}
+          onClick={() => onTabChange("Debug")}
+        >
+          <img src="src-tauri/icons/btnDebug.svg" alt="Debug" className="nav-icon" />
+          <span>Debug</span>
+        </li>
+      </ul>
+    </aside>
+  )
+}
+
+export default Sidebar
