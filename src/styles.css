@@ -4,7 +4,7 @@
   line-height: 24px;
   font-weight: 400;
      color: #f6f6f6;
-    background-color: #2f2f2f;
+    background-color: #003032;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -129,7 +129,7 @@ background-color: #42381E;
 
 .nav-item:not([aria-disabled]):hover,
 .nav-item.active {
-  background-color: #263D3A;
+  background-color: #143B3F;
 }
 
 [aria-disabled]:hover,
@@ -167,7 +167,7 @@ background-color: #42381E;
 }
 
 .characterEditModule {
-  background-color: #263D3A;
+  background-color: #143B3F;
     border-radius: 6px;
     padding: 0px 4px;
 
