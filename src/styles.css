@@ -1,0 +1,310 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #f6f6f6;
+  background-color: #003032;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.layout {
+  display: flex;
+  height: calc(100vh - 35px);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  border-right: 1px solid #ddd;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: calc(100vh - 35px);
+}
+
+.spacer {
+  margin-top: 3px;
+  margin-bottom: 2px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+
+.log-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid #ddd;
+}
+
+.log-message {
+  padding-left: 3px;
+  border-top: 1px solid #8d8d8d;
+  border-left: 1px solid #8d8d8d;
+}
+
+.log-warn {
+  background-color: #42381e;
+}
+
+.log-error {
+  background-color: #4b2f36;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  fill: white;
+}
+
+.content {
+  flex: 1;
+  margin-left: 210px;
+  padding: 1rem;
+  display: block;
+  overflow: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.tab-button,
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #ffffff;
+  background-color: #0f0f0f98;
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.tab-button:not([disabled]):hover {
+  border-color: #396cd8;
+}
+
+.tab-button:active {
+  border-color: #396cd8;
+  background-color: #e8e8e8;
+}
+
+.nav-item:not([aria-disabled]):hover,
+.nav-item.active {
+  background-color: #143b3f;
+}
+
+[aria-disabled]:hover,
+[disabled]:hover {
+  cursor: not-allowed;
+}
+
+[aria-disabled],
+[disabled] {
+  color: #c0bfbf;
+}
+
+.tab-panel {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* CHARACTERS BOX RELATED STUFF */
+.characterBox {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  min-width: 400px;
+  max-width: 500px;
+  border-end-start-radius: 4px;
+}
+
+.characterEditModule {
+  background-color: #143b3f;
+  border-radius: 6px;
+  padding: 0px 4px;
+}
+
+.skillEditorTitle {
+  width: 50%;
+  text-decoration: solid;
+  border: 2px solid #999;
+  text-align: center;
+}
+
+.skillEditorItem {
+  border: 1px solid #999;
+  padding: 0.25rem 0.5rem;
+  border-end-start-radius: 4px;
+  vertical-align: text-bottom;
+  cursor: pointer;
+}
+
+.skillsEditorSkillsContainer {
+  width: 50%;
+  vertical-align: top;
+}
+
+#CommitRawJsonChanges {
+  margin-left: auto;
+}
+
+.infoBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  font-size: 14px;
+  z-index: 1000;
+  margin-left: 5px;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.2em 0.6em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #ffffff;
+  background-color: #0f0f0f98;
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+select {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #0f0f0f98;
+  color: #ffffff;
+}
+
+select > option {
+  background-color: #0f0f0fc9;
+}
+
+/* jsoneditor dark theme */
+div.jsoneditor,
+div.jsoneditor-menu {
+  border-color: #4b4b4b;
+}
+
+div.jsoneditor-menu {
+  background-color: #4b4b4b;
+}
+
+div.jsoneditor-tree,
+div.jsoneditor textarea.jsoneditor-text {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+div.jsoneditor-field,
+div.jsoneditor-value {
+  color: #ffffff;
+}
+
+table.jsoneditor-search div.jsoneditor-frame {
+  background: #808080;
+}
+
+tr.jsoneditor-highlight,
+tr.jsoneditor-selected {
+  background-color: #808080;
+}
+
+div.jsoneditor-field[contenteditable="true"]:focus,
+div.jsoneditor-field[contenteditable="true"]:hover,
+div.jsoneditor-value[contenteditable="true"]:focus,
+div.jsoneditor-value[contenteditable="true"]:hover,
+div.jsoneditor-field.jsoneditor-highlight,
+div.jsoneditor-value.jsoneditor-highlight {
+  background-color: #808080;
+  border-color: #808080;
+}
+
+div.jsoneditor-field.highlight-active,
+div.jsoneditor-field.highlight-active:focus,
+div.jsoneditor-field.highlight-active:hover,
+div.jsoneditor-value.highlight-active,
+div.jsoneditor-value.highlight-active:focus,
+div.jsoneditor-value.highlight-active:hover {
+  background-color: #b1b1b1;
+  border-color: #b1b1b1;
+}
+
+div.jsoneditor-tree button:focus {
+  background-color: #868686;
+}
+
+/* coloring of JSON in tree mode */
+div.jsoneditor-readonly {
+  color: #acacac;
+}
+
+div.jsoneditor td.jsoneditor-separator {
+  color: #acacac;
+}
+
+div.jsoneditor-value.jsoneditor-string {
+  color: #00ff88;
+}
+
+div.jsoneditor-value.jsoneditor-object,
+div.jsoneditor-value.jsoneditor-array {
+  color: #bababa;
+}
+
+div.jsoneditor-value.jsoneditor-number {
+  color: #ff4040;
+}
+
+div.jsoneditor-value.jsoneditor-boolean {
+  color: #ff8048;
+}
+
+div.jsoneditor-value.jsoneditor-null {
+  color: #49a7fc;
+}
+
+div.jsoneditor-value.jsoneditor-invalid {
+  color: white;
+}
