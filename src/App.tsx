@@ -1,10 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { open, save, confirm } from "@tauri-apps/plugin-dialog"
-import { copyFile, mkdir, exists, remove, readTextFile, writeTextFile } from "@tauri-apps/plugin-fs"
-import { basename, join, appLocalDataDir } from "@tauri-apps/api/path"
-import { Command } from "@tauri-apps/plugin-shell"
+import { useState } from "react"
+import { confirm } from "@tauri-apps/plugin-dialog"
 import Sidebar from "./components/Sidebar"
 import SaveFilePanel from "./components/SaveFilePanel"
 import CharactersPanel from "./components/CharactersPanel"
@@ -13,7 +10,10 @@ import BackupsPanel from "./components/BackupsPanel"
 import RawJsonPanel from "./components/RawJsonPanel"
 import DebugPanel from "./components/DebugPanel"
 import InfoBanner from "./components/InfoBanner"
-import type { SaveProcessResult, OpenProcessResult } from "./types/fileTypes"
+import { handleSaveFileAndExtractToJson, handleJsonAndConvertToSaveFile } from "./utils/fileManagement"
+import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./utils/jsonMapping"
+import { useConsoleOverride } from "./utils/logging"
+import type { OpenProcessResult } from "./types/fileTypes"
 import "./styles.css"
 
 function App() {
@@ -23,237 +23,36 @@ function App() {
   const [jsonMapping, setJsonMapping] = useState<any>(null)
   const [logs, setLogs] = useState<{ message: string; level?: string }[]>([])
   const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
+  const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
 
   // Override console methods to capture logs
-  useEffect(() => {
-    const originalConsole = { ...console }
+  useConsoleOverride(setLogs, setInfoMessage)
 
-    console.log = (...args: any[]) => {
-      originalConsole.log(...args)
-      const message = args.join(" ")
-      setLogs((prev) => [{ message, level: "log" }, ...prev])
-      setInfoMessage(message)
-    }
-
-    console.error = (...args: any[]) => {
-      originalConsole.error(...args)
-      const message = args.join(" ")
-      setLogs((prev) => [{ message, level: "error" }, ...prev])
-      setInfoMessage(message)
-    }
-
-    console.warn = (...args: any[]) => {
-      originalConsole.warn(...args)
-      const message = args.join(" ")
-      setLogs((prev) => [{ message, level: "warn" }, ...prev])
-      setInfoMessage(message)
-    }
-
-    // For debugging
-    console.log("App initialized")
-
-    return () => {
-      console.log = originalConsole.log
-      console.error = originalConsole.error
-      console.warn = originalConsole.warn
-    }
-  }, [])
-
-  const handleSaveFileAndExtractToJson = async (): Promise<OpenProcessResult> => {
-    try {
-      const originalSavPath = await open({
-        multiple: false,
-        filters: [
-          {
-            name: "Save File",
-            extensions: ["sav"],
-          },
-        ],
-      })
-
-      if (!originalSavPath) {
-        return {
-          success: false,
-          message: "No file selected.",
-        }
-      }
-
-      const fileName = await basename(originalSavPath)
-      const userDataPath = await appLocalDataDir()
-      const saveHandlingBasePath = await join(userDataPath, "data")
-      const backupDir = await join(saveHandlingBasePath, "backup")
-      const backupDestinationPath = await join(backupDir, `${fileName}.bak`)
-      const tempJsonPath = await join(saveHandlingBasePath, fileName.replace(".sav", ".json"))
-
-      // Create backup directory if it doesn't exist
-      try {
-        console.log("Folder ", backupDir, "exists?:")
-        const backupDirExists = await exists(backupDir)
-        if (!backupDirExists) {
-          await mkdir(backupDir, { recursive: true })
-        }
-        await copyFile(originalSavPath, backupDestinationPath)
-        console.log(`File '${fileName}' backed up to ${backupDestinationPath}`)
-      } catch (error: any) {
-        console.error("Error backing up file:", error)
-        return {
-          success: false,
-          message: `Failed to back up file: ${error.message || String(error)}`,
-        }
-      }
-
-      // Run uesave sidecar to convert .sav to .json
-      const uesaveArgsSavetoJson = ["to-json", "-i", backupDestinationPath, "-o", tempJsonPath]
-
-      const command = Command.sidecar("assets/uesave", uesaveArgsSavetoJson)
-      console.log("Executing command:", "assets/uesave", uesaveArgsSavetoJson)
-
-      const { stdout, stderr, code } = await command.execute()
-
-      if (code !== 0) {
-        console.error(`uesave execution failed with code ${code}. Stderr: ${stderr}, Stdout: ${stdout}`)
-        return {
-          success: false,
-          message: `uesave failed (code ${code}): ${stderr || stdout || "No output from uesave"}`.trim(),
-        }
-      }
-
-      if (stderr) {
-        console.warn(`uesave (to-json) stderr: ${stderr}`)
-      }
-
-      if (stdout) {
-        console.log(`uesave (to-json) stdout: ${stdout}`)
-      }
-
-      // Load the JSON mapping
-      await getMappingJsonFromFile(tempJsonPath)
-
-      return {
-        success: true,
-        tempJsonPath,
-        originalSavPath,
-        message: `File '${fileName}' backed up and converted to JSON successfully. Ready for editing.`,
-      }
-    } catch (error: any) {
-      console.error("Error during save file processing:", error)
-      return {
-        success: false,
-        message: `An unexpected error occurred: ${error.message || String(error)}`,
+  const switchTab = async (tabName: string): Promise<boolean> => {
+    // Check if we're leaving the RawJson tab with unsaved changes
+    if (activeTab === "RawJson" && jsonChangedSinceInit) {
+      if (
+        !(await confirm(
+          "Clicking OK will DISCARD the changes made in the json editor.\nClick 'Commit Changes' to save them.",
+        ))
+      ) {
+        return false
       }
     }
+
+    setActiveTab(tabName)
+    console.log(`${tabName} Tab Activated`)
+    return true
   }
 
-  const handleJsonAndConvertToSaveFile = async (
-    jsonPath: string,
-    targetSavPath: string,
-  ): Promise<SaveProcessResult> => {
-    if (!(await exists(jsonPath))) {
-      return {
-        success: false,
-        message: "Temporary JSON file path is invalid or file does not exist.",
-      }
-    }
-
-    if (!targetSavPath) {
-      return {
-        success: false,
-        message: "Target .sav file path not provided.",
-      }
-    }
-
-    const userDataPath = await appLocalDataDir()
-    const saveHandlingBasePath = await join(userDataPath, "data")
-    const fileName = await basename(targetSavPath)
-    const intermediateSavPath = await join(saveHandlingBasePath, `CONVERSION_TEST_${fileName}`)
-
-    // First save the current JSON mapping to disk
-    await saveMappingJsonToDisk(jsonPath)
-
-    const uesaveArgsJsonToSav = ["from-json", "-i", jsonPath, "-o", intermediateSavPath]
-
-    const uesaveArgsVerifyConversion = ["test-resave", intermediateSavPath]
-
-    try {
-      // Convert JSON to intermediate .sav
-      const command = Command.sidecar("assets/uesave", uesaveArgsJsonToSav)
-      const { stdout, stderr, code } = await command.execute()
-
-      if (code !== 0) {
-        return {
-          success: false,
-          message: `uesave failed (code ${code}): ${stderr || stdout || "No output from uesave"}`,
-        }
-      }
-
-      if (stderr) console.warn(`uesave from-json stderr: ${stderr}`)
-      if (stdout) console.log(`uesave from-json stdout: ${stdout}`)
-      console.log(`JSON converted to intermediate SAV: ${intermediateSavPath}`)
-
-      // Verify the intermediate .sav file
-      const verifyCommand = Command.sidecar("assets/uesave", uesaveArgsVerifyConversion)
-      const { stdout: verifyStdout, stderr: verifyStderr, code: verifyCode } = await verifyCommand.execute()
-
-      if (verifyCode !== 0) {
-        return {
-          success: false,
-          message: `uesave failed (code ${verifyCode}): ${verifyStderr || verifyStdout || "No output from uesave"}`,
-        }
-      }
-
-      if (verifyStderr) console.warn(`uesave test-resave stderr: ${verifyStderr}`)
-      if (verifyStdout) console.log(`uesave test-resave stdout: ${verifyStdout}`)
-      console.log(`Intermediate SAV verified: ${intermediateSavPath}`)
-
-      // Copy intermediate .sav to target .sav path
-      await copyFile(intermediateSavPath, targetSavPath)
-      console.log(`Verified SAV file copied to: ${targetSavPath}`)
-
-      return {
-        success: true,
-        message: `File '${fileName}' successfully updated from JSON and saved.`,
-      }
-    } catch (error: any) {
-      console.error(`Error during uesave or file operations: ${error.message}`)
-      return {
-        success: false,
-        message: `Failed to convert JSON back to .sav or validate the file: ${error.message}`,
-      }
-    } finally {
-      // Clean up intermediate .sav file
-      if (await exists(intermediateSavPath)) {
-        try {
-          await remove(intermediateSavPath)
-          console.log(`Cleaned up intermediate file: ${intermediateSavPath}`)
-        } catch (cleanupError) {
-          console.error(`Error cleaning up intermediate file ${intermediateSavPath}: ${cleanupError}`)
-        }
-      }
-    }
+  const updateNavStates = (anyFileOpen: boolean) => {
+    console.log("Currently any file open:", anyFileOpen)
+    // This function now just updates the state
+    // The UI components will use this state to determine if they should be disabled
   }
 
-  const getMappingJsonFromFile = async (jsonPath: string) => {
-    try {
-      const stringJson = await readTextFile(jsonPath)
-      const parsedJson = JSON.parse(stringJson)
-      setJsonMapping(parsedJson)
-      console.debug("Loaded JSON mapping")
-      return parsedJson
-    } catch (error) {
-      console.error("Error loading JSON mapping:", error)
-      return null
-    }
-  }
-
-  const saveMappingJsonToDisk = async (targetPath: string): Promise<boolean> => {
-    try {
-      await writeTextFile(targetPath, JSON.stringify(jsonMapping, null, 2))
-      console.log(`JSON saved to ${targetPath}`)
-      return true
-    } catch (err) {
-      console.error("Failed to save JSON:", err)
-      return false
-    }
+  const triggerSaveNeeded = () => {
+    setSaveNeeded(true)
   }
 
   const handleOpenFile = async () => {
@@ -278,6 +77,12 @@ function App() {
       setWorkingFileCurrent(saveProcessResult)
       console.log("Opened save OK: " + saveProcessResult.message)
       updateNavStates(true)
+
+      // Load the JSON mapping
+      if (saveProcessResult.tempJsonPath) {
+        const mapping = await getMappingJsonFromFile(saveProcessResult.tempJsonPath)
+        setJsonMapping(mapping)
+      }
     } else {
       console.error(saveProcessResult.message)
     }
@@ -292,9 +97,10 @@ function App() {
 
     try {
       // First, save the JSON mapping to the working temp path
-      await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath)
+      await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping)
 
       // Ask user where to save the .sav file
+      const { save } = await import("@tauri-apps/plugin-dialog")
       const targetSavPath = await save({
         title: "Select the destination for the exported .sav file",
         filters: [{ name: "SAV File", extensions: ["sav"] }],
@@ -327,7 +133,7 @@ function App() {
 
     try {
       // Save JSON to the temp file
-      await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath)
+      await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping)
 
       // For overwrite simply use the original save file path
       const targetSavPath = workingFileCurrent.originalSavPath
@@ -344,36 +150,6 @@ function App() {
       console.error("Error during overwrite process:", err)
     }
   }
-
-  const switchTab = async (tabName: string): Promise<boolean> => {
-    // Check if we're leaving the RawJson tab with unsaved changes
-    if (activeTab === "RawJson" && jsonChangedSinceInit) {
-      if (
-        !(await confirm(
-          "Clicking OK will DISCARD the changes made in the json editor.\nClick 'Commit Changes' to save them.",
-        ))
-      ) {
-        return false
-      }
-    }
-
-    setActiveTab(tabName)
-    console.log(`${tabName} Tab Activated`)
-    return true
-  }
-
-  const updateNavStates = (anyFileOpen: boolean) => {
-    console.log("Currently any file open:", anyFileOpen)
-    // This function now just updates the state
-    // The UI components will use this state to determine if they should be disabled
-  }
-
-  const triggerSaveNeeded = () => {
-    setSaveNeeded(true)
-  }
-
-  // For RawJsonPanel
-  const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
 
   const handleJsonChange = () => {
     setJsonChangedSinceInit(true)
