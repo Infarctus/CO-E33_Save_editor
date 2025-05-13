@@ -2,7 +2,7 @@ import { switchTab, updateNavStates } from "./navigation.ts";
 import { handleJsonAndConvertToSaveFile, handleSaveFileAndExtractToJson, OpenProcessResult, SaveProcessResult } from "./SaveHandler.ts";
 import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./mappingjson/mappingjson.ts";
 import { save } from "@tauri-apps/plugin-dialog";
-import { renderCharacterPanel } from "./charactersPanel.ts";
+import { renderCharacterPanel } from "./panelCharacters.ts";
 
 let workingFileCurrent: OpenProcessResult | null;
 let saveNeeded: boolean = false;
@@ -72,6 +72,7 @@ function initFileManagement() {
       const result: SaveProcessResult = await handleJsonAndConvertToSaveFile(workingFileCurrent.tempJsonPath, targetSavPath);
       if (result.success) {
         console.log(result.message);
+        saveNeeded=false;
       } else {
         console.error(result.message);
       }
@@ -100,6 +101,8 @@ function initFileManagement() {
       const result: SaveProcessResult = await handleJsonAndConvertToSaveFile(workingFileCurrent.tempJsonPath, targetSavPath);
       if (result.success) {
         console.log(result.message);
+        saveNeeded=false;
+
       } else {
         console.error(result.message);
       }
@@ -110,4 +113,8 @@ function initFileManagement() {
   });
 }
 
-export { initFileManagement, workingFileCurrent, updateNavStates };
+function triggerSaveNeeded() {
+  saveNeeded=true;
+}
+
+export { initFileManagement, workingFileCurrent, updateNavStates, triggerSaveNeeded };
