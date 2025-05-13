@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { open, save, confirm } from "@tauri-apps/plugin-dialog"
-import { copyFile, mkdir, exists, remove } from "@tauri-apps/plugin-fs"
+import { copyFile, mkdir, exists, remove, readTextFile, writeTextFile } from "@tauri-apps/plugin-fs"
 import { basename, join, appLocalDataDir } from "@tauri-apps/api/path"
 import { Command } from "@tauri-apps/plugin-shell"
 import Sidebar from "./components/Sidebar"
@@ -234,7 +234,7 @@ function App() {
 
   const getMappingJsonFromFile = async (jsonPath: string) => {
     try {
-      const stringJson = await read(jsonPath)
+      const stringJson = await readTextFile(jsonPath)
       const parsedJson = JSON.parse(stringJson)
       setJsonMapping(parsedJson)
       console.debug("Loaded JSON mapping")
@@ -247,7 +247,6 @@ function App() {
 
   const saveMappingJsonToDisk = async (targetPath: string): Promise<boolean> => {
     try {
-      const { writeTextFile } = await import("@tauri-apps/plugin-fs")
       await writeTextFile(targetPath, JSON.stringify(jsonMapping, null, 2))
       console.log(`JSON saved to ${targetPath}`)
       return true
