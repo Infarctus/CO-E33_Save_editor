@@ -10,11 +10,13 @@
     "frontendDist": "../dist"
   },
   "app": {
+        "withGlobalTauri": true,
+
     "windows": [
       {
-        "title": "co-e33-save-editor",
-        "width": 800,
-        "height": 600
+        "title": "CO:E33 Save Editor",
+        "width": 1400,
+        "height": 850
       }
     ],
     "security": {
@@ -22,6 +24,7 @@
     }
   },
   "bundle": {
+    "externalBin": ["assets/uesave"],
     "active": true,
     "targets": "all",
     "icon": [
