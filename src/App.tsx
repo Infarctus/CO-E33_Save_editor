@@ -14,13 +14,14 @@ import { handleSaveFileAndExtractToJson, handleJsonAndConvertToSaveFile } from "
 import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./utils/jsonMapping"
 import { useConsoleOverride } from "./utils/logging"
 import type { OpenProcessResult } from "./types/fileTypes"
+import type { BeginMapping } from "./types/jsonMapping"
 import "./styles.css"
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>("SaveFile")
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
-  const [jsonMapping, setJsonMapping] = useState<any>(null)
+  const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null)
   const [logs, setLogs] = useState<{ message: string; level?: string }[]>([])
   const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
@@ -90,7 +91,7 @@ function App() {
 
   const handleExportFile = async () => {
     // Ensure we have a workingFileCurrent with a tempJsonPath
-    if (!workingFileCurrent || !workingFileCurrent.tempJsonPath) {
+    if (!workingFileCurrent || !workingFileCurrent.tempJsonPath || !jsonMapping) {
       console.error("No working file (temp JSON path) available.")
       return
     }
@@ -126,7 +127,12 @@ function App() {
 
   const handleOverwriteFile = async () => {
     // Ensure we have a workingFileCurrent with an originalSavPath
-    if (!workingFileCurrent || !workingFileCurrent.originalSavPath || !workingFileCurrent.tempJsonPath) {
+    if (
+      !workingFileCurrent ||
+      !workingFileCurrent.originalSavPath ||
+      !workingFileCurrent.tempJsonPath ||
+      !jsonMapping
+    ) {
       console.error("No working file (original SAV path or temp JSON path) available.")
       return
     }
@@ -155,7 +161,7 @@ function App() {
     setJsonChangedSinceInit(true)
   }
 
-  const commitJsonChanges = (jsonData: any) => {
+  const commitJsonChanges = (jsonData: BeginMapping) => {
     if (workingFileCurrent != null) {
       setJsonChangedSinceInit(false)
       triggerSaveNeeded()
