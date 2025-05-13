@@ -1,7 +1,7 @@
 import { initNavigation, switchTab, updateNavStates } from "./navigation";
 import { initFileManagement } from "./filemanagement";
-import { initCharacterPanel, renderCharacterPanel } from "./charactersPanel";
-import { initRawJsonEditor } from "./rawEditor";
+import { initCharacterPanel, renderCharacterPanel } from "./panelCharacters";
+import { initRawJsonEditor } from "./panelRawEditor";
 
 let InfoBannerEl: HTMLDivElement | null;
 let DebugListEl: HTMLUListElement | null;
