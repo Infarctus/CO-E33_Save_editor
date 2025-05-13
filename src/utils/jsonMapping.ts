@@ -1,12 +1,13 @@
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs"
+import type { BeginMapping, IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag } from "../types/jsonMapping"
 
 /**
  * Loads JSON mapping from a file
  */
-export async function getMappingJsonFromFile(jsonPath: string) {
+export async function getMappingJsonFromFile(jsonPath: string): Promise<BeginMapping | null> {
   try {
     const stringJson = await readTextFile(jsonPath)
-    const parsedJson = JSON.parse(stringJson)
+    const parsedJson = JSON.parse(stringJson) as BeginMapping
     console.debug("Loaded JSON mapping")
     return parsedJson
   } catch (error) {
@@ -18,7 +19,7 @@ export async function getMappingJsonFromFile(jsonPath: string) {
 /**
  * Saves JSON mapping to a file
  */
-export async function saveMappingJsonToDisk(targetPath: string, jsonMapping: any): Promise<boolean> {
+export async function saveMappingJsonToDisk(targetPath: string, jsonMapping: BeginMapping): Promise<boolean> {
   try {
     await writeTextFile(targetPath, JSON.stringify(jsonMapping, null, 2))
     console.log(`JSON saved to ${targetPath}`)
@@ -32,7 +33,7 @@ export async function saveMappingJsonToDisk(targetPath: string, jsonMapping: any
 /**
  * Helper function to extract values from different tag types
  */
-export function getValueFromTag(tag: any): string {
+export function getValueFromTag(tag: IntTag | DoubleTag | BoolTag | StringTag | StringsArrayTag | any): string {
   if ("Double" in tag) {
     return tag.Double.toString()
   } else if ("Int" in tag) {
@@ -45,5 +46,27 @@ export function getValueFromTag(tag: any): string {
     return tag.Array.Base.Name.join(", ")
   } else {
     return "Unknown tag " + JSON.stringify(tag)
+  }
+}
+
+/**
+ * Helper function to set value for different tag types
+ */
+export function setValueOfTag(
+  tag: IntTag | DoubleTag | BoolTag | StringTag | StringsArrayTag,
+  value: number | boolean | string | string[],
+): void {
+  if ("Double" in tag) {
+    tag.Double = typeof value === "number" ? value : Number.parseFloat(value.toString())
+  } else if ("Int" in tag) {
+    tag.Int = typeof value === "number" ? value : Number.parseInt(value.toString())
+  } else if ("Bool" in tag) {
+    tag.Bool = typeof value === "boolean" ? value : value.toString().toLowerCase() === "true"
+  } else if ("Name" in tag) {
+    tag.Name = value.toString()
+  } else if ("Array" in tag) {
+    tag.Array.Base.Name = Array.isArray(value) ? value : [value.toString()]
+  } else {
+    throw new Error("Unknown tag type")
   }
 }
