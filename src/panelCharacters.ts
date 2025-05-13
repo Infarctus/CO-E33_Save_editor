@@ -138,18 +138,7 @@ interface CharacterDataEditable {
     // Container for property editors
     const propertiesContainer = document.createElement("div");
     propertiesContainer.style.marginTop = "1rem";
-  
-    // Numeric input for AvailableActionPoints
-    propertiesContainer.appendChild(
-      createPropertyEditor(
-        "Available Action Points",
-        character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0,
-        (newValue) => {
-          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0.Int = Number(newValue);
-          console.log(`Character ${character.key.Name} AvailableActionPoints updated to ${newValue}`);
-        }
-      )
-    );
+
   
     // // Numeric input for CurrentExperience
     // propertiesContainer.appendChild(
@@ -181,8 +170,23 @@ interface CharacterDataEditable {
     
     attribContainer.style.marginTop = "1rem";
     const attribTitle = document.createElement("h4");
-    attribTitle.textContent = "Assigned Attribute Points";
+    attribTitle.textContent = "Attribute Points";
     attribContainer.appendChild(attribTitle);
+
+
+      
+    // Numeric input for AvailableActionPoints
+    attribContainer.appendChild(
+      createPropertyEditor(
+        "Available Points",
+        character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0,
+        (newValue) => {
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0.Int = Number(newValue);
+          console.log(`Character ${character.key.Name} AvailableActionPoints updated to ${newValue}`);
+        }
+      )
+    );
+
   
     for (const [index, points] of Object.entries(character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map)) {
       const currpointlabel : number = parseInt(points.key.Byte.Label.slice(-1));
@@ -215,7 +219,17 @@ interface CharacterDataEditable {
 
   
 
-
+    propertiesContainer.appendChild(
+      createDropdownEditor(
+        "Character Customization (face)",
+        character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0,
+        allowedCustomizationsFace,
+        (newValue) => {
+          jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name = newValue;
+          console.log(`Character ${character.key.Name} Face Customization updated to ${newValue}`);
+        }
+      )
+    );
 
     propertiesContainer.appendChild(
       createDropdownEditor(
@@ -280,14 +294,36 @@ function createSkillsEditor(
 
   container.style.marginTop = "1rem";
 
+  const container2 = document.createElement("div");
+  container2.classList.add("header")
+  container.appendChild(container2)
+
   const title = document.createElement("h4");
   title.textContent = titleText;
-  container.appendChild(title);
-
+  container2.appendChild(title);
+  
+  
+  const showHide = document.createElement("button")
+  showHide.innerText = "Click me to show section"
+  container2.appendChild(showHide)
+  
+  container.appendChild(container2)
   const table = document.createElement("table");
+  table.classList.add("hidden")
   table.style.width = "100%";
   table.style.borderCollapse = "collapse";
   container.appendChild(table);
+  showHide.onclick=() => {
+    if (table.classList.contains("hidden")) {
+      showHide.innerText = "Click me to hide section"
+      table.classList.remove("hidden")
+    } else {table.classList.add("hidden")
+
+      showHide.innerText = "Click me to show section"
+
+    }
+  }
+
 
   const searchRow = table.insertRow(0);
   const searchCell = searchRow.insertCell(0);
