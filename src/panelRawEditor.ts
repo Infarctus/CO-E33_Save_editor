@@ -1,6 +1,6 @@
 import JSONEditor from 'jsoneditor';
 import 'jsoneditor/dist/jsoneditor.css';
-import { workingFileCurrent } from './filemanagement';
+import { triggerSaveNeeded, workingFileCurrent } from './filemanagement';
 import { getMappingJsonFromJson, jsonMapping } from './mappingjson/mappingjson';
 
 
@@ -16,6 +16,7 @@ export function initRawJsonEditor() {
             console.log("Commited raw json changes")
             const jsonDataMaybe =editor?.get();
             if (workingFileCurrent != null && jsonDataMaybe != null) {
+                triggerSaveNeeded();
 
                 getMappingJsonFromJson(jsonDataMaybe)
             }
