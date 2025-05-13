@@ -1,0 +1,1136 @@
+[
+  {
+    "Type": "StringTable",
+    "Name": "ST_Items",
+    "Class": "UScriptClass'StringTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "StringTable": {
+      "TableNamespace": "ST_Items",
+      "KeysToEntries": {
+        "ITEM_Beselbum_Name": "Beselbum",
+        "ITEM_Gelerim_Name": "Gelerim",
+        "ITEM_Nibalum_Name": "Nibalum",
+        "ITEM_Velokan_Name": "Velokan",
+        "ITEM_Telarim_Name": "Telarim",
+        "ITEM_Milerim_Name": "Milerim",
+        "ITEM_Lanceram_Name": "Lanceram",
+        "ITEM_Noahram_Name": "Noahram",
+        "ITEM_Gesam_Name": "Gesam",
+        "ITEM_Sakaram_Name": "Sakaram",
+        "ITEM_Abysseram_Name": "Abysseram",
+        "ITEM_Cruleram_Name": "Cruleram",
+        "ITEM_Seeram_Name": "Seeram",
+        "ITEM_Blodam_Name": "Blodam",
+        "ITEM_Cultam_Name": "Cultam",
+        "ITEM_Demonam_Name": "Demonam",
+        "ITEM_Nosaram_Name": "Nosaram",
+        "ITEM_Chevalam_Name": "Chevalam",
+        "ITEM_Delaram_Name": "Delaram",
+        "ITEM_Gaulteram_Name": "Gaulteram",
+        "ITEM_Redalim_Name": "Redalim",
+        "ITEM_Trebuchim_Name": "Trebuchim",
+        "ITEM_Coralim_Name": "Coralim",
+        "ITEM_Deminerim_Name": "Deminerim",
+        "ITEM_Betelim_Name": "Betelim",
+        "ITEM_Lighterim_Name": "Lighterim",
+        "ITEM_Painerim_Name": "Painerim",
+        "ITEM_Elerim_Name": "Elerim",
+        "ITEM_Lunerim_Name": "Lunerim",
+        "ITEM_Potierim_Name": "Potierim",
+        "ITEM_Saperim_Name": "Saperim",
+        "ITEM_Scaverim_Name": "Scaverim",
+        "ITEM_Sekarum_Name": "Sekarum",
+        "ITEM_Brulerum_Name": "Brulerum",
+        "ITEM_Seashelum_Name": "Seashelum",
+        "ITEM_Veremum_Name": "Veremum",
+        "ITEM_Yeverum_Name": "Yeverum",
+        "ITEM_Chainebum_Name": "Barrier Breaker",
+        "ITEM_Duenum_Name": "Duenum",
+        "ITEM_Melarum_Name": "Melarum",
+        "ITEM_Maellum_Name": "Maellum",
+        "ITEM_Medalum_Name": "Medalum",
+        "ITEM_Volesterum_Name": "Volesterum",
+        "ITEM_Glaisum_Name": "Glaisum",
+        "ITEM_Jarum_Name": "Jarum",
+        "ITEM_Corderon_Name": "Corderon",
+        "ITEM_Rangeson_Name": "Rangeson",
+        "ITEM_Algueron_Name": "Algueron",
+        "ITEM_Bourgelon_Name": "Bourgelon",
+        "ITEM_Gobluson_Name": "Gobluson",
+        "ITEM_Lusteson_Name": "Lusteson",
+        "ITEM_Hevason_Name": "Hevason",
+        "ITEM_Chation_Name": "Chation",
+        "ITEM_Direton_Name": "Direton",
+        "ITEM_Minason_Name": "Minason",
+        "ITEM_Scieleson_Name": "Scieleson",
+        "ITEM_Chroma_Name": "Chroma",
+        "ITEM_Verleso_Name": "Verleso",
+        "ITEM_Dualim_Name": "Dualiso",
+        "ITEM_Corpeso_Name": "Corpeso",
+        "ITEM_Danseso_Name": "Danseso",
+        "ITEM_Glaceso_Name": "Glaceso",
+        "ITEM_Moissoso_Name": "Contorso",
+        "ITEM_Confuso_Name": "Confuso",
+        "ITEM_Sireso_1_Name": "Sireso",
+        "ITEM_Sireso_2_Name": "Dreameso",
+        "ITEM_Reacheso_1_Name": "Tireso",
+        "ITEM_Reacheso_2_Name": "Liteso",
+        "ITEM_Chaliso_Name": "Chalium",
+        "ITEM_Battlum_Name": "Battlum",
+        "ITEM_Stalum_Name": "Stalum",
+        "ITEM_Coldum_Name": "Coldum",
+        "ITEM_Clierum_Name": "Clierum",
+        "ITEM_Facesum_Name": "Facesum",
+        "ITEM_Sirenum_1_Name": "Tissenum",
+        "ITEM_Sirenum_2_Name": "Chantenum",
+        "ITEM_Reachum_1_Name": "Lithum",
+        "ITEM_Reachum_2_Name": "Plenum",
+        "ITEM_Benisim_Name": "Benisim",
+        "ITEM_Troubadum_Name": "Troubadim",
+        "ITEM_Braselim_Name": "Braselim",
+        "ITEM_Snowim_Name": "Snowim",
+        "ITEM_Angerim_Name": "Angerim",
+        "ITEM_Chapelim_Name": "Chapelim",
+        "ITEM_Sirenim_1_Name": "Choralim",
+        "ITEM_Sirenim_2_Name": "Colim",
+        "ITEM_Reacherim_1_Name": "Kralim",
+        "ITEM_Reacherim_2_Name": "Lithelim",
+        "ITEM_Ramasson_Name": "Ramasson",
+        "ITEM_Charnon_Name": "Charnon",
+        "ITEM_Contorson_Name": "Moisson",
+        "ITEM_Sadon_Name": "Sadon",
+        "ITEM_Garganon_Name": "Garganon",
+        "ITEM_Blizzon_Name": "Blizzon",
+        "ITEM_Sirenon_1_Name": "Tisseron",
+        "ITEM_Sirenon_2_Name": "Martenon",
+        "ITEM_Reacheron_1_Name": "Guleson",
+        "ITEM_Reacheron_2_Name": "Litheson",
+        "ITEM_PartyHealConsumable_Name": "Chroma Elixir",
+        "ITEM_Grandaro_Name": "Grandaro",
+        "ITEM_Chromaro_Name": "Chromaro",
+        "ITEM_Boucharo_Name": "Boucharo",
+        "ITEM_Joyaro_Name": "Joyaro",
+        "ITEM_Sirenaro_1_Name": "Ballaro",
+        "ITEM_Sirenaro_2_Name": "Urnaro",
+        "ITEM_Reacharo_1_Name": "Nusaro",
+        "ITEM_Reacharo_2_Name": "Fragaro",
+        "ITEM_Brumaro_Name": "Brumaro",
+        "ITEM_Sidaro_Name": "Sidaro",
+        "ITEM_Monocaro_Name": "Monocaro",
+        "ITEM_Simoso_Name": "Simoso",
+        "ITEM_LostGestral_Name": "Lost Gestral",
+        "ITEM_FestivalToken_Name": "Festival Token",
+        "ITEM_Quest_MoltenHeart_Name": "Molten Heart",
+        "ITEM_Quest_ChromaticInk_Name": "Chromatic Ink",
+        "ITEM_Quest_Mine_Name": "Intact Mine",
+        "ITEM_Quest_WoodenStick_Name": "Wooden Stick",
+        "ITEM_Quest_WoodBoards_Name": "Wood Boards",
+        "ITEM_Quest_Resin_Name": "Resin",
+        "ITEM_Quest_Mushroom_Name": "Mushroom",
+        "ITEM_Quest_OldKey_Name": "Old Key",
+        "ITEM_Quest_BourgeonSkin_Name": "Bourgeon Skin",
+        "ITEM_Quest_HexgaRock_Name": "Rock Crystal",
+        "ITEM_Quest_EternalIce_Name": "Eternal Ice",
+        "ITEM_Quest_StationKey_Name": "Underground Key",
+        "ITEM_Quest_ManorFamilyCanvas_Name": "Manor Family Canvas",
+        "ITEM_Quest_CleaWorkshop_Part1_Name": "Colour of the Beast",
+        "ITEM_Quest_CleaWorkshop_Part2_Name": "Shape of the Beast",
+        "ITEM_Quest_CleaWorkshop_Part3_Name": "Light of the Beast",
+        "ITEM_Quest_FlowerforSophie_Name": "A flower for Sophie",
+        "ITEM_Quest_UniformForSon_Name": "A uniform for Richard's son",
+        "ITEM_Quest_ApprenticesJournal_Name": "A journal from Gustave's apprentices",
+        "ITEM_SkinGustave_Default_Name": "Expedition",
+        "ITEM_SkinLune_Default_Name": "Expedition",
+        "ITEM_SkinMaelle_Default_Name": "Expedition",
+        "ITEM_SkinMonoco_Default_Name": "Expedition",
+        "ITEM_SkinSciel_Default_Name": "Expedition",
+        "ITEM_SkinVerso_Default_Name": "Expedition",
+        "ITEM_FaceGustave_Default_Name": "Gustave",
+        "ITEM_FaceLune_Default_Name": "Lune",
+        "ITEM_FaceMaelle_Default_Name": "Maelle",
+        "ITEM_FaceSciel_Default_Name": "Sciel",
+        "ITEM_FaceVerso_Default_Name": "Verso",
+        "ITEM_FaceLune_Braid_Name": "Braid",
+        "ITEM_FaceMaelle_DoubleBraid_Name": "Double Braid",
+        "ITEM_FaceMonoco_Default_Name": "Monoco",
+        "ITEM_FaceMonoco_Viking_Name": "Viking",
+        "ITEM_FaceGustave_Curly_Name": "Curly",
+        "ITEM_FaceGustave_Noah_Name": "Short",
+        "ITEM_FaceSciel_CurlyShort_Name": "Short Curly",
+        "ITEM_FaceSciel_OldConcept_Name": "Plunging Bob",
+        "ITEM_FaceVerso_Samourai_Name": "Samurai",
+        "ITEM_SkinMaelle_Alicia_Name": "Painted Me",
+        "ITEM_SkinGustave_MirrorRenoir_Name": "Renoir's Suit",
+        "ITEM_SkinGustave_Pure_Name": "Pure",
+        "ITEM_SkinLune_Pure_Name": "Pure",
+        "ITEM_SkinVerso_Pure_Name": "Pure",
+        "ITEM_SkinMonoco_Pure_Name": "Pure",
+        "ITEM_SkinSciel_Pure_Name": "Pure",
+        "ITEM_SkinMaelle_Pure_Name": "Pure",
+        "ITEM_SkinGustave_LumiereSuit_Name": "Lumière Suit",
+        "ITEM_SkinVerso_Potatoe_Bag_Name": "Sakapatate",
+        "ITEM_SkinVerso_Pelerin_Name": "Pèlerin",
+        "ITEM_SkinVerso_Mirror_Name": "Renoir's Suit",
+        "ITEM_FaceGustave_Glasses_Name": "Glasses",
+        "ITEM_SkinLune_Sirene_Name": "Sirène",
+        "ITEM_SkinSciel_Sirene_Name": "Sirène",
+        "ITEM_SkinGustave_Potatoe_Bag_Name": "Sakapatate",
+        "ITEM_SkinLune_Potatoe_Bag_Name": "Sakapatate",
+        "ITEM_SkinLune_Danseuse_Name": "Danseuse",
+        "ITEM_SkinSciel_Potatoe_Bag_Name": "Sakapatate",
+        "ITEM_SkinSciel_Danseuse_Name": "Danseuse",
+        "ITEM_SkinMaelle_ActeIII_Name": "Real Maelle",
+        "ITEM_SkinMaelle_Bikini_Name": "Swimsuit",
+        "ITEM_SkinSciel_BikiniA_Name": "Swimsuit I",
+        "ITEM_SkinSciel_BikiniB_Name": "Swimsuit II",
+        "ITEM_SkinLune_BikiniA_Name": "Swimsuit I",
+        "ITEM_SkinLune_BikiniB_Name": "Swimsuit II",
+        "ITEM_SkinGustave_Bikini_Name": "Swimsuit",
+        "ITEM_SkinVerso_BikiniA_Name": "Swimsuit I",
+        "ITEM_SkinVerso_BikiniB_Name": "Swimsuit II",
+        "ITEM_FaceMaelle_ActeIII_Name": "Real Maelle",
+        "ITEM_FaceMaelle_Voluminous_Name": "Voluminous",
+        "ITEM_FaceMaelle_FrenchBob_Name": "French Bob",
+        "ITEM_FaceMaelle_Rebellious_Name": "Rebellious",
+        "ITEM_FaceMaelle_MessyBun_Name": "Messy Bun",
+        "ITEM_FaceMaelle_Short_Name": "Short",
+        "ITEM_FaceMaelle_Gestral_Name": "Gestral",
+        "ITEM_FaceSciel_Rebellious_Name": "Rebellious",
+        "ITEM_FaceSciel_Voluminous_Name": "Voluminous",
+        "ITEM_FaceSciel_Short_Name": "Short",
+        "ITEM_FaceSciel_Ponytail_Name": "Ponytail",
+        "ITEM_FaceSciel_Gestral_Name": "Gestral",
+        "ITEM_FaceSciel_DoubleBraid_Name": "Double Braid",
+        "ITEM_FaceLune_Frenchbob_Name": "French Bob",
+        "ITEM_FaceLune_Gestral_Name": "Gestral",
+        "ITEM_FaceLune_MessyBun_Name": "Messy Bun",
+        "ITEM_FaceLune_Ponytail_Name": "Ponytail",
+        "ITEM_FaceLune_Sirene_Name": "Sirène",
+        "ITEM_FaceLune_Voluminous_Name": "Voluminous",
+        "ITEM_FaceVerso_bun_Name": "Bun",
+        "ITEM_FaceVerso_Gestral_Name": "Gestral",
+        "ITEM_FaceVerso_Handsome_Name": "Gustave's Haircut",
+        "ITEM_FaceGustave_Gestral_Name": "Gestral",
+        "ITEM_FaceGustave_Bun_Name": "Bun",
+        "ITEM_SkinMaelle_Potatoe_Bag_Name": "Sakapatate",
+        "ITEM_SkinMonoco_Lumiere_Name": "Lumière",
+        "ITEM_SkinMonoco_Bikini_Name": "Swimsuit",
+        "ITEM_SkinVerso_NoArmBand_Name": "Without Armband",
+        "ITEM_FaceSciel_Vintage_Name": "Vintage",
+        "ITEM_FaceSciel_FrenchBob_Name": "French Bob",
+        "ITEM_FaceSciel_Braid_Name": "Braid",
+        "ITEM_FaceSciel_Artist_s_One_Name": "Artist",
+        "ITEM_FaceVerso_Curly_Name": "Curly",
+        "ITEM_FaceMaelle_Artist_s_One_Name": "Artist",
+        "ITEM_FaceMaelle_Braid_Name": "Braid",
+        "ITEM_FaceMaelle_Vintage_Name": "Vintage",
+        "ITEM_FaceLune_Artist_s_One_Name": "Artist",
+        "ITEM_FaceLune_DoubleBraid_Name": "Double Braid",
+        "ITEM_FaceLune_HalfPonytail_Name": "Half Ponytail",
+        "ITEM_FaceLune_Short_Name": "Short",
+        "ITEM_FaceLune_Wavy_Name": "Wavy",
+        "ITEM_FaceGustave_Charming_Name": "Charming",
+        "ITEM_SkinLune_Clea_Name": "Clea",
+        "ITEM_SkinMaelle_Clea_Name": "Clea",
+        "ITEM_SkinSciel_Clea_Name": "Clea",
+        "ITEM_FaceLune_Default_WhiteVer_Name": "Rebellious White",
+        "ITEM_FaceGustave_Default_WhiteVersion_Name": "Expedition White",
+        "ITEM_FaceSciel_Default_WhiteVersion_Name": "Messy Bun White",
+        "ITEM_FaceVerso_Default_WhiteVersion_Name": "Expedition White",
+        "ITEM_FaceMaelle_Default_WhiteVersion_Name": "Ponytail White",
+        "ITEM_FaceMaelle_DoubleBraid_WhiteVersion_Name": "Double Braid White",
+        "ITEM_FaceMaelle_Gestral_WhiteVersion_Name": "Gestral White",
+        "ITEM_FaceMaelle_Short_WhiteVersion_Name": "Short White",
+        "ITEM_FaceMaelle_Bald_Name": "Bald",
+        "ITEM_FaceGustave_Bald_Name": "Bald",
+        "ITEM_FaceLune_Bald_Name": "Bald",
+        "ITEM_FaceSciel_Bald_Name": "Bald",
+        "ITEM_FaceVerso_Bald_Name": "Bald",
+        "ITEM_FaceSciel_Clea_Name": "Clea",
+        "ITEM_FaceLune_Clea_Name": "Clea",
+        "ITEM_FaceMaelle_Clea_Name": "Clea",
+        "ITEM_FaceMaelle_Alicia_Name": "Painted Me",
+        "ITEM_SkinMaelle_CivilianSkirt_Name": "Skirt",
+        "ITEM_SkinLune_CivilianSkirt_Name": "Skirt",
+        "ITEM_SkinSciel_CivilianSkirt_Name": "Skirt",
+        "ITEM_FaceMonoco_Bald_Name": "Bald",
+        "ITEM_SkinGustave_RealRenoir_Name": "Renoir",
+        "ITEM_SkinVerso_RealRenoir_Name": "Renoir",
+        "ITEM_SkinVerso_Simple_Name": "Simple",
+        "ITEM_SkinGustave_Default_Red_Name": "Crimson Uniform",
+        "ITEM_SkinMaelle_CivilianLumiere_Name": "Civilian",
+        "ITEM_SkinGustave_Civil_Name": "Civilian",
+        "ITEM_SkinVerso_Civil_Name": "Civilian",
+        "ITEM_SkinSciel_Civil_Name": "Civilian",
+        "ITEM_SkinLune_Civil_Name": "Civilian",
+        "ITEM_SkinAliciaEpilogue_Default_Name": "Alicia",
+        "ITEM_FaceAliciaEpilogue_Default_Name": "Alicia",
+        "ITEM_SkinGustave_FlowerSuit_Name": "Flower Suit",
+        "ITEM_SkinVerso_FlowerSuit_Name": "Flower Suit",
+        "ITEM_SkinLune_FlowerSuit_Name": "Flower Suit",
+        "ITEM_SkinSciel_FlowerSuit_Name": "Flower Suit",
+        "ITEM_SkinMaelle_FlowerSuit_Name": "Flower Suit",
+        "ITEM_SkinMonoco_FlowerSuit_Name": "Flower Suit",
+        "ITEM_SkinGustave_Obscur_Name": "Obscur",
+        "ITEM_SkinVerso_Obscur_Name": "Obscur",
+        "ITEM_SkinMaelle_Clair_Name": "Clair",
+        "ITEM_FaceGustave_Flowers_Name": "Flowers",
+        "ITEM_FaceVerso_Flowers_Name": "Flowers",
+        "ITEM_FaceMaelle_Flowers_Name": "Flowers",
+        "ITEM_FaceSciel_Flowers_Name": "Flowers",
+        "ITEM_FaceMonoco_Flowers_Name": "Flowers",
+        "ITEM_FaceLune_Flowers_Name": "Flowers",
+        "ITEM_SkinVerso_Baguette_Name": "Baguette",
+        "ITEM_SkinGustave_Baguette_Name": "Baguette",
+        "ITEM_SkinMaelle_Baguette_Name": "Baguette",
+        "ITEM_SkinLune_Baguette_Name": "Baguette",
+        "ITEM_SkinSciel_Baguette_Name": "Baguette",
+        "ITEM_FaceGustave_Baguette_Name": "Baguette",
+        "ITEM_FaceVerso_Baguette_Name": "Baguette",
+        "ITEM_FaceMaelle_Baguette_Name": "Baguette",
+        "ITEM_FaceSciel_Baguette_Name": "Baguette",
+        "ITEM_FaceLune_Baguette_Name": "Baguette",
+        "ITEM_Consumable_Health_Level0_Name": "Small Healing Tint",
+        "ITEM_Consumable_Health_Level1_Name": "Healing Tint",
+        "ITEM_Consumable_Health_Level2_Name": "Strong Healing Tint",
+        "ITEM_Consumable_Energy_Level0_Name": "Small Energy Tint",
+        "ITEM_Consumable_Energy_Level1_Name": "Energy Tint",
+        "ITEM_Consumable_Energy_Level2_Name": "Strong Energy Tint",
+        "ITEM_Consumable_Revive_Level0_Name": "Small Revive Tint",
+        "ITEM_Consumable_Revive_Level1_Name": "Revive Tint",
+        "ITEM_Consumable_Revive_Level2_Name": "Strong Revive Tint",
+        "ITEM_HealingTint_Shard_Name": "Healing Tint Shard",
+        "ITEM_EnergyTint_Shard_Name": "Energy Tint Shard",
+        "ITEM_ReviveTint_Shard_Name": "Revive Tint Shard",
+        "ITEM_Consumable_LuminaPoint_Name": "Colour of Lumina",
+        "ITEM_Consumable_Respec_Name": "Recoat",
+        "ITEM_Consumable_SkillPoint_Name": "Colour of Skill",
+        "ITEM_Elixir_Shard_Name": "Elixir Shard",
+        "ITEM_AbbestFoot_Name": "Abbest's Foot",
+        "ITEM_BenisseurFoot_Name": "Bénisseur's Foot",
+        "ITEM_BourgeonFoot_Name": "Bourgeon's Foot",
+        "ITEM_BrulerFoot_Name": "Bruler's Foot",
+        "ITEM_BraseleurFoot_Name": "Braseleur's Foot",
+        "ITEM_ChalierFoot_Name": "Chalier's Foot",
+        "ITEM_CrulerFoot_Name": "Cruler's Foot",
+        "ITEM_HeavyCultistFoot_Name": "Greatsword Cultist's Foot",
+        "ITEM_DanseuseFoot_Name": "Danseuse's Foot",
+        "ITEM_DemineurFoot_Name": "Démineur's Foot",
+        "ITEM_GlaiseFoot_Name": "Glaise's Foot",
+        "ITEM_FlyingCultistFoot_Name": "Reaper Cultist's Foot",
+        "ITEM_GaultFoot_Name": "Gault's Foot",
+        "ITEM_JarFoot_Name": "Jar's Foot",
+        "ITEM_LancelierFoot_Name": "Lancelier's Foot",
+        "ITEM_LusterFoot_Name": "Luster's Foot",
+        "ITEM_PelerinFoot_Name": "Pèlerin's Foot",
+        "ITEM_PortierFoot_Name": "Portier's Foot",
+        "ITEM_CatapultSakapatateFoot_Name": "Catapult Sakapatate's Foot",
+        "ITEM_RangerSakapatateFoot_Name": "Ranger Sakapatate's Foot",
+        "ITEM_RobustSakapatateFoot_Name": "Robust Sakapatate's Foot",
+        "ITEM_PotierFoot_Name": "Potier's Foot",
+        "ITEM_RamasseurFoot_Name": "Ramasseur's Foot",
+        "ITEM_SaplingFoot_Name": "Sapling's Foot",
+        "ITEM_StalactFoot_Name": "Stalact's Foot",
+        "ITEM_TroubadourFoot_Name": "Troubadour's Foot",
+        "ITEM_MoissonneuseFoot_Name": "Moissonneuse's Foot",
+        "ITEM_BoucheclierFoot_Name": "Boucheclier's Foot",
+        "ITEM_ChapelierFoot_Name": "Chapelier's Foot",
+        "ITEM_ContorsionnisteFoot_Name": "Contorsionniste's Foot",
+        "ITEM_BalletFoot_Name": "Ballet's Foot",
+        "ITEM_DuallistFoot_Name": "Duallist's Foot",
+        "ITEM_BossSakapatateFoot_Name": "Ultimate Sakapatate's Foot",
+        "ITEM_OrphelinFoot_Name": "Orphelin's Foot",
+        "ITEM_HexgaFoot_Name": "Hexga's Foot",
+        "ITEM_CeramicChevaliereFoot_Name": "Ceramic Chevalière's Foot",
+        "ITEM_SteelChevaliereFoot_Name": "Steel Chevalière's Foot",
+        "ITEM_GoldChevaliereFoot_Name": "Gold Chevalière's Foot",
+        "ITEM_EchassierFoot_Name": "Échassier's Foot",
+        "ITEM_GrosseTeteFoot_Name": "Grosse Tête's Foot",
+        "ITEM_ObscurFoot_Name": "Obscur's Foot",
+        "ITEM_ClairFoot_Name": "Clair's Foot",
+        "ITEM_LampmasterFoot_Name": "Lampmaster's Foot",
+        "ITEM_RocherFoot_Name": "Rocher's Foot",
+        "ITEM_CreationFoot_Name": "Création's Foot",
+        "ITEM_AberrationFoot_Name": "Aberration's Foot",
+        "ITEM_VeilleurFoot_Name": "Veilleur's Foot",
+        "ITEM_PetankFoot_Name": "Pétank's Foot",
+        "ITEM_NoireFoot_Name": "Noire's Foot",
+        "ITEM_EvequeFoot_Name": "Évêque's Foot",
+        "ITEM_Journal_Exp100A_Name": "Journal - Simon",
+        "ITEM_Journal_Exp100B_Name": "Journal - Julie Search and Rescue",
+        "ITEM_Journal_Exp84_Name": "Journal - Expedition 84",
+        "ITEM_Journal_Exp81_Name": "Journal - Expedition 81",
+        "ITEM_Journal_Exp78_Name": "Journal - Expedition 78",
+        "ITEM_Journal_Exp70_Name": "Journal - Expedition 70",
+        "ITEM_Journal_Exp69_Name": "Journal - Expedition 69",
+        "ITEM_Journal_Exp68_Name": "Journal - Expedition 68",
+        "ITEM_Journal_Exp67_Name": "Journal - Expedition 67",
+        "ITEM_Journal_Exp66_Name": "Journal - Expedition 66",
+        "ITEM_Journal_Exp65_Name": "Journal - Expedition 65",
+        "ITEM_Journal_Exp64_Name": "Journal - Expedition 64",
+        "ITEM_Journal_Exp63_Name": "Journal - Expedition 63",
+        "ITEM_Journal_Exp62_Name": "Journal - Expedition 62",
+        "ITEM_Journal_Exp61_Name": "Journal - Expedition 61",
+        "ITEM_Journal_Exp60_Name": "Journal - Expedition 60",
+        "ITEM_Journal_Exp59_Name": "Journal - Expedition 59",
+        "ITEM_Journal_Exp58_Name": "Journal - Expedition 58",
+        "ITEM_Journal_Exp57_Name": "Journal - Expedition 57",
+        "ITEM_Journal_Exp56_Name": "Journal - Expedition 56",
+        "ITEM_Journal_Exp55_Name": "Journal - Expedition 55",
+        "ITEM_Journal_Exp54_Name": "Journal - Expedition 54",
+        "ITEM_Journal_Exp53_Name": "Journal - Expedition 53",
+        "ITEM_Journal_Exp52_Name": "Journal - Expedition 52",
+        "ITEM_Journal_Exp51_Name": "Journal - Expedition 51",
+        "ITEM_Journal_Exp50_Name": "Journal - Expedition 50",
+        "ITEM_Journal_Exp49_Name": "Journal - Expedition 49",
+        "ITEM_Journal_Exp48_Name": "Journal - Expedition 48",
+        "ITEM_Journal_Exp47_Name": "Journal - Expedition 47",
+        "ITEM_Journal_Exp46_Name": "Journal - Expedition 46",
+        "ITEM_Journal_Exp45_Name": "Journal - Expedition 45",
+        "ITEM_Journal_Exp44_Name": "Journal - Expedition 44",
+        "ITEM_Journal_Exp43_Name": "Journal - Expedition 43",
+        "ITEM_Journal_Exp42_Name": "Journal - Expedition 42",
+        "ITEM_Journal_Exp41_Name": "Journal - Expedition 41",
+        "ITEM_Journal_Exp40_Name": "Journal - Expedition 40",
+        "ITEM_Journal_Exp39_Name": "Journal - Expedition 39",
+        "ITEM_Journal_Exp38_Name": "Journal - Expedition 38",
+        "ITEM_Journal_Exp37_Name": "Journal - Expedition 37",
+        "ITEM_Journal_Exp36_Name": "Journal - Expedition 36",
+        "ITEM_Journal_Exp35_Name": "Journal - Expedition 35",
+        "ITEM_Journal_Exp34_Name": "Journal - Expedition 34",
+        "ITEM_Journal_OldLumiere_Name": "Journal - Fracture Survivor",
+        "ITEM_Journal_RenoirSirene_Name": "Journal - Unknown",
+        "ITEM_Journal_RenoirVisages_Name": "Journal - Unknown",
+        "ITEM_Journal_RenoirReacher_Name": "Journal - Unknown",
+        "ITEM_Journal_RenoirManor_Name": "Journal - Renoir",
+        "ITEM_Journal_Aline_Name": "Journal - Aline",
+        "ITEM_Journal_Verso_Name": "Journal - Verso",
+        "ITEM_MusicRecord_1_Name": "Alicia",
+        "ITEM_MusicRecord_2_Name": "Lumière",
+        "ITEM_MusicRecord_3_Name": "Gustave",
+        "ITEM_MusicRecord_4_Name": "Lettre à Maelle",
+        "ITEM_MusicRecord_5_Name": "Lune",
+        "ITEM_MusicRecord_6_Name": "Sciel",
+        "ITEM_MusicRecord_7_Name": "Monoco",
+        "ITEM_MusicRecord_8_Name": "Verso",
+        "ITEM_MusicRecord_9_Name": "Until Next Life",
+        "ITEM_MusicRecord_10_Name": "Rêveries dans Paris",
+        "ITEM_MusicRecord_11_Name": "Un 33 Décembre à Lumière",
+        "ITEM_MusicRecord_12_Name": "Le Grand Café de Lumière",
+        "ITEM_MusicRecord_13_Name": "Nocturne pour Lumière",
+        "ITEM_MusicRecord_14_Name": "Linen and Cotton",
+        "ITEM_MusicRecord_15_Name": "Goblu",
+        "ITEM_MusicRecord_16_Name": "Lights of the Past",
+        "ITEM_MusicRecord_17_Name": "Lost Voice",
+        "ITEM_MusicRecord_18_Name": "Robe de Jour",
+        "ITEM_MusicRecord_19_Name": "Nocturne pour un masque de tristesse",
+        "ITEM_MusicRecord_20_Name": "Our Painted Family",
+        "ITEM_MusicRecord_21_Name": "Honeymoon in Lumière",
+        "ITEM_MusicRecord_22_Name": "Clea! Don't Pull Your Sister's Hair!",
+        "ITEM_MusicRecord_23_Name": "Aline's Glasshouse",
+        "ITEM_MusicRecord_24_Name": "Alicia's Birthday Party",
+        "ITEM_MusicRecord_25_Name": "Révérence",
+        "ITEM_MusicRecord_26_Name": "Forlorn",
+        "ITEM_MusicRecord_27_Name": "Children of Lumière",
+        "ITEM_MusicRecord_28_Name": "Aline",
+        "ITEM_MusicRecord_29_Name": "Renoir",
+        "ITEM_MusicRecord_30_Name": "Clea",
+        "ITEM_MusicRecord_31_Name": "L'Amour d'une Mère",
+        "ITEM_MusicRecord_32_Name": "Endless Light",
+        "ITEM_MusicRecord_33_Name": "Our Drafts Collide",
+        "ITEM_PartyHealShard_Name": "Chroma Elixir Shard",
+        "ITEM_UpgradeMaterial_Level1_Name": "Chroma Catalyst",
+        "ITEM_UpgradeMaterial_Level2_Name": "Polished Chroma Catalyst",
+        "ITEM_UpgradeMaterial_Level3_Name": "Resplendent Chroma Catalyst",
+        "ITEM_UpgradeMaterial_Level4_Name": "Grandiose Chroma Catalyst",
+        "ITEM_UpgradeMaterial_Level5_Name": "Perfect Chroma Catalyst",
+        "ITEM_ConsumableUpgradeMaterial_Health_Name": "Shape of Health",
+        "ITEM_ConsumableUpgradeMaterial_AP_Name": "Shape of Energy",
+        "ITEM_ConsumableUpgradeMaterial_Revive_Name": "Shape of Life",
+        "ITEM_LostGestral_Description": "One of the Lost Gestrals.",
+        "ITEM_FestivalToken_Description": "A token usable at the Festival to get prizes.",
+        "ITEM_Quest_MoltenHeart_Description": "A heart melting in lava.",
+        "ITEM_Quest_ChromaticInk_Description": "Ink harvested from a Chromatic Nevron.",
+        "ITEM_Quest_Mine_Description": "A lost Démineur mine.",
+        "ITEM_Quest_WoodenStick_Description": "Gestrals kids are fond of good old wooden swords.",
+        "ITEM_Quest_WoodBoards_Description": "Several pieces of wood that do not fit together. They all have shiny bindings.",
+        "ITEM_Quest_Resin_Description": "Inflammable material.",
+        "ITEM_Quest_Mushroom_Description": "An odd-looking mushroom. The fact that it glows means it probably should not be consumed.",
+        "ITEM_Quest_OldKey_Description": "An old key for an old door.",
+        "ITEM_Quest_BourgeonSkin_Description": "The flesh of this Nevron still feels alive.",
+        "ITEM_Quest_HexgaRock_Description": "A glistening rock crystal.",
+        "ITEM_Quest_EternalIce_Description": "A concentrated ice core.",
+        "ITEM_Quest_StationKey_Description": "A key. What door does it open?",
+        "ITEM_Quest_ManorFamilyCanvas_Description": "A canvas portrait of the Dessendre family.",
+        "ITEM_Quest_CleaWorkshop_Part1_Description": "A lamp that can be used to awaken the beast.",
+        "ITEM_Quest_CleaWorkshop_Part2_Description": "A lamp that can be used to awaken the beast.",
+        "ITEM_Quest_CleaWorkshop_Part3_Description": "A lamp that can be used to awaken the beast.",
+        "ITEM_Quest_WeirdPictos_Name": "Weird Pictos",
+        "ITEM_Quest_WeirdPictos_Description": "A quick inspection is enough to say that this Pictos is unusable as is.",
+        "ITEM_SkinGustave_Default_Description": "An outfit for Gustave.",
+        "ITEM_SkinLune_Default_Description": "An outfit for Lune.",
+        "ITEM_SkinMaelle_Default_Description": "An outfit for Maelle.",
+        "ITEM_SkinMonoco_Default_Description": "An outfit for Monoco.",
+        "ITEM_SkinSciel_Default_Description": "An outfit for Sciel.",
+        "ITEM_SkinVerso_Default_Description": "An outfit for Verso.",
+        "ITEM_FaceGustave_Default_Description": "A haircut for Gustave.",
+        "ITEM_FaceLune_Default_Description": "A haircut for Lune.",
+        "ITEM_FaceMaelle_Default_Description": "A haircut for Maelle.",
+        "ITEM_FaceSciel_Default_Description": "A haircut for Sciel.",
+        "ITEM_FaceVerso_Default_Description": "A haircut for Verso.",
+        "ITEM_FaceLune_Braid_Description": "A haircut for Lune.",
+        "ITEM_FaceMaelle_DoubleBraid_Description": "A haircut for Maelle.",
+        "ITEM_FaceMonoco_Default_Description": "A haircut for Monoco.",
+        "ITEM_FaceMonoco_Viking_Description": "A haircut for Monoco.",
+        "ITEM_FaceGustave_Curly_Description": "A haircut for Gustave.",
+        "ITEM_FaceGustave_Noah_Description": "A haircut for Gustave.",
+        "ITEM_FaceSciel_CurlyShort_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_OldConcept_Description": "A haircut for Sciel.",
+        "ITEM_FaceVerso_Samourai_Description": "A haircut for Verso.",
+        "ITEM_SkinMaelle_Alicia_Description": "An outfit for Maelle.",
+        "ITEM_SkinGustave_MirrorRenoir_Description": "An outfit for Gustave.",
+        "ITEM_SkinGustave_Pure_Description": "An outfit for Gustave.",
+        "ITEM_SkinLune_Pure_Description": "An outfit for Lune.",
+        "ITEM_SkinVerso_Pure_Description": "An outfit for Verso.",
+        "ITEM_SkinMonoco_Pure_Description": "An outfit for Monoco.",
+        "ITEM_SkinSciel_Pure_Description": "An outfit for Sciel.",
+        "ITEM_SkinMaelle_Pure_Description": "An outfit for Maelle.",
+        "ITEM_SkinGustave_LumiereSuit_Description": "An outfit for Gustave.",
+        "ITEM_SkinVerso_Potatoe_Bag_Description": "An outfit for Verso.",
+        "ITEM_SkinVerso_Pelerin_Description": "An outfit for Verso.",
+        "ITEM_SkinVerso_Mirror_Description": "An outfit for Verso.",
+        "ITEM_SkinLune_Sirene_Description": "An outfit for Lune.",
+        "ITEM_SkinSciel_Sirene_Description": "An outfit for Sciel.",
+        "ITEM_SkinGustave_Potatoe_Bag_Description": "An outfit for Gustave.",
+        "ITEM_SkinLune_Potatoe_Bag_Description": "An outfit for Lune.",
+        "ITEM_SkinLune_Danseuse_Description": "An outfit for Lune.",
+        "ITEM_SkinSciel_Potatoe_Bag_Description": "An outfit for Sciel.",
+        "ITEM_SkinSciel_Danseuse_Description": "An outfit for Sciel.",
+        "ITEM_SkinMaelle_ActeIII_Description": "An outfit for Maelle.",
+        "ITEM_SkinMaelle_Bikini_Description": "An outfit for Maelle.",
+        "ITEM_SkinSciel_BikiniA_Description": "An outfit for Sciel.",
+        "ITEM_SkinSciel_BikiniB_Description": "An outfit for Sciel.",
+        "ITEM_SkinLune_BikiniA_Description": "An outfit for Lune.",
+        "ITEM_SkinLune_BikiniB_Description": "An outfit for Lune.",
+        "ITEM_SkinGustave_Bikini_Description": "An outfit for Gustave.",
+        "ITEM_SkinVerso_BikiniA_Description": "An outfit for Verso.",
+        "ITEM_SkinVerso_BikiniB_Description": "An outfit for Verso.",
+        "ITEM_FaceMaelle_ActeIII_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Voluminous_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_FrenchBob_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Rebellious_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_MessyBun_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Short_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Gestral_Description": "A haircut for Maelle.",
+        "ITEM_FaceSciel_Rebellious_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_Voluminous_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_Short_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_Ponytail_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_Gestral_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_DoubleBraid_Description": "A haircut for Sciel.",
+        "ITEM_FaceLune_Frenchbob_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_Gestral_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_MessyBun_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_Ponytail_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_Sirene_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_Voluminous_Description": "A haircut for Lune.",
+        "ITEM_FaceVerso_bun_Description": "A haircut for Verso.",
+        "ITEM_FaceVerso_Gestral_Description": "A haircut for Verso.",
+        "ITEM_FaceVerso_Handsome_Description": "A haircut for Verso.",
+        "ITEM_FaceGustave_Gestral_Description": "A haircut for Gustave.",
+        "ITEM_FaceGustave_Bun_Description": "A haircut for Gustave.",
+        "ITEM_SkinMaelle_Potatoe_Bag_Description": "An outfit for Maelle.",
+        "ITEM_SkinMonoco_Lumiere_Description": "An outfit for Monoco.",
+        "ITEM_SkinMonoco_Bikini_Description": "An outfit for Monoco.",
+        "ITEM_SkinVerso_NoArmBand_Description": "An outfit for Verso.",
+        "ITEM_FaceSciel_Vintage_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_FrenchBob_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_Braid_Description": "A haircut for Sciel.",
+        "ITEM_FaceSciel_Artist_s_One_Description": "A haircut for Sciel.",
+        "ITEM_FaceVerso_Curly_Description": "A haircut for Verso.",
+        "ITEM_FaceMaelle_Artist_s_One_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Braid_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Vintage_Description": "A haircut for Maelle.",
+        "ITEM_FaceLune_Artist_s_One_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_DoubleBraid_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_HalfPonytail_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_Short_Description": "A haircut for Lune.",
+        "ITEM_FaceLune_Wavy_Description": "A haircut for Lune.",
+        "ITEM_FaceGustave_Charming_Description": "A haircut for Gustave.",
+        "ITEM_SkinLune_Clea_Description": "An outfit for Lune.",
+        "ITEM_SkinMaelle_Clea_Description": "An outfit for Maelle.",
+        "ITEM_SkinSciel_Clea_Description": "An outfit for Sciel.",
+        "ITEM_FaceLune_Default_WhiteVer_Description": "A haircut for Lune.",
+        "ITEM_FaceGustave_Default_WhiteVersion_Description": "A haircut for Gustave.",
+        "ITEM_FaceSciel_Default_WhiteVersion_Description": "A haircut for Sciel.",
+        "ITEM_FaceVerso_Default_WhiteVersion_Description": "A haircut for Verso.",
+        "ITEM_FaceMaelle_Default_WhiteVersion_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_DoubleBraid_WhiteVersion_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Gestral_WhiteVersion_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Short_WhiteVersion_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Bald_Description": "A haircut for Maelle.",
+        "ITEM_FaceGustave_Bald_Description": "A haircut for Gustave.",
+        "ITEM_FaceLune_Bald_Description": "A haircut for Lune.",
+        "ITEM_FaceSciel_Bald_Description": "A haircut for Sciel.",
+        "ITEM_FaceVerso_Bald_Description": "A haircut for Verso.",
+        "ITEM_FaceSciel_Clea_Description": "A haircut for Sciel.",
+        "ITEM_FaceLune_Clea_Description": "A haircut for Lune.",
+        "ITEM_FaceMaelle_Clea_Description": "A haircut for Maelle.",
+        "ITEM_FaceMaelle_Alicia_Description": "A haircut for Maelle.",
+        "ITEM_SkinMaelle_CivilianSkirt_Description": "An outfit for Maelle.",
+        "ITEM_SkinLune_CivilianSkirt_Description": "An outfit for Lune.",
+        "ITEM_SkinSciel_CivilianSkirt_Description": "An outfit for Sciel.",
+        "ITEM_FaceMonoco_Bald_Description": "A haircut for Monoco.",
+        "ITEM_SkinGustave_RealRenoir_Description": "An outfit for Gustave.",
+        "ITEM_SkinVerso_RealRenoir_Description": "An outfit for Verso.",
+        "ITEM_SkinVerso_Simple_Description": "An outfit for Verso.",
+        "ITEM_SkinGustave_Default_Red_Description": "An outfit for Gustave.",
+        "ITEM_SkinMaelle_CivilianLumiere_Description": "An outfit for Maelle.",
+        "ITEM_SkinGustave_Civil_Description": "An outfit for Gustave.",
+        "ITEM_SkinVerso_Civil_Description": "An outfit for Verso.",
+        "ITEM_SkinSciel_Civil_Description": "An outfit for Sciel.",
+        "ITEM_SkinLune_Civil_Description": "An outfit for Lune.",
+        "ITEM_SkinAliciaEpilogue_Default_Description": "An outfit for Maelle.",
+        "ITEM_FaceAliciaEpilogue_Default_Description": "A haircut for Maelle.",
+        "ITEM_SkinGustave_FlowerSuit_Description": "An outfit for Gustave.",
+        "ITEM_SkinVerso_FlowerSuit_Description": "An outfit for Verso.",
+        "ITEM_SkinLune_FlowerSuit_Description": "An outfit for Lune.",
+        "ITEM_SkinSciel_FlowerSuit_Description": "An outfit for Sciel.",
+        "ITEM_SkinMaelle_FlowerSuit_Description": "An outfit for Maelle.",
+        "ITEM_SkinMonoco_FlowerSuit_Description": "An outfit for Monoco.",
+        "ITEM_SkinGustave_Obscur_Description": "An outfit for Gustave.",
+        "ITEM_SkinVerso_Obscur_Description": "An outfit for Verso.",
+        "ITEM_SkinMaelle_Clair_Description": "An outfit for Maelle.",
+        "ITEM_FaceGustave_Flowers_Description": "A haircut for Gustave.",
+        "ITEM_FaceVerso_Flowers_Description": "A haircut for Verso.",
+        "ITEM_FaceMaelle_Flowers_Description": "A haircut for Maelle.",
+        "ITEM_FaceSciel_Flowers_Description": "A haircut for Sciel.",
+        "ITEM_FaceMonoco_Flowers_Description": "A haircut for Monoco.",
+        "ITEM_FaceLune_Flowers_Description": "A haircut for Lune.",
+        "ITEM_SkinVerso_Baguette_Description": "An outfit for Verso.",
+        "ITEM_SkinGustave_Baguette_Description": "An outfit for Gustave.",
+        "ITEM_SkinMaelle_Baguette_Description": "An outfit for Maelle.",
+        "ITEM_SkinLune_Baguette_Description": "An outfit for Lune.",
+        "ITEM_SkinSciel_Baguette_Description": "An outfit for Sciel.",
+        "ITEM_FaceGustave_Baguette_Description": "A haircut for Gustave.",
+        "ITEM_FaceVerso_Baguette_Description": "A haircut for Verso.",
+        "ITEM_FaceMaelle_Baguette_Description": "A haircut for Maelle.",
+        "ITEM_FaceSciel_Baguette_Description": "A haircut for Sciel.",
+        "ITEM_FaceLune_Baguette_Description": "A haircut for Lune.",
+        "ITEM_Consumable_Health_Level0_Description": "Heals the target for 30% Health.",
+        "ITEM_Consumable_Health_Level1_Description": "Heals the target for 65% Health.",
+        "ITEM_Consumable_Health_Level2_Description": "Heals the target for 100% Health.",
+        "ITEM_Consumable_Energy_Level0_Description": "Gives 3 AP to the targeted ally.",
+        "ITEM_Consumable_Energy_Level1_Description": "Gives 5 AP to the targeted ally.",
+        "ITEM_Consumable_Energy_Level2_Description": "Gives 7 AP to the targeted ally.",
+        "ITEM_Consumable_Revive_Level0_Description": "Revive an ally with 30% Health.",
+        "ITEM_Consumable_Revive_Level1_Description": "Revive an ally with 65% Health.",
+        "ITEM_Consumable_Revive_Level2_Description": "Revive an ally with 100% Health.",
+        "ITEM_HealingTint_Shard_Description": "+1 Healing Tint.",
+        "ITEM_EnergyTint_Shard_Description": "+1 Energy Tint.",
+        "ITEM_ReviveTint_Shard_Description": "+1 Revive Tint.",
+        "ITEM_Consumable_LuminaPoint_Description": "Can be consumed to give an additional Lumina Point to a character.",
+        "ITEM_Consumable_Respec_Description": "Can be consumed to reallocate a character's Attributes or Skill Points.",
+        "ITEM_Consumable_SkillPoint_Description": "Can be consumed to give an additional Skill Point to a character.",
+        "ITEM_Elixir_Shard_Description": "Increase the number of times the Elixir can be used.",
+        "ITEM_AbbestFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_BenisseurFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_BourgeonFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_BrulerFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_BraseleurFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_ChalierFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_CrulerFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_HeavyCultistFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_DanseuseFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_DemineurFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_GlaiseFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_FlyingCultistFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_GaultFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_JarFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_LancelierFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_LusterFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_PelerinFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_PortierFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_CatapultSakapatateFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_RangerSakapatateFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_RobustSakapatateFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_PotierFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_RamasseurFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_SaplingFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_StalactFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_TroubadourFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_MoissonneuseFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_BoucheclierFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_ChapelierFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_ContorsionnisteFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_BalletFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_DuallistFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_BossSakapatateFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_OrphelinFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_HexgaFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_CeramicChevaliereFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_SteelChevaliereFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_GoldChevaliereFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_EchassierFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_GrosseTeteFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_ObscurFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_ClairFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_LampmasterFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_RocherFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_CreationFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_AberrationFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_VeilleurFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_PetankFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_NoireFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_EvequeFoot_Description": "This foot allows Monoco to use a new skill.",
+        "ITEM_Journal_Exp100A_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp100B_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp84_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp81_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp78_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp70_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp69_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp68_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp67_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp66_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp65_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp64_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp63_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp62_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp61_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp60_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp59_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp58_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp57_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp56_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp55_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp54_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp53_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp52_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp51_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp50_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp49_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp48_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp47_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp46_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp45_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp44_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp43_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp42_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp41_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp40_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp39_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp38_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp37_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp36_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp35_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_Exp34_Description": "A journal from a previous expedition.",
+        "ITEM_Journal_OldLumiere_Description": "A journal from a civilian.",
+        "ITEM_Journal_RenoirSirene_Description": "A journal from someone anonymous.",
+        "ITEM_Journal_RenoirVisages_Description": "A journal from someone anonymous.",
+        "ITEM_Journal_RenoirReacher_Description": "A journal from someone anonymous.",
+        "ITEM_Journal_RenoirManor_Description": "A journal from Renoir.",
+        "ITEM_Journal_Aline_Description": "A journal from Aline.",
+        "ITEM_Journal_Verso_Description": "A journal from Verso.",
+        "ITEM_MusicRecord_1_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_2_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_3_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_4_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_5_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_6_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_7_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_8_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_9_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_10_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_11_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_12_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_13_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_14_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_15_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_16_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_17_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_18_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_19_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_20_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_21_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_22_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_23_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_24_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_25_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_26_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_27_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_28_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_29_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_30_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_31_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_32_Description": "A music record that can be used at Camp.",
+        "ITEM_MusicRecord_33_Description": "A music record that can be used at Camp.",
+        "ITEM_PartyHealShard_Description": "+1 Chroma Elixir.",
+        "ITEM_UpgradeMaterial_Level1_Description": "Can be used at Camp to upgrade weapons up to level 3.",
+        "ITEM_UpgradeMaterial_Level2_Description": "Can be used at Camp to upgrade weapons up to level 9.",
+        "ITEM_UpgradeMaterial_Level3_Description": "Can be used at Camp to upgrade weapons up to level 19.",
+        "ITEM_UpgradeMaterial_Level4_Description": "Can be used at Camp to upgrade weapons up to level 32.",
+        "ITEM_UpgradeMaterial_Level5_Description": "Can be used at Camp to upgrade weapons to level 33.",
+        "ITEM_ConsumableUpgradeMaterial_Health_Description": "Can be used at Camp to upgrade the Healing Tint.",
+        "ITEM_ConsumableUpgradeMaterial_AP_Description": "Can be used at Camp to upgrade the Energy Tint.",
+        "ITEM_ConsumableUpgradeMaterial_Revive_Description": "Can be used at Camp to upgrade the Revive Tint."
+      },
+      "KeysToMetaData": {
+        "ITEM_Beselbum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Gelerim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Nibalum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Velokan_Name": {
+          "Context": "Unused"
+        },
+        "ITEM_Telarim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Milerim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Lanceram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nReference to the Lancelier enemy."
+        },
+        "ITEM_Noahram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\n\"Noah\" is a name, no reference to anything in game"
+        },
+        "ITEM_Gesam_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons"
+        },
+        "ITEM_Sakaram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nReferences to the Sakapatate enemies."
+        },
+        "ITEM_Abysseram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nAbyss + suffix. (underwater weapon)"
+        },
+        "ITEM_Cruleram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nReference to the Cruler enemy."
+        },
+        "ITEM_Seeram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nNo particular signification"
+        },
+        "ITEM_Blodam_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nNo particular signification"
+        },
+        "ITEM_Cultam_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nReference to the Cultist enemies."
+        },
+        "ITEM_Demonam_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nNo particular signification"
+        },
+        "ITEM_Nosaram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nNo particular signification"
+        },
+        "ITEM_Chevalam_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nReference to the Chevaliere enemy"
+        },
+        "ITEM_Delaram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nNo particular signification"
+        },
+        "ITEM_Gaulteram_Name": {
+          "Context": "\"am\" is the suffix for Gustave's weapons\nReference to the Gault enemy"
+        },
+        "ITEM_Redalim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Trebuchim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nTrebuchet + suffix"
+        },
+        "ITEM_Coralim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nCoral + suffix"
+        },
+        "ITEM_Deminerim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nRefenrece to the Demineur enemy"
+        },
+        "ITEM_Betelim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Lighterim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nLight + suffix"
+        },
+        "ITEM_Painerim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nPain + suffix"
+        },
+        "ITEM_Elerim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Lunerim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nLune + suffix"
+        },
+        "ITEM_Potierim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Potier enemy"
+        },
+        "ITEM_Saperim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Saper enemy"
+        },
+        "ITEM_Scaverim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Scavenger enemy"
+        },
+        "ITEM_Sekarum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Brulerum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nReference to the Bruler enemy"
+        },
+        "ITEM_Seashelum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nSea shell + suffix"
+        },
+        "ITEM_Veremum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Yeverum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Duenum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Melarum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Maellum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nMaelle + suffix"
+        },
+        "ITEM_Medalum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Volesterum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nReference to the Volester enemy"
+        },
+        "ITEM_Glaisum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nReference to the Glaise enemy"
+        },
+        "ITEM_Jarum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nReference to the Jar enemy"
+        },
+        "ITEM_Corderon_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Rangeson_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nReference to the Sakapatate Ranger enemy (ranger + suffix)"
+        },
+        "ITEM_Algueron_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nAlgae (\"Algue\" in French) + suffix"
+        },
+        "ITEM_Bourgelon_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nReference to the Bourgeon enemy"
+        },
+        "ITEM_Gobluson_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nRefenrce to Goblu enemy"
+        },
+        "ITEM_Lusteson_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nReference to Luster enemy"
+        },
+        "ITEM_Hevason_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Chation_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Direton_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Minason_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Scieleson_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nSciel + suffix"
+        },
+        "ITEM_Verleso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nSounds a bit like \"Verso\""
+        },
+        "ITEM_Dualim_Name": {
+          "Context": "\"im\" is the suffix for Lune's Weapons\nReference to the Duallist enemy"
+        },
+        "ITEM_Corpeso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nCorpse + suffix"
+        },
+        "ITEM_Danseso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nRefenrence to the Danseuse enemy"
+        },
+        "ITEM_Glaceso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nGlace (\"Ice\" in French) + suffix"
+        },
+        "ITEM_Moissoso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nReference to the Contortionniste enemy"
+        },
+        "ITEM_Confuso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nConfuse + Suffix"
+        },
+        "ITEM_Sireso_1_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nReference to the Sirene enemy"
+        },
+        "ITEM_Sireso_2_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nDream + Suffix"
+        },
+        "ITEM_Reacheso_1_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nNo particular signification"
+        },
+        "ITEM_Reacheso_2_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nNo particular signification"
+        },
+        "ITEM_Chaliso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nReference to the Chalier enemy"
+        },
+        "ITEM_Battlum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nBattle + suffix"
+        },
+        "ITEM_Stalum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nReference to the Stalact enemy"
+        },
+        "ITEM_Coldum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nCold + suffix"
+        },
+        "ITEM_Clierum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Facesum_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nFace + suffix"
+        },
+        "ITEM_Sirenum_1_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nReference to the Tisseur enemy"
+        },
+        "ITEM_Sirenum_2_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nChant (\"Song\" in French) + suffix"
+        },
+        "ITEM_Reachum_1_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Reachum_2_Name": {
+          "Context": "\"um\" is the suffix for Maelle's weapons\nNo particular signification"
+        },
+        "ITEM_Benisim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Benisseur enemy"
+        },
+        "ITEM_Troubadum_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to Troubadour enemy"
+        },
+        "ITEM_Braselim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Braseleur enemy"
+        },
+        "ITEM_Snowim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nSnow + suffix"
+        },
+        "ITEM_Angerim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nAnger + suffix"
+        },
+        "ITEM_Chapelim_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Chapelier enemy"
+        },
+        "ITEM_Sirenim_1_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Chorale enemy"
+        },
+        "ITEM_Sirenim_2_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Reacherim_1_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Reacherim_2_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nNo particular signification"
+        },
+        "ITEM_Ramasson_Name": {
+          "Context": "\"im\" is the suffix for Lune's weapons\nReference to the Ramasseur enemy"
+        },
+        "ITEM_Charnon_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nCharnier + suffix"
+        },
+        "ITEM_Contorson_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nReference to the Moissonneuse enemy"
+        },
+        "ITEM_Sadon_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nSad + Suffix"
+        },
+        "ITEM_Garganon_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nReference to the Gargant enemy"
+        },
+        "ITEM_Blizzon_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nBlizzard + suffix"
+        },
+        "ITEM_Sirenon_1_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nReference to the Tisseur enemy"
+        },
+        "ITEM_Sirenon_2_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Reacheron_1_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Reacheron_2_Name": {
+          "Context": "\"on\" is the suffix for Sciel's weapons\nNo particular signification"
+        },
+        "ITEM_Grandaro_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nGrand + Suffix"
+        },
+        "ITEM_Chromaro_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nChroma + Suffix"
+        },
+        "ITEM_Boucharo_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nReference to the Boucheclier enemy"
+        },
+        "ITEM_Joyaro_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nJoy + Suffix"
+        },
+        "ITEM_Sirenaro_1_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nReference to the Ballet enemy"
+        },
+        "ITEM_Sirenaro_2_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nUrn + Suffix"
+        },
+        "ITEM_Reacharo_1_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nNo particular signification"
+        },
+        "ITEM_Reacharo_2_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nNo particular signification"
+        },
+        "ITEM_Brumaro_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nBrume (\"Mist\" in French) + Suffix"
+        },
+        "ITEM_Sidaro_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nNo particular signification"
+        },
+        "ITEM_Monocaro_Name": {
+          "Context": "\"aro\" is the suffix for Monoco's weapons\nMonoco + Suffix"
+        },
+        "ITEM_Simoso_Name": {
+          "Context": "\"so\" is the suffix for Verso's Weapons\nReference to Simon (end game boss)"
+        },
+        "ITEM_SkinVerso_Baguette_Name": {
+          "Context": "French stereotype skin with a baguette in the back"
+        },
+        "ITEM_SkinGustave_Baguette_Name": {
+          "Context": "French stereotype skin with a baguette in the back"
+        },
+        "ITEM_SkinMaelle_Baguette_Name": {
+          "Context": "French stereotype skin with a baguette in the back"
+        },
+        "ITEM_SkinLune_Baguette_Name": {
+          "Context": "French stereotype skin with a baguette in the back"
+        },
+        "ITEM_SkinSciel_Baguette_Name": {
+          "Context": "French stereotype skin with a baguette in the back"
+        },
+        "ITEM_FaceGustave_Baguette_Name": {
+          "Context": "French stereotype skin with a beret, ensemble with Baguette outfit"
+        },
+        "ITEM_FaceVerso_Baguette_Name": {
+          "Context": "French stereotype skin with a beret, ensemble with Baguette outfit"
+        },
+        "ITEM_FaceMaelle_Baguette_Name": {
+          "Context": "French stereotype skin with a beret, ensemble with Baguette outfit"
+        },
+        "ITEM_FaceSciel_Baguette_Name": {
+          "Context": "French stereotype skin with a beret, ensemble with Baguette outfit"
+        },
+        "ITEM_FaceLune_Baguette_Name": {
+          "Context": "French stereotype skin with a beret, ensemble with Baguette outfit"
+        }
+      }
+    }
+  }
+]
