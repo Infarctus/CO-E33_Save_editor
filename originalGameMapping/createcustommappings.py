@@ -1,7 +1,7 @@
 import os
 import json
 
-output_dir = "./customGameMapping"
+output_dir = "./src/assets/customjsonmappings"
 os.makedirs(output_dir, exist_ok=True)
 def genpicto():
     # Path to the input JSON file
