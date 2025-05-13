@@ -3,8 +3,8 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: #0f0f0f;
-  background-color: #f6f6f6;
+     color: #f6f6f6;
+    background-color: #2f2f2f;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -32,6 +32,7 @@
 
 .spacer {
   margin-top: 3px;
+  margin-bottom: 2px;
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
@@ -60,6 +61,7 @@ background-color: #42381E;
 .nav-list {
   list-style: none;
   padding: 0;
+  margin-top: 6px;
 }
 
 .nav-item {
@@ -71,15 +73,6 @@ background-color: #42381E;
   transition: background 0.2s ease;
 }
 
-.nav-item:not([aria-disabled]):hover,
-.nav-item.active {
-  background-color: #263D3A;
-}
-
-[aria-disabled]:hover,
-[disabled]:hover {
-  cursor: not-allowed;
-}
 
 
 
@@ -104,8 +97,9 @@ background-color: #42381E;
   display: none;
 }
 
-.tab-button,
-button {
+.tab-button
+,button 
+{
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -113,19 +107,39 @@ button {
   font-weight: 500;
   font-family: inherit;
   color: #0f0f0f;
-  background-color: #ffffff;
+    background-color: #0f0f0f98;
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  color: #ffffff;
+
 }
 
 .tab-button:not([disabled]):hover {
   border-color: #396cd8;
+  
 }
 
 .tab-button:active {
   border-color: #396cd8;
   background-color: #e8e8e8;
+  
+}
+
+
+.nav-item:not([aria-disabled]):hover,
+.nav-item.active {
+  background-color: #263D3A;
+}
+
+[aria-disabled]:hover,
+[disabled]:hover {
+  cursor: not-allowed;
+}
+
+[aria-disabled],
+[disabled] {
+  color: #c0bfbf;
 }
 
 .tab-panel {
@@ -154,6 +168,9 @@ button {
 
 .characterEditModule {
   background-color: #263D3A;
+    border-radius: 6px;
+    padding: 0px 4px;
+
 }
 
 .skillEditorTitle {
@@ -201,26 +218,42 @@ button {
   border-top: 1px solid #ddd;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
-  }
-
-  .tab-button {
-    color: #ffffff;
+input {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.2em 0.6em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #0f0f0f;
     background-color: #0f0f0f98;
-  }
-
-  .tab-button:active {
-    background-color: #0f0f0f69;
-  }
-
-  .infoBanner {
-    background-color: #333;
-    color: white;
-  }
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  color: #ffffff;
 }
+
+select {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  /* padding: 0.2em 0.6em; */
+  /* font-size: 1em; */
+  /* font-weight: 500; */
+  /* font-family: inherit; */
+  /* color: #0f0f0f; */
+  background-color: #0a9dff98;
+  /* transition: border-color 0.25s; */
+  /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); */
+  /* cursor: pointer; */
+  color: #af0000;
+}
+
+select>option {
+    background-color: #00ff0d;
+}
+
+
+
 
 
 /* jsoneditor dark theme */
