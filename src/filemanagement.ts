@@ -17,7 +17,7 @@ function initFileManagement() {
   overwriteFileBtn = document.querySelector("#OverwriteFile");
 
   openFileBtn?.addEventListener("click", async () => {
-    switchTab("SaveFile")
+    if (await switchTab("SaveFile") == false) return;
     if (workingFileCurrent != null && saveNeeded) {
       if (!await confirm("Clicking OK will DISCARD the changes made to the file you're currently editing.\nSave it before opening another one if needed.")) {
         return;

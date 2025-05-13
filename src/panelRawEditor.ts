@@ -5,6 +5,7 @@ import { getMappingJsonFromJson, jsonMapping } from './mappingjson/mappingjson';
 
 
 let editor: JSONEditor | null;
+export let jsonChangedSinceInit = false;
 
 export function initRawJsonEditor() {
 
@@ -16,6 +17,7 @@ export function initRawJsonEditor() {
             console.log("Commited raw json changes")
             const jsonDataMaybe =editor?.get();
             if (workingFileCurrent != null && jsonDataMaybe != null) {
+                jsonChangedSinceInit=false;
                 triggerSaveNeeded();
 
                 getMappingJsonFromJson(jsonDataMaybe)
@@ -40,8 +42,14 @@ function updateRawJsonEditor(startJsonObject: any) {
     const container = document.querySelector('.RawJsonEditor') as HTMLElement;
     if (editor != null) editor.destroy();
 
+
+    jsonChangedSinceInit = false;
+
     editor = new JSONEditor(container, {
         mode: 'tree', // You can also use 'view', 'form', 'text', etc.
+        onChange: () => {
+                jsonChangedSinceInit=true;
+        }
     });
     editor.set(startJsonObject); // Set the initial JSON data
 }
