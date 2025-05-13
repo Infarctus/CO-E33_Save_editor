@@ -1,4 +1,4 @@
-import { workingFileCurrent } from "./filemanagement";
+import { triggerSaveNeeded, workingFileCurrent } from "./filemanagement";
 import { CharacterValue, KeyCharacters } from "./mappingjson/CharactersCollection_0Mapping";
 import { IntTag, DoubleTag, StringTag, getValueFromTag, IntSingleton } from "./mappingjson/GeneralMappings";
 import { jsonMapping } from "./mappingjson/mappingjson";
@@ -158,6 +158,7 @@ interface CharacterDataEditable {
         "Current Level",
         character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0,
         (newValue) => {
+          triggerSaveNeeded();
           jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue);
           console.log(`Character ${character.key.Name} CurrentLevel updated to ${newValue}`);
         }
@@ -181,6 +182,7 @@ interface CharacterDataEditable {
         "Available Points",
         character.value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0,
         (newValue) => {
+          triggerSaveNeeded()
           jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0.Int = Number(newValue);
           console.log(`Character ${character.key.Name} AvailableActionPoints updated to ${newValue}`);
         }
@@ -195,6 +197,7 @@ interface CharacterDataEditable {
           ECharacterAttributeEnum[currpointlabel],
           points.value,
           (newValue) => {
+            triggerSaveNeeded()
             jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map[Number(index)].value.Int = Number(newValue);
             console.log(`Character ${character.key.Name} Attribute ${index} updated to ${newValue}`);
           }
@@ -209,6 +212,7 @@ interface CharacterDataEditable {
         character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name,
         allowedSkills,
         (newList) => {
+          triggerSaveNeeded()
           jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList;
           console.log(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join(", ")}`);
           // Optionally update equipped skills options if needed
@@ -225,6 +229,7 @@ interface CharacterDataEditable {
         character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0,
         allowedCustomizationsFace,
         (newValue) => {
+          triggerSaveNeeded()
           jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name = newValue;
           console.log(`Character ${character.key.Name} Face Customization updated to ${newValue}`);
         }
@@ -237,6 +242,7 @@ interface CharacterDataEditable {
         character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0,
         allowedCustomizationsFace,
         (newValue) => {
+          triggerSaveNeeded()
           jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0.Name = newValue;
           console.log(`Character ${character.key.Name} Skin Customization updated to ${newValue}`);
         }
