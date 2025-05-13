@@ -1,95 +1,98 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/src/main.ts" defer></script>
-  </head>
 
-  <body>
-    <div class="layout">
-      
-      <aside class="drawer">
-        <button id="OpenFile" class="tab-button ">Open File</button>
-        <button id="ExportFile" class="tab-button fileopen-dependant">Export File</button>
-        <button id="OverwriteFile" class="tab-button fileopen-dependant">Overwrite File</button>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tauri App</title>
+  <script type="module" src="/src/main.ts" defer></script>
+</head>
 
-        <div class="spacer"></div>
+<body>
+  <div class="layout">
 
-        <ul class="nav-list">
-          <li data-tab="Characters" class="nav-item fileopen-dependant">
-            <img src="src-tauri/icons/characters.svg" alt="Characters" class="nav-icon" />
-            <span>Characters</span>
-          </li>
-          <li data-tab="Inventory" class="nav-item fileopen-dependant hidden">
-            <img src="/src/icons/inventory.svg" alt="Inventory" class="nav-icon"  />
-            <span>Inventory</span>
-          </li>
+    <aside class="drawer">
+      <button id="OpenFile" class="tab-button ">Open File</button>
+      <button id="ExportFile" class="tab-button fileopen-dependant">Export File</button>
+      <button id="OverwriteFile" class="tab-button fileopen-dependant">Overwrite File</button>
+
+      <div class="spacer"></div>
+
+      <ul class="nav-list">
+        <li data-tab="Characters" class="nav-item fileopen-dependant">
+          <img src="src-tauri/icons/btnCharacters.svg" alt="Characters" class="nav-icon" />
+          <span>Characters</span>
+        </li>
+        <li data-tab="Inventory" class="nav-item fileopen-dependant hidden">
+          <img src="/src/icons/inventory.svg" alt="Inventory" class="nav-icon" />
+          <span>Inventory</span>
+        </li>
         </li>
         <li data-tab="RawJson" class="nav-item fileopen-dependant">
-          <img src="/src/icons/backups.svg" alt="Raw json" class="nav-icon" />
+          <img src="src-tauri/icons/btnRawEditor.svg" alt="Raw json" class="nav-icon" />
           <span>Raw json</span>
         </li>
 
-          <li data-tab="Backups" class="nav-item hidden">
-            <img src="/src/icons/backups.svg" alt="Backups" class="nav-icon" />
-            <span>Backups</span>
-          </li>
-          <li data-tab="Debug" class="nav-item">
-            <img src="/src/icons/backups.svg" alt="Debug" class="nav-icon" />
-            <span>Debug</span>
-          </li>
-        </ul>
+        <li data-tab="Backups" class="nav-item hidden">
+          <img src="/src/icons/backups.svg" alt="Backups" class="nav-icon" />
+          <span>Backups</span>
+        </li>
+        <li data-tab="Debug" class="nav-item">
+          <img src="src-tauri/icons/btnDebug.svg" alt="Debug" class="nav-icon" />
+          <span>Debug</span>
+        </li>
+      </ul>
 
-      </aside>
+    </aside>
 
-      <main class="content">
-        <div id="SaveFilePanel">
-          <p id="greet-msg">Welcome ! Use the <code style="background-color: green;">Open File</code> button to get started</p>
-        </div>
+    <main class="content">
+      <div id="SaveFilePanel">
+        <p id="greet-msg">Welcome ! Use the <code style="background-color: green;">Open File</code> button to get
+          started</p>
+      </div>
 
-        <div id="CharactersPanel" class="tab-panel" style="display: none;">
-          <h2>Characters Tab</h2>
-          <p>Content for Characters.</p>
-        </div>
+      <div id="CharactersPanel" class="tab-panel" style="display: none;">
+        <h2>Characters Tab</h2>
+        <p>Content for Characters.</p>
+      </div>
 
-        <div id="InventoryPanel" class="tab-panel" style="display: none;">
-          <h2>Inventory Tab</h2>
-          <p>Content for Inventory.</p>
-        </div>
+      <div id="InventoryPanel" class="tab-panel" style="display: none;">
+        <h2>Inventory Tab</h2>
+        <p>Content for Inventory.</p>
+      </div>
 
-        <div id="BackupsPanel" class="tab-panel" style="display: none;">
-          <h2>Backups Tab</h2>
-          <p>Content for Backups.</p>
-        </div>
-        <div id="RawJsonPanel" class="tab-panel" style="display: none;">
-          <div class="header">
-            <h2>Raw json</h2>
-            <button id="CommitRawJsonChanges">Commit changes</button>
+      <div id="BackupsPanel" class="tab-panel" style="display: none;">
+        <h2>Backups Tab</h2>
+        <p>Content for Backups.</p>
+      </div>
+      <div id="RawJsonPanel" class="tab-panel" style="display: none;">
+        <div class="header">
+          <h2>Raw json</h2>
+          <button id="CommitRawJsonChanges">Commit changes</button>
         </div>
         <p>Careful. You might break things.</p>
         <div class="RawJsonEditor"></div>
+      </div>
+
+      <div id="DebugPanel" class="tab-panel" style="display: none;">
+        <h2>Debugging logs and stuff</h2>
+        <div style="overflow: auto;">
+          <ul class="log-list" id="logList">
+
+          </ul>
         </div>
 
-        <div id="DebugPanel" class="tab-panel" style="display: none;">
-          <h2>Debugging logs and stuff</h2>
-          <div style="overflow: auto;">
-            <ul class="log-list" id="logList">
-              
-            </ul>
-          </div>
-          
-        </div>
+      </div>
 
-      </main>
-     
-    </div>
+    </main>
 
-
-    <div class="infoBanner" id="infoBanner">
-      Welcome. Use the Open File button to get started.  
   </div>
-  </body>
+
+
+  <div class="infoBanner" id="infoBanner">
+    Welcome. Use the Open File button to get started.
+  </div>
+</body>
+
 </html>
