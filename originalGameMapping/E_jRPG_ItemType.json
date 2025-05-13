@@ -1,0 +1,86 @@
+[
+  {
+    "Type": "UserDefinedEnum",
+    "Name": "E_jRPG_ItemType",
+    "Class": "UScriptClass'UserDefinedEnum'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DisplayNameMap": [
+        {
+          "Key": "NewEnumerator0",
+          "Value": {
+            "CultureInvariantString": "Weapon"
+          }
+        },
+        {
+          "Key": "NewEnumerator6",
+          "Value": {
+            "CultureInvariantString": "N/A"
+          }
+        },
+        {
+          "Key": "NewEnumerator7",
+          "Value": {
+            "CultureInvariantString": "Consumable"
+          }
+        },
+        {
+          "Key": "NewEnumerator10",
+          "Value": {
+            "CultureInvariantString": "Pictos"
+          }
+        },
+        {
+          "Key": "NewEnumerator11",
+          "Value": {
+            "CultureInvariantString": "Key"
+          }
+        },
+        {
+          "Key": "NewEnumerator12",
+          "Value": {
+            "CultureInvariantString": "Inventory"
+          }
+        },
+        {
+          "Key": "NewEnumerator14",
+          "Value": {
+            "CultureInvariantString": "Shard"
+          }
+        },
+        {
+          "Key": "NewEnumerator15",
+          "Value": {
+            "CultureInvariantString": "Gold"
+          }
+        },
+        {
+          "Key": "NewEnumerator16",
+          "Value": {
+            "CultureInvariantString": "CharacterCustomization"
+          }
+        },
+        {
+          "Key": "NewEnumerator17",
+          "Value": {
+            "CultureInvariantString": "SkillUnlocker"
+          }
+        }
+      ]
+    },
+    "Names": {
+      "E_jRPG_ItemType::NewEnumerator6": 0,
+      "E_jRPG_ItemType::NewEnumerator0": 1,
+      "E_jRPG_ItemType::NewEnumerator10": 2,
+      "E_jRPG_ItemType::NewEnumerator11": 3,
+      "E_jRPG_ItemType::NewEnumerator12": 4,
+      "E_jRPG_ItemType::NewEnumerator7": 5,
+      "E_jRPG_ItemType::NewEnumerator14": 6,
+      "E_jRPG_ItemType::NewEnumerator15": 7,
+      "E_jRPG_ItemType::NewEnumerator16": 8,
+      "E_jRPG_ItemType::NewEnumerator17": 9,
+      "E_jRPG_ItemType::E_jRPG_MAX": 10
+    },
+    "CppForm": "Namespaced"
+  }
+]
