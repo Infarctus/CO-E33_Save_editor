@@ -170,9 +170,22 @@ interface CharacterDataEditable {
     attribContainer.classList.add("characterEditModule")
     
     attribContainer.style.marginTop = "1rem";
+
+    const headerDiv = document.createElement("div")
+    headerDiv.classList.add("header")
     const attribTitle = document.createElement("h4");
-    attribTitle.textContent = "Attribute Points (max of total is 3*level)";
-    attribContainer.appendChild(attribTitle);
+    attribTitle.textContent = "Attribute Points";
+
+    headerDiv.appendChild(attribTitle)
+
+    const attribRemark =  document.createElement("p")
+    attribRemark.textContent = "(max of total is 3*level)"
+
+
+    headerDiv.appendChild(attribTitle);
+    headerDiv.appendChild(attribRemark)
+
+    attribContainer.appendChild(headerDiv)
 
 
   
