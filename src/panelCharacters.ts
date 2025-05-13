@@ -258,8 +258,10 @@ interface CharacterDataEditable {
   function createPropertyEditor(
     labelText: string,
     value: IntTag | DoubleTag | StringTag | IntSingleton,
-    onChange: (newValue: number | string) => void
+    onChange: (newValue: number | string) => void,
+    positiveOnly: boolean = true
   ): HTMLElement {
+
     const container = document.createElement("div");
     container.classList.add("characterEditModule")
 
@@ -273,6 +275,7 @@ interface CharacterDataEditable {
   
     const input = document.createElement("input");
     input.type = ('Name' in value) ? "text" : "number";
+    if (positiveOnly) input.min = "0"
     input.value = getValueFromTag(value);
     input.style.flex = "1";
     input.addEventListener("change", (event) => {
