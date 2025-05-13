@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "save-editor",
+  "productName": "co-e33-save-editor",
   "version": "0.1.0",
-  "identifier": "com.save-editor.app",
+  "identifier": "com.co-e33-save-editor.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -10,10 +10,9 @@
     "frontendDist": "../dist"
   },
   "app": {
-    "withGlobalTauri": true,
     "windows": [
       {
-        "title": "save-editor",
+        "title": "co-e33-save-editor",
         "width": 800,
         "height": 600
       }
@@ -23,7 +22,6 @@
     }
   },
   "bundle": {
-    "externalBin": ["assets/uesave"],
     "active": true,
     "targets": "all",
     "icon": [
@@ -33,10 +31,5 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
-  },
-  "plugins": {
-    "shell":{
-      "open": true
-    }
   }
 }
