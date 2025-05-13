@@ -1,7 +1,7 @@
 import { switchTab, updateNavStates } from "./navigation.ts";
 import { handleJsonAndConvertToSaveFile, handleSaveFileAndExtractToJson, OpenProcessResult, SaveProcessResult } from "./SaveHandler.ts";
 import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./mappingjson/mappingjson.ts";
-import { save } from "@tauri-apps/plugin-dialog";
+import { save,confirm } from "@tauri-apps/plugin-dialog";
 import { renderCharacterPanel } from "./panelCharacters.ts";
 
 let workingFileCurrent: OpenProcessResult | null;
@@ -19,7 +19,7 @@ function initFileManagement() {
   openFileBtn?.addEventListener("click", async () => {
     switchTab("SaveFile")
     if (workingFileCurrent != null && saveNeeded) {
-      if (!confirm("Clicking OK will DISCARD the changes made to the file you're currently editing.\nSave it before opening another one if needed.")) {
+      if (!await confirm("Clicking OK will DISCARD the changes made to the file you're currently editing.\nSave it before opening another one if needed.")) {
         return;
       }
       saveNeeded = false;
