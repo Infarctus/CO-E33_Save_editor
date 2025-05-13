@@ -30,9 +30,6 @@
           "sidecar": true
         }
       ]
-    },
-    "fs:default",
-    "shell:default",
-    "dialog:default"
+    }
   ]
 }
