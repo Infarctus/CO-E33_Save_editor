@@ -3,7 +3,7 @@
 import { type FC, useState, useEffect } from "react"
 import type { OpenProcessResult } from "../types/fileTypes"
 import { getECharacterAttributeEnumValue } from "../types/enums"
-import type { BeginMapping, StringTag } from "../types/jsonSaveMapping"
+import type { BeginMapping, StringTag,CharactersInCollection0_Mapping } from "../types/jsonSaveMapping"
 import { getValueFromTag } from "../utils/jsonSaveMapping"
 import { getPossibleSkinsFor, getUnlockedSkinsFor, getPossibleFacesFor,getUnlockedFacesFor } from "../utils/gameMappingProvider"
 
@@ -72,7 +72,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
 }
 
 interface CharacterSectionProps {
-  character: any
+  character: CharactersInCollection0_Mapping;
   characterIndex: number
   jsonMapping: BeginMapping
   triggerSaveNeeded: () => void
@@ -113,6 +113,18 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             console.log(`Character ${character.key.Name} CurrentLevel updated to ${newValue}`)
           }}
         />
+        <PropertyEditor
+          labelText="Luminae given"
+          value={character.value.Struct.Struct.LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0}
+          onChange={(newValue) => {
+            triggerSaveNeeded()
+            jsonMapping.root.properties.CharactersCollection_0.Map[
+              characterIndex
+            ].value.Struct.Struct.LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0.Int = Number(newValue)
+            console.log(`Character ${character.key.Name} CurrentLevel updated to ${newValue}`)
+          }}
+        />
+
 
         {/* Attribute Points */}
         <div className="characterEditModule" style={{ marginTop: "1rem" }}>
@@ -145,7 +157,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
         </div>
 
         {/* Skills */}
-        <SkillsEditor
+        {/*<SkillsEditor
           titleText="Skills"
           currentList={
             character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
@@ -159,6 +171,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             console.log(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join(", ")}`)
           }}
         />
+        */}
 
 
         {/* Pictos */}
