@@ -5,7 +5,7 @@ import type { OpenProcessResult } from "../types/fileTypes"
 import { getECharacterAttributeEnumValue } from "../types/enums"
 import type { BeginMapping, StringTag } from "../types/jsonSaveMapping"
 import { getValueFromTag } from "../utils/jsonSaveMapping"
-import { getPossibleSkinsFor, getUnlockedSkinsFor } from "../utils/gameMappingProvider"
+import { getPossibleSkinsFor, getUnlockedSkinsFor, getPossibleFacesFor,getUnlockedFacesFor } from "../utils/gameMappingProvider"
 
 interface CharactersPanelProps {
   workingFileCurrent: OpenProcessResult | null
@@ -62,7 +62,8 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
             currentSkins={getUnlockedSkinsFor(character.key.Name, jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name))
             }
             allowedSkins={getPossibleSkinsFor(character.key.Name)}
-            allowedCustomizationsFace={allowedCustomizationsFace}
+            allowedCustomizationsFace={getPossibleFacesFor(character.key.Name)}
+            currentFaces={getUnlockedFacesFor(character.key.Name, jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name))}
           />
         ))}
       </div>
@@ -78,7 +79,8 @@ interface CharacterSectionProps {
   allowedSkills: string[]
   currentSkins: string[]
   allowedSkins: [string, string][]
-  allowedCustomizationsFace: string[]
+  currentFaces: string[]
+  allowedCustomizationsFace: [string, string][]
 }
 
 const CharacterSection: FC<CharacterSectionProps> = ({
@@ -90,6 +92,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   currentSkins,
   allowedSkins,
   allowedCustomizationsFace,
+  currentFaces,
 }) => {
   return (
     <section className="characterBox">
@@ -177,25 +180,34 @@ const CharacterSection: FC<CharacterSectionProps> = ({
 
 
         {/* Character Customization (face) */}
-        {/* <SkillsEditor
-          titleText="Character Customization (face)"
+        <CharacCustoEditor
+          titleText="Hair Customization"
           currentList={
-            character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
+            currentFaces
           }
-          availableOptions={allowedSkills}
-          onUpdate={(newList) => {
+          fullList={allowedCustomizationsFace}
+          onUpdateSkin={(newList) => {
             triggerSaveNeeded()
-            jsonMapping.root.properties.CharactersCollection_0.Map[
-              characterIndex
-            ].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList
+            const allowedFacesRawNames = allowedCustomizationsFace.map((el)=> el[0]);
+            allowedFacesRawNames.forEach((el) => {
+              if(!newList.includes(el)){
+                jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map
+                .filter((el2) => el2.key.Name != el)
+              }
+              else if (jsonMapping.root.properties.InventoryItems_0.Map.find((el2) => el2.key.Name == el) == null){
+                console.log("adding "+el)
+                jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
+              }
+            })
             console.log(`Character ${character.key.Name} faces updated to ${newList.join(", ")}`)
           }}
-        /> */}
+        />
+
 
 
         {/* Character Customization (body) */}
         <CharacCustoEditor
-          titleText="Character Customization (body)"
+          titleText="Body Customization"
           currentList={
             currentSkins
           }
