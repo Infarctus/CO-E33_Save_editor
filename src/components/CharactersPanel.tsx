@@ -98,11 +98,10 @@ const CharacterSection: FC<CharacterSectionProps> = ({
     <section className="characterBox">
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <img
-          src={`charactersicon/T_HUD_${character.key.Name}_512x512.png`}
-          alt={character.value.Struct.Struct.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0.Name}
+          src={`charactersicon/T_HUD_${character.value.Struct.Struct.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0.Name}_512x512.png`}
           style={{ width: "40%", height: "auto" }}
         />
-        <h3 style={{ margin: 0 }}>{character.key.Name}</h3>
+        <h3 style={{ margin: 0 }}>{character.value.Struct.Struct.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0.Name}</h3>
       </div>
 
       <div style={{ marginTop: "1rem" }}>
