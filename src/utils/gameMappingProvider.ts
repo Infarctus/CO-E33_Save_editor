@@ -7,7 +7,7 @@ import { CustomizationMapping } from "../types/jsonSkinsCustomizationMapping";
 
 let skinsJson : CustomizationMapping ;
 
-initGameMappings()
+//initGameMappings()
 export async function initGameMappings() {
     try {
         const resourceSkinsDirPath = await resolveResource("resources/customjsonmappings/skins.json");
