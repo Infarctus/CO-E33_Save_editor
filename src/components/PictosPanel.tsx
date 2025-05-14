@@ -246,10 +246,10 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
                     checked={picto.found}
                     onChange={(e) =>
                     {
+                      if (!e.target.checked && picto.mastered) {
+                        picto.mastered = false;
+                      }
                       handlePictoCheckUpdate(picto.name, e.target.checked, picto.mastered)
-                      if (picto.mastered) {
-                        
-                        picto.mastered = false;}
                     }
                     }
                   />
@@ -262,11 +262,14 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
                 <input
                   type="checkbox"
                   checked={picto.mastered}
+                  disabled={!picto.found}
                   onChange={(e) =>
                     handlePictoCheckUpdate(picto.name, picto.found, e.target.checked)
                   }
                 />
-                  <div className="slider round"></div>
+                  <div className="slider round" aria-disabled={!picto.found ? true: undefined}  
+                                  //  aria-disabled={!picto.found}
+></div>
                 </label>
               </td>
             </tr>

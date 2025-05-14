@@ -225,6 +225,10 @@ input {
   cursor: pointer;
 }
 
+.slider[aria-disabled]:hover {
+  cursor: not-allowed;
+}
+
 select {
   border-radius: 8px;
   border: 1px solid transparent;
