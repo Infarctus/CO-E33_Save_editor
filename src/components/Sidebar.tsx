@@ -67,7 +67,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("RawJson")}
         >
-          <img src="/iconsidebar/btnRawEditor.svg" alt="Raw json" className="nav-icon" />
+          <img src="/iconsidebar/btnRawEditor.png" alt="Raw json" className="nav-icon" />
           <span>Raw json</span>
         </li>
 
