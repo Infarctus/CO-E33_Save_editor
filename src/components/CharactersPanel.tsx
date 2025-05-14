@@ -148,7 +148,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
           }
           availableOptions={allowedSkills}
-          onUpdate={(newList) => {
+          onUpdateSkill={(newList) => {
             triggerSaveNeeded()
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
@@ -200,15 +200,25 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             currentSkins
           }
           fullList={allowedSkins}
-          onUpdate={(newList) => {
+          onUpdateSkin={(newList) => {
             triggerSaveNeeded()
             const allowedSkinsRawNames = allowedSkins.map((el)=> el[0]);
-            jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map
-            .filter((el) => !(allowedSkinsRawNames.includes(el.key.Name)))
-            console.log("We removed some elements from aa, newlit size is " + newList.length)
-            newList.forEach((el) => {
-              console.log("adding "+el)
-              jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
+            //jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map
+            //.filter((el) => !(allowedSkinsRawNames.includes(el.key.Name)))
+            //console.log("We removed some elements from aa, newlist size is " + newList.length)
+            //newList.forEach((el) => {
+            //  console.log("adding "+el)
+            //  jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
+            //})
+            allowedSkinsRawNames.forEach((el) => {
+              if(!newList.includes(el)){
+                jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map
+                .filter((el2) => el2.key.Name != el)
+              }
+              else if (jsonMapping.root.properties.InventoryItems_0.Map.find((el2) => el2.key.Name == el) == null){
+                console.log("adding "+el)
+                jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
+              }
             })
             console.log(`Character ${character.key.Name} bodies updated to ${newList.join(", ")}`)
           }}
@@ -283,10 +293,10 @@ interface SkillsEditorProps {
   titleText: string
   currentList: string[]
   availableOptions: string[]
-  onUpdate: (newList: string[]) => void
+  onUpdateSkill: (newList: string[]) => void
 }
 
-const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, availableOptions, onUpdate }) => {
+const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, availableOptions, onUpdateSkill }) => {
   const [isVisible, setIsVisible] = useState(false)
   const [searchText, setSearchText] = useState("")
   const [selectedSkills, setSelectedSkills] = useState<string[]>(currentList)
@@ -311,14 +321,14 @@ const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, available
     const newSelectedSkills = [...selectedSkills, skill]
     setSelectedSkills(newSelectedSkills)
     setAvailableSkills(availableSkills.filter((s) => s !== skill))
-    onUpdate(newSelectedSkills)
+    onUpdateSkill(newSelectedSkills)
   }
 
   const handleRemoveSkill = (skill: string) => {
     const newSelectedSkills = selectedSkills.filter((s) => s !== skill)
     setSelectedSkills(newSelectedSkills)
     setAvailableSkills([...availableSkills, skill].sort())
-    onUpdate(newSelectedSkills)
+    onUpdateSkill(newSelectedSkills)
   }
 
   return (
@@ -378,10 +388,10 @@ interface CharacCustoEditorProps {
   titleText: string
   currentList: string[]
   fullList: [string, string][]
-  onUpdate: (newList: string[]) => void
+  onUpdateSkin: (newList: string[]) => void
 }
 
-const CharacCustoEditor: FC<CharacCustoEditorProps> = ({ titleText, currentList, fullList, onUpdate }) => {
+const CharacCustoEditor: FC<CharacCustoEditorProps> = ({ titleText, currentList, fullList, onUpdateSkin }) => {
   const [isVisible, setIsVisible] = useState(false)
   const [searchText, setSearchText] = useState("")
   const [selectedSkins, setSelectedSkins] = useState<[string, string][]>(
@@ -398,15 +408,15 @@ const CharacCustoEditor: FC<CharacCustoEditorProps> = ({ titleText, currentList,
 // }, [currentList, fullList]);
 useEffect(() => {
     console.log("Updated selectedSkins length: " + selectedSkins.length);
-    onUpdate(selectedSkins.map((el) => el[0]));
+    onUpdateSkin(selectedSkins.map((el) => el[0]));
 }, [selectedSkins]);
 
 
-  const filteredAvailableSkills = availableSkins.filter((skill) =>
+  const filteredAvailableSkins = availableSkins.filter((skill) =>
     skill[1].toLowerCase().includes(searchText.toLowerCase()),
   )
 
-  const filteredSelectedSkills = selectedSkins.filter((skill) =>
+  const filteredSelectedSkins = selectedSkins.filter((skill) =>
     skill[1].toLowerCase().includes(searchText.toLowerCase()),
   )
 
@@ -414,9 +424,11 @@ const handleAddSkin = (skin: string) => {
     console.log("adding new skill:" + skin + " (" + fullList.find((el) => el[0] == skin) + ") to list of unlocked size" + selectedSkins.length);
     
     selectedSkins.push(fullList.find((el) => el[0] == skin)!)
+    setSelectedSkins([...selectedSkins])
         console.log("size after after is" + selectedSkins.length); // Log the new size
 
     setAvailableSkins(availableSkins.filter((s) => s[0] != skin));
+    
 };
 
   const handleRemoveSkin = (skin: string) => {
@@ -460,14 +472,14 @@ const handleAddSkin = (skin: string) => {
           <tbody>
             <tr>
               <td className="skillsEditorSkillsContainer">
-                {filteredSelectedSkills.map((skill) => (
+                {filteredSelectedSkins.map((skill) => (
                   <div key={skill[0]} className="skillEditorItem" onClick={() => handleRemoveSkin(skill[0])}>
                     {skill[1]}
                   </div>
                 ))}
               </td>
               <td className="skillsEditorSkillsContainer">
-                {filteredAvailableSkills.map((skill) => (
+                {filteredAvailableSkins.map((skill) => (
                   <div key={skill[0]} className="skillEditorItem" onClick={() => handleAddSkin(skill[0])}>
                     {skill[1]}
                   </div>
