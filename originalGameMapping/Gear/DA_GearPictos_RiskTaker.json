@@ -1,0 +1,22 @@
+[
+  {
+    "Type": "BP_DataAsset_Item_Pictos_C",
+    "Name": "DA_GearPictos_RiskTaker",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.BP_DataAsset_Item_Pictos_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Item_Pictos_C'Default__BP_DataAsset_Item_Pictos_C'",
+      "ObjectPath": "/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PictosTexture": {
+        "AssetPathName": "/Game/UI/Resources/Textures/GameMenu/Pictos/Arm/T_GM_PictosIco.T_GM_PictosIco",
+        "SubPathString": ""
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Item_Pictos_C'",
+        "ObjectPath": "/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.0"
+      }
+    }
+  }
+]

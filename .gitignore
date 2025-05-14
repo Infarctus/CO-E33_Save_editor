@@ -24,4 +24,4 @@ dist-ssr
 *.sln
 *.sw?
 
-originalGameMapping/Gear
+# originalGameMapping/Gear is considered unchanged : git update-index --skip-worktree

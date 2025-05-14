@@ -1,0 +1,29 @@
+[
+  {
+    "Type": "BP_DataAsset_Item_Pictos_C",
+    "Name": "DA_GearPictos_AP+1TurnStart",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.BP_DataAsset_Item_Pictos_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Item_Pictos_C'Default__BP_DataAsset_Item_Pictos_C'",
+      "ObjectPath": "/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "PassiveEffects": [
+        {
+          "Row_2_8FD54A69441F52BAEE473DB8C91D1621": {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_PassiveEffects'",
+              "ObjectPath": "/Game/Gameplay/Lumina/DT_PassiveEffects.0"
+            },
+            "RowName": "AP+1TurnStart"
+          }
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Item_Pictos_C'",
+        "ObjectPath": "/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.0"
+      }
+    }
+  }
+]
