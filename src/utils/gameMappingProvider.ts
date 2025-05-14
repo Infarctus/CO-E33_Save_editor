@@ -3,9 +3,10 @@
 
 import { readDir, readTextFile } from "@tauri-apps/plugin-fs"
 import { resolveResource } from '@tauri-apps/api/path';
-import { CustomizationMapping } from "../types/jsonSkinsCustomizationMapping";
+import { CharCustomizationMapping,CustomPictosMapping } from "../types/jsonCustomMapping";
 
-let skinsJson : CustomizationMapping ;
+let skinsJson : CharCustomizationMapping ;
+let pictosJson : CustomPictosMapping;
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -16,7 +17,12 @@ export async function initGameMappings() {
         console.log("Skins keys is " + Object.keys(skinsJson))
         if (!("Faces" in skinsJson) || !("Skins" in skinsJson))
             throw "Skins/Faces Json (characterCuztomization) not as expected"
-
+        
+        const resourcePictosDirPath = await resolveResource("resources/customjsonmappings/pictos.json");
+        const stringPictosJson = await readTextFile(resourcePictosDirPath)
+        pictosJson = JSON.parse(stringPictosJson)
+        if( !("Pictos" in pictosJson))
+            throw "Pictos Json not as expected"
     } catch (e) {
         console.log(e)
         alert("Failed to get some mapping files. Stome stuff will not work !\nYou should re-download this mod.")
@@ -72,5 +78,14 @@ export function getUnlockedFacesFor(characterName: string, inventory: string[]) 
         return unlockedFaces
     } else {
         return ["nothing"]
+    }
+}
+
+export function getPossiblePictos() : [string, string][]{
+    console.debug("getting pictos")
+    if (pictosJson.Pictos) {
+        return Object.entries(pictosJson.Pictos)
+    } else {
+        return [["nothing", "nothing"]]
     }
 }
