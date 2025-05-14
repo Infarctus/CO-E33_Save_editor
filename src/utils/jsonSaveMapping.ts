@@ -1,5 +1,5 @@
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs"
-import type { BeginMapping, IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag } from "../types/jsonMapping"
+import type { BeginMapping, IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag } from "../types/jsonSaveMapping"
 
 /**
  * Loads JSON mapping from a file

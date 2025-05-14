@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { confirm } from "@tauri-apps/plugin-dialog"
 import Sidebar from "./components/Sidebar"
 import SaveFilePanel from "./components/SaveFilePanel"
@@ -11,11 +11,12 @@ import RawJsonPanel from "./components/RawJsonPanel"
 import DebugPanel from "./components/DebugPanel"
 import InfoBanner from "./components/InfoBanner"
 import { handleSaveFileAndExtractToJson, handleJsonAndConvertToSaveFile } from "./utils/fileManagement"
-import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./utils/jsonMapping"
+import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./utils/jsonSaveMapping"
 import { useConsoleOverride } from "./utils/logging"
 import type { OpenProcessResult } from "./types/fileTypes"
-import type { BeginMapping } from "./types/jsonMapping"
+import type { BeginMapping } from "./types/jsonSaveMapping"
 import "./styles.css"
+import { initGameMappings } from "./utils/gameMappingProvider"
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>("SaveFile")
@@ -26,8 +27,16 @@ function App() {
   const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
 
+  
   // Override console methods to capture logs
   useConsoleOverride(setLogs, setInfoMessage)
+
+
+    // Use useEffect to call initGameMappings once when the component mounts
+  useEffect(() => {
+    initGameMappings();
+  }, []); // Empty dependency array ensures this runs only once
+
 
   const switchTab = async (tabName: string): Promise<boolean> => {
     // Check if we're leaving the RawJson tab with unsaved changes
