@@ -240,7 +240,9 @@ select > option {
   background-color: #0f0f0fc9;
 }
 
-
+.oveflow-auto {
+  overflow: auto;
+}
 
 /* cooler Checkbox #22 https://getcssscan.com/css-checkboxes-examples */
 .switch {
