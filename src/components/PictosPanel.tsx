@@ -16,8 +16,8 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
   // Initial global pictos data that uses mapping data from getPossiblePictos and jsonMapping
   const allPictosMapping: [string, string][] = getPossiblePictos(); // each tuple: [name, friendlyName]
   // Build an inventory dictionary depending on save data, if available.
-  const inventoryDict: { [key: string]: number } = Object.fromEntries(
-    jsonMapping?.root.properties.InventoryItems_0.Map.map((el) => [el.key.Name, el.value.Int]) || []
+  const inventoryDict: { [key: string]: boolean } = Object.fromEntries(
+    jsonMapping?.root.properties.InventoryItems_0.Map.map((el) => [el.key.Name, el.value.Int === 1]) || []
   );
 
 
