@@ -17,6 +17,7 @@ import type { OpenProcessResult } from "./types/fileTypes"
 import type { BeginMapping } from "./types/jsonSaveMapping"
 import "./styles.css"
 import { initGameMappings } from "./utils/gameMappingProvider"
+import PictosPanel from "./components/PictosPanel"
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>("SaveFile")
@@ -196,6 +197,13 @@ function App() {
         {activeTab === "Characters" && (
           <CharactersPanel
             workingFileCurrent={workingFileCurrent}
+            jsonMapping={jsonMapping}
+            triggerSaveNeeded={triggerSaveNeeded}
+          />
+        )}
+
+        {activeTab === "Pictos" && (
+          <PictosPanel
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
           />

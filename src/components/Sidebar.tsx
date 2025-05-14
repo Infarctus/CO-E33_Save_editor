@@ -51,6 +51,17 @@ const Sidebar: FC<SidebarProps> = ({
           <span>Characters</span>
         </li>
 
+
+        <li
+          data-tab="Pictos"
+          className={`nav-item fileopen-dependant ${activeTab === "Pictos" ? "active" : ""}`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Pictos")}
+        >
+          <img src="/iconsidebar/btnPictos.svg" alt="Pictos" className="nav-icon" />
+          <span>Pictos</span>
+        </li>
+
         <li
           data-tab="Inventory"
           className={`nav-item fileopen-dependant hidden ${activeTab === "Inventory" ? "active" : ""}`}
