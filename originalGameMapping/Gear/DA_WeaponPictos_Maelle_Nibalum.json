@@ -1,0 +1,22 @@
+[
+  {
+    "Type": "BP_DataAsset_Weapon_C",
+    "Name": "DA_WeaponPictos_Maelle_Nibalum",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/Pictos/Weapons/BP_DataAsset_Weapon.BP_DataAsset_Weapon_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Weapon_C'Default__BP_DataAsset_Weapon_C'",
+      "ObjectPath": "/Game/Gameplay/Pictos/Weapons/BP_DataAsset_Weapon.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "WeaponSkin": {
+        "AssetPathName": "/Game/Characters/Weapons/BP_WeaponSkin_Maelle_Base.BP_WeaponSkin_Maelle_Base_C",
+        "SubPathString": ""
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Weapon_C'",
+        "ObjectPath": "/Game/Gameplay/Pictos/Weapons/BP_DataAsset_Weapon.0"
+      }
+    }
+  }
+]

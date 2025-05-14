@@ -1,0 +1,18 @@
+[
+  {
+    "Type": "BP_DataAsset_Item_Pictos_C",
+    "Name": "DA_GearPictos_LimonsolPictos",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.BP_DataAsset_Item_Pictos_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Item_Pictos_C'Default__BP_DataAsset_Item_Pictos_C'",
+      "ObjectPath": "/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Item_Pictos_C'",
+        "ObjectPath": "/Game/Gameplay/Inventory/BP_DataAsset_Item_Pictos.0"
+      }
+    }
+  }
+]
