@@ -80,14 +80,16 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   allowedCustomizationsFace,
   currentFaces,
 }) => {
+  let characterName = character.key.Name
+  if(character.key.Name == "Frey") characterName = "Gustave"
   return (
     <section className="characterBox">
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <img
-          src={`charactersicon/T_HUD_${character.value.Struct.Struct.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0.Name}_512x512.png`}
+          src={`charactersicon/T_HUD_${characterName}_512x512.png`}
           style={{ width: "40%", height: "auto" }}
         />
-        <h3 style={{ margin: 0 }}>{character.value.Struct.Struct.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0.Name}</h3>
+        <h3 style={{ margin: 0 }}>{characterName}</h3>
       </div>
 
       <div style={{ marginTop: "1rem" }}>
@@ -100,7 +102,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue)
-            console.log(`Character ${character.key.Name} CurrentLevel updated to ${newValue}`)
+            console.log(`Character ${characterName} CurrentLevel updated to ${newValue}`)
           }}
         />
         <PropertyEditor
@@ -111,7 +113,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0.Int = Number(newValue)
-            console.log(`Character ${character.key.Name} CurrentLevel updated to ${newValue}`)
+            console.log(`Character ${characterName} CurrentLevel updated to ${newValue}`)
           }}
         />
 
@@ -139,7 +141,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                   ].value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map[
                     Number(index)
                   ].value.Int = Number(newValue)
-                  console.log(`Character ${character.key.Name} Attribute ${index} updated to ${newValue}`)
+                  console.log(`Character ${characterName} Attribute ${index} updated to ${newValue}`)
                 }}
               />
             )
@@ -202,7 +204,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            console.log(`Character ${character.key.Name} faces updated to ${newList.join(", ")}`)
+            console.log(`Character ${characterName} faces updated to ${newList.join(", ")}`)
           }}
         />
 
@@ -235,7 +237,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            console.log(`Character ${character.key.Name} bodies updated to ${newList.join(", ")}`)
+            console.log(`Character ${characterName} bodies updated to ${newList.join(", ")}`)
           }}
         />
         {/* 
