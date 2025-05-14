@@ -24,7 +24,9 @@
     }
   },
   "bundle": {
-    "externalBin": ["assets/uesave"],
+    "externalBin": [
+      "assets/uesave"
+    ],
     "active": true,
     "targets": "all",
     "icon": [
@@ -34,6 +36,9 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": ["resources/**/*"]
+    "resources": [
+      "resources/**/*",
+      "uesave_LICENSE.txt"
+    ]
   }
 }
