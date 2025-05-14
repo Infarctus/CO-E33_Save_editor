@@ -3,7 +3,7 @@ import json
 
 output_dir = "./src-tauri/resources/customjsonmappings"
 os.makedirs(output_dir, exist_ok=True)
-def genpicto():
+def genpictomapping():
     # Path to the input JSON file
     intput_pictosdefs = "originalGameMapping/DT_PictosDefinitions.json"
     input_pictosnames = "originalGameMapping/ST_PassiveEffects.json"
@@ -35,9 +35,9 @@ def genpicto():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2)
 
-    print(f"Custom mappings written to {output_path}")
+    print("Picto mapping generated successfully.")
 
-def skinmapping():
+def genskinmapping():
     input_cc = "originalGameMapping/DT_CharacterCustomizationItems.json"
 
     output_path = os.path.join(output_dir, "skins.json")
@@ -69,7 +69,28 @@ def skinmapping():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
 
+    print("Skin mapping generated successfully.")
 
+def genmusicdiskmapping():
+    input_music = "originalGameMapping/DT_MusicRecords.json"
+    output_path = os.path.join(output_dir, "musicdisks.json")
 
-genpicto()
-skinmapping()
+    with open(input_music, "r", encoding="utf-8") as f:
+        musiclist = json.load(f)[0].get("Rows")
+
+    output_data = {
+        "MusicDisks": {}
+    }
+    for music in musiclist:
+        musicname = musiclist[music].get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
+        if musicname:
+            output_data["MusicDisks"][music] = musicname
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+    print("Music disk mapping generated successfully.")
+
+genpictomapping()
+genskinmapping()
+genmusicdiskmapping()
