@@ -6,3 +6,11 @@ export interface CharCustomizationMapping {
 export interface CustomPictosMapping {
   Pictos: any;
 }
+
+
+export interface PictoInfo {
+  name: string
+  friendlyName: string
+  found: boolean;
+  mastered: boolean
+}
