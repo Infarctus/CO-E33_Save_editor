@@ -101,9 +101,9 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
         placeholder="Search by name..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ marginBottom: "1em", padding: "0.5em", width: "100%" }}
+        style={{ padding: "0.5em", width: "100%" }}
       />
-      {displayedPictos.length != 0 && <sup>{displayedPictos.length} results</sup>}
+      {displayedPictos.length != 0 && <sup style={{ padding: "0.7em"}}>{displayedPictos.length} results</sup>}
       {/* Table */}
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
@@ -129,19 +129,28 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
           </tr>
         </thead>
         <tbody>
+
+
+
+
           {displayedPictos.map((picto) => (
             <tr key={picto.name}>
               <td style={{ padding: "0.5em", borderBottom: "1px solid #eee" }}>{picto.friendlyName}</td>
               <td style={{ padding: "0.5em", borderBottom: "1px solid #eee", textAlign: "center" }}>
-                <input
-                  type="checkbox"
-                  checked={picto.found}
-                  onChange={(e) =>
-                    handlePictoCheckUpdate(picto.name, e.target.checked, picto.mastered)
-                  }
-                />
+                <label className="switch">
+                  <input
+                    type="checkbox"
+                    checked={picto.found}
+                    onChange={(e) =>
+                      handlePictoCheckUpdate(picto.name, e.target.checked, picto.mastered)
+                    }
+                  />
+                  <div className="slider round"></div>
+                </label>
               </td>
               <td style={{ padding: "0.5em", borderBottom: "1px solid #eee", textAlign: "center" }}>
+                <label className="switch">
+
                 <input
                   type="checkbox"
                   checked={picto.mastered}
@@ -149,6 +158,8 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
                     handlePictoCheckUpdate(picto.name, picto.found, e.target.checked)
                   }
                 />
+                  <div className="slider round"></div>
+                </label>
               </td>
             </tr>
           ))}

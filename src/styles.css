@@ -223,6 +223,58 @@ select > option {
 
 
 
+/* cooler Checkbox #22 https://getcssscan.com/css-checkboxes-examples */
+.switch {
+  display: inline-block;
+  top: 5px;
+  height: 28px;
+  position: relative;
+  width: 48px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .2s;
+}
+
+.slider:before {
+  background-color: #0f0f0fd8;
+  bottom: 4px;
+  content: "";
+  height: 20px;
+  left: 4px;
+  position: absolute;
+  transition: .2s;
+  width: 20px;
+}
+
+input:checked+.slider {
+  background-color: #66bb6a;
+}
+
+input:checked+.slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
 /* jsoneditor dark theme */
 /* dark styling of the editor */
 div.jsoneditor,
