@@ -1,15 +1,29 @@
 :root {
+  --col-bg: #003032;
+  --col-1: #1a6460;
+  --col-2: #4b746e;
+  --col-4: #CFE0C3;
+  --col-interactive:  #0f0f0f98;
+
+  --col-border-1: #ddd;
+  --col-border-2:#8d8d8d;
+
+  --col-text-1: #f6f6f6;
+  --col-text-disabled: #c0bfbf;
+
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: #f6f6f6;
-  background-color: #003032;
+  color: var(--col-text-1);
+  background-color: var(--col-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+
 }
 
 .layout {
@@ -22,7 +36,7 @@
   top: 0;
   left: 0;
   width: 200px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--col-border-1);
   padding: 0.8rem;
   display: flex;
   flex-direction: column;
@@ -34,19 +48,19 @@
   margin-top: 3px;
   margin-bottom: 2px;
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--col-border-1);
 }
 
 .log-list {
   list-style: none;
   padding: 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--col-border-1);
 }
 
 .log-message {
   padding-left: 3px;
-  border-top: 1px solid #8d8d8d;
-  border-left: 1px solid #8d8d8d;
+  border-top: 1px solid var(--col-border-2);
+  border-left: 1px solid var(--col-border-2);
 }
 
 .log-warn {
@@ -76,7 +90,6 @@
   width: 24px;
   height: 24px;
   margin-right: 1rem;
-  fill: white;
 }
 
 .content {
@@ -99,8 +112,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  color: #ffffff;
-  background-color: #0f0f0f98;
+  color: var(--col-text-1);
+  background-color: var(--col-interactive);
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -112,12 +125,12 @@ button {
 
 .tab-button:active {
   border-color: #396cd8;
-  background-color: #e8e8e8;
+  background-color: #3b3a3a;
 }
 
 .nav-item:not([aria-disabled]):hover,
 .nav-item.active {
-  background-color: #143b3f;
+  background-color: var(--col-2);
 }
 
 [aria-disabled]:hover,
@@ -127,7 +140,7 @@ button {
 
 [aria-disabled],
 [disabled] {
-  color: #c0bfbf;
+  color: var(--col-text-disabled);
 }
 
 .tab-panel {
@@ -142,7 +155,7 @@ button {
 
 /* CHARACTERS BOX RELATED STUFF */
 .characterBox {
-  border: 1px solid #ccc;
+  border: 1px solid var(--col-border-1);
   padding: 1rem;
   min-width: 400px;
   max-width: 500px;
@@ -150,22 +163,23 @@ button {
 }
 
 .characterEditModule {
-  background-color: #143b3f;
+  background-color: var(--col-bg);
   border-radius: 6px;
   padding: 0px 4px;
 }
 
-.skillEditorTitle {
+ .skillEditorTitle {
   width: 50%;
   text-decoration: solid;
-  border: 2px solid #999;
+  border: 2px solid var(--col-border-2);
   text-align: center;
+  
 }
 
 .skillEditorItem {
-  border: 1px solid #999;
+  border-radius: 3px;
+  border: 1px solid var(--col-border-2);
   padding: 0.25rem 0.5rem;
-  border-end-start-radius: 4px;
   vertical-align: text-bottom;
   cursor: pointer;
 }
@@ -173,10 +187,12 @@ button {
 .skillsEditorSkillsContainer {
   width: 50%;
   vertical-align: top;
-}
+} 
+
 
 #CommitRawJsonChanges {
   margin-left: auto;
+  border: 1px solid var(--col-border-2)
 }
 
 .infoBanner {
@@ -186,14 +202,13 @@ button {
   right: 0;
   height: 30px;
   background-color: #333;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: left;
   font-size: 14px;
   z-index: 1000;
   margin-left: 5px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--col-border-1);
 }
 
 input {
@@ -203,8 +218,8 @@ input {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  color: #ffffff;
-  background-color: #0f0f0f98;
+  color: var(--col-text-1);
+  background-color: var(--col-1);
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -214,7 +229,7 @@ select {
   border-radius: 8px;
   border: 1px solid transparent;
   background-color: #0f0f0f98;
-  color: #ffffff;
+  color: var(--col-text-1);
 }
 
 select > option {
@@ -226,10 +241,10 @@ select > option {
 /* cooler Checkbox #22 https://getcssscan.com/css-checkboxes-examples */
 .switch {
   display: inline-block;
-  top: 5px;
-  height: 28px;
+  top: 6px;
+  height: 30px;
   position: relative;
-  width: 48px;
+  width: 50px;
 }
 
 .switch input {
@@ -237,7 +252,7 @@ select > option {
 }
 
 .slider {
-  background-color: #ccc;
+  background-color: var(--col-interactive);
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -245,10 +260,11 @@ select > option {
   right: 0;
   top: 0;
   transition: .2s;
+  border: 1px solid var(--col-border-1);
 }
 
 .slider:before {
-  background-color: #0f0f0fd8;
+  background-color: var(--col-text-1);
   bottom: 4px;
   content: "";
   height: 20px;
@@ -259,7 +275,7 @@ select > option {
 }
 
 input:checked+.slider {
-  background-color: #66bb6a;
+  background-color: var(--col-1);
 }
 
 input:checked+.slider:before {
