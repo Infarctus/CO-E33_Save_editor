@@ -99,7 +99,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <img
           src={`charactersicon/T_HUD_${character.key.Name}_512x512.png`}
-          alt={character.key.Name}
+          alt={character.value.Struct.Struct.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0.Name}
           style={{ width: "40%", height: "auto" }}
         />
         <h3 style={{ margin: 0 }}>{character.key.Name}</h3>
