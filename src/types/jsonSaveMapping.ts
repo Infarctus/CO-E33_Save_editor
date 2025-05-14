@@ -203,17 +203,18 @@ export interface InventoryItems_0Mapping {
 export interface RootProperties {
   CharactersCollection_0: CharactersCollection_0Mapping
   InventoryItems_0: InventoryItems_0Mapping
+  TimePlayed_0: DoubleTag
+  Gold_0 : IntTag
+  WeaponProgressions_0 : any // TODO
   // Add other root properties as needed
-}
-
-export interface RootMapping {
-  save_game_type: string
-  properties: RootProperties
 }
 
 export interface BeginMapping {
   header: any
-  root: RootMapping
+  root: {
+    save_game_type: string
+    properties: RootProperties
+  }
   extra: any
 }
 
