@@ -47,7 +47,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("Characters")}
         >
-          <img src="/iconsidebar/btnCharacters.svg" alt="Characters" className="nav-icon" />
+          <img src="/iconsidebar/btnCharacters.png" alt="Characters" className="nav-icon" />
           <span>Characters</span>
         </li>
 
