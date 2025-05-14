@@ -3,7 +3,7 @@
 import { type FC, useState, useEffect } from "react"
 import type { OpenProcessResult } from "../types/fileTypes"
 import { getECharacterAttributeEnumValue } from "../types/enums"
-import type { BeginMapping, StringTag,CharactersInCollection0_Mapping } from "../types/jsonSaveMapping"
+import type { BeginMapping,CharactersInCollection0_Mapping } from "../types/jsonSaveMapping"
 import { getValueFromTag } from "../utils/jsonSaveMapping"
 import { getPossibleSkinsFor, getUnlockedSkinsFor, getPossibleFacesFor,getUnlockedFacesFor } from "../utils/gameMappingProvider"
 
@@ -15,18 +15,7 @@ interface CharactersPanelProps {
 
 const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMapping, triggerSaveNeeded }) => {
   // Hard-coded allowed values for dropdowns etc.
-  const allowedSkills = [
-    "Combo1_Gustave",
-    "UnleashCharge",
-    "Powerful_Gustave",
-    "MarkingShot_Gustave",
-    "PerfectRecovery_Gustave",
-    "PerfectBreak_Gustave",
-    "ExtraSkill1",
-    "ExtraSkill2",
-  ]
 
-  const allowedCustomizationsFace = ["SkinGustave_Default_Red", "SkinGustave_Default_Blue", "SkinGustave_Default_Green"]
 
   if (workingFileCurrent == null || jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null) {
     return (
@@ -58,7 +47,6 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
             characterIndex={index}
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
-            allowedSkills={allowedSkills}
             currentSkins={getUnlockedSkinsFor(character.key.Name, jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name))
             }
             allowedSkins={getPossibleSkinsFor(character.key.Name)}
@@ -76,7 +64,6 @@ interface CharacterSectionProps {
   characterIndex: number
   jsonMapping: BeginMapping
   triggerSaveNeeded: () => void
-  allowedSkills: string[]
   currentSkins: string[]
   allowedSkins: [string, string][]
   currentFaces: string[]
@@ -88,7 +75,6 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   characterIndex,
   jsonMapping,
   triggerSaveNeeded,
-  allowedSkills,
   currentSkins,
   allowedSkins,
   allowedCustomizationsFace,
@@ -317,7 +303,7 @@ const PropertyEditor: FC<PropertyEditorProps> = ({ labelText, value, onChange, p
     </div>
   )
 }
-
+{/*
 interface SkillsEditorProps {
   titleText: string
   currentList: string[]
@@ -410,7 +396,7 @@ const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, available
     </div>
   )
 }
-
+*/}
 
 
 interface CharacCustoEditorProps {
@@ -522,6 +508,8 @@ const handleAddSkin = (skin: string) => {
   )
 }
 
+{/*
+  }
 interface DropdownEditorProps {
   labelText: string
   currentValue: StringTag
@@ -546,5 +534,6 @@ const DropdownEditor: FC<DropdownEditorProps> = ({ labelText, currentValue, opti
     </div>
   )
 }
+  */}
 
 export default CharactersPanel
