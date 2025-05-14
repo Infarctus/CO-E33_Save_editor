@@ -1,8 +1,9 @@
 export enum ECharacterAttributeEnum {
-  Strength = "Strength",
-  Dexterity = "Dexterity",
-  Intelligence = "Intelligence",
   Vitality = "Vitality",
+  Strength = "Strength",
+  Intelligence = "Intelligence",
+  Agility = "Agility",
+  Defense = "Defense",
   Luck = "Luck",
   Invalid = "Invalid",
 }
