@@ -58,7 +58,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("Pictos")}
         >
-          <img src="/iconsidebar/btnPictos.svg" alt="Pictos" className="nav-icon" />
+          <img src="/iconsidebar/btnPicto.png" alt="Pictos" className="nav-icon" />
           <span>Pictos</span>
         </li>
 
