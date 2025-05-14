@@ -1,0 +1,1468 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DT_MusicRecords",
+    "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "UserDefinedStruct'S_jRPG_Item_StaticData'",
+        "ObjectPath": "/Game/jRPGTemplate/Structures/S_jRPG_Item_StaticData.0"
+      }
+    },
+    "Rows": {
+      "MusicRecord_1": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_1",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_1_Name",
+          "SourceString": "Alicia",
+          "LocalizedString": "Alicia"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_1_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_1'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_1.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_2": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_2",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_2_Name",
+          "SourceString": "Lumière",
+          "LocalizedString": "Lumière"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_2_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_2'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_2.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_3": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_3",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_3_Name",
+          "SourceString": "Gustave",
+          "LocalizedString": "Gustave"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_3_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_3'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_3.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_4": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_4",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_4_Name",
+          "SourceString": "Lettre à Maelle",
+          "LocalizedString": "Lettre à Maelle"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_4_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_4'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_4.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_5": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_5",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_5_Name",
+          "SourceString": "Lune",
+          "LocalizedString": "Lune"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_5_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_5'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_5.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_6": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_6",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_6_Name",
+          "SourceString": "Sciel",
+          "LocalizedString": "Sciel"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_6_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_6'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_6.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_7": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_7",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_7_Name",
+          "SourceString": "Monoco",
+          "LocalizedString": "Monoco"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_7_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_7'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_7.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_8": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_8",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_8_Name",
+          "SourceString": "Verso",
+          "LocalizedString": "Verso"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_8_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_8'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_8.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_9": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_9",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_9_Name",
+          "SourceString": "Until Next Life",
+          "LocalizedString": "Until Next Life"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_9_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_9'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_9.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_10": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_10",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_10_Name",
+          "SourceString": "Rêveries dans Paris",
+          "LocalizedString": "Rêveries dans Paris"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_10_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_10'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_10.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_11": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_11",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_11_Name",
+          "SourceString": "Un 33 Décembre à Lumière",
+          "LocalizedString": "Un 33 Décembre à Lumière"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_11_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_11'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_11.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_12": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_12",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_12_Name",
+          "SourceString": "Le Grand Café de Lumière",
+          "LocalizedString": "Le Grand Café de Lumière"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_12_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_12'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_12.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_13": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_13",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_13_Name",
+          "SourceString": "Nocturne pour Lumière",
+          "LocalizedString": "Nocturne pour Lumière"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_13_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_13'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_13.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_14": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_14",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_14_Name",
+          "SourceString": "Linen and Cotton",
+          "LocalizedString": "Linen and Cotton"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_14_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_14'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_14.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_15": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_15",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_15_Name",
+          "SourceString": "Goblu",
+          "LocalizedString": "Goblu"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_15_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_15'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_15.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_16": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_16",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_16_Name",
+          "SourceString": "Lights of the Past",
+          "LocalizedString": "Lights of the Past"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_16_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_16'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_16.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_17": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_17",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_17_Name",
+          "SourceString": "Lost Voice",
+          "LocalizedString": "Lost Voice"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_17_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_17'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_17.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_18": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_18",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_18_Name",
+          "SourceString": "Robe de Jour",
+          "LocalizedString": "Robe de Jour"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_18_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_18'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_18.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_19": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_19",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_19_Name",
+          "SourceString": "Nocturne pour un masque de tristesse",
+          "LocalizedString": "Nocturne pour un masque de tristesse"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_19_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_19'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_19.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_20": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_20",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_20_Name",
+          "SourceString": "Our Painted Family",
+          "LocalizedString": "Our Painted Family"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_20_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_20'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_20.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_21": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_21",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_21_Name",
+          "SourceString": "Honeymoon in Lumière",
+          "LocalizedString": "Honeymoon in Lumière"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_21_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_21'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_21.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_22": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_22",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_22_Name",
+          "SourceString": "Clea! Don't Pull Your Sister's Hair!",
+          "LocalizedString": "Clea! Don't Pull Your Sister's Hair!"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_22_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_22'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_22.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_23": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_23",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_23_Name",
+          "SourceString": "Aline's Glasshouse",
+          "LocalizedString": "Aline's Glasshouse"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_23_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_23'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_23.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_24": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_24",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_24_Name",
+          "SourceString": "Alicia's Birthday Party",
+          "LocalizedString": "Alicia's Birthday Party"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_24_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_24'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_24.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_25": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_25",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_25_Name",
+          "SourceString": "Révérence",
+          "LocalizedString": "Révérence"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_25_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_25'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_25.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_26": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_26",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_26_Name",
+          "SourceString": "Forlorn",
+          "LocalizedString": "Forlorn"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_26_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_26'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_26.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_27": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_27",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_27_Name",
+          "SourceString": "Children of Lumière",
+          "LocalizedString": "Children of Lumière"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_27_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_27'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_27.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_28": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_28",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_28_Name",
+          "SourceString": "Aline",
+          "LocalizedString": "Aline"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_28_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_28'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_28.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_29": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_29",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_29_Name",
+          "SourceString": "Renoir",
+          "LocalizedString": "Renoir"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_29_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_29'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_29.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_30": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_30",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_30_Name",
+          "SourceString": "Clea",
+          "LocalizedString": "Clea"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_30_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_30'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_30.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_31": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_31",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_31_Name",
+          "SourceString": "L'Amour d'une Mère",
+          "LocalizedString": "L'Amour d'une Mère"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_31_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_31'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_31.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_32": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_32",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_32_Name",
+          "SourceString": "Endless Light",
+          "LocalizedString": "Endless Light"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_32_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_32'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_32.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "MusicRecord_33": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "MusicRecord_33",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_33_Name",
+          "SourceString": "Our Drafts Collide",
+          "LocalizedString": "Our Drafts Collide"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator23",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_MusicRecordIcon.T_UI_MusicRecordIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_MusicRecord_33_Description",
+          "SourceString": "A music record that can be used at Camp.",
+          "LocalizedString": "A music record that can be used at Camp."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_MusicRecord_C'DA_Item_MusicRecord_33'",
+          "ObjectPath": "/Game/Gameplay/Inventory/MusicRecord/Data/DA_Item_MusicRecord_33.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": false,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      }
+    }
+  }
+]
