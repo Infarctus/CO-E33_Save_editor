@@ -18,10 +18,10 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
   // Build an inventory dictionary depending on save data, if available.
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
     return (
-    <div id="PictosPanel" className="tab-panel">
-        <h2>Pictos</h2>
-        <p style={{ color: "red" }}>The file you opened (if any) doesn't look like a CO:E33 save file</p>
-      </div>
+    <div id="PictosPanel" className="tab-panel oveflow-auto">
+      <h2>Pictos</h2>
+      <p style={{ color: "red" }}>The file you opened (if any) doesn't look like a CO:E33 save file</p>
+    </div>
     )
   }
 
@@ -192,7 +192,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
   }, [pictos, searchQuery, sortField, sortDirection]);
 
   return (
-    <div id="PictosPanel" className="tab-panel">
+    <div id="PictosPanel" className="tab-panel oveflow-auto">
       <h2>Pictos Tab</h2>
       {/* Search Bar */}
       <input
