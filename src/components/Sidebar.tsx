@@ -47,7 +47,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("Characters")}
         >
-          <img src="src-tauri/icons/btnCharacters.svg" alt="Characters" className="nav-icon" />
+          <img src="/iconsidebar/btnCharacters.svg" alt="Characters" className="nav-icon" />
           <span>Characters</span>
         </li>
 
@@ -57,7 +57,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("Inventory")}
         >
-          <img src="/src/icons/inventory.svg" alt="Inventory" className="nav-icon" />
+          <img src="/iconsidebar/inventory.svg" alt="Inventory" className="nav-icon" />
           <span>Inventory</span>
         </li>
 
@@ -67,7 +67,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("RawJson")}
         >
-          <img src="src-tauri/icons/btnRawEditor.svg" alt="Raw json" className="nav-icon" />
+          <img src="/iconsidebar/btnRawEditor.svg" alt="Raw json" className="nav-icon" />
           <span>Raw json</span>
         </li>
 
@@ -76,7 +76,7 @@ const Sidebar: FC<SidebarProps> = ({
           className={`nav-item hidden ${activeTab === "Backups" ? "active" : ""}`}
           onClick={() => onTabChange("Backups")}
         >
-          <img src="/src/icons/backups.svg" alt="Backups" className="nav-icon" />
+          <img src="/iconsidebar/backups.svg" alt="Backups" className="nav-icon" />
           <span>Backups</span>
         </li>
 
@@ -85,7 +85,7 @@ const Sidebar: FC<SidebarProps> = ({
           className={`nav-item ${activeTab === "Debug" ? "active" : ""}`}
           onClick={() => onTabChange("Debug")}
         >
-          <img src="src-tauri/icons/btnDebug.svg" alt="Debug" className="nav-icon" />
+          <img src="/iconsidebar/btnDebug.svg" alt="Debug" className="nav-icon" />
           <span>Debug</span>
         </li>
       </ul>
