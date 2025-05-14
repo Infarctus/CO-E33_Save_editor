@@ -159,7 +159,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
 
 
         {/* Pictos */}
-        <SkillsEditor
+        {/*<SkillsEditor
           titleText="Pictos"
           currentList={
             character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
@@ -173,6 +173,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             console.log(`Character ${character.key.Name} Pictos updated to ${newList.join(", ")}`)
           }}
         />
+        */}
 
 
         {/* Character Customization (face) */}
@@ -325,7 +326,7 @@ const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, available
       <div className="header">
         <h4>{titleText}</h4>
         <button onClick={() => setIsVisible(!isVisible)}>
-          {isVisible ? "Click me to hide section" : "Click me to show section"}
+          {isVisible ? "Collapse" : "Expand"}
         </button>
       </div>
 
@@ -434,7 +435,7 @@ const handleAddSkin = (skin: string) => {
       <div className="header">
         <h4>{titleText}</h4>
         <button onClick={() => setIsVisible(!isVisible)}>
-          {isVisible ? "Click me to hide section" : "Click me to show section"}
+          {isVisible ? "Collapse" : "Expand"}
         </button>
       </div>
 
