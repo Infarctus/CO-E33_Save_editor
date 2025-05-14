@@ -2,6 +2,7 @@ import { FC, useState, useMemo } from "react";
 import type { BeginMapping, WeaponProgressions_0 } from "../types/jsonSaveMapping";
 import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
+import {produce} from "immer";
 
 // Placeholder for a pictos customization editor component
 interface PictosPanelProps {
@@ -16,13 +17,22 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
   // Initial global pictos data that uses mapping data from getPossiblePictos and jsonMapping
   const allPictosMapping: [string, string][] = getPossiblePictos(); // each tuple: [name, friendlyName]
   // Build an inventory dictionary depending on save data, if available.
+  if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
+    return (
+    <div id="PictosPanel" className="tab-panel">
+        <h2>Pictos</h2>
+        <p style={{ color: "red" }}>The file you opened (if any) doesn't look like a CO:E33 save file</p>
+      </div>
+    )
+  }
+
   const inventoryDict: { [key: string]: boolean } = Object.fromEntries(
-    jsonMapping?.root.properties.InventoryItems_0.Map.map((el) => [el.key.Name, el.value.Int === 1]) || []
+    jsonMapping.root.properties.InventoryItems_0.Map.map((el) => [el.key.Name, el.value.Int === 1]) || []
   );
 
 
     const masteryDict: { [key: string]: boolean } = Object.fromEntries(
-    jsonMapping?.root.properties.WeaponProgressions_0.Array.Struct.value.map((el) => [el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name, el.Struct.CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0.Int >=4]) || []
+    jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.map((el) => [el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name, el.Struct.CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0.Int >=4]) || []
   );
 
   // Build initial picto info list from available pictos and the inventory info.
@@ -46,14 +56,107 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
     newMastered: boolean
   ) => {
     // Update local state accordingly.
-    setPictos((prev) =>
-      prev.map((picto) =>
-        picto.name === pictoName ? { ...picto, found: newFound, mastered: newMastered } : picto
+    var thisPictoWas: PictoInfoType;
+    var pictoFound = false;
+
+      pictos.map((picto) =>
+      {
+        if (picto.name === pictoName) {
+          thisPictoWas = picto;
+          pictoFound = true;
+          return { ...picto, found: newFound, mastered: newMastered };
+        } 
+        return picto
+      }
       )
-    );
+
+    if (!pictoFound) {
+      console.log("No associated pictos to ",pictoName)
+      return;
+    }
     // Trigger any external save/update call.
     triggerSaveNeeded();
     // Call any additional logic with provided parameters.
+    console.log("old picto" + thisPictoWas!.found, thisPictoWas!.mastered, "|", newFound, newMastered)
+
+    if (thisPictoWas!.mastered && !newMastered) {
+
+      console.log("setting prog val to 0")
+      const currentArr = jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value;
+      const index = currentArr.findIndex(
+        (el) => el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name === pictoName
+      );
+      if (index !== -1) {
+        // Clone the array
+        const newArr = currentArr.slice();
+        newArr[index].Struct.CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0.Int = 0
+        jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value = newArr;
+      }
+      // set weaponProg to 0
+
+    } else if (thisPictoWas!.found && newFound == false) {
+
+      console.log("removing from WeaponProg")
+      const currentArr = jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value;
+      const index = currentArr.findIndex(
+        (el) => el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name === pictoName
+      );
+      if (index !== -1) {
+        // Clone the array
+        const newArr = currentArr.slice();
+        newArr.splice(index, 1);
+        jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value = newArr;
+      }
+      //remove from WeaponPregression
+      console.log("removing from inventory")
+      jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map.filter((el => el.key.Name !== pictoName))
+      //remove from inventory
+    }
+    else
+      if (!thisPictoWas!.mastered && newMastered == true) {
+        console.log("setting prog val to 4")
+        const currentArr = jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value;
+        const index = currentArr.findIndex(
+          (el) => el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name === pictoName
+        );
+        if (index !== -1) {
+          // Clone the array
+          const newArr = currentArr.slice();
+          newArr[index].Struct.CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0.Int = 4
+          jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value = newArr;
+        }
+      }
+      else
+        if (!thisPictoWas!.found && newFound) {
+          console.log("adding from inventory")
+          jsonMapping.root.properties.InventoryItems_0.Map.push({ key: { Name: pictoName }, value: { Int: 1 } })
+          // add to inventory
+          console.log("adding To WeaponProg")
+          jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.push({
+            Struct: {
+              DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0: {
+                Name: pictoName,
+                tag: { data: { Other: "NameProperty" } },
+              },
+              CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0: {
+                Int: 0,
+                tag: { data: { Other: "IntProperty" } },
+              }
+            }
+          })
+          // add to weaponProg
+        }
+
+    setPictos((prev) =>
+      prev.map((picto) => {
+        if (picto.name === pictoName) {
+          return { ...picto, found: newFound, mastered: newMastered };
+        }
+        return picto
+      }
+      )
+    );
+
     console.log("Picto update:", pictoName, newFound, newMastered);
   };
 
@@ -142,7 +245,12 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
                     type="checkbox"
                     checked={picto.found}
                     onChange={(e) =>
+                    {
                       handlePictoCheckUpdate(picto.name, e.target.checked, picto.mastered)
+                      if (picto.mastered) {
+                        
+                        picto.mastered = false;}
+                    }
                     }
                   />
                   <div className="slider round"></div>

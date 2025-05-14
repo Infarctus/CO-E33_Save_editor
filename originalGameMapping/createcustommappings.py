@@ -39,9 +39,9 @@ def oldtestgenpictomapping():
     print("Picto mapping generated successfully.")
 
 def testpictoname(testpictodeffromfilename, GearPictosKey,pictosnamesdef):
-    if "CriticalBreak" in testpictodeffromfilename or "CriticalBreak" in GearPictosKey:
-        print("testpictodeffromfilename", testpictodeffromfilename)
-        print("GearPictosKey", GearPictosKey)
+    # if "CriticalBreak" in testpictodeffromfilename or "CriticalBreak" in GearPictosKey:
+    #     print("testpictodeffromfilename", testpictodeffromfilename)
+    #     print("GearPictosKey", GearPictosKey)
     pictoname = pictosnamesdef.get("PASSIVE_"+GearPictosKey+"_Name")
     if not pictoname:
         pictoname = pictosnamesdef.get("PASSIVE_"+testpictodeffromfilename+"_Name")
@@ -54,8 +54,8 @@ def testpictoname(testpictodeffromfilename, GearPictosKey,pictosnamesdef):
     if not pictoname:
         pictoname = pictosnamesdef.get("PASSIVE_"+testpictodeffromfilename.replace("_3","C")+"_Name")
 
-    if "CriticalBreak" in testpictodeffromfilename or "CriticalBreak" in GearPictosKey:
-        print(pictoname)
+    # if "CriticalBreak" in testpictodeffromfilename or "CriticalBreak" in GearPictosKey:
+    #     print(pictoname)
     return pictoname
 
 def genpictomapping():

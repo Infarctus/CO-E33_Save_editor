@@ -16,6 +16,7 @@
     "@tauri-apps/plugin-fs": "^2.2.1",
     "@tauri-apps/plugin-opener": "^2",
     "@tauri-apps/plugin-shell": "^2.2.1",
+    "immer": "^10.1.1",
     "jsoneditor": "^10.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
