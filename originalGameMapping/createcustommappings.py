@@ -28,8 +28,9 @@ def genpictomapping():
         pictoname = pictosnamesdef.get("PASSIVE_"+picto+"_Name")
         if pictoname:
             output_data["Pictos"][picto] = pictoname
-        #else:
-        #    output_data["Unused"].append(picto)
+        else:
+            output_data["Pictos"][picto] = "NULL"
+            #output_data["Unused"].append(picto)
 
     # Write the output JSON
     with open(output_path, "w", encoding="utf-8") as f:
