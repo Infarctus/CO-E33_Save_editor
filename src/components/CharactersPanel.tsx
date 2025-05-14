@@ -3,8 +3,9 @@
 import { type FC, useState, useEffect } from "react"
 import type { OpenProcessResult } from "../types/fileTypes"
 import { getECharacterAttributeEnumValue } from "../types/enums"
-import type { BeginMapping, StringTag } from "../types/jsonMapping"
-import { getValueFromTag } from "../utils/jsonMapping"
+import type { BeginMapping, StringTag } from "../types/jsonSaveMapping"
+import { getValueFromTag } from "../utils/jsonSaveMapping"
+import { getPossibleSkinsFor, getUnlockedSkinsFor } from "../utils/gameMappingProvider"
 
 interface CharactersPanelProps {
   workingFileCurrent: OpenProcessResult | null
@@ -27,7 +28,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
 
   const allowedCustomizationsFace = ["SkinGustave_Default_Red", "SkinGustave_Default_Blue", "SkinGustave_Default_Green"]
 
-  if (!workingFileCurrent || !jsonMapping?.root?.properties?.CharactersCollection_0?.Map) {
+  if (workingFileCurrent == null || jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null) {
     return (
       <div id="CharactersPanel">
         <h2>Characters Tab</h2>
@@ -35,6 +36,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
       </div>
     )
   }
+
 
   return (
     <div id="CharactersPanel">
@@ -57,6 +59,9 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
             allowedSkills={allowedSkills}
+            currentSkins={getUnlockedSkinsFor(character.key.Name, jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name))
+            }
+            allowedSkins={getPossibleSkinsFor(character.key.Name)}
             allowedCustomizationsFace={allowedCustomizationsFace}
           />
         ))}
@@ -71,6 +76,8 @@ interface CharacterSectionProps {
   jsonMapping: BeginMapping
   triggerSaveNeeded: () => void
   allowedSkills: string[]
+  currentSkins: string[]
+  allowedSkins: [string, string][]
   allowedCustomizationsFace: string[]
 }
 
@@ -80,6 +87,8 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   jsonMapping,
   triggerSaveNeeded,
   allowedSkills,
+  currentSkins,
+  allowedSkins,
   allowedCustomizationsFace,
 }) => {
   return (
@@ -148,7 +157,62 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           }}
         />
 
+
+        {/* Pictos */}
+        <SkillsEditor
+          titleText="Pictos"
+          currentList={
+            character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
+          }
+          availableOptions={allowedSkills}
+          onUpdate={(newList) => {
+            triggerSaveNeeded()
+            jsonMapping.root.properties.CharactersCollection_0.Map[
+              characterIndex
+            ].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList
+            console.log(`Character ${character.key.Name} Pictos updated to ${newList.join(", ")}`)
+          }}
+        />
+
+
         {/* Character Customization (face) */}
+        {/* <SkillsEditor
+          titleText="Character Customization (face)"
+          currentList={
+            character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
+          }
+          availableOptions={allowedSkills}
+          onUpdate={(newList) => {
+            triggerSaveNeeded()
+            jsonMapping.root.properties.CharactersCollection_0.Map[
+              characterIndex
+            ].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList
+            console.log(`Character ${character.key.Name} faces updated to ${newList.join(", ")}`)
+          }}
+        /> */}
+
+
+        {/* Character Customization (body) */}
+        <CharacCustoEditor
+          titleText="Character Customization (body)"
+          currentList={
+            currentSkins
+          }
+          fullList={allowedSkins}
+          onUpdate={(newList) => {
+            triggerSaveNeeded()
+            const allowedSkinsRawNames = allowedSkins.map((el)=> el[0]);
+            jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map
+            .filter((el) => !(allowedSkinsRawNames.includes(el.key.Name)))
+            console.log("We removed some elements from aa, newlit size is " + newList.length)
+            newList.forEach((el) => {
+              console.log("adding "+el)
+              jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
+            })
+            console.log(`Character ${character.key.Name} bodies updated to ${newList.join(", ")}`)
+          }}
+        />
+        {/* 
         <DropdownEditor
           labelText="Character Customization (face)"
           currentValue={
@@ -166,7 +230,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           }}
         />
 
-        {/* Character Customization (skin) */}
+
         <DropdownEditor
           labelText="Character Customization (skin)"
           currentValue={
@@ -182,7 +246,8 @@ const CharacterSection: FC<CharacterSectionProps> = ({
               newValue
             console.log(`Character ${character.key.Name} Skin Customization updated to ${newValue}`)
           }}
-        />
+        /> 
+*/}
       </div>
     </section>
   )
@@ -295,6 +360,115 @@ const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, available
                 {filteredAvailableSkills.map((skill) => (
                   <div key={skill} className="skillEditorItem" onClick={() => handleAddSkill(skill)}>
                     {skill}
+                  </div>
+                ))}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      )}
+    </div>
+  )
+}
+
+
+
+interface CharacCustoEditorProps {
+  titleText: string
+  currentList: string[]
+  fullList: [string, string][]
+  onUpdate: (newList: string[]) => void
+}
+
+const CharacCustoEditor: FC<CharacCustoEditorProps> = ({ titleText, currentList, fullList, onUpdate }) => {
+  const [isVisible, setIsVisible] = useState(false)
+  const [searchText, setSearchText] = useState("")
+  const [selectedSkins, setSelectedSkins] = useState<[string, string][]>(
+    fullList.filter((el) => currentList.includes(el[0])))
+  const [availableSkins, setAvailableSkins] = useState<[string, string][]>(
+    fullList.filter((skill) => !currentList.includes(skill[0])),
+  )
+
+// useEffect(() => {
+//     const selectedSkins = fullList.filter((el) => currentList.includes(el[0]));
+//     console.log("updated selected skins, now:"+selectedSkins.length)
+//     setSelectedSkins(selectedSkins);
+//     setAvailableSkins(fullList.filter((skill) => !currentList.includes(skill[0])));
+// }, [currentList, fullList]);
+useEffect(() => {
+    console.log("Updated selectedSkins length: " + selectedSkins.length);
+    onUpdate(selectedSkins.map((el) => el[0]));
+}, [selectedSkins]);
+
+
+  const filteredAvailableSkills = availableSkins.filter((skill) =>
+    skill[1].toLowerCase().includes(searchText.toLowerCase()),
+  )
+
+  const filteredSelectedSkills = selectedSkins.filter((skill) =>
+    skill[1].toLowerCase().includes(searchText.toLowerCase()),
+  )
+
+const handleAddSkin = (skin: string) => {
+    console.log("adding new skill:" + skin + " (" + fullList.find((el) => el[0] == skin) + ") to list of unlocked size" + selectedSkins.length);
+    
+    selectedSkins.push(fullList.find((el) => el[0] == skin)!)
+        console.log("size after after is" + selectedSkins.length); // Log the new size
+
+    setAvailableSkins(availableSkins.filter((s) => s[0] != skin));
+};
+
+  const handleRemoveSkin = (skin: string) => {
+    // console.log("removal not implemented for "+skin)
+    console.log("removing an el from the list. before:"+selectedSkins.length+", after:"+selectedSkins.filter((s) => s[0] != skin).length)
+    
+    
+    setSelectedSkins(selectedSkins.filter((s) => s[0] != skin))
+        console.log("size after after is" + selectedSkins.length); // Log the new size
+
+    availableSkins.push(fullList.find((el) => el[0] == skin)!)
+  }
+
+  return (
+    <div className="characterEditModule" style={{ marginTop: "1rem" }}>
+      <div className="header">
+        <h4>{titleText}</h4>
+        <button onClick={() => setIsVisible(!isVisible)}>
+          {isVisible ? "Click me to hide section" : "Click me to show section"}
+        </button>
+      </div>
+
+      {isVisible && (
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr>
+              <td colSpan={2}>
+                <input
+                  type="search"
+                  placeholder="Search items"
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td className="skillEditorTitle">Owned</td>
+              <td className="skillEditorTitle">Not owned</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="skillsEditorSkillsContainer">
+                {filteredSelectedSkills.map((skill) => (
+                  <div key={skill[0]} className="skillEditorItem" onClick={() => handleRemoveSkin(skill[0])}>
+                    {skill[1]}
+                  </div>
+                ))}
+              </td>
+              <td className="skillsEditorSkillsContainer">
+                {filteredAvailableSkills.map((skill) => (
+                  <div key={skill[0]} className="skillEditorItem" onClick={() => handleAddSkin(skill[0])}>
+                    {skill[1]}
                   </div>
                 ))}
               </td>

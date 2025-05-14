@@ -1,7 +1,7 @@
 import os
 import json
 
-output_dir = "./src-tauri/assets/customjsonmappings"
+output_dir = "./src-tauri/resources/customjsonmappings"
 os.makedirs(output_dir, exist_ok=True)
 def genpicto():
     # Path to the input JSON file
