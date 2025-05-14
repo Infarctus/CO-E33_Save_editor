@@ -98,11 +98,12 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       {/* Search Bar */}
       <input
         type="text"
-        placeholder="Search by friendly name..."
+        placeholder="Search by name..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         style={{ marginBottom: "1em", padding: "0.5em", width: "100%" }}
       />
+      {displayedPictos.length != 0 && <sup>{displayedPictos.length} results</sup>}
       {/* Table */}
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
@@ -111,7 +112,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
               style={{ borderBottom: "1px solid #ccc", cursor: "pointer", padding: "0.5em" }}
               onClick={() => handleSort("friendlyName")}
             >
-              Friendly Name {sortField === "friendlyName" && (sortDirection === "asc" ? "↑" : "↓")}
+              Name {sortField === "friendlyName" && (sortDirection === "asc" ? "↑" : "↓")}
             </th>
             <th
               style={{ borderBottom: "1px solid #ccc", cursor: "pointer", padding: "0.5em" }}
