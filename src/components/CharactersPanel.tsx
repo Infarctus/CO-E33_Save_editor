@@ -96,9 +96,14 @@ const CharacterSection: FC<CharacterSectionProps> = ({
 }) => {
   return (
     <section className="characterBox">
-      <h3>{character.key.Name}</h3>
-
-      <img src="https://via.placeholder.com/150" alt={character.key.Name} style={{ width: "40%", height: "auto" }} />
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        <img
+          src={`charactersicon/T_HUD_${character.key.Name}_512x512.png`}
+          alt={character.key.Name}
+          style={{ width: "40%", height: "auto" }}
+        />
+        <h3 style={{ margin: 0 }}>{character.key.Name}</h3>
+      </div>
 
       <div style={{ marginTop: "1rem" }}>
         {/* Current Level */}
