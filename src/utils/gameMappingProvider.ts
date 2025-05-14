@@ -52,6 +52,25 @@ export function getUnlockedSkinsFor(characterName: string, inventory: string[]) 
 
 }
 
-export function getFacesFor(characterName: string) {
-    
+export function getPossibleFacesFor(characterName: string) : [string, string][]{
+    console.debug("getting faces for "+characterName)
+    if (characterName == "Frey") characterName = "Gustave"
+    if (skinsJson.Faces && characterName in skinsJson.Faces) {
+        return Object.entries(skinsJson.Faces[characterName])
+    } else {
+        return [["nothing", "nothing"]]
+    }
+}
+
+export function getUnlockedFacesFor(characterName: string, inventory: string[]) : string[]{
+    console.debug("getting unlocked faces for "+characterName+" with inventory "+inventory)
+    if (characterName == "Frey") characterName = "Gustave"
+    if (skinsJson.Faces && characterName in skinsJson.Faces) {
+        const allFaceNames = Object.keys(skinsJson.Faces[characterName]);
+        const unlockedFaces = allFaceNames.filter((el) => inventory.includes(el))
+        console.debug("getting unlocked faces for "+characterName+" amongst "+ allFaceNames.join(",")+"gave out "+unlockedFaces.length +": "+unlockedFaces.join(", "))
+        return unlockedFaces
+    } else {
+        return ["nothing"]
+    }
 }
