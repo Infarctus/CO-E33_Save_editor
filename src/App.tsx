@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { confirm } from "@tauri-apps/plugin-dialog"
 import Sidebar from "./components/Sidebar"
 import SaveFilePanel from "./components/SaveFilePanel"
@@ -14,9 +14,8 @@ import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./utils/jsonSaveM
 import type { OpenProcessResult } from "./types/fileTypes"
 import type { BeginMapping } from "./types/jsonSaveMapping"
 import "./styles.css"
-import { initGameMappings } from "./utils/gameMappingProvider"
 import PictosPanel from "./components/PictosPanel"
-import { attachConsole, debug, trace, info, warn, error } from "@tauri-apps/plugin-log"
+import { trace, error } from "@tauri-apps/plugin-log"
 
 
 
@@ -28,7 +27,12 @@ function App() {
   const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
 
-  
+  function errorAndInfo(message: string) {
+    setInfoMessage(message)
+    error(message)
+  }
+
+
   // Override console methods to capture logs
   // useConsoleOverride(setLogs, setInfoMessage)
 
@@ -50,7 +54,7 @@ function App() {
     if (activeTab === "RawJson" && jsonChangedSinceInit) {
       if (
         !(await confirm(
-          "Clicking OK will DISCARD the changes made in the json editor.\nClick 'Commit Changes' to save them.",
+          "Clicking OK will DISCARD the changes made in the json editor.\nClick 'Cancel', then 'Commit Changes' to save them.",
         ))
       ) {
         return false
@@ -92,6 +96,7 @@ function App() {
     const saveProcessResult = await handleSaveFileAndExtractToJson()
     if (saveProcessResult.success) {
       setWorkingFileCurrent(saveProcessResult)
+      setInfoMessage(saveProcessResult.message)
       trace("Opened save OK: " + saveProcessResult.message)
       updateNavStates(true)
 
@@ -101,14 +106,15 @@ function App() {
         setJsonMapping(mapping)
       }
     } else {
-      error(saveProcessResult.message)
+      errorAndInfo(saveProcessResult.message)
     }
   }
 
   const handleExportFile = async () => {
     // Ensure we have a workingFileCurrent with a tempJsonPath
     if (!workingFileCurrent || !workingFileCurrent.tempJsonPath || !jsonMapping) {
-      error("No working file (temp JSON path) available.")
+      errorAndInfo("No working file (temp JSON path) available.")
+
       return
     }
 
@@ -120,11 +126,12 @@ function App() {
       const { save } = await import("@tauri-apps/plugin-dialog")
       const targetSavPath = await save({
         title: "Select the destination for the exported .sav file",
-        filters: [{ name: "SAV File", extensions: ["sav"] }],
+        filters: [{ name: "SAV File", extensions: ["sav", "file"] }],
       })
 
       if (!targetSavPath) {
-        error("Export canceled or no target SAV path selected.")
+        
+        errorAndInfo("Export canceled or no target SAV path selected.")
         return
       }
 
@@ -134,10 +141,10 @@ function App() {
         trace(result.message)
         setSaveNeeded(false)
       } else {
-        error(result.message)
+        errorAndInfo(result.message)
       }
     } catch (err) {
-      error("Error during export process:"+ err)
+      errorAndInfo("Error during export process:"+ err)
     }
   }
 
@@ -149,7 +156,7 @@ function App() {
       !workingFileCurrent.tempJsonPath ||
       !jsonMapping
     ) {
-      error("No working file (original SAV path or temp JSON path) available.")
+      errorAndInfo("No working file (original SAV path or temp JSON path) available.")
       return
     }
 
@@ -166,10 +173,10 @@ function App() {
         trace(result.message)
         setSaveNeeded(false)
       } else {
-        error(result.message)
+        errorAndInfo(result.message)
       }
     } catch (err) {
-      error("Error during overwrite process:"+ err)
+      errorAndInfo("Error during overwrite process:"+ err)
     }
   }
 
