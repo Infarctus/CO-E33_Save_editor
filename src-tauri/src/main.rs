@@ -2,5 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    co_e33_save_editor_lib::run()
+    co_e33_save_editor_lib::run();
+
+    
 }

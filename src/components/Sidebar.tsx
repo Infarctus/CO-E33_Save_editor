@@ -91,14 +91,7 @@ const Sidebar: FC<SidebarProps> = ({
           <span>Backups</span>
         </li>
 
-        <li
-          data-tab="Debug"
-          className={`nav-item ${activeTab === "Debug" ? "active" : ""}`}
-          onClick={() => onTabChange("Debug")}
-        >
-          <img src="/iconsidebar/btnDebug.svg" alt="Debug" className="nav-icon" />
-          <span>Debug</span>
-        </li>
+       
       </ul>
     </aside>
   )

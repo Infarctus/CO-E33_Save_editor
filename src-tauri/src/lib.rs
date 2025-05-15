@@ -1,4 +1,7 @@
 use tauri::Manager;
+use tauri_plugin_log::Target;
+use tauri_plugin_log::TargetKind;
+use tauri_plugin_log::WEBVIEW_TARGET;
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
@@ -8,7 +11,16 @@ fn greet(name: &str) -> String {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+
+
     tauri::Builder::default()
+        .plugin(tauri_plugin_log::Builder::default().targets([
+        Target::new(TargetKind::Webview),
+        Target::new(TargetKind::Stdout),
+        Target::new(TargetKind::LogDir{file_name: Some("logs".into())}),
+        // Target::new(TargetKind::LogDir { file_name: Some("webview".into()) }).filter(|metadata| metadata.target().starts_with(WEBVIEW_TARGET)),
+        // Target::new(TargetKind::LogDir { file_name: Some("rust".into()) }).filter(|metadata| !metadata.target().starts_with(WEBVIEW_TARGET)),
+    ]).build())
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
             let _ = app
                 .get_webview_window("main")

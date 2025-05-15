@@ -6,6 +6,7 @@ import { getECharacterAttributeEnumValue } from "../types/enums"
 import type { BeginMapping,CharactersInCollection0_Mapping } from "../types/jsonSaveMapping"
 import { getValueFromTag } from "../utils/jsonSaveMapping"
 import { getPossibleSkinsFor, getUnlockedSkinsFor, getPossibleFacesFor,getUnlockedFacesFor } from "../utils/gameMappingProvider"
+import { trace } from "@tauri-apps/plugin-log"
 
 interface CharactersPanelProps {
   workingFileCurrent: OpenProcessResult | null
@@ -102,7 +103,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue)
-            console.log(`Character ${characterName} CurrentLevel updated to ${newValue}`)
+            trace(`Character ${characterName} CurrentLevel updated to ${newValue}`)
           }}
         />
         <PropertyEditor
@@ -113,7 +114,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0.Int = Number(newValue)
-            console.log(`Character ${characterName} CurrentLevel updated to ${newValue}`)
+            trace(`Character ${characterName} CurrentLevel updated to ${newValue}`)
           }}
         />
 
@@ -141,7 +142,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                   ].value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map[
                     Number(index)
                   ].value.Int = Number(newValue)
-                  console.log(`Character ${characterName} Attribute ${index} updated to ${newValue}`)
+                  trace(`Character ${characterName} Attribute ${index} updated to ${newValue}`)
                 }}
               />
             )
@@ -160,7 +161,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList
-            console.log(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join(", ")}`)
+            trace(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join("+ ")}`)
           }}
         />
         */}
@@ -178,7 +179,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList
-            console.log(`Character ${character.key.Name} Pictos updated to ${newList.join(", ")}`)
+            trace(`Character ${character.key.Name} Pictos updated to ${newList.join("+ ")}`)
           }}
         />
         */}
@@ -200,11 +201,11 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 .filter((el2) => el2.key.Name != el)
               }
               else if (jsonMapping.root.properties.InventoryItems_0.Map.find((el2) => el2.key.Name == el) == null){
-                console.log("adding "+el)
+                trace("adding "+el)
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            console.log(`Character ${characterName} faces updated to ${newList.join(", ")}`)
+            trace(`Character ${characterName} faces updated to ${newList.join("+ ")}`)
           }}
         />
 
@@ -222,9 +223,9 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             const allowedSkinsRawNames = allowedSkins.map((el)=> el[0]);
             //jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map
             //.filter((el) => !(allowedSkinsRawNames.includes(el.key.Name)))
-            //console.log("We removed some elements from aa, newlist size is " + newList.length)
+            //trace("We removed some elements from aa+ newlist size is " + newList.length)
             //newList.forEach((el) => {
-            //  console.log("adding "+el)
+            //  trace("adding "+el)
             //  jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
             //})
             allowedSkinsRawNames.forEach((el) => {
@@ -233,11 +234,11 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 .filter((el2) => el2.key.Name != el)
               }
               else if (jsonMapping.root.properties.InventoryItems_0.Map.find((el2) => el2.key.Name == el) == null){
-                console.log("adding "+el)
+                trace("adding "+el)
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            console.log(`Character ${characterName} bodies updated to ${newList.join(", ")}`)
+            trace(`Character ${characterName} bodies updated to ${newList.join("+ ")}`)
           }}
         />
         {/* 
@@ -254,7 +255,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
               characterIndex
             ].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name =
               newValue
-            console.log(`Character ${character.key.Name} Face Customization updated to ${newValue}`)
+            trace(`Character ${character.key.Name} Face Customization updated to ${newValue}`)
           }}
         />
 
@@ -272,7 +273,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
               characterIndex
             ].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0.Name =
               newValue
-            console.log(`Character ${character.key.Name} Skin Customization updated to ${newValue}`)
+            trace(`Character ${character.key.Name} Skin Customization updated to ${newValue}`)
           }}
         /> 
 */}
@@ -419,12 +420,12 @@ const CharacCustoEditor: FC<CharacCustoEditorProps> = ({ titleText, currentList,
 
 // useEffect(() => {
 //     const selectedSkins = fullList.filter((el) => currentList.includes(el[0]));
-//     console.log("updated selected skins, now:"+selectedSkins.length)
+//     trace("updated selected skins+ now:"+selectedSkins.length)
 //     setSelectedSkins(selectedSkins);
 //     setAvailableSkins(fullList.filter((skill) => !currentList.includes(skill[0])));
 // }, [currentList, fullList]);
 useEffect(() => {
-    console.log("Updated selectedSkins length: " + selectedSkins.length);
+    trace("Updated selectedSkins length: " + selectedSkins.length);
     onUpdateSkin(selectedSkins.map((el) => el[0]));
 }, [selectedSkins]);
 
@@ -438,23 +439,23 @@ useEffect(() => {
   )
 
 const handleAddSkin = (skin: string) => {
-    console.log("adding new skill:" + skin + " (" + fullList.find((el) => el[0] == skin) + ") to list of unlocked size" + selectedSkins.length);
+    trace("adding new skill:" + skin + " (" + fullList.find((el) => el[0] == skin) + ") to list of unlocked size" + selectedSkins.length);
     
     selectedSkins.push(fullList.find((el) => el[0] == skin)!)
     setSelectedSkins([...selectedSkins])
-        console.log("size after after is" + selectedSkins.length); // Log the new size
+        trace("size after after is" + selectedSkins.length); // Log the new size
 
     setAvailableSkins(availableSkins.filter((s) => s[0] != skin));
     
 };
 
   const handleRemoveSkin = (skin: string) => {
-    // console.log("removal not implemented for "+skin)
-    console.log("removing an el from the list. before:"+selectedSkins.length+", after:"+selectedSkins.filter((s) => s[0] != skin).length)
+    // trace("removal not implemented for "+skin)
+    trace("removing an el from the list. before:"+selectedSkins.length+"+ after:"+selectedSkins.filter((s) => s[0] != skin).length)
     
     
     setSelectedSkins(selectedSkins.filter((s) => s[0] != skin))
-        console.log("size after after is" + selectedSkins.length); // Log the new size
+        trace("size after after is" + selectedSkins.length); // Log the new size
 
     availableSkins.push(fullList.find((el) => el[0] == skin)!)
   }

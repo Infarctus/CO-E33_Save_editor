@@ -8,35 +8,41 @@ import CharactersPanel from "./components/CharactersPanel"
 import InventoryPanel from "./components/InventoryPanel"
 import BackupsPanel from "./components/BackupsPanel"
 import RawJsonPanel from "./components/RawJsonPanel"
-import DebugPanel from "./components/DebugPanel"
 import InfoBanner from "./components/InfoBanner"
 import { handleSaveFileAndExtractToJson, handleJsonAndConvertToSaveFile } from "./utils/fileManagement"
 import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./utils/jsonSaveMapping"
-import { useConsoleOverride } from "./utils/logging"
 import type { OpenProcessResult } from "./types/fileTypes"
 import type { BeginMapping } from "./types/jsonSaveMapping"
 import "./styles.css"
 import { initGameMappings } from "./utils/gameMappingProvider"
 import PictosPanel from "./components/PictosPanel"
+import { attachConsole, debug, trace, info, warn, error } from "@tauri-apps/plugin-log"
+
+
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>("SaveFile")
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
   const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null)
-  const [logs, setLogs] = useState<{ message: string; level?: string }[]>([])
   const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
 
   
   // Override console methods to capture logs
-  useConsoleOverride(setLogs, setInfoMessage)
+  // useConsoleOverride(setLogs, setInfoMessage)
+
+  // // Use useEffect to call initGameMappings once when the component mounts
+  // useEffect(() => {
+  //    attachConsole().then(() => {
+  //     debug("debug HellO wOrld f108277c-f5ae-495c-901d-6d6ccf13d55a")
+  //     trace("console debug")
+  //   });
 
 
-    // Use useEffect to call initGameMappings once when the component mounts
-  useEffect(() => {
-    initGameMappings();
-  }, []); // Empty dependency array ensures this runs only once
+
+  //   initGameMappings();
+  // }, []); // Empty dependency array ensures this runs only once
 
 
   const switchTab = async (tabName: string): Promise<boolean> => {
@@ -52,12 +58,12 @@ function App() {
     }
 
     setActiveTab(tabName)
-    console.log(`${tabName} Tab Activated`)
+    trace(`${tabName} Tab Activated`)
     return true
   }
 
   const updateNavStates = (anyFileOpen: boolean) => {
-    console.log("Currently any file open:", anyFileOpen)
+    trace("Currently any file open:"+ anyFileOpen)
     // This function now just updates the state
     // The UI components will use this state to determine if they should be disabled
   }
@@ -86,7 +92,7 @@ function App() {
     const saveProcessResult = await handleSaveFileAndExtractToJson()
     if (saveProcessResult.success) {
       setWorkingFileCurrent(saveProcessResult)
-      console.log("Opened save OK: " + saveProcessResult.message)
+      trace("Opened save OK: " + saveProcessResult.message)
       updateNavStates(true)
 
       // Load the JSON mapping
@@ -95,14 +101,14 @@ function App() {
         setJsonMapping(mapping)
       }
     } else {
-      console.error(saveProcessResult.message)
+      error(saveProcessResult.message)
     }
   }
 
   const handleExportFile = async () => {
     // Ensure we have a workingFileCurrent with a tempJsonPath
     if (!workingFileCurrent || !workingFileCurrent.tempJsonPath || !jsonMapping) {
-      console.error("No working file (temp JSON path) available.")
+      error("No working file (temp JSON path) available.")
       return
     }
 
@@ -118,20 +124,20 @@ function App() {
       })
 
       if (!targetSavPath) {
-        console.error("Export canceled or no target SAV path selected.")
+        error("Export canceled or no target SAV path selected.")
         return
       }
 
       // Now, call the conversion function
       const result = await handleJsonAndConvertToSaveFile(workingFileCurrent.tempJsonPath, targetSavPath)
       if (result.success) {
-        console.log(result.message)
+        trace(result.message)
         setSaveNeeded(false)
       } else {
-        console.error(result.message)
+        error(result.message)
       }
     } catch (err) {
-      console.error("Error during export process:", err)
+      error("Error during export process:"+ err)
     }
   }
 
@@ -143,7 +149,7 @@ function App() {
       !workingFileCurrent.tempJsonPath ||
       !jsonMapping
     ) {
-      console.error("No working file (original SAV path or temp JSON path) available.")
+      error("No working file (original SAV path or temp JSON path) available.")
       return
     }
 
@@ -157,13 +163,13 @@ function App() {
       // Call the conversion function
       const result = await handleJsonAndConvertToSaveFile(workingFileCurrent.tempJsonPath, targetSavPath)
       if (result.success) {
-        console.log(result.message)
+        trace(result.message)
         setSaveNeeded(false)
       } else {
-        console.error(result.message)
+        error(result.message)
       }
     } catch (err) {
-      console.error("Error during overwrite process:", err)
+      error("Error during overwrite process:"+ err)
     }
   }
 
@@ -176,7 +182,7 @@ function App() {
       setJsonChangedSinceInit(false)
       triggerSaveNeeded()
       setJsonMapping(jsonData)
-      console.log("Committed raw json changes")
+      trace("Committed raw json changes")
     }
   }
 
@@ -216,8 +222,6 @@ function App() {
         {activeTab === "RawJson" && (
           <RawJsonPanel jsonMapping={jsonMapping} onJsonChange={handleJsonChange} onCommitChanges={commitJsonChanges} />
         )}
-
-        {activeTab === "Debug" && <DebugPanel logs={logs} />}
       </main>
 
       <InfoBanner message={infoMessage} />
@@ -226,3 +230,4 @@ function App() {
 }
 
 export default App
+

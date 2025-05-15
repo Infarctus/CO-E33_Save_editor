@@ -11,7 +11,7 @@
     "dialog:default",
     "fs:default",
     "fs:allow-app-write-recursive",
-        "fs:allow-resource-read-recursive",
+    "fs:allow-resource-read-recursive",
     "shell:default",
     "shell:allow-execute",
     {
@@ -31,6 +31,7 @@
           "sidecar": true
         }
       ]
-    }
+    },
+    "log:default"
   ]
 }
