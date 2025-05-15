@@ -349,6 +349,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
                   <input
                     type="number"
                     min={0}
+                    max={33}
                     value={picto.level}
                     disabled={!picto.found}
                     onChange={(e) =>
