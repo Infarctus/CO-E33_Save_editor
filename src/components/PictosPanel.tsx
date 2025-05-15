@@ -1,5 +1,6 @@
 import { FC, useState, useMemo } from "react";
 import type { BeginMapping } from "../types/jsonSaveMapping";
+import { generatePassiveEffectProgression } from "../types/jsonSaveMapping";
 import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
 import { trace } from "@tauri-apps/plugin-log";
@@ -43,7 +44,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
 
 
     const masteryDict: { [key: string]: boolean } = Object.fromEntries(
-    jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.map((el) => [el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name, el.Struct.IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0.Bool]) || []
+    jsonMapping.root.properties.PassiveEffectsProgressions_0?.Array.Struct.value.map((el) => [el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name, el.Struct.IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0.Bool]) || []
   );
 
   // Build initial picto info list from available pictos and the inventory info.
@@ -89,7 +90,10 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
     triggerSaveNeeded();
     // Call any additional logic with provided parameters.
     trace("old picto" + thisPictoWas!.found+ thisPictoWas!.mastered+ "|"+ newFound+ newMastered)
-
+    
+    if(!jsonMapping.root.properties.PassiveEffectsProgressions_0){ // if the property doesn't exist, create it
+      jsonMapping.root.properties.PassiveEffectsProgressions_0 = generatePassiveEffectProgression();
+    }
     const currentArr = jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value;
     const index = currentArr.findIndex(
       (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name === pictoName
@@ -296,4 +300,3 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
 };
 
 export default PictosPanel;
-
