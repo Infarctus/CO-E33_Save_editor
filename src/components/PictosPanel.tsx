@@ -94,7 +94,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       )
 
     if (!pictoFound) {
-      logAndInfo("No associated pictos to "+pictoName)
+      logAndError("No associated pictos to "+pictoName)
       return;
     }
     // Trigger any external save/update call.
