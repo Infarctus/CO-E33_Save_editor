@@ -1,7 +1,6 @@
 use tauri::Manager;
 use tauri_plugin_log::Target;
 use tauri_plugin_log::TargetKind;
-use tauri_plugin_log::WEBVIEW_TARGET;
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
