@@ -25,3 +25,4 @@ dist-ssr
 *.sw?
 
 # originalGameMapping/Gear is considered unchanged : git update-index --skip-worktree
+src-tauri/Microsoft.WebView2.FixedVersionRuntime.136.0.3240.76.x64/*
