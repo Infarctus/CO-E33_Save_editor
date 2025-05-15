@@ -15,7 +15,18 @@ const SaveFilePanel: FC = () => {
         <br />
         Steam : <code style={{ backgroundColor: "green" }}>%LOCALAPPDATA%\Sandfall\Saved\SaveGames\</code> + [user-id]\Expedition_X.sav (There's also a backup folder that you can use)
         <br />
+        <br />
         Gamepass : <code style={{ backgroundColor: "green" }}>%LOCALAPPDATA%\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\</code>
+        <br />
+        If you have any issues, please check the :
+         <a
+          href="https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=posts"
+          target="_blank"
+          rel="noopener noreferrer"
+          style= {{ color: "lime" }}
+        >
+           Click here
+        </a>
       </p>
     </div>
   )
