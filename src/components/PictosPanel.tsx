@@ -17,7 +17,7 @@ type SortDirection = "asc" | "desc";
 const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
 
 
-  const { infoMessage, setInfoMessage } = useInfo();
+  const { setInfoMessage } = useInfo();
 
 
   function logAndInfo(message: string) {

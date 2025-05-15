@@ -87,7 +87,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   currentFaces,
 }) => {
 
-  const { infoMessage, setInfoMessage } = useInfo();
+  const { setInfoMessage } = useInfo();
 
 
   function logAndInfo(message: string) {
