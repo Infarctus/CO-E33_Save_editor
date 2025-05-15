@@ -7,6 +7,9 @@ import type { BeginMapping,CharactersInCollection0_Mapping } from "../types/json
 import { getValueFromTag } from "../utils/jsonSaveMapping"
 import { getPossibleSkinsFor, getUnlockedSkinsFor, getPossibleFacesFor,getUnlockedFacesFor } from "../utils/gameMappingProvider"
 import { trace } from "@tauri-apps/plugin-log"
+import { useInfo } from "./InfoContext"
+
+
 
 interface CharactersPanelProps {
   workingFileCurrent: OpenProcessResult | null
@@ -16,6 +19,8 @@ interface CharactersPanelProps {
 
 const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMapping, triggerSaveNeeded }) => {
   // Hard-coded allowed values for dropdowns etc.
+
+  
 
 
   if (workingFileCurrent == null || jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null) {
@@ -81,6 +86,15 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   allowedCustomizationsFace,
   currentFaces,
 }) => {
+
+  const { infoMessage, setInfoMessage } = useInfo();
+
+
+  function logAndInfo(message: string) {
+    setInfoMessage(message)
+    trace(message)
+  }
+
   let characterName = character.key.Name
   if(character.key.Name == "Frey") characterName = "Gustave"
   return (
@@ -103,7 +117,8 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue)
-            trace(`Character ${characterName} CurrentLevel updated to ${newValue}`)
+            logAndInfo(`Character ${characterName} CurrentLevel updated to ${newValue}`)
+            
           }}
         />
         <PropertyEditor
@@ -114,7 +129,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
             ].value.Struct.Struct.LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0.Int = Number(newValue)
-            trace(`Character ${characterName} CurrentLevel updated to ${newValue}`)
+            logAndInfo(`Character ${characterName} LuminaFromConsu updated to ${newValue}`)
           }}
         />
 
@@ -142,7 +157,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                   ].value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map[
                     Number(index)
                   ].value.Int = Number(newValue)
-                  trace(`Character ${characterName} Attribute ${index} updated to ${newValue}`)
+                  logAndInfo(`Character ${characterName} Attribute ${index} updated to ${newValue}`)
                 }}
               />
             )
@@ -205,7 +220,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            trace(`Character ${characterName} faces updated to ${newList.join("+ ")}`)
+            logAndInfo(`Character ${characterName} faces updated to ${newList.join("+ ")}`)
           }}
         />
 
@@ -238,7 +253,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            trace(`Character ${characterName} bodies updated to ${newList.join("+ ")}`)
+            logAndInfo(`Character ${characterName} bodies updated to ${newList.join("+ ")}`)
           }}
         />
         {/* 

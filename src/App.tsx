@@ -16,6 +16,11 @@ import type { BeginMapping } from "./types/jsonSaveMapping"
 import "./styles.css"
 import PictosPanel from "./components/PictosPanel"
 import { trace, error } from "@tauri-apps/plugin-log"
+import { useInfo } from "./components/InfoContext"
+
+
+
+
 
 
 
@@ -23,15 +28,20 @@ function App() {
   const [activeTab, setActiveTab] = useState<string>("SaveFile")
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
+  const { infoMessage, setInfoMessage } = useInfo();
   const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null)
-  const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
+  // const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
 
-  function errorAndInfo(message: string) {
-    setInfoMessage(message)
-    error(message)
-  }
+function errorAndInfo(message: string) {
+  setInfoMessage(message)
+  error(message)
+}
 
+function logAndInfo(message: string) {
+  setInfoMessage(message)
+  trace(message)
+  }
 
   // Override console methods to capture logs
   // useConsoleOverride(setLogs, setInfoMessage)
@@ -138,6 +148,8 @@ function App() {
       // Now, call the conversion function
       const result = await handleJsonAndConvertToSaveFile(workingFileCurrent.tempJsonPath, targetSavPath)
       if (result.success) {
+      setInfoMessage(result.message)
+
         trace(result.message)
         setSaveNeeded(false)
       } else {
@@ -171,6 +183,8 @@ function App() {
       const result = await handleJsonAndConvertToSaveFile(workingFileCurrent.tempJsonPath, targetSavPath)
       if (result.success) {
         trace(result.message)
+      setInfoMessage(result.message)
+
         setSaveNeeded(false)
       } else {
         errorAndInfo(result.message)

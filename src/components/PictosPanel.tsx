@@ -3,6 +3,7 @@ import type { BeginMapping } from "../types/jsonSaveMapping";
 import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
 import { trace } from "@tauri-apps/plugin-log";
+import { useInfo } from "./InfoContext";
 
 // Placeholder for a pictos customization editor component
 interface PictosPanelProps {
@@ -14,6 +15,16 @@ type SortField = "friendlyName" | "found" | "mastered" | null;
 type SortDirection = "asc" | "desc";
 
 const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+
+
+  const { infoMessage, setInfoMessage } = useInfo();
+
+
+  function logAndInfo(message: string) {
+    setInfoMessage(message)
+    trace(message)
+  }
+
   // Initial global pictos data that uses mapping data from getPossiblePictos and jsonMapping
   const allPictosMapping: [string, string][] = getPossiblePictos(); // each tuple: [name, friendlyName]
   // Build an inventory dictionary depending on save data, if available.
@@ -71,7 +82,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       )
 
     if (!pictoFound) {
-      trace("No associated pictos to "+pictoName)
+      logAndInfo("No associated pictos to "+pictoName)
       return;
     }
     // Trigger any external save/update call.
@@ -154,7 +165,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       )
     );
 
-    trace("Picto update:"+pictoName+ newFound+newMastered);
+    logAndInfo("Picto update:"+pictoName+ newFound+newMastered);
   };
 
   // Handle sorting when headers are clicked.

@@ -4,6 +4,7 @@ import App from "./App"
 import "./styles.css"
 import { attachConsole, debug, trace } from "@tauri-apps/plugin-log";
 import { initGameMappings } from "./utils/gameMappingProvider";
+import { InfoProvider } from "./components/InfoContext";
 
 
 attachConsole().then(() => {
@@ -17,6 +18,8 @@ attachConsole().then(() => {
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <InfoProvider> {/* Wrap App with InfoProvider */}
+      <App />
+    </InfoProvider>
   </React.StrictMode>,
-)
+);
