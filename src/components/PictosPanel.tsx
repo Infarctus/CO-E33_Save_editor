@@ -149,6 +149,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       trace("setting mastered to true")
       if (passiveEffectsProgIndex !== -1) {
         const newArr = currentArrPassEffectProg.slice();
+        newArr[passiveEffectsProgIndex].Struct.LearntSteps_6_A14D681549E830249C77BD95F2B4CF3F_0.Int = 4
         newArr[passiveEffectsProgIndex].Struct.IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0.Bool = true
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value = newArr;
       }
