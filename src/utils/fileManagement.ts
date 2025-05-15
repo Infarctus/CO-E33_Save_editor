@@ -20,7 +20,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
       filters: [
         {
           name: "Save File",
-          extensions: ["sav"],
+          extensions: ["sav","file"],
         },
       ],
     })
@@ -37,7 +37,14 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
     const saveHandlingBasePath = await join(userDataPath, SAVE_HANDLING_DIR_NAME)
     const backupDir = await join(saveHandlingBasePath, "backup")
     const backupDestinationPath = await join(backupDir, `${fileName}.bak`)
-    const tempJsonPath = await join(saveHandlingBasePath, fileName.replace(".sav", ".json"))
+    let rename = ""
+    if (fileName.endsWith(".sav")) {
+      rename =  fileName.replace(".sav", ".json");
+    }
+    else{
+      rename =  fileName.replace(".file", ".json");
+    }
+    const tempJsonPath = await join(saveHandlingBasePath, rename)
 
     // Create backup directory if it doesn't exist
     try {
@@ -112,7 +119,7 @@ export async function handleJsonAndConvertToSaveFile(
   if (!targetSavPath) {
     return {
       success: false,
-      message: "Target .sav file path not provided.",
+      message: "Target .sav or .file file path not provided.",
     }
   }
 
