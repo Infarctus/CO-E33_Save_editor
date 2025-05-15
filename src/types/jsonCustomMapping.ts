@@ -13,4 +13,5 @@ export interface PictoInfo {
   friendlyName: string
   found: boolean;
   mastered: boolean
+  level: number
 }
