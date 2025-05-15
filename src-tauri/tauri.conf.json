@@ -39,6 +39,7 @@
     "resources": [
       "resources/**/*",
       "uesave_LICENSE.txt"
-    ]
+    ],
+    "longDescription": "A Save Editor for Clair Obscur: Expedition 33"
   }
 }
