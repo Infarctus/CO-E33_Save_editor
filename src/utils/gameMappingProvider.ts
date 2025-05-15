@@ -3,27 +3,34 @@
 
 import { readTextFile } from "@tauri-apps/plugin-fs"
 import { resolveResource } from '@tauri-apps/api/path';
-import { CharCustomizationMapping,CustomPictosMapping } from "../types/jsonCustomMapping";
+import { CharCustomizationMapping,CustomPictosMapping,CustomMusicMapping } from "../types/jsonCustomMapping";
 import { trace, debug } from "@tauri-apps/plugin-log";
+import { path } from "@tauri-apps/api";
 
 let skinsJson : CharCustomizationMapping ;
 let pictosJson : CustomPictosMapping;
+let musicJson : CustomMusicMapping;
 
 //initGameMappings()
 export async function initGameMappings() {
     try {
-        const resourceSkinsDirPath = await resolveResource("resources/customjsonmappings/skins.json");
-        const stringSkinsJson = await readTextFile(resourceSkinsDirPath)
+        const MainDirPath = await resolveResource("resources/customjsonmappings/");
+        const resourceSkinsPath = await path.join(MainDirPath, "skins.json");
+        const stringSkinsJson = await readTextFile(resourceSkinsPath)
         skinsJson = JSON.parse(stringSkinsJson)
         // trace("Skins keys is " + Object.keys(skinsJson))
         if (!("Faces" in skinsJson) || !("Skins" in skinsJson))
             throw "Skins/Faces Json (characterCuztomization) not as expected"
         
-        const resourcePictosDirPath = await resolveResource("resources/customjsonmappings/pictos.json");
-        const stringPictosJson = await readTextFile(resourcePictosDirPath)
+        const resourcePictosPath = await path.join(MainDirPath,"pictos.json");
+        const stringPictosJson = await readTextFile(resourcePictosPath)
         pictosJson = JSON.parse(stringPictosJson)
         if( !("Pictos" in pictosJson))
             throw "Pictos Json not as expected"
+
+        const resourceMusicPath = await path.join(MainDirPath,"musicdisks.json");
+        const stringMusicJson = await readTextFile(resourceMusicPath)
+        musicJson = JSON.parse(stringMusicJson)
     } catch (e: any) {
         trace(e)
         alert("Failed to get some mapping files. Stome stuff will not work !\nYou should re-download this mod.")
@@ -86,6 +93,15 @@ export function getPossiblePictos() : [string, string][]{
     debug("getting pictos")
     if (pictosJson.Pictos) {
         return Object.entries(pictosJson.Pictos)
+    } else {
+        return [["nothing", "nothing"]]
+    }
+}
+
+export function getPossibleMusicDisks() : [string, string][]{
+    debug("getting music disks")
+    if (musicJson.MusicDisks) {
+        return Object.entries(musicJson.MusicDisks)
     } else {
         return [["nothing", "nothing"]]
     }
