@@ -18,10 +18,10 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
     const originalSavPath = await open({
       multiple: false,
       filters: [
-        {
-          name: "Save File",
-          extensions: ["sav","file"],
-        },
+      {
+        name: "Save File",
+        extensions: ["*"], // Accepts .sav and files with no extension
+      },
       ],
     })
 
@@ -119,7 +119,7 @@ export async function handleJsonAndConvertToSaveFile(
   if (!targetSavPath) {
     return {
       success: false,
-      message: "Target .sav or .file file path not provided.",
+      message: "Target .sav or noextension file path not provided.",
     }
   }
 
