@@ -1,9 +1,9 @@
 [package]
-name = "co-e33-save-editor"
-version = "0.1.0"
+name = "CO:E33 Save Editor"
+version = "0.1.1"
 description = "A Tauri App"
-authors = ["you"]
-edition = "2021"
+authors = ["infarctus, nopoape"]
+edition = "2025"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
