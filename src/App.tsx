@@ -138,7 +138,6 @@ function errorAndInfo(message: string) {
       })
 
       if (!targetSavPath) {
-        
         errorAndInfo("Export canceled or no target SAV path selected.")
         return
       }
