@@ -128,13 +128,13 @@ function errorAndInfo(message: string) {
       // First, save the JSON mapping to the working temp path
       await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping)
 
-      // Ask user where to save the .sav file
-      const currentFileExt = workingFileCurrent.originalSavPath?.substring(workingFileCurrent.originalSavPath?.lastIndexOf(".") +1) || "sav"
+      // Ask user where to save the save file (either .sav or no extension)
+      const currentFileExt = workingFileCurrent.originalSavPath?.lastIndexOf(".") ===-1 ? "*" : workingFileCurrent.originalSavPath?.split(".")[1]
       trace(`${workingFileCurrent.originalSavPath} is the og file path (${currentFileExt}) ${workingFileCurrent.originalSavPath?.split(".")}`)
       const { save } = await import("@tauri-apps/plugin-dialog")
       const targetSavPath = await save({
-        title: "Select the destination for the exported .sav file",
-        filters: [{ name: `${currentFileExt} File`, extensions: [currentFileExt] }],
+        title: "Select the destination for the exported save file",
+        filters: [{ name: `${currentFileExt} File`, extensions: [currentFileExt ? currentFileExt : "*"] }],
       })
 
       if (!targetSavPath) {
