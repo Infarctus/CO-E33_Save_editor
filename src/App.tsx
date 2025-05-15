@@ -28,20 +28,16 @@ function App() {
   const [activeTab, setActiveTab] = useState<string>("SaveFile")
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
-  const { infoMessage, setInfoMessage } = useInfo();
   const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null)
   // const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
-
+  
+  const { infoMessage, setInfoMessage } = useInfo();
 function errorAndInfo(message: string) {
   setInfoMessage(message)
   error(message)
 }
 
-function logAndInfo(message: string) {
-  setInfoMessage(message)
-  trace(message)
-  }
 
   // Override console methods to capture logs
   // useConsoleOverride(setLogs, setInfoMessage)
