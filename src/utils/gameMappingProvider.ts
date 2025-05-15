@@ -15,7 +15,7 @@ export async function initGameMappings() {
         const resourceSkinsDirPath = await resolveResource("resources/customjsonmappings/skins.json");
         const stringSkinsJson = await readTextFile(resourceSkinsDirPath)
         skinsJson = JSON.parse(stringSkinsJson)
-        trace("Skins keys is " + Object.keys(skinsJson))
+        // trace("Skins keys is " + Object.keys(skinsJson))
         if (!("Faces" in skinsJson) || !("Skins" in skinsJson))
             throw "Skins/Faces Json (characterCuztomization) not as expected"
         
@@ -45,13 +45,13 @@ export function getPossibleSkinsFor(characterName: string) : [string, string][]{
 
 
 export function getUnlockedSkinsFor(characterName: string, inventory: string[]) : string[]{
-        debug("getting unlocked skins for "+characterName+" with inventory "+inventory)
+        // debug("getting unlocked skins for "+characterName+" with inventory "+inventory)
 
     if (characterName == "Frey") characterName = "Gustave"
     if (skinsJson.Skins && characterName in skinsJson.Skins) {
         const allSkinNames = Object.keys(skinsJson.Skins[characterName]);
         const unlockedSkins = allSkinNames.filter((el) => inventory.includes(el))
-        debug("getting unlocked skins for "+characterName+" amongst "+ allSkinNames.join(",")+"gave out "+unlockedSkins.length +": "+unlockedSkins.join("+ "))
+        // debug("getting unlocked skins for "+characterName+" amongst "+ allSkinNames.join(",")+"gave out "+unlockedSkins.length +": "+unlockedSkins.join("+ "))
         return unlockedSkins
     } else {
         return ["nothing"]
@@ -70,12 +70,12 @@ export function getPossibleFacesFor(characterName: string) : [string, string][]{
 }
 
 export function getUnlockedFacesFor(characterName: string, inventory: string[]) : string[]{
-    debug("getting unlocked faces for "+characterName+" with inventory "+inventory)
+    // debug("getting unlocked faces for "+characterName+" with inventory "+inventory)
     if (characterName == "Frey") characterName = "Gustave"
     if (skinsJson.Faces && characterName in skinsJson.Faces) {
         const allFaceNames = Object.keys(skinsJson.Faces[characterName]);
         const unlockedFaces = allFaceNames.filter((el) => inventory.includes(el))
-        debug("getting unlocked faces for "+characterName+" amongst "+ allFaceNames.join(",")+"gave out "+unlockedFaces.length +": "+unlockedFaces.join("+ "))
+        // debug("getting unlocked faces for "+characterName+" amongst "+ allFaceNames.join(",")+"gave out "+unlockedFaces.length +": "+unlockedFaces.join("+ "))
         return unlockedFaces
     } else {
         return ["nothing"]
