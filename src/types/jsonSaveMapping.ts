@@ -236,9 +236,11 @@ export interface PassiveEffectsProgressions_0{
   tag:any;
   Array : {
     Struct : {
-      type :any;
-      struct_type :any;
-      id :string;
+      type_ : "StructProperty";
+      struct_type : {
+        Struct : "/Game/Gameplay/Lumina/FPassiveEffectProgression.FPassiveEffectProgression"
+      };
+      id : "25fd746e-4d79-298f-a2b1-aaaa36138cab";
       value :Array<{
         Struct : {
           PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0 :StringTag;
@@ -295,4 +297,22 @@ export function setValueOfTag(
   } else {
     throw new Error("Unknown tag type");
   }
+}
+
+
+// Gen Function
+export function generatePassiveEffectProgression(): PassiveEffectsProgressions_0 {
+  return {
+          tag: { data: { Array : {Struct : {struct_type : { id : "25fd746e-4d79-298f-a2b1-aaaa36138cab"} }} } },
+          Array: {
+            Struct: {
+              type_ : "StructProperty",
+              struct_type : {
+                Struct : "/Game/Gameplay/Lumina/FPassiveEffectProgression.FPassiveEffectProgression"
+              },
+              id : "25fd746e-4d79-298f-a2b1-aaaa36138cab",
+              value: []
+            }
+          }
+        }
 }
