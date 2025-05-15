@@ -12,3 +12,9 @@ This template should help get you started developing with Tauri, React and Types
 - publish code
 - add level column to pictos
 - add gold editor
+
+
+## Known issues
+
+### Missing pictos
+- Death Bomb
