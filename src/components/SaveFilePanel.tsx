@@ -9,6 +9,7 @@ const SaveFilePanel: FC = () => {
       <p id="information-msg">    
         This tool allows you to edit your save files for the game. You can modify character attributes, inventory items, and more.
         <br />
+        <b>Keep the game open on the main menu while modifying the files to be sure that the autosave does not overwrite your changes.</b> (Mostly for gamepass users)
         <br />
         <br />
         Your save file is located at (you can copy-paste the highlighted path): 
@@ -18,7 +19,7 @@ const SaveFilePanel: FC = () => {
         <br />
         Gamepass : <code style={{ backgroundColor: "green" }}>%LOCALAPPDATA%\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\</code>
         <br />
-        If you have any issues, please check the :
+        If you have any issues, please check :
          <a
           href="https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=posts"
           target="_blank"
