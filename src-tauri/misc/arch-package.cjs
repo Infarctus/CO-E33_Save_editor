@@ -43,4 +43,4 @@ package(){
 
 fs.writeFileSync(path.join(buildDir, 'PKGBUILD'), pkgbuildContent);
 
-console.log('AUR packages created successfully to ',buildDir);
+trace('AUR packages created successfully to '+buildDir);

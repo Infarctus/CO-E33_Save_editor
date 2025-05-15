@@ -2,6 +2,7 @@ import { FC, useState, useMemo } from "react";
 import type { BeginMapping } from "../types/jsonSaveMapping";
 import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
+import { trace } from "@tauri-apps/plugin-log";
 
 // Placeholder for a pictos customization editor component
 interface PictosPanelProps {
@@ -70,13 +71,13 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       )
 
     if (!pictoFound) {
-      console.log("No associated pictos to ",pictoName)
+      trace("No associated pictos to "+pictoName)
       return;
     }
     // Trigger any external save/update call.
     triggerSaveNeeded();
     // Call any additional logic with provided parameters.
-    console.log("old picto" + thisPictoWas!.found, thisPictoWas!.mastered, "|", newFound, newMastered)
+    trace("old picto" + thisPictoWas!.found+ thisPictoWas!.mastered+ "|"+ newFound+ newMastered)
 
     const currentArr = jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value;
     const index = currentArr.findIndex(
@@ -84,7 +85,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
     );
     if (thisPictoWas!.mastered && !newMastered) {
 
-      console.log("setting prog val to 0")
+      trace("setting prog val to 0")
       if (index !== -1) {
         // Clone the array
         const newArr = currentArr.slice();
@@ -96,7 +97,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
 
     } else if (thisPictoWas!.found && newFound == false) {
 
-      console.log("removing from WeaponProg")
+      trace("removing from WeaponProg")
       if (index !== -1) {
         // Clone the array
         const newArr = currentArr.slice();
@@ -104,13 +105,13 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value = newArr;
       }
       //remove from WeaponPregression
-      console.log("removing from inventory")
+      trace("removing from inventory")
       jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map.filter((el => el.key.Name !== pictoName))
       //remove from inventory
     }
     else
       if (!thisPictoWas!.mastered && newMastered == true) {
-        console.log("setting prog val to 4")
+        trace("setting prog val to 4")
         if (index !== -1) {
           // Clone the array
           const newArr = currentArr.slice();
@@ -120,10 +121,10 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       }
       else
         if (!thisPictoWas!.found && newFound) {
-          console.log("adding from inventory")
+          trace("adding from inventory")
           jsonMapping.root.properties.InventoryItems_0.Map.push({ key: { Name: pictoName }, value: { Int: 1 } })
           // add to inventory
-          console.log("adding To WeaponProg")
+          trace("adding To WeaponProg")
           jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.push({
             Struct: {
               PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0: {
@@ -153,7 +154,7 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       )
     );
 
-    console.log("Picto update:", pictoName, newFound, newMastered);
+    trace("Picto update:"+pictoName+ newFound+newMastered);
   };
 
   // Handle sorting when headers are clicked.
@@ -284,3 +285,4 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
 };
 
 export default PictosPanel;
+

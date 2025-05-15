@@ -1,5 +1,6 @@
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs"
 import type { BeginMapping, IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag } from "../types/jsonSaveMapping"
+import { debug, error, trace } from "@tauri-apps/plugin-log"
 
 /**
  * Loads JSON mapping from a file
@@ -8,10 +9,10 @@ export async function getMappingJsonFromFile(jsonPath: string): Promise<BeginMap
   try {
     const stringJson = await readTextFile(jsonPath)
     const parsedJson = JSON.parse(stringJson) as BeginMapping
-    console.debug("Loaded JSON mapping")
+    debug("Loaded JSON mapping")
     return parsedJson
-  } catch (error) {
-    console.error("Error loading JSON mapping:", error)
+  } catch (err) {
+    error("Error loading JSON mapping:"+ err)
     return null
   }
 }
@@ -22,10 +23,10 @@ export async function getMappingJsonFromFile(jsonPath: string): Promise<BeginMap
 export async function saveMappingJsonToDisk(targetPath: string, jsonMapping: BeginMapping): Promise<boolean> {
   try {
     await writeTextFile(targetPath, JSON.stringify(jsonMapping, null, 2))
-    console.log(`JSON saved to ${targetPath}`)
+    trace(`JSON saved to ${targetPath}`)
     return true
   } catch (err) {
-    console.error("Failed to save JSON:", err)
+    error("Failed to save JSON:"+ err)
     return false
   }
 }
