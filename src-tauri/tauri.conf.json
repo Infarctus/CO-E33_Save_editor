@@ -43,8 +43,8 @@
     "longDescription": "A Save Editor for Clair Obscur: Expedition 33",
     "windows": {
       "webviewInstallMode": {
-        "type": "downloadBootstrapper"
-      }      
+        "type": "embedBootstrapper"
+      }
     }
   }
   
