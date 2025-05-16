@@ -3,6 +3,13 @@ import json
 
 output_dir = "./src-tauri/resources/customjsonmappings"
 os.makedirs(output_dir, exist_ok=True)
+
+def jsondump(obj, file):
+    with open(file, "w", encoding="utf-8") as f:
+        json.dump(obj, f, indent=2, ensure_ascii=False)
+        #json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
+
+
 def oldtestgenpictomapping():
     # Path to the input JSON file
     intput_pictosdefs = "originalGameMapping/DT_PictosDefinitions.json"
@@ -33,8 +40,7 @@ def oldtestgenpictomapping():
             #output_data["Unused"].append(picto)
 
     # Write the output JSON
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2)
+    jsondump(output_data, output_path)
 
     print("Picto mapping generated successfully.")
 
@@ -72,7 +78,6 @@ def genpictomapping():
     for filename in os.listdir("originalGameMapping/Gear"):
         full_path = os.path.join("originalGameMapping/Gear", filename)
         if not os.path.isfile(full_path):
-            print(f"Skipping {filename}, not a file.")
             continue
         if not filename.startswith("DA_Gear"):
             continue
@@ -117,8 +122,7 @@ def genpictomapping():
                         #    output_data["Pictos"][GearPictosKey] = "NULL"
 
                            
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2)
+    jsondump(output_data, output_path)
 
     print("Picto mapping generated successfully.")              
                 
@@ -151,8 +155,7 @@ def genskinmapping():
                 output_data["Faces"][char] = {}
             output_data["Faces"][char][cc] = ccign
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2, ensure_ascii=False)
+    jsondump(output_data, output_path)
 
     print("Skin mapping generated successfully.")
 
@@ -171,8 +174,7 @@ def genmusicdiskmapping():
         if musicname:
             output_data["MusicDisks"][music] = musicname
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2, ensure_ascii=False)
+    jsondump(output_data, output_path)
 
     print("Music disk mapping generated successfully.")
 
@@ -210,15 +212,34 @@ def genweaponmapping():
                         itemlistname = "NULL"
                     output_data["Weapons"][charname][weaponname] = itemlistname
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(output_data, f, indent=2, ensure_ascii=False)
+    jsondump(output_data, output_path)
+
+    print("Weapon mapping generated successfully.")
 
         
+def genjournalsmapping():
+    input_journals = "originalGameMapping/DT_Items_Journals.json"
+    output_path = os.path.join(output_dir, "journals.json")
 
+    with open(input_journals, "r", encoding="utf-8") as f:
+        journalslist = json.load(f)[0].get("Rows")
+
+    output_data = {
+        "Journals": {}
+    }
+
+    for journal in journalslist:
+        journalname = journalslist[journal].get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
+        if journalname:
+            output_data["Journals"][journal] = journalname
+
+    jsondump(output_data, output_path)
+
+    print("Journal mapping generated successfully.")
 
     
-
+genjournalsmapping()
 genweaponmapping()
-#genpictomapping()
-#genskinmapping()
-#genmusicdiskmapping()
+genpictomapping()
+genskinmapping()
+genmusicdiskmapping()
