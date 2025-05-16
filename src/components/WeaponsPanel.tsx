@@ -4,6 +4,7 @@ import { getPossibleWeapons } from "../utils/gameMappingProvider";
 import { WeaponInfoType } from "../types/jsonCustomMapping";
 import { error, trace } from "@tauri-apps/plugin-log";
 import { useInfo } from "./InfoContext";
+import { clamp } from "tldraw";
 
 // Placeholder for a weapons customization editor component
 interface WeaponsPanelProps {
@@ -358,12 +359,14 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
                                 max={33}
                                 value={weapon.level}
                                 disabled={!weapon.found}
-                                onChange={(e) => handleWeaponCheckUpdate(
+                                onChange={(e) => {
+                                  
+                                  handleWeaponCheckUpdate(
                                   weaponOwner[0],
                                   weapon.name,
                                   weapon.found,
-                                  e.target.valueAsNumber
-                                )} />
+                                  clamp(e.target.valueAsNumber, 0, 33)
+                                )}} />
                             </td>
                             <td style={{ padding: "1em", borderBottom: "1px solid #eee" }}></td>
                           </tr>

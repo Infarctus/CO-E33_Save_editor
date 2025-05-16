@@ -8,6 +8,7 @@ import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
 import { error, trace } from "@tauri-apps/plugin-log";
 import { useInfo } from "./InfoContext";
+import { clamp } from "@tldraw/editor";
 
 // Placeholder for a pictos customization editor component
 interface PictosPanelProps {
@@ -468,7 +469,8 @@ const PictosPanel: FC<PictosPanelProps> = ({
                       picto.name,
                       picto.found,
                       picto.mastered,
-                      e.target.valueAsNumber
+                      clamp(e.target.valueAsNumber, 0, 33)
+                      
                     )
                   }
                 />
