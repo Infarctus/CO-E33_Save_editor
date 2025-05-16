@@ -204,6 +204,7 @@ export interface RootProperties {
   Gold_0: IntTag;
   WeaponProgressions_0: WeaponProgressions_0;
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0;
+  SaveDateTime_0:SaveDateTime_0;
   // Add other root properties as needed
 }
 
@@ -232,6 +233,21 @@ export interface WeaponProgressions_0 {
     };
   };
 }
+
+export interface SaveDateTime_0 {
+  tag : {
+    data:{
+      Struct :{
+        struct_type : "DateTime",
+        id : "00000000-0000-0000-0000-000000000000"
+      }
+    }
+  },
+  Struct : {
+    DateTime : number
+  }
+}
+
 export interface PassiveEffectsProgressions_0 {
   tag: any;
   Array: {
