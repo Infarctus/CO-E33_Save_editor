@@ -25,3 +25,12 @@ export interface MusicDisckInfo {
   friendlyName: string
   found: boolean;
 }
+
+// to be used inside a dict, with the real weapon name as a key
+export interface WeaponInfoType {
+  friendlyName: string
+  found: boolean
+  level: number,
+  owner: string
+}
+

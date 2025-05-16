@@ -81,6 +81,16 @@ const Sidebar: FC<SidebarProps> = ({
           <span>Music Disks</span>
         </li>
 
+                <li
+          data-tab="Weapons"
+          className={`nav-item fileopen-dependant ${activeTab === "Weapons" ? "active" : ""}`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Weapons")}
+        >
+          <img src="/iconsidebar/btnMusicRecordIcon.png" alt="Weapons" className="nav-icon" />
+          <span>Weapons</span>
+        </li>
+
         <li
           data-tab="RawJson"
           className={`nav-item fileopen-dependant ${activeTab === "RawJson" ? "active" : ""}`}
