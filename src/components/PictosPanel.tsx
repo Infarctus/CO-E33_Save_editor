@@ -32,7 +32,11 @@ const PictosPanel: FC<PictosPanelProps> = ({
   }
 
   // Initial global pictos data that uses mapping data from getPossiblePictos and jsonMapping
-  const allPictosMapping: [string, string][] = getPossiblePictos(); // each tuple: [name, friendlyName]
+  const allPictosMapping: [string, string][] = useMemo(() => {
+    return getPossiblePictos(); // Call the function once when the component mounts
+  }, []); // Empty dependency array means this will only run once
+
+
   // Build an inventory dictionary depending on save data, if available.
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
     return (
