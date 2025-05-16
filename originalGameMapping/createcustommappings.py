@@ -6,8 +6,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 def jsondump(obj, file):
     with open(file, "w", encoding="utf-8") as f:
-        json.dump(obj, f, indent=2, ensure_ascii=False)
-        #json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
+        #json.dump(obj, f, indent=2, ensure_ascii=False)
+        json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
 
 
 def oldtestgenpictomapping():
