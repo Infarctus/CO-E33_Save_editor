@@ -10,6 +10,7 @@ import BackupsPanel from "./components/BackupsPanel"
 import RawJsonPanel from "./components/RawJsonPanel"
 import InfoBanner from "./components/InfoBanner"
 import MusicDisksPanel from "./components/MusicDisksPanel"
+import JournalsPanel from "./components/JournalsPanel"
 import { handleSaveFileAndExtractToJson, handleJsonAndConvertToSaveFile } from "./utils/fileManagement"
 import { getMappingJsonFromFile, saveMappingJsonToDisk } from "./utils/jsonSaveMapping"
 import type { OpenProcessResult } from "./types/fileTypes"
@@ -240,6 +241,12 @@ function errorAndInfo(message: string) {
             triggerSaveNeeded={triggerSaveNeeded}
           />
         )}
+        {activeTab === "Journals" && (
+          <JournalsPanel
+            jsonMapping={jsonMapping}
+            triggerSaveNeeded={triggerSaveNeeded}
+          />
+)}
 
 
                 {activeTab === "Weapons" && (
