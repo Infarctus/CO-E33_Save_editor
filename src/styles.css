@@ -101,7 +101,7 @@
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .tab-button,
