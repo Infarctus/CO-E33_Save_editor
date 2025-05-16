@@ -1,9 +1,5 @@
 import { FC, useState, useMemo } from "react";
 import type { BeginMapping } from "../types/jsonSaveMapping";
-import {
-  generatePassiveEffectProgression,
-  generateWeaponPassiveEffectProgression,
-} from "../types/jsonSaveMapping";
 import { getPossibleWeapons } from "../utils/gameMappingProvider";
 import { WeaponInfoType } from "../types/jsonCustomMapping";
 import { error, trace } from "@tauri-apps/plugin-log";
@@ -14,23 +10,6 @@ interface WeaponsPanelProps {
   jsonMapping: BeginMapping | null;
   triggerSaveNeeded: () => void;
 }
-
-type ObjectKey = string | number | symbol
-
-export const groupBy = <
-  K extends ObjectKey,
-  TItem extends Record<K, ObjectKey>
->(
-  items: TItem[],
-  key: K
-): Record<ObjectKey, TItem[]> =>
-  items.reduce(
-    (result, item) => ({
-      ...result,
-      [item[key]]: [...(result[item[key]] || []), item],
-    }),
-    {} as Record<ObjectKey, TItem[]>
-  )
 
 type SortField = "friendlyName" | "found" | "level" | null;
 type SortDirection = "asc" | "desc";
@@ -151,10 +130,10 @@ const allWeaponsMapping: [string, { [weaponKey: string]: string }][] = useMemo((
         value: { Int: 1 },
       });
 
-      trace("adding To PassiveEffectsProgressions");
-      jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.push(
-        generateWeaponPassiveEffectProgression(weaponName, false, 0)
-      );
+      // trace("adding To PassiveEffectsProgressions");
+      // jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.push(
+      //   generateWeaponPassiveEffectProgression(weaponName, false, 0)
+      // );
       trace("adding To weaponProg");
       console.log("adding To WeaponProg");
       jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.push({
@@ -271,150 +250,141 @@ const allWeaponsMapping: [string, { [weaponKey: string]: string }][] = useMemo((
         placeholder="Search by name..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ padding: "0.5em", width: "100%" }}
+        className="search-bar"
       />
       {displayedWeapons.length != 0 && (
         <sup style={{ padding: "0.7em" }}>{displayedWeapons.length} results</sup>
       )}
       {/* Table */}
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
-        <thead>
-          <tr>
-            <th
-              style={{
-                borderBottom: "1px solid #ccc",
-                cursor: "pointer",
-                padding: "0.5em",
-              }}
-              onClick={() => handleSort("friendlyName")}
-            >
-              Name{" "}
-              {sortField === "friendlyName" &&
-                (sortDirection === "asc" ? "↑" : "↓")}
-            </th>
-            <th
-              style={{
-                borderBottom: "1px solid #ccc",
-                cursor: "pointer",
-                padding: "0.5em",
-              }}
-              onClick={() => handleSort("found")}
-            >
-              Found{" "}
-              {sortField === "found" && (sortDirection === "asc" ? "↑" : "↓")}
-            </th>
-            
-            <th
-              style={{
-                borderBottom: "1px solid #ccc",
-                cursor: "pointer",
-                padding: "0.5em",
-              }}
-              onClick={() => handleSort("level")}
-            >
-              Level{" "}
-              {sortField === "level" && (sortDirection === "asc" ? "↑" : "↓")}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {displayedWeapons.map((weapon) => (
-            <tr key={weapon.name}>
-              <td style={{ padding: "0.5em", borderBottom: "1px solid #eee" }}>
-                {weapon.friendlyName}
-              </td>
-              <td
-                style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
-                  textAlign: "center",
-                }}
-              >
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={weapon.found}
-                    onChange={(e) => {
-                      if (!e.target.checked && weapon.mastered) {
-                        weapon.mastered = false;
-                      }
-                      if (!e.target.checked && weapon.level !== 0) {
-                        weapon.level = 0;
-                      }
-                      handleWeaponCheckUpdate(
-                        weapon.name,
-                        e.target.checked,
-                        weapon.mastered,
-                        weapon.level
-                      );
-                    }}
-                  />
-                  <div className="slider round"></div>
-                </label>
-              </td>
-              <td
-                style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
-                  textAlign: "center",
-                }}
-              >
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={weapon.mastered}
-                    disabled={!weapon.found}
-                    onChange={(e) =>
-                      handleWeaponCheckUpdate(
-                        weapon.name,
-                        weapon.found,
-                        e.target.checked,
-                        weapon.level
-                      )
-                    }
-                  />
-                  <div
-                    className="slider round"
-                    aria-disabled={!weapon.found ? true : undefined}
-                    //  aria-disabled={!weapon.found}
-                  ></div>
-                </label>
-              </td>
+<table style={{ width: "100%", borderCollapse: "collapse" }}>
+  <thead>
+    <tr>
+      <th
+        style={{
+          borderBottom: "1px solid #ccc",
+          cursor: "pointer",
+          padding: "0.5em",
+          textAlign: "left"
+          // width: "1px"
+        }}
+      >Owner</th>
+      <th
+        style={{
+          borderBottom: "1px solid #ccc",
+          cursor: "pointer",
+          padding: "0.5em",
+        }}
+        onClick={() => handleSort("friendlyName")}
+      >
+        Name{" "}
+        {sortField === "friendlyName" &&
+          (sortDirection === "asc" ? "↑" : "↓")}
+      </th>
+      <th
+        style={{
+          borderBottom: "1px solid #ccc",
+          cursor: "pointer",
+          padding: "0.5em",
+        }}
+        onClick={() => handleSort("found")}
+      >
+        Found{" "}
+        {sortField === "found" && (sortDirection === "asc" ? "↑" : "↓")}
+      </th>
+      <th
+        style={{
+          borderBottom: "1px solid #ccc",
+          cursor: "pointer",
+          padding: "0.5em",
+        }}
+        onClick={() => handleSort("level")}
+      >
+        Level{" "}
+        {sortField === "level" && (sortDirection === "asc" ? "↑" : "↓")}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {displayedWeapons.map((weaponOwner) => (
+      <>
+        <tr>
+          <td colSpan={4}>
+            <details>
+              <summary style={{ padding: "0.5em", borderBottom: "1px solid #eee", borderRadius: "4px" }}>
+                {weaponOwner[0]}
+              </summary>
+              <table style={{ width: "100%", borderCollapse: "collapse", marginLeft: "60px" }}>
+                <tbody>
+                  {weaponOwner[1].map((weapon) => (
+                    <tr key={weapon.name} style={{borderLeft: "1px solid #eee"}}>
+                      <td style={{ padding: "1em", borderBottom: "1px solid #eee" }}>
+                        {weapon.friendlyName}
+                      </td>
+                      <td
+                        style={{
+                          padding: "1em",
+                          borderBottom: "1px solid #eee",
+                          textAlign: "center",
+                        }}
+                      >
+                        <label className="switch">
+                          <input
+                            type="checkbox"
+                            checked={weapon.found}
+                            onChange={(e) => {
+                              if (!e.target.checked && weapon.level !== 0) {
+                                weapon.level = 0;
+                              }
+                              handleWeaponCheckUpdate(
+                                weaponOwner[0],
+                                weapon.name,
+                                e.target.checked,
+                                weapon.level
+                              );
+                            }} />
+                          <div className="slider round"></div>
+                        </label>
+                      </td>
+                      <td
+                        style={{
+                          padding: "0.5em",
+                          borderBottom: "1px solid #eee",
+                          textAlign: "center",
+                        }}
+                      >
+                        <input
+                          type="number"
+                          min={0}
+                          max={33}
+                          value={weapon.level}
+                          disabled={!weapon.found}
+                          onChange={(e) => handleWeaponCheckUpdate(
+                            weaponOwner[0],
+                            weapon.name,
+                            weapon.found,
+                            e.target.valueAsNumber
+                          )} />
+                      </td>
+                      <td style={{ padding: "1em", borderBottom: "1px solid #eee" }}></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </details>
+          </td>
+        </tr>
+      </>
+    ))}
+    {displayedWeapons.length === 0 && (
+      <tr>
+        <td colSpan={4} style={{ padding: "0.5em", textAlign: "center" }}>
+          No weapons found.
+        </td>
+      </tr>
+    )}
+  </tbody>
+</table>
 
-              <td
-                style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
-                  textAlign: "center",
-                }}
-              >
-                <input
-                  type="number"
-                  min={0}
-                  max={33}
-                  value={weapon.level}
-                  disabled={!weapon.found}
-                  onChange={(e) =>
-                    handleWeaponCheckUpdate(
-                      weapon.name,
-                      weapon.found,
-                      weapon.mastered,
-                      e.target.valueAsNumber
-                    )
-                  }
-                />
-              </td>
-            </tr>
-          ))}
-          {displayedWeapons.length === 0 && (
-            <tr>
-              <td colSpan={3} style={{ padding: "0.5em", textAlign: "center" }}>
-                No weapons found.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
     </div>
   );
 };
