@@ -1,6 +1,9 @@
 import { FC, useState, useMemo } from "react";
 import type { BeginMapping } from "../types/jsonSaveMapping";
-import { generatePassiveEffectProgression } from "../types/jsonSaveMapping";
+import {
+  generatePassiveEffectProgression,
+  generatePictoPassiveEffectProgression,
+} from "../types/jsonSaveMapping";
 import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
 import { error, trace } from "@tauri-apps/plugin-log";
@@ -35,7 +38,6 @@ const PictosPanel: FC<PictosPanelProps> = ({
   const allPictosMapping: [string, string][] = useMemo(() => {
     return getPossiblePictos(); // Call the function once when the component mounts
   }, []); // Empty dependency array means this will only run once
-
 
   // Build an inventory dictionary depending on save data, if available.
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
@@ -205,6 +207,11 @@ const PictosPanel: FC<PictosPanelProps> = ({
         ].Struct.IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0.Bool = true;
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value =
           newArr;
+      } else {
+        trace("generating new passive effect for picto")
+        jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.push(
+          generatePictoPassiveEffectProgression(pictoName, true, 4)
+        );
       }
     } else if (!thisPictoWas!.found && newFound) {
       trace("adding to inventory");
@@ -215,22 +222,7 @@ const PictosPanel: FC<PictosPanelProps> = ({
 
       trace("adding To PassiveEffectsProgressions");
       jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.push(
-        {
-          Struct: {
-            PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0: {
-              Name: pictoName,
-              tag: { data: { Other: "NameProperty" } },
-            },
-            IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0: {
-              Bool: false,
-              tag: { data: { Other: "BoolProperty" } },
-            },
-            LearntSteps_6_A14D681549E830249C77BD95F2B4CF3F_0: {
-              Int: 0,
-              tag: { data: { Other: "IntProperty" } },
-            },
-          },
-        }
+        generatePictoPassiveEffectProgression(pictoName, false, 0)
       );
       trace("adding To weaponProg");
       console.log("adding To WeaponProg");
