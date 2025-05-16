@@ -41,6 +41,22 @@ function errorAndInfo(message: string) {
   error(message)
 }
 
+  const changedatesaved = () => {
+    if (workingFileCurrent && workingFileCurrent.tempJsonPath && jsonMapping) {
+      // Get .NET ticks (100-nanosecond intervals since 0001-01-01T00:00:00Z)
+      const now = new Date();
+      const epochTicks = 621355968000000000; // Number of .NET ticks at Unix epoch
+      const ticks = epochTicks + (now.getTime()-now.getTimezoneOffset() * 60000) * 10000;
+      try {
+        jsonMapping.root.properties.SaveDateTime_0.Struct.DateTime = ticks;
+      }
+      catch (error) {
+        errorAndInfo("Error setting SaveDateTime_0: (maybe not a CO:E33 Save file) " + error);
+      }
+      
+    }
+  }
+
 
   // Override console methods to capture logs
   // useConsoleOverride(setLogs, setInfoMessage)
@@ -126,6 +142,7 @@ function errorAndInfo(message: string) {
 
       return
     }
+    changedatesaved()
 
     try {
       // First, save the JSON mapping to the working temp path
@@ -171,6 +188,7 @@ function errorAndInfo(message: string) {
       errorAndInfo("No working file (original SAV path or temp JSON path) available.")
       return
     }
+    changedatesaved()
 
     try {
       // Save JSON to the temp file
