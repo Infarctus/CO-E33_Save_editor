@@ -2,7 +2,7 @@ import { FC, useState, useMemo } from "react";
 import type { BeginMapping } from "../types/jsonSaveMapping";
 import { getPossibleWeapons } from "../utils/gameMappingProvider";
 import { WeaponInfoType } from "../types/jsonCustomMapping";
-import { error, trace } from "@tauri-apps/plugin-log";
+import { trace } from "@tauri-apps/plugin-log";
 import { useInfo } from "./InfoContext";
 import { clamp } from "../utils/uils";
 
