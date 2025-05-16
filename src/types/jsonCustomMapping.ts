@@ -11,6 +11,11 @@ export interface CustomMusicMapping {
   MusicDisks: any;
 }
 
+export interface CustomJournalMapping{
+  Journals : {
+    [journalKey: string]:  string;
+  }
+}
 
 export interface PictoInfo {
   name: string
