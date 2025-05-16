@@ -1,0 +1,2172 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DT_Items_Journals",
+    "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "UserDefinedStruct'S_jRPG_Item_StaticData'",
+        "ObjectPath": "/Game/jRPGTemplate/Structures/S_jRPG_Item_StaticData.0"
+      }
+    },
+    "Rows": {
+      "Journal_Exp100A": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp100A",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp100A_Name",
+          "SourceString": "Journal - Simon",
+          "LocalizedString": "Journal - Simon"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp100A_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp100A'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp100A.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp100B": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp100B",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp100B_Name",
+          "SourceString": "Journal - Julie Search and Rescue",
+          "LocalizedString": "Journal - Julie Search and Rescue"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp100B_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp100B'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp100B.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp84": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp84",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp84_Name",
+          "SourceString": "Journal - Expedition 84",
+          "LocalizedString": "Journal - Expedition 84"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp84_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp84'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp84.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp81": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp81",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp81_Name",
+          "SourceString": "Journal - Expedition 81",
+          "LocalizedString": "Journal - Expedition 81"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp81_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp81'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp81.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp78": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp78",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp78_Name",
+          "SourceString": "Journal - Expedition 78",
+          "LocalizedString": "Journal - Expedition 78"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp78_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp78'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp78.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp70": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp70",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp70_Name",
+          "SourceString": "Journal - Expedition 70",
+          "LocalizedString": "Journal - Expedition 70"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp70_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp70'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp70.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp69": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp69",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp69_Name",
+          "SourceString": "Journal - Expedition 69",
+          "LocalizedString": "Journal - Expedition 69"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp69_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp69'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp69.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp68": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp68",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp68_Name",
+          "SourceString": "Journal - Expedition 68",
+          "LocalizedString": "Journal - Expedition 68"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp68_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp68'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp68.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp67": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp67",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp67_Name",
+          "SourceString": "Journal - Expedition 67",
+          "LocalizedString": "Journal - Expedition 67"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp67_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp67'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp67.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp66": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp66",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp66_Name",
+          "SourceString": "Journal - Expedition 66",
+          "LocalizedString": "Journal - Expedition 66"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp66_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp66'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp66.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp65": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp65",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp65_Name",
+          "SourceString": "Journal - Expedition 65",
+          "LocalizedString": "Journal - Expedition 65"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp65_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp65'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp65.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp64": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp64",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp64_Name",
+          "SourceString": "Journal - Expedition 64",
+          "LocalizedString": "Journal - Expedition 64"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp64_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp64'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp64.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp63": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp63",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp63_Name",
+          "SourceString": "Journal - Expedition 63",
+          "LocalizedString": "Journal - Expedition 63"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp63_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp63'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp63.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp62": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp62",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp62_Name",
+          "SourceString": "Journal - Expedition 62",
+          "LocalizedString": "Journal - Expedition 62"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp62_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp62'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp62.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp61": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp61",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp61_Name",
+          "SourceString": "Journal - Expedition 61",
+          "LocalizedString": "Journal - Expedition 61"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp61_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp61'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp61.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp60": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp60",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp60_Name",
+          "SourceString": "Journal - Expedition 60",
+          "LocalizedString": "Journal - Expedition 60"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp60_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp60'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp60.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp59": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp59",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp59_Name",
+          "SourceString": "Journal - Expedition 59",
+          "LocalizedString": "Journal - Expedition 59"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp59_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp59'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp59.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp58": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp58",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp58_Name",
+          "SourceString": "Journal - Expedition 58",
+          "LocalizedString": "Journal - Expedition 58"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp58_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp58'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp58.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp57": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp57",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp57_Name",
+          "SourceString": "Journal - Expedition 57",
+          "LocalizedString": "Journal - Expedition 57"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp57_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp57'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp57.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp56": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp56",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp56_Name",
+          "SourceString": "Journal - Expedition 56",
+          "LocalizedString": "Journal - Expedition 56"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp56_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp56'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp56.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp55": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp55",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp55_Name",
+          "SourceString": "Journal - Expedition 55",
+          "LocalizedString": "Journal - Expedition 55"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp55_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp55'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp55.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp54": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp54",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp54_Name",
+          "SourceString": "Journal - Expedition 54",
+          "LocalizedString": "Journal - Expedition 54"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp54_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp54'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp54.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp53": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp53",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp53_Name",
+          "SourceString": "Journal - Expedition 53",
+          "LocalizedString": "Journal - Expedition 53"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp53_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp53'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp53.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp52": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp52",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp52_Name",
+          "SourceString": "Journal - Expedition 52",
+          "LocalizedString": "Journal - Expedition 52"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp52_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp52'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp52.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp51": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp51",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp51_Name",
+          "SourceString": "Journal - Expedition 51",
+          "LocalizedString": "Journal - Expedition 51"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp51_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp51'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp51.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp50": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp50",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp50_Name",
+          "SourceString": "Journal - Expedition 50",
+          "LocalizedString": "Journal - Expedition 50"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp50_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp50'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp50.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp49": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp49",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp49_Name",
+          "SourceString": "Journal - Expedition 49",
+          "LocalizedString": "Journal - Expedition 49"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp49_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp49'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp49.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp48": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp48",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp48_Name",
+          "SourceString": "Journal - Expedition 48",
+          "LocalizedString": "Journal - Expedition 48"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp48_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp48'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp48.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp47": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp47",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp47_Name",
+          "SourceString": "Journal - Expedition 47",
+          "LocalizedString": "Journal - Expedition 47"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp47_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp47'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp47.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp46": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp46",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp46_Name",
+          "SourceString": "Journal - Expedition 46",
+          "LocalizedString": "Journal - Expedition 46"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp46_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp46'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp46.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp45": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp45",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp45_Name",
+          "SourceString": "Journal - Expedition 45",
+          "LocalizedString": "Journal - Expedition 45"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp45_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp45'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp45.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp44": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp44",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp44_Name",
+          "SourceString": "Journal - Expedition 44",
+          "LocalizedString": "Journal - Expedition 44"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp44_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp44'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp44.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp43": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp43",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp43_Name",
+          "SourceString": "Journal - Expedition 43",
+          "LocalizedString": "Journal - Expedition 43"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp43_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp43'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp43.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp42": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp42",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp42_Name",
+          "SourceString": "Journal - Expedition 42",
+          "LocalizedString": "Journal - Expedition 42"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp42_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp42'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp42.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp41": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp41",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp41_Name",
+          "SourceString": "Journal - Expedition 41",
+          "LocalizedString": "Journal - Expedition 41"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp41_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp41'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp41.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp40": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp40",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp40_Name",
+          "SourceString": "Journal - Expedition 40",
+          "LocalizedString": "Journal - Expedition 40"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp40_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp40'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp40.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp39": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp39",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp39_Name",
+          "SourceString": "Journal - Expedition 39",
+          "LocalizedString": "Journal - Expedition 39"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp39_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp39'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp39.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp38": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp38",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp38_Name",
+          "SourceString": "Journal - Expedition 38",
+          "LocalizedString": "Journal - Expedition 38"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp38_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp38'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp38.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp37": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp37",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp37_Name",
+          "SourceString": "Journal - Expedition 37",
+          "LocalizedString": "Journal - Expedition 37"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp37_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp37'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp37.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp36": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp36",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp36_Name",
+          "SourceString": "Journal - Expedition 36",
+          "LocalizedString": "Journal - Expedition 36"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp36_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp36'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp36.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp35": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp35",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp35_Name",
+          "SourceString": "Journal - Expedition 35",
+          "LocalizedString": "Journal - Expedition 35"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp35_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp35'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp35.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Exp34": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Exp34",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp34_Name",
+          "SourceString": "Journal - Expedition 34",
+          "LocalizedString": "Journal - Expedition 34"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Exp34_Description",
+          "SourceString": "A journal from a previous expedition.",
+          "LocalizedString": "A journal from a previous expedition."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Exp34'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Exp34.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_OldLumiere": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_OldLumiere",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_OldLumiere_Name",
+          "SourceString": "Journal - Fracture Survivor",
+          "LocalizedString": "Journal - Fracture Survivor"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_OldLumiere_Description",
+          "SourceString": "A journal from a civilian.",
+          "LocalizedString": "A journal from a civilian."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_OldLumiere'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_OldLumiere.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_RenoirSirene": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_RenoirSirene",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirSirene_Name",
+          "SourceString": "Journal - Unknown",
+          "LocalizedString": "Journal - Unknown"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirSirene_Description",
+          "SourceString": "A journal from someone anonymous.",
+          "LocalizedString": "A journal from someone anonymous."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_RenoirSirene'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_RenoirSirene.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_RenoirVisages": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_RenoirVisages",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirVisages_Name",
+          "SourceString": "Journal - Unknown",
+          "LocalizedString": "Journal - Unknown"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirVisages_Description",
+          "SourceString": "A journal from someone anonymous.",
+          "LocalizedString": "A journal from someone anonymous."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_RenoirVisages'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_RenoirVisages.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_RenoirReacher": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_RenoirReacher",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirReacher_Name",
+          "SourceString": "Journal - Unknown",
+          "LocalizedString": "Journal - Unknown"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirReacher_Description",
+          "SourceString": "A journal from someone anonymous.",
+          "LocalizedString": "A journal from someone anonymous."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_RenoirReacher'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_RenoirReacher.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_RenoirManor": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_RenoirManor",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirManor_Name",
+          "SourceString": "Journal - Renoir",
+          "LocalizedString": "Journal - Renoir"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_RenoirManor_Description",
+          "SourceString": "A journal from Renoir.",
+          "LocalizedString": "A journal from Renoir."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_RenoirManor'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_RenoirManor.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Aline": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Aline",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Aline_Name",
+          "SourceString": "Journal - Aline",
+          "LocalizedString": "Journal - Aline"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Aline_Description",
+          "SourceString": "A journal from Aline.",
+          "LocalizedString": "A journal from Aline."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Aline'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Aline.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      },
+      "Journal_Verso": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Journal_Verso",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Verso_Name",
+          "SourceString": "Journal - Verso",
+          "LocalizedString": "Journal - Verso"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator11",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator22",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/UI/Resources/Textures/Icons/Menus/T_UI_JournalIcon.T_UI_JournalIcon",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "TableId": "/Game/StringTables/Gameplay/ST_Items.ST_Items",
+          "Key": "ITEM_Journal_Verso_Description",
+          "SourceString": "A journal from Verso.",
+          "LocalizedString": "A journal from Verso."
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": {
+          "ObjectName": "BP_DataAsset_Item_Journal_C'DA_Item_Journal_Verso'",
+          "ObjectPath": "/Game/Narrative/ExpeditionersJournals/Data/DA_Item_Journal_Verso.0"
+        },
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": false
+      }
+    }
+  }
+]
