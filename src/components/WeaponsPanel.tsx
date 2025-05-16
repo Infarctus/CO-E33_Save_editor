@@ -242,7 +242,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
   }, [weapons, searchQuery, sortField, sortDirection]);
 
   return (
-    <div id="WeaponsPanel" className="tab-panel oveflow-auto">
+    <div id="WeaponsPanel" className="tab-panel-weapons oveflow-auto">
       <h2>Weapons</h2>
       {/* Search Bar */}
       <input
@@ -314,7 +314,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
                     <summary style={{ padding: "0.5em", borderBottom: "1px solid #eee", borderRadius: "4px" }}>
                       {weaponOwner[0]}
                     </summary>
-                    <table style={{ width: "100%", borderCollapse: "collapse", marginLeft: "40px" }}>
+                    <table style={{ width: "calc(100% - 40px)", borderCollapse: "collapse", marginLeft: "40px"}}>
                       <tbody>
                         {weaponOwner[1].map((weapon) => (
                           <tr key={weapon.name} >
