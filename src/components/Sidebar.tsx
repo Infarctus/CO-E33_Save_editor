@@ -21,7 +21,10 @@ const Sidebar: FC<SidebarProps> = ({
 }) => {
   return (
     <aside className="drawer">
-      <button id="OpenFile" className="tab-button" onClick={onOpenFile}>
+      <button id="OpenFile"
+       className="tab-button"
+       onClick={onOpenFile}
+       title="Select your save file">
         Open File
       </button>
 
@@ -30,6 +33,7 @@ const Sidebar: FC<SidebarProps> = ({
         className="tab-button fileopen-dependant"
         onClick={onExportFile}
         disabled={!anyFileOpen}
+        title="Export a file to wherever you want.\nYou will be prompted for the target destination."
       >
         Export File
       </button>
@@ -39,6 +43,8 @@ const Sidebar: FC<SidebarProps> = ({
         className="tab-button fileopen-dependant"
         onClick={onOverwriteFile}
         disabled={!anyFileOpen}
+        title="Directly overwrite the file you opened.\nUses the same file location and name."
+
       >
         Overwrite File
       </button>
