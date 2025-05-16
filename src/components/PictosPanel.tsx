@@ -334,8 +334,8 @@ const PictosPanel: FC<PictosPanelProps> = ({
         type="text"
         placeholder="Search by name..."
         value={searchQuery}
+        className="search-bar"
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ padding: "0.5em", width: "100%" }}
       />
       {displayedPictos.length != 0 && (
         <sup style={{ padding: "0.7em" }}>{displayedPictos.length} results</sup>

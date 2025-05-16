@@ -46,3 +46,9 @@ export interface CustomWeaponsMapping {
     };
   };
 }
+
+export interface JournalInfo {
+  name: string
+  friendlyName: string
+  found: boolean
+}

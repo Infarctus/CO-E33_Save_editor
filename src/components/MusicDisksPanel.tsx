@@ -133,9 +133,9 @@ const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
       <input
         type="text"
         placeholder="Search by name..."
+        className="search-bar"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        style={{ padding: "0.5em", width: "100%" }}
       />
       {displayedDisks.length != 0 && (
         <sup style={{ padding: "0.7em" }}>{displayedDisks.length} results</sup>
@@ -170,10 +170,10 @@ const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
           </tr>
         </thead>
         <tbody>
-          {displayedDisks.map((disk) => (
-            <tr key={disk.name}>
+          {displayedDisks.map((journal) => (
+            <tr key={journal.name}>
               <td style={{ padding: "0.5em", borderBottom: "1px solid #eee" }}>
-                {disk.friendlyName}
+                {journal.friendlyName}
               </td>
               <td
                 style={{
@@ -185,10 +185,10 @@ const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
                 <label className="switch">
                   <input
                     type="checkbox"
-                    checked={disk.found}
+                    checked={journal.found}
                     onChange={(e) => {
                       handleMusicDiskChange(
-                        disk.name,
+                        journal.name,
                         e.target.checked,
                       );
                     }}

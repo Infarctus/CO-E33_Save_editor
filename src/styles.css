@@ -145,6 +145,11 @@ button {
 
 .tab-panel {
   display: block;
+  margin-bottom: auto;
+}
+.tab-panel > .search-bar {
+  padding: 0.5em;
+  width: -webkit-fill-available;
 }
 
 .header {
