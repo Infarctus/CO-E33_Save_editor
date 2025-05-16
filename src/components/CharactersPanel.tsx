@@ -26,7 +26,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
   if (workingFileCurrent == null || jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null) {
     return (
       <div id="CharactersPanel" className="tab-panel">
-        <h2>Characters Tab</h2>
+        <h2>Characters</h2>
         <p style={{ color: "red" }}>The file you opened (if any) doesn't look like a CO:E33 save file</p>
       </div>
     )
@@ -35,7 +35,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({ workingFileCurrent, jsonMap
 
   return (
     <div id="CharactersPanel" className="tab-panel">
-      <h2>Characters Tab</h2>
+      <h2>Characters</h2>
 
       <div
         style={{
