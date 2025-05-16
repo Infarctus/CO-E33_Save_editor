@@ -197,7 +197,8 @@ def genweaponmapping():
         if dir.endswith(".json"):
             continue
         charname = dir
-        output_data["Weapons"][charname] = {}
+        diccharname = charname if charname != "Verso" else "Gustave/Verso" 
+        output_data["Weapons"][diccharname] = {}
         full_path = os.path.join("originalGameMapping/Gear/Weapons", dir)
         for weapon in os.listdir(full_path):
             if weapon.endswith(".json"):
@@ -210,7 +211,7 @@ def genweaponmapping():
                     itemlistname = weaponslistnames.get("ITEM_"+weaponname+"_Name")
                     if not itemlistname:
                         itemlistname = "NULL"
-                    output_data["Weapons"][charname][weaponname] = itemlistname
+                    output_data["Weapons"][diccharname][weaponname] = itemlistname
 
     jsondump(output_data, output_path)
 
