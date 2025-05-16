@@ -120,12 +120,8 @@ def genpictomapping():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2)
 
-    print("Picto mapping generated successfully.")
-                    
+    print("Picto mapping generated successfully.")              
                 
-
-
-
 def genskinmapping():
     input_cc = "originalGameMapping/DT_CharacterCustomizationItems.json"
 
@@ -180,6 +176,49 @@ def genmusicdiskmapping():
 
     print("Music disk mapping generated successfully.")
 
-genpictomapping()
-genskinmapping()
-genmusicdiskmapping()
+
+def genweaponmapping():
+    input_weapons = "originalGameMapping/Gear/Weapons/DT_WeaponDefinitions.json"
+    output_path = os.path.join(output_dir, "weapons.json")
+
+    with open(input_weapons, "r", encoding="utf-8") as f:
+        weaponslistdef = json.load(f)[0].get("Rows")
+
+    with open ("originalGameMapping/ST_Items.json", "r", encoding="utf-8") as f:
+        weaponslistnames = json.load(f)[0].get("StringTable").get("KeysToEntries")
+
+    output_data = {
+        "Weapons": {}
+    }
+
+    for dir in os.listdir("originalGameMapping/Gear/Weapons"):
+        if dir.endswith(".json"):
+            continue
+        charname = dir
+        output_data["Weapons"][charname] = {}
+        full_path = os.path.join("originalGameMapping/Gear/Weapons", dir)
+        for weapon in os.listdir(full_path):
+            if weapon.endswith(".json"):
+                weaponname = weapon.removeprefix(weapon.split(charname)[0]+charname+"_").removesuffix(".json")
+                if(len(weaponname.split("_")[0]) ==2 ):
+                    weaponname = weaponname.removeprefix(weaponname.split("_")[0]+"_")
+                if (weaponname == "GDC"): # weird exception case
+                    continue
+                if( weaponslistdef.get(weaponname) ):
+                    itemlistname = weaponslistnames.get("ITEM_"+weaponname+"_Name")
+                    if not itemlistname:
+                        itemlistname = "NULL"
+                    output_data["Weapons"][charname][weaponname] = itemlistname
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+
+        
+
+
+    
+
+genweaponmapping()
+#genpictomapping()
+#genskinmapping()
+#genmusicdiskmapping()
