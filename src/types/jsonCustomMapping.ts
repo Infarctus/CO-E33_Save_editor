@@ -33,10 +33,10 @@ export interface MusicDisckInfo {
 
 // to be used inside a dict, with the real weapon name as a key
 export interface WeaponInfoType {
+  name: string
   friendlyName: string
   found: boolean
   level: number,
-  owner: string
 }
 
 export interface CustomWeaponsMapping {

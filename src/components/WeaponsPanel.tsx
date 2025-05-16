@@ -15,6 +15,23 @@ interface WeaponsPanelProps {
   triggerSaveNeeded: () => void;
 }
 
+type ObjectKey = string | number | symbol
+
+export const groupBy = <
+  K extends ObjectKey,
+  TItem extends Record<K, ObjectKey>
+>(
+  items: TItem[],
+  key: K
+): Record<ObjectKey, TItem[]> =>
+  items.reduce(
+    (result, item) => ({
+      ...result,
+      [item[key]]: [...(result[item[key]] || []), item],
+    }),
+    {} as Record<ObjectKey, TItem[]>
+  )
+
 type SortField = "friendlyName" | "found" | "level" | null;
 type SortDirection = "asc" | "desc";
 
@@ -35,9 +52,9 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
   }
 
   // Initial global weapons data that uses mapping data from getPossibleWeapons and jsonMapping
-  const allWeaponsMapping: [string, string][] = useMemo(() => {
-    return getPossibleWeapons(); // Call the function once when the component mounts
-  }, []); // Empty dependency array means this will only run once
+const allWeaponsMapping: [string, { [weaponKey: string]: string }][] = useMemo(() => {
+  return getPossibleWeapons();
+}, []);
 
   // Build an inventory dictionary depending on save data, if available.
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
@@ -69,20 +86,20 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
   );
 
   // Build initial weapon info list from available weapons and the inventory info.
-  const initialWeaponsDict: { [key: string]: WeaponInfoType } =
-    Object.fromEntries(allWeaponsMapping.map(
-      ([name, friendlyName]) => {
+  const initialWeaponsDict: { [key: string]: WeaponInfoType[] } =
+    Object.fromEntries(allWeaponsMapping.map(([owner, weapons]) => {
+      const weaponInfoTypes: WeaponInfoType[] = Object.keys(weapons).map((name) => {
+        const friendlyName = weapons[name];
         const found = !!inventoryDict[name];
         const level = levelDict[name] || 0;
-        const owner= "todo"
-        const wit: WeaponInfoType = { friendlyName, found, level,owner }
-        return [name, wit];
-      }
-    )
-    );
+        return { name, friendlyName, found, level };
+      });
+      return [owner, weaponInfoTypes];
+    }));
+
 
   // State for weapons, search query, and sorting.
-  const [weapons, setWeapons] = useState<{[key: string]: WeaponInfoType}>(initialWeaponsDict);
+  const [weapons, setWeapons] = useState<{[keyOwner: string]: WeaponInfoType[]}>(initialWeaponsDict);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [sortField, setSortField] = useState<SortField>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
@@ -90,12 +107,13 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
   // Called whenever an input box is toggled.
   // The function receives the weapon's name along with the updated found and mastered values.
   const handleWeaponCheckUpdate = (
+    owner: string,
     weaponName: string,
     newFound: boolean,
     newLevel: number
   ) => {
     // Update local state accordingly.
-    var thisWeaponWas: WeaponInfoType = weapons[weaponName]!;
+    var thisWeaponWas: WeaponInfoType = weapons[owner].find((e) => e.name === weaponName)!;
 
 
     // Trigger any external save/update call.
@@ -175,13 +193,20 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
       // set weaponProg to 0
     }
 
-    setWeapons(weapons => ({ ...weapons, [weaponName]: { friendlyName: thisWeaponWas.friendlyName, found: newFound, level: newLevel, owner: thisWeaponWas.owner } }));
+    const updatedWeapons = { ...weapons };
+    updatedWeapons[owner] = updatedWeapons[owner].map((weapon) => {
+      if (weapon.name === weaponName) {
+        return { name: thisWeaponWas.friendlyName, friendlyName: thisWeaponWas.friendlyName, found: newFound, level: newLevel };
+      }
+      return weapon;
+    });
+    setWeapons(updatedWeapons);
 
     logAndInfo(
       "Weapon update:" +
-        weaponName +
-        " " +
-        newFound +
+      weaponName +
+      " " +
+      newFound +
         " " +
         newLevel
     );
@@ -200,36 +225,46 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
 
   // Memoize and compute the final list after filtering and sorting.
   const displayedWeapons = useMemo(() => {
-    let filtered = Object.entries(weapons).filter((item) => {
-      item[1].friendlyName.toLowerCase().includes(searchQuery.toLowerCase())
-    })
+    let filtered = Object.entries(weapons).filter(([keyOwner, weaponsList]) => {
+      return (weaponsList as WeaponInfoType[]).some((weapon) => {
+        return weapon.friendlyName.toLowerCase().includes(searchQuery.toLowerCase());
+      });
+    }).map(([keyOwner, weaponsList]) => {
+      const filteredWeaponsList = (weaponsList as WeaponInfoType[]).filter((weapon) => {
+        return weapon.friendlyName.toLowerCase().includes(searchQuery.toLowerCase());
+      });
+      return [keyOwner, filteredWeaponsList];
+    }) as [string, WeaponInfoType[]][];
+
     if (sortField) {
-      filtered.sort((a, b) => {
+      filtered = filtered.map(([keyOwner, weaponsList]) => {
+      const sortedWeaponsList = weaponsList.sort((a, b) => {
         let aVal: any;
         let bVal: any;
         if (sortField === "friendlyName") {
-          aVal = a[1].friendlyName.toLowerCase();
-          bVal = b[1].friendlyName.toLowerCase();
+          aVal = a.friendlyName.toLowerCase();
+          bVal = b.friendlyName.toLowerCase();
         } else if (sortField === "found") {
-          aVal = a[1][sortField] ? 1 : 0;
-          bVal = b[1][sortField] ? 1 : 0;
-        } else if (sortField == "level") {
-          aVal = a[1].level;
-          bVal = b[1].level;
+          aVal = a[sortField] ? 1 : 0;
+          bVal = b[sortField] ? 1 : 0;
+        } else if (sortField === "level") {
+          aVal = a.level;
+          bVal = b.level;
         }
         if (aVal < bVal) return sortDirection === "asc" ? -1 : 1;
         if (aVal > bVal) return sortDirection === "asc" ? 1 : -1;
         return 0;
       });
-    }
-    return filtered;
-  }, [
-    // weapons, // this is a test to not update directly 
-      searchQuery, sortField, sortDirection]);
+      return [keyOwner, sortedWeaponsList];
+    });
+  }
+
+  return filtered;
+}, [weapons, searchQuery, sortField, sortDirection]);
 
   return (
     <div id="WeaponsPanel" className="tab-panel oveflow-auto">
-      <h2>Weapons Tab</h2>
+      <h2>Weapons</h2>
       {/* Search Bar */}
       <input
         type="text"
@@ -268,18 +303,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
               Found{" "}
               {sortField === "found" && (sortDirection === "asc" ? "↑" : "↓")}
             </th>
-            <th
-              style={{
-                borderBottom: "1px solid #ccc",
-                cursor: "pointer",
-                padding: "0.5em",
-              }}
-              onClick={() => handleSort("mastered")}
-            >
-              Mastered{" "}
-              {sortField === "mastered" &&
-                (sortDirection === "asc" ? "↑" : "↓")}
-            </th>
+            
             <th
               style={{
                 borderBottom: "1px solid #ccc",
