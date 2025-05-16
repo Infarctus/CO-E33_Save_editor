@@ -170,25 +170,19 @@ const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
           </tr>
         </thead>
         <tbody>
-          {displayedDisks.map((journal) => (
-            <tr key={journal.name}>
-              <td style={{ padding: "0.5em", borderBottom: "1px solid #eee" }}>
-                {journal.friendlyName}
+          {displayedDisks.map((disk) => (
+            <tr key={disk.name}>
+              <td>
+                {disk.friendlyName}
               </td>
-              <td
-                style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
-                  textAlign: "center",
-                }}
-              >
+              <td>
                 <label className="switch">
                   <input
                     type="checkbox"
-                    checked={journal.found}
+                    checked={disk.found}
                     onChange={(e) => {
                       handleMusicDiskChange(
-                        journal.name,
+                        disk.name,
                         e.target.checked,
                       );
                     }}

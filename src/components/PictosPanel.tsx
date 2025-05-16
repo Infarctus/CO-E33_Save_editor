@@ -395,13 +395,11 @@ const PictosPanel: FC<PictosPanelProps> = ({
         <tbody>
           {displayedPictos.map((picto) => (
             <tr key={picto.name}>
-              <td style={{ padding: "0.5em", borderBottom: "1px solid #eee" }}>
+              <td>
                 {picto.friendlyName}
               </td>
               <td
                 style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
                   textAlign: "center",
                 }}
               >
@@ -429,8 +427,6 @@ const PictosPanel: FC<PictosPanelProps> = ({
               </td>
               <td
                 style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
                   textAlign: "center",
                 }}
               >
@@ -458,8 +454,6 @@ const PictosPanel: FC<PictosPanelProps> = ({
 
               <td
                 style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
                   textAlign: "center",
                 }}
               >

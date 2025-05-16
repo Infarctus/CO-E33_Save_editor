@@ -99,7 +99,7 @@ const JournalsPanel: React.FC<JournalsPanelProps> = ({
     setSortDirection(direction);
   };
 
-  const displayedDisks = useMemo(() => {
+  const displayedJournals = useMemo(() => {
     let filtered = journals.filter((journal) =>
       journal.friendlyName.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -133,8 +133,8 @@ const JournalsPanel: React.FC<JournalsPanelProps> = ({
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      {displayedDisks.length != 0 && (
-        <sup style={{ padding: "0.7em" }}>{displayedDisks.length} results</sup>
+      {displayedJournals.length != 0 && (
+        <sup style={{ padding: "0.7em" }}>{displayedJournals.length} results</sup>
       )}
       {/* Table */}
       <table style={{  width: "100%", maxWidth: "500px", borderCollapse: "collapse" }}>
@@ -166,15 +166,13 @@ const JournalsPanel: React.FC<JournalsPanelProps> = ({
           </tr>
         </thead>
         <tbody>
-          {displayedDisks.map((disk) => (
+          {displayedJournals.map((disk) => (
             <tr key={disk.name}>
-              <td style={{ padding: "0.5em", borderBottom: "1px solid #eee" }}>
+              <td>
                 {disk.friendlyName}
               </td>
               <td
                 style={{
-                  padding: "0.5em",
-                  borderBottom: "1px solid #eee",
                   textAlign: "center",
                 }}
               >
@@ -194,9 +192,9 @@ const JournalsPanel: React.FC<JournalsPanelProps> = ({
               </td>
             </tr>
           ))}
-          {displayedDisks.length === 0 && (
+          {displayedJournals.length === 0 && (
             <tr>
-              <td colSpan={3} style={{ padding: "0.5em", textAlign: "center" }}>
+              <td colSpan={3} style={{ textAlign: "center" }}>
                 No pictos found.
               </td>
             </tr>
