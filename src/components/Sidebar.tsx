@@ -77,7 +77,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("MusicDisks")}
         >
-          <img src="/iconsidebar/btnRawEditor.png" alt="Music Disks" className="nav-icon" />
+          <img src="/iconsidebar/btnMusicRecordIcon.png" alt="Music Disks" className="nav-icon" />
           <span>Music Disks</span>
         </li>
 
