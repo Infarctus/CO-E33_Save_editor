@@ -3,13 +3,44 @@
 
 import { readTextFile } from "@tauri-apps/plugin-fs"
 import { resolveResource } from '@tauri-apps/api/path';
-import { CharCustomizationMapping,CustomPictosMapping,CustomMusicMapping } from "../types/jsonCustomMapping";
+import { CharCustomizationMapping,CustomPictosMapping,CustomMusicMapping, CustomWeaponsMapping } from "../types/jsonCustomMapping";
 import { trace, debug } from "@tauri-apps/plugin-log";
 import { path } from "@tauri-apps/api";
 
 let skinsJson : CharCustomizationMapping ;
 let pictosJson : CustomPictosMapping;
 let musicJson : CustomMusicMapping;
+let weaponsJson : CustomWeaponsMapping;
+
+weaponsJson = {
+    "Weapons": {
+    "Lune": {
+      "Angerim": "Angerim",
+      "Benisim": "Benisim",
+      "Braselim": "Braselim",
+      "Chapelim": "Chapelim",
+      "Dualim": "Dualiso",
+      "Reacherim_1": "Kralim",
+      "Reacherim_2": "Lithelim",
+      "Redalim": "Redalim",
+      "Sirenim_1": "Choralim",
+      "Sirenim_2": "Colim",
+      "Snowim": "Snowim",
+      "Trebuchim": "Trebuchim",
+      "Coralim": "Coralim",
+      "Deminerim": "Deminerim",
+      "Betelim": "Betelim",
+      "Lighterim": "Lighterim",
+      "Painerim": "Painerim",
+      "Elerim": "Elerim",
+      "Lunerim": "Lunerim",
+      "Gelerim": "Gelerim",
+      "Potierim": "Potierim",
+      "Saperim": "Saperim",
+      "Scaverim": "Scaverim"
+    }
+}
+}
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -31,6 +62,15 @@ export async function initGameMappings() {
         const resourceMusicPath = await path.join(MainDirPath,"musicdisks.json");
         const stringMusicJson = await readTextFile(resourceMusicPath)
         musicJson = JSON.parse(stringMusicJson)
+        if( !("MusicDisks" in musicJson))
+            throw "Music Json not as expected"
+
+        const resourceWeaponsPath = await path.join(MainDirPath,"weapons.json");
+        const stringWeaponsJson = await readTextFile(resourceWeaponsPath)
+        weaponsJson = JSON.parse(stringWeaponsJson)
+        if( !("Weapons" in weaponsJson))
+            throw "Weapons Json not as expected"
+
     } catch (e: any) {
         trace(e)
         alert("Failed to get some mapping files. Stome stuff will not work !\nYou should re-download this mod.")
@@ -63,7 +103,6 @@ export function getUnlockedSkinsFor(characterName: string, inventory: string[]) 
     } else {
         return ["nothing"]
     }
-
 }
 
 export function getPossibleFacesFor(characterName: string) : [string, string][]{
@@ -104,5 +143,15 @@ export function getPossibleMusicDisks() : [string, string][]{
         return Object.entries(musicJson.MusicDisks)
     } else {
         return [["nothing", "nothing"]]
+    }
+}
+
+export function getPossibleWeapons() : [string, { [weaponKey: string]: string; }][]{
+    debug("getting weapons")
+    if(weaponsJson.Weapons) {
+        return Object.entries(weaponsJson.Weapons)
+    }
+    else {
+        return [["nothing", {}]]
     }
 }

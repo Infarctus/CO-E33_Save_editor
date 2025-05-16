@@ -34,3 +34,10 @@ export interface WeaponInfoType {
   owner: string
 }
 
+export interface CustomWeaponsMapping {
+  Weapons: {
+    [charname: string]: {
+      [weaponKey: string]: string;
+    };
+  };
+}
