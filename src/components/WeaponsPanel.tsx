@@ -307,9 +307,8 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
         </thead>
         <tbody>
           {displayedWeapons.map((weaponOwner) => (
-            <>
-              <tr>
-                <td colSpan={4}>
+              <tr  key={weaponOwner[0]}>
+                <td colSpan={4} >
                   <details>
                     <summary style={{ padding: "0.5em", borderBottom: "1px solid #eee", borderRadius: "4px" }}>
                       {weaponOwner[0]}
@@ -378,7 +377,6 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
                   </details>
                 </td>
               </tr>
-            </>
           ))}
           {displayedWeapons.length === 0 && (
             <tr>
