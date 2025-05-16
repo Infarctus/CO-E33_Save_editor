@@ -3,9 +3,6 @@ import type { FC } from "react"
 const SaveFilePanel: FC = () => {
   return (
     <div id="SaveFilePanel">
-      <p id="greet-msg">
-        Welcome! Use the <code style={{ backgroundColor: "green" }}>Open File</code> button to get started
-      </p>
       <p id="information-msg">    
         This tool allows you to edit your save files for the game. You can modify character attributes, inventory items, and more.
         <br />
@@ -28,6 +25,9 @@ const SaveFilePanel: FC = () => {
         >
            Click here
         </a>
+        <br />
+        <br />
+        <b>Note:</b> When you export or overwrite the save the date will be set to the current date and time.
       </p>
     </div>
   )
