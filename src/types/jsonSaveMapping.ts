@@ -323,7 +323,10 @@ export function generatePassiveEffectProgression(): PassiveEffectsProgressions_0
       data: {
         Array: {
           Struct: {
-            struct_type: { id: "25fd746e-4d79-298f-a2b1-aaaa36138cab" },
+            struct_type: { 
+              Struct:"/Game/Gameplay/Lumina/FPassiveEffectProgression.FPassiveEffectProgression"
+            },
+            id: "25fd746e-4d79-298f-a2b1-aaaa36138cab"
           },
         },
       },
