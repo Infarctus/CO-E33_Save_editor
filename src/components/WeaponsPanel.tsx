@@ -253,7 +253,9 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
         className="search-bar"
       />
       {displayedWeapons.length != 0 && (
-        <sup style={{ padding: "0.7em" }}>{displayedWeapons.length} results</sup>
+        <sup style={{ padding: "0.7em" }}>{displayedWeapons.reduce((sum, weaponOwner) => {
+  return sum + weaponOwner[1].length;
+}, 0)} results</sup>
       )}
       {/* Table */}
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
