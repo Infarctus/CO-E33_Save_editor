@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import type { FC } from "react"
+import type { FC } from "react";
 
 interface SidebarProps {
-  activeTab: string
-  onTabChange: (tab: string) => Promise<boolean>
-  onOpenFile: () => void
-  onExportFile: () => void
-  onOverwriteFile: () => void
-  anyFileOpen: boolean
+  activeTab: string;
+  onTabChange: (tab: string) => Promise<boolean>;
+  onOpenFile: () => void;
+  onExportFile: () => void;
+  onOverwriteFile: () => void;
+  anyFileOpen: boolean;
 }
 
 const Sidebar: FC<SidebarProps> = ({
@@ -25,7 +25,12 @@ const Sidebar: FC<SidebarProps> = ({
         Open File
       </button>
 
-      <button id="ExportFile" className="tab-button fileopen-dependant" onClick={onExportFile} disabled={!anyFileOpen}>
+      <button
+        id="ExportFile"
+        className="tab-button fileopen-dependant"
+        onClick={onExportFile}
+        disabled={!anyFileOpen}
+      >
         Export File
       </button>
 
@@ -43,78 +48,132 @@ const Sidebar: FC<SidebarProps> = ({
       <ul className="nav-list">
         <li
           data-tab="Characters"
-          className={`nav-item fileopen-dependant ${activeTab === "Characters" ? "active" : ""}`}
+          className={`nav-item fileopen-dependant ${
+            activeTab === "Characters" ? "active" : ""
+          }`}
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("Characters")}
         >
-          <img src="/iconsidebar/btnCharacters.png" alt="Characters" className="nav-icon" />
+          <img
+            src="/iconsidebar/btnCharacters.png"
+            alt="Characters"
+            className="nav-icon"
+          />
           <span>Characters</span>
         </li>
 
-
         <li
           data-tab="Pictos"
-          className={`nav-item fileopen-dependant ${activeTab === "Pictos" ? "active" : ""}`}
+          className={`nav-item fileopen-dependant ${
+            activeTab === "Pictos" ? "active" : ""
+          }`}
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("Pictos")}
         >
-          <img src="/iconsidebar/btnPicto.png" alt="Pictos" className="nav-icon" />
+          <img
+            src="/iconsidebar/btnPicto.png"
+            alt="Pictos"
+            className="nav-icon"
+          />
           <span>Pictos</span>
         </li>
-
         <li
-          data-tab="Inventory"
-          className={`nav-item fileopen-dependant hidden ${activeTab === "Inventory" ? "active" : ""}`}
-          aria-disabled={!anyFileOpen ? "true" : undefined}
-          onClick={() => anyFileOpen && onTabChange("Inventory")}
-        >
-          <img src="/iconsidebar/inventory.svg" alt="Inventory" className="nav-icon" />
-          <span>Inventory</span>
-        </li>
-        <li
-          data-tab="MusicDisks"
-          className={`nav-item fileopen-dependant ${activeTab === "MusicDisks" ? "active" : ""}`}
-          aria-disabled={!anyFileOpen ? "true" : undefined}
-          onClick={() => anyFileOpen && onTabChange("MusicDisks")}
-        >
-          <img src="/iconsidebar/btnMusicRecordIcon.png" alt="Music Disks" className="nav-icon" />
-          <span>Music Disks</span>
-        </li>
-
-                <li
           data-tab="Weapons"
-          className={`nav-item fileopen-dependant ${activeTab === "Weapons" ? "active" : ""}`}
+          className={`nav-item fileopen-dependant ${
+            activeTab === "Weapons" ? "active" : ""
+          }`}
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("Weapons")}
         >
-          <img src="/iconsidebar/btnMusicRecordIcon.png" alt="Weapons" className="nav-icon" />
+          <img
+            src="/iconsidebar/btnWeapon.png"
+            alt="Weapons"
+            className="nav-icon"
+          />
           <span>Weapons</span>
         </li>
 
         <li
+          data-tab="Inventory"
+          className={`nav-item fileopen-dependant hidden ${
+            activeTab === "Inventory" ? "active" : ""
+          }`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Inventory")}
+        >
+          <img
+            src="/iconsidebar/inventory.svg"
+            alt="Inventory"
+            className="nav-icon"
+          />
+          <span>Inventory</span>
+        </li>
+
+        <li
+          data-tab="MusicDisks"
+          className={`nav-item fileopen-dependant ${
+            activeTab === "MusicDisks" ? "active" : ""
+          }`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("MusicDisks")}
+        >
+          <img
+            src="/iconsidebar/btnMusicRecordIcon.png"
+            alt="Music Disks"
+            className="nav-icon"
+          />
+          <span>Music Disks</span>
+        </li>
+
+        <li
+          data-tab="Journals"
+          className={`nav-item fileopen-dependant ${
+            activeTab === "Journals" ? "active" : ""
+          }`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Journals")}
+        >
+          <img
+            src="/iconsidebar/btnJournal.png"
+            alt="Music Disks"
+            className="nav-icon"
+          />
+          <span>Journals</span>
+        </li>
+
+        <li
           data-tab="RawJson"
-          className={`nav-item fileopen-dependant ${activeTab === "RawJson" ? "active" : ""}`}
+          className={`nav-item fileopen-dependant ${
+            activeTab === "RawJson" ? "active" : ""
+          }`}
           aria-disabled={!anyFileOpen ? "true" : undefined}
           onClick={() => anyFileOpen && onTabChange("RawJson")}
         >
-          <img src="/iconsidebar/btnRawEditor.png" alt="Raw json" className="nav-icon" />
+          <img
+            src="/iconsidebar/btnRawEditor.png"
+            alt="Raw json"
+            className="nav-icon"
+          />
           <span>Raw json</span>
         </li>
 
-
         <li
           data-tab="Backups"
-          className={`nav-item hidden ${activeTab === "Backups" ? "active" : ""}`}
+          className={`nav-item hidden ${
+            activeTab === "Backups" ? "active" : ""
+          }`}
           onClick={() => onTabChange("Backups")}
         >
-          <img src="/iconsidebar/backups.svg" alt="Backups" className="nav-icon" />
+          <img
+            src="/iconsidebar/backups.svg"
+            alt="Backups"
+            className="nav-icon"
+          />
           <span>Backups</span>
         </li>
-
-       
       </ul>
     </aside>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
