@@ -35,6 +35,11 @@ const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
       error(message)
     }
 
+      function logAndInfo(message: string) {
+      setInfoMessage(message)
+      trace(message)
+    }
+
   const allMusicDisks = useMemo(() => {
     return getPossibleMusicDisks();
   }, []) 
@@ -87,6 +92,7 @@ const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
       })
     );
     triggerSaveNeeded();
+    logAndInfo("Music disk "+musicDisksname+": "+newFound)
   }
 
   // Handle sorting when headers are clicked.

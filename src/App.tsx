@@ -249,13 +249,15 @@ function errorAndInfo(message: string) {
 )}
 
 
-                {activeTab === "Weapons" && (
+        {activeTab === "Weapons" && (
           <WeaponsPanel
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
           />
         )}
-
+        {activeTab === "Backups" && (
+          <BackupsPanel />
+        )}
 
         {activeTab === "RawJson" && (
           <RawJsonPanel jsonMapping={jsonMapping} onJsonChange={handleJsonChange} onCommitChanges={commitJsonChanges} />

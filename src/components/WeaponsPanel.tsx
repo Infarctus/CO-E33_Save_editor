@@ -25,10 +25,6 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
     trace(message);
   }
 
-  function logAndError(message: string) {
-    setInfoMessage(message);
-    error(message);
-  }
 
   // Initial global weapons data that uses mapping data from getPossibleWeapons and jsonMapping
   const allWeaponsMapping: [string, { [weaponKey: string]: string }][] = useMemo(() => {
@@ -204,7 +200,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
 
   // Memoize and compute the final list after filtering and sorting.
   const displayedWeapons = useMemo(() => {
-    let filtered = Object.entries(weapons).filter(([keyOwner, weaponsList]) => {
+    let filtered = Object.entries(weapons).filter(([, weaponsList]) => {
       return (weaponsList as WeaponInfoType[]).some((weapon) => {
         return weapon.friendlyName.toLowerCase().includes(searchQuery.toLowerCase());
       });
