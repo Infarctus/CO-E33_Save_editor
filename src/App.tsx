@@ -18,6 +18,7 @@ import "./styles.css"
 import PictosPanel from "./components/PictosPanel"
 import { trace, error } from "@tauri-apps/plugin-log"
 import { useInfo } from "./components/InfoContext"
+import WeaponsPanel from "./components/WeaponsPanel"
 
 
 
@@ -240,9 +241,14 @@ function errorAndInfo(message: string) {
           />
         )}
 
-        {activeTab === "Inventory" && <InventoryPanel />}
 
-        {activeTab === "Backups" && <BackupsPanel />}
+                {activeTab === "Weapons" && (
+          <WeaponsPanel
+            jsonMapping={jsonMapping}
+            triggerSaveNeeded={triggerSaveNeeded}
+          />
+        )}
+
 
         {activeTab === "RawJson" && (
           <RawJsonPanel jsonMapping={jsonMapping} onJsonChange={handleJsonChange} onCommitChanges={commitJsonChanges} />
