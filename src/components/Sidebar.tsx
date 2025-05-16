@@ -67,6 +67,21 @@ const Sidebar: FC<SidebarProps> = ({
           />
           <span>Characters</span>
         </li>
+        <li
+          data-tab="Weapons"
+          className={`nav-item fileopen-dependant ${
+            activeTab === "Weapons" ? "active" : ""
+          }`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Weapons")}
+        >
+          <img
+            src="/iconsidebar/btnWeapon.png"
+            alt="Weapons"
+            className="nav-icon"
+          />
+          <span>Weapons</span>
+        </li>
 
         <li
           data-tab="Pictos"
@@ -83,21 +98,7 @@ const Sidebar: FC<SidebarProps> = ({
           />
           <span>Pictos</span>
         </li>
-        <li
-          data-tab="Weapons"
-          className={`nav-item fileopen-dependant ${
-            activeTab === "Weapons" ? "active" : ""
-          }`}
-          aria-disabled={!anyFileOpen ? "true" : undefined}
-          onClick={() => anyFileOpen && onTabChange("Weapons")}
-        >
-          <img
-            src="/iconsidebar/btnWeapon.png"
-            alt="Weapons"
-            className="nav-icon"
-          />
-          <span>Weapons</span>
-        </li>
+        
 
         <li
           data-tab="Inventory"
