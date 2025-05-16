@@ -103,14 +103,16 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
     if(!jsonMapping.root.properties.PassiveEffectsProgressions_0){ // if the property doesn't exist, create it
       jsonMapping.root.properties.PassiveEffectsProgressions_0 = generatePassiveEffectProgression();
     }
-    const currentArrPassEffectProg = jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value;
-    const passiveEffectsProgIndex = currentArrPassEffectProg.findIndex(
-      (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name === pictoName
-    );
+
 
 
     if (thisPictoWas!.mastered && !newMastered) {
 
+
+          const currentArrPassEffectProg = jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value;
+    const passiveEffectsProgIndex = currentArrPassEffectProg.findIndex(
+      (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name === pictoName
+    );
       trace("setting prog val to 0, unmaster")
       if (passiveEffectsProgIndex !== -1) {
         // Clone the array
@@ -121,7 +123,10 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       }
 
     } else if (thisPictoWas!.found && newFound == false) {
-
+    const currentArrPassEffectProg = jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value;
+    const passiveEffectsProgIndex = currentArrPassEffectProg.findIndex(
+      (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name === pictoName
+    );
       trace("removing from PassiveEffectsProgressions_0")
       if (passiveEffectsProgIndex !== -1) {
         const newArr = currentArrPassEffectProg.slice();
@@ -146,6 +151,10 @@ const PictosPanel: FC<PictosPanelProps> = ({ jsonMapping, triggerSaveNeeded }) =
       }
     }
     else if (!thisPictoWas!.mastered && newMastered == true) {
+          const currentArrPassEffectProg = jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value;
+    const passiveEffectsProgIndex = currentArrPassEffectProg.findIndex(
+      (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name === pictoName
+    );
       trace("setting mastered to true")
       if (passiveEffectsProgIndex !== -1) {
         const newArr = currentArrPassEffectProg.slice();

@@ -44,3 +44,25 @@ package(){
 fs.writeFileSync(path.join(buildDir, 'PKGBUILD'), pkgbuildContent);
 
 console.log('AUR packages created successfully to '+buildDir);
+
+if (process.platform === 'win32') {
+  process.exit(0); 
+}
+
+try {
+  execSync(`zip ${productName}_${pkgver}_amd64-arch.zip ${productName}_${pkgver}_amd64.deb PKGBUILD`, { cwd: buildDir, stdio: 'inherit' });
+  const appImagePath = path.join(bundleDir, 'appimage');
+  execSync(`zip ${productName}_${pkgver}_amd64-appimage.zip ${productName}_${pkgver}_amd64.AppImage`, { cwd: appImagePath, stdio: 'inherit' });
+  const debPath = path.join(bundleDir, 'deb');
+  execSync(`zip ${productName}_${pkgver}_amd64-deb.zip ${productName}_${pkgver}_amd64.deb`, { cwd: debPath, stdio: 'inherit' });
+  const rpmPath = path.join(bundleDir, 'rpm');
+  execSync(`zip ${productName}-${pkgver}.x86_64-rpm.zip ${productName}-${pkgver}-1.x86_64.rpm`, { cwd: rpmPath, stdio: 'inherit' });
+
+
+// co-e33-save-editor-0.2.0-1.x86_64.rpm
+
+
+  console.log('Package built and installed successfully.');
+} catch (error) {
+  console.error('Error during package build:', error.message);
+}
