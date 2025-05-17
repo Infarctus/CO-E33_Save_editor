@@ -124,7 +124,7 @@ const JournalsPanel: React.FC<JournalsPanelProps> = ({
 
   return (
     <div id="JournalPanel" className="tab-panel oveflow-auto">
-      <h2>Music Disks</h2>
+      <h2>Journals</h2>
       {/* Search Bar */}
       <input
         type="text"
