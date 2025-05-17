@@ -1,0 +1,107 @@
+[
+  {
+    "Type": "UserDefinedEnum",
+    "Name": "E_jRPG_ItemSubtype",
+    "Class": "UScriptClass'UserDefinedEnum'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DisplayNameMap": [
+        {
+          "Key": "NewEnumerator0",
+          "Value": {
+            "CultureInvariantString": "Lune Weapon"
+          }
+        },
+        {
+          "Key": "NewEnumerator1",
+          "Value": {
+            "CultureInvariantString": "Monoco Weapon"
+          }
+        },
+        {
+          "Key": "NewEnumerator2",
+          "Value": {
+            "CultureInvariantString": "Sciel Weapon"
+          }
+        },
+        {
+          "Key": "NewEnumerator11",
+          "Value": {
+            "CultureInvariantString": "Consumable"
+          }
+        },
+        {
+          "Key": "NewEnumerator14",
+          "Value": {
+            "CultureInvariantString": "Maelle Weapon"
+          }
+        },
+        {
+          "Key": "NewEnumerator15",
+          "Value": {
+            "CultureInvariantString": "Pictos"
+          }
+        },
+        {
+          "Key": "NewEnumerator16",
+          "Value": {
+            "CultureInvariantString": "Noah Weapon"
+          }
+        },
+        {
+          "Key": "NewEnumerator18",
+          "Value": {
+            "CultureInvariantString": "Key"
+          }
+        },
+        {
+          "Key": "NewEnumerator19",
+          "Value": {
+            "CultureInvariantString": "Inventory"
+          }
+        },
+        {
+          "Key": "NewEnumerator20",
+          "Value": {
+            "CultureInvariantString": "Invalid"
+          }
+        },
+        {
+          "Key": "NewEnumerator21",
+          "Value": {
+            "CultureInvariantString": "Verso Weapon"
+          }
+        },
+        {
+          "Key": "NewEnumerator22",
+          "Value": {
+            "CultureInvariantString": "Journal"
+          }
+        },
+        {
+          "Key": "NewEnumerator23",
+          "Value": {
+            "CultureInvariantString": "Music Record"
+          }
+        }
+      ]
+    },
+    "Names": {
+      "E_jRPG_ItemSubtype::NewEnumerator20": 0,
+      "E_jRPG_ItemSubtype::NewEnumerator16": 1,
+      "E_jRPG_ItemSubtype::NewEnumerator14": 2,
+      "E_jRPG_ItemSubtype::NewEnumerator0": 3,
+      "E_jRPG_ItemSubtype::NewEnumerator2": 4,
+      "E_jRPG_ItemSubtype::NewEnumerator1": 5,
+      "E_jRPG_ItemSubtype::NewEnumerator15": 6,
+      "E_jRPG_ItemSubtype::NewEnumerator18": 7,
+      "E_jRPG_ItemSubtype::NewEnumerator19": 8,
+      "E_jRPG_ItemSubtype::NewEnumerator11": 9,
+      "E_jRPG_ItemSubtype::NewEnumerator21": 10,
+      "E_jRPG_ItemSubtype::NewEnumerator22": 11,
+      "E_jRPG_ItemSubtype::NewEnumerator23": 12,
+      "E_jRPG_ItemSubtype::E_jRPG_MAX": 13
+    },
+    "CppForm": "Namespaced"
+  }
+]
