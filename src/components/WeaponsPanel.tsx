@@ -44,25 +44,25 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
     );
   }
 
-  const inventoryDict: { [key: string]: boolean } = Object.fromEntries(
+  const inventoryDict: { [key: string]: boolean } = useMemo(() => Object.fromEntries(
     jsonMapping.root.properties.InventoryItems_0.Map.map((el) => [
       el.key.Name,
       el.value.Int === 1,
     ]) || []
-  );
+  ), []);
 
 
-  const levelDict: { [key: string]: number } = Object.fromEntries(
+  const levelDict: { [key: string]: number } = useMemo(() => Object.fromEntries(
     jsonMapping?.root.properties.WeaponProgressions_0.Array.Struct.value.map(
       (el) => [
         el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name,
         el.Struct.CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0.Int,
       ]
     ) || []
-  );
+  ), []);
 
   // Build initial weapon info list from available weapons and the inventory info.
-  const initialWeaponsDict: { [key: string]: WeaponInfoType[] } =
+  const initialWeaponsDict: { [key: string]: WeaponInfoType[] } = useMemo(() =>
     Object.fromEntries(allWeaponsMapping.map(([owner, weapons]) => {
       const weaponInfoTypes: WeaponInfoType[] = Object.keys(weapons).map((name) => {
         const friendlyName = weapons[name];
@@ -71,7 +71,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
         return { name, friendlyName, found, level };
       });
       return [owner, weaponInfoTypes];
-    }));
+    })), []);
 
 
   // State for weapons, search query, and sorting.

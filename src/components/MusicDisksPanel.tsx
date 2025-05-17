@@ -44,14 +44,14 @@ const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
     return getPossibleMusicDisks();
   }, []) 
 
-  const inventoryDict: { [key: string]: boolean } = Object.fromEntries(
+  const inventoryDict: { [key: string]: boolean } = useMemo(() => Object.fromEntries(
     jsonMapping.root.properties.InventoryItems_0.Map.map((el) => [el.key.Name, el.value.Int === 1]) || []
-  );
+  ), []);
 
-  const initialMusicDisks : MusicDisckInfo[] = allMusicDisks.map(([name, friendlyName]) => {
+  const initialMusicDisks : MusicDisckInfo[] = useMemo(() => allMusicDisks.map(([name, friendlyName]) => {
     const found = !!inventoryDict[name];
     return {name, friendlyName, found};
-  });
+  }), []);
 
   const [musicDisks, setMusicDisks] = useState<MusicDisckInfo[]>(initialMusicDisks);
   const [searchQuery, setSearchQuery] = useState<string>("");
