@@ -38,7 +38,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
     const backupDir = await join(saveHandlingBasePath, "backup")
     // Generate a timestamp in DD_MM_YY format
     const now = new Date()
-    const backupDestinationPath = await join(backupDir, `${now.toISOString()  }_${fileName}.bak`)
+    const backupDestinationPath = await join(backupDir, `${now.toISOString().replace(/:/g, "–")  }_${fileName}.bak`)
     let rename = ""
     if (fileName.endsWith(".sav")) {
       rename =  fileName.replace(".sav", ".json");
