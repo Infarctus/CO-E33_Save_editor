@@ -82,7 +82,7 @@ const PictosPanel: FC<PictosPanelProps> = ({
     ([name, friendlyName]) => {
       const found = !!inventoryDict[name];
       const mastered = !!masteryDict[name];
-      const level = levelDict[name] || 0;
+      const level = levelDict[name] || 1;
       return { name, friendlyName, found, mastered, level };
     }
   );

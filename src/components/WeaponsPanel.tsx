@@ -67,7 +67,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
       const weaponInfoTypes: WeaponInfoType[] = Object.keys(weapons).map((name) => {
         const friendlyName = weapons[name];
         const found = !!inventoryDict[name];
-        const level = levelDict[name] || 0;
+        const level = levelDict[name] || 1;
         return { name, friendlyName, found, level };
       });
       return [owner, weaponInfoTypes];
