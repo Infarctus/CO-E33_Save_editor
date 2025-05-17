@@ -33,7 +33,7 @@ const Sidebar: FC<SidebarProps> = ({
         className="tab-button fileopen-dependant"
         onClick={onExportFile}
         disabled={!anyFileOpen}
-        title="Export a file to wherever you want.\nYou will be prompted for the target destination."
+        title={anyFileOpen ? "Export a file to wherever you want.\nYou will be prompted for the target destination." : "Open a file before trying to export it\nIt's just over this button"}
       >
         Export File
       </button>
@@ -43,7 +43,7 @@ const Sidebar: FC<SidebarProps> = ({
         className="tab-button fileopen-dependant"
         onClick={onOverwriteFile}
         disabled={!anyFileOpen}
-        title="Directly overwrite the file you opened.\nUses the same file location and name."
+        title={anyFileOpen ? "Directly overwrite the file you opened.\nUses the same file location and name." : "Open a file before trying to overwrite it\nIt's two buttons up"}
 
       >
         Overwrite File
@@ -166,7 +166,7 @@ const Sidebar: FC<SidebarProps> = ({
 
         <li
           data-tab="Backups"
-          className={`nav-item hidden ${
+          className={`nav-item ${
             activeTab === "Backups" ? "active" : ""
           }`}
           onClick={() => onTabChange("Backups")}

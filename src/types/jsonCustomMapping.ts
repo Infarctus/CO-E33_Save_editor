@@ -31,12 +31,17 @@ export interface MusicDisckInfo {
   found: boolean;
 }
 
-// to be used inside a dict, with the real weapon name as a key
 export interface WeaponInfoType {
   name: string
   friendlyName: string
   found: boolean
   level: number,
+}
+
+export interface BackupInfoType {
+  name: string,
+  friendlyName: string
+  date: Date
 }
 
 export interface CustomWeaponsMapping {
