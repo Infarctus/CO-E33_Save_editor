@@ -57,11 +57,11 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
       }
       await copyFile(originalSavPath, backupDestinationPath)
       trace(`File '${fileName}' backed up to ${backupDestinationPath}`)
-    } catch (error: any) {
-      error("Error backing up file:"+ error)
+    } catch (tryerror: any) {
+      error("Error backing up file:"+ tryerror)
       return {
         success: false,
-        message: `Failed to back up file: ${error.message || String(error)}`,
+        message: `Failed to back up file: ${tryerror.message || String(tryerror)}`,
       }
     }
 
