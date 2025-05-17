@@ -36,6 +36,14 @@ def genpictomapping():
         output_data["Pictos"][item] = pictoname
     
 
+    # Move pictos with names ending with '**' to the end
+    pictos = list(output_data["Pictos"].items())
+    normal = [(k, v) for k, v in pictos if not v.endswith("**")]
+    normal = sorted(normal, key=lambda x: x[1])
+    starred = [(k, v) for k, v in pictos if v.endswith("**")]
+    starred = sorted(starred, key=lambda x: x[1])
+    output_data["Pictos"] = dict(normal + starred)
+
     jsondump(output_data, output_path)
 
     print("Picto mapping generated successfully.")              
@@ -118,9 +126,26 @@ def genweaponmapping():
             output_data["Weapons"][charname] = {}
         weaponname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
         if weaponname == None:
-            weaponname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("CultureInvariantString")
+            weaponname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("CultureInvariantString")+"**"
         output_data["Weapons"][charname][item] = weaponname
+
+    # Sort the weapons for each character alphabetically by weapon name
+    for char in output_data["Weapons"]:
+        output_data["Weapons"][char] = dict(
+            sorted(output_data["Weapons"][char].items(), key=lambda x: x[1])
+        )
+
+    # Sort the characters alphabetically
+    output_data["Weapons"] = dict(
+        sorted(output_data["Weapons"].items(), key=lambda x: x[0])
+    )
     
+    # Move weapons with names ending with '**' to the end for each character
+    for char in output_data["Weapons"]:
+        weapons = list(output_data["Weapons"][char].items())
+        normal = [(k, v) for k, v in weapons if not v.endswith("**")]
+        starred = [(k, v) for k, v in weapons if v.endswith("**")]
+        output_data["Weapons"][char] = dict(normal + starred)
 
     jsondump(output_data, output_path)
 
