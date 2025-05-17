@@ -77,6 +77,15 @@ def genskinmapping():
         skinname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
         output_data[type][charname][item] = skinname
 
+    for char in output_data["Skins"]:
+        output_data["Skins"][char] = dict(
+            sorted(output_data["Skins"][char].items(), key=lambda x: x[1])
+        )
+    for char in output_data["Faces"]:
+        output_data["Faces"][char] = dict(
+            sorted(output_data["Faces"][char].items(), key=lambda x: x[1])
+        )
+    
     jsondump(output_data, output_path)
 
     print("Skin mapping generated successfully.")
@@ -95,6 +104,10 @@ def genmusicdiskmapping():
         musicname = musiclist[music].get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
         if musicname:
             output_data["MusicDisks"][music] = musicname
+
+    output_data["MusicDisks"] = dict(
+        sorted(output_data["MusicDisks"].items(), key=lambda x: x[1])
+    )
 
     jsondump(output_data, output_path)
 
@@ -166,6 +179,10 @@ def genjournalsmapping():
         journalname = journalslist[journal].get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
         if journalname:
             output_data["Journals"][journal] = journalname
+
+    output_data["Journals"] = dict(
+        sorted(output_data["Journals"].items(), key=lambda x: x[1])
+    )
 
     jsondump(output_data, output_path)
 
