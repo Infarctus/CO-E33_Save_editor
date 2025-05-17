@@ -34,23 +34,24 @@ const PictosPanel: FC<PictosPanelProps> = ({
     setInfoMessage(message);
     error(message);
   }
+  
+    // Build an inventory dictionary depending on save data, if available.
+    if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
+      return (
+        <div id="PictosPanel" className="tab-panel oveflow-auto">
+          <h2>Pictos</h2>
+          <p style={{ color: "red" }}>
+            The file you opened (if any) doesn't look like a CO:E33 save file
+          </p>
+        </div>
+      );
+    }
 
   // Initial global pictos data that uses mapping data from getPossiblePictos and jsonMapping
   const allPictosMapping: [string, string][] = useMemo(() => {
     return getPossiblePictos(); // Call the function once when the component mounts
   }, []); // Empty dependency array means this will only run once
 
-  // Build an inventory dictionary depending on save data, if available.
-  if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
-    return (
-      <div id="PictosPanel" className="tab-panel oveflow-auto">
-        <h2>Pictos</h2>
-        <p style={{ color: "red" }}>
-          The file you opened (if any) doesn't look like a CO:E33 save file
-        </p>
-      </div>
-    );
-  }
 
   const inventoryDict: { [key: string]: boolean } = Object.fromEntries(
     jsonMapping.root.properties.InventoryItems_0.Map.map((el) => [
@@ -412,8 +413,8 @@ const PictosPanel: FC<PictosPanelProps> = ({
                       if (!e.target.checked && picto.mastered) {
                         picto.mastered = false;
                       }
-                      if (!e.target.checked && picto.level !== 0) {
-                        picto.level = 0;
+                      if (!e.target.checked && picto.level !== 1) {
+                        picto.level = 1;
                       }
                       handlePictoCheckUpdate(
                         picto.name,
