@@ -31,21 +31,21 @@ const JournalsPanel: React.FC<JournalsPanelProps> = ({
     error(message);
   }
 
-  const allJournals = getPossibleJournals();
+  const allJournals = useMemo(() =>getPossibleJournals(), []);
 
-  const inventoryDict: { [key: string]: boolean } = Object.fromEntries(
+  const inventoryDict: { [key: string]: boolean } = useMemo(() => Object.fromEntries(
     jsonMapping.root.properties.InventoryItems_0.Map.map((el) => [
       el.key.Name,
       el.value.Int === 1,
     ]) || []
-  );
+  ), []);
 
-  const initialJournals: JournalInfo[] = allJournals.map(
+  const initialJournals: JournalInfo[] = useMemo(() => allJournals.map(
     ([name, friendlyName]) => {
       const found = !!inventoryDict[name];
       return { name, friendlyName, found };
     }
-  );
+  ), []);
 
   const [journals, setJournals] = useState<JournalInfo[]>(initialJournals);
   const [searchQuery, setSearchQuery] = useState<string>("");
