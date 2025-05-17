@@ -138,10 +138,10 @@ const BackupsPanel: FC = () => {
           {
             shownSaves.map((el) => (
               <tr key={el.name}>
-                <td colSpan={4} >
+                <td >
                   {el.friendlyName}
                 </td>
-                <td colSpan={4} >
+                <td >
                   {el.date.toLocaleString()}
                 </td>
                 <td>
