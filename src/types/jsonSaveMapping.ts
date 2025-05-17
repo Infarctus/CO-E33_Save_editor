@@ -244,7 +244,7 @@ export interface SaveDateTime_0 {
     }
   },
   Struct : {
-    DateTime : number
+    DateTime : BigInt
   }
 }
 

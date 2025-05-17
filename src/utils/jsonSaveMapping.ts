@@ -21,6 +21,13 @@ export async function getMappingJsonFromFile(jsonPath: string): Promise<BeginMap
  * Saves JSON mapping to a file
  */
 export async function saveMappingJsonToDisk(targetPath: string, jsonMapping: BeginMapping): Promise<boolean> {
+  if (!!jsonMapping?.root?.properties?.SaveDateTime_0?.Struct?.DateTime) {
+    const now = new Date();
+    const ticks = 621355968000000000n + BigInt((now.getTime() - now.getTimezoneOffset() * 60000) * 10000); 
+    jsonMapping.root.properties.SaveDateTime_0.Struct.DateTime = ticks;
+  } else {
+    error("Could not bump date of the save because the structure doesn't exist")
+  }
   try {
     await writeTextFile(targetPath, JSON.stringify(jsonMapping, null, 2))
     trace(`JSON saved to ${targetPath}`)
@@ -71,3 +78,9 @@ export function setValueOfTag(
     throw new Error("Unknown tag type")
   }
 }
+
+
+function changedatesaved() {
+  // Get .NET ticks (100-nanosecond intervals since 0001-01-01T00:00:00Z)
+  
+};
