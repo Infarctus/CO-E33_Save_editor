@@ -140,7 +140,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
             tag: { data: { Other: "NameProperty" } },
           },
           CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0: {
-            Int: 0,
+            Int: 1,
             tag: { data: { Other: "IntProperty" } },
           },
         },
@@ -332,8 +332,8 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
                                   type="checkbox"
                                   checked={weapon.found}
                                   onChange={(e) => {
-                                    if (!e.target.checked && weapon.level !== 0) {
-                                      weapon.level = 0;
+                                    if (!e.target.checked && weapon.level !== 1) {
+                                      weapon.level = 1;
                                     }
                                     handleWeaponCheckUpdate(
                                       weaponOwner[0],
@@ -355,7 +355,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
                             >
                               <input
                                 type="number"
-                                min={0}
+                                min={1}
                                 max={33}
                                 value={weapon.level}
                                 disabled={!weapon.found}
@@ -365,7 +365,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({
                                   weaponOwner[0],
                                   weapon.name,
                                   weapon.found,
-                                  clamp(e.target.valueAsNumber, 0, 33)
+                                  clamp(e.target.valueAsNumber, 1, 33)
                                 )}} />
                             </td>
                             <td style={{ padding: "1em", borderBottom: "1px solid #eee" }}></td>
