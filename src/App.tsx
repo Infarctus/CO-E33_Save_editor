@@ -133,7 +133,10 @@ function App() {
 
     try {
       // First, save the JSON mapping to the working temp path
-      await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping);
+      if (!(await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping))) {
+      errorAndInfo("Could not serialize in-memory json to disk.");
+        
+      };
 
       // Ask user where to save the save file (either .sav or no extension)
       const currentFileExt =
@@ -197,8 +200,10 @@ function App() {
 
     try {
       // Save JSON to the temp file
-      await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping);
-
+      if (!(await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping))) {
+      errorAndInfo("Could not serialize in-memory json to disk.");
+      };
+      
       // For overwrite simply use the original save file path
       const targetSavPath = workingFileCurrent.originalSavPath;
 
@@ -289,6 +294,7 @@ function App() {
             onCommitChanges={commitJsonChanges}
           />
         )}
+
       </main>
 
       <InfoBanner message={infoMessage} />
