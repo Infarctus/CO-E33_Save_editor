@@ -53,40 +53,40 @@ const PictosPanel: FC<PictosPanelProps> = ({
   }, []); // Empty dependency array means this will only run once
 
 
-  const inventoryDict: { [key: string]: boolean } = Object.fromEntries(
+  const inventoryDict: { [key: string]: boolean } = useMemo(() => Object.fromEntries(
     jsonMapping.root.properties.InventoryItems_0.Map.map((el) => [
       el.key.Name,
       el.value.Int === 1,
     ]) || []
-  );
+  ), [])
 
-  const masteryDict: { [key: string]: boolean } = Object.fromEntries(
+  const masteryDict: { [key: string]: boolean } = useMemo(() => Object.fromEntries(
     jsonMapping.root.properties.PassiveEffectsProgressions_0?.Array.Struct.value.map(
       (el) => [
         el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name,
         el.Struct.IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0.Bool,
       ]
     ) || []
-  );
+  ), [])
 
-  const levelDict: { [key: string]: number } = Object.fromEntries(
+  const levelDict: { [key: string]: number } = useMemo(() => Object.fromEntries(
     jsonMapping?.root.properties.WeaponProgressions_0.Array.Struct.value.map(
       (el) => [
         el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name,
         el.Struct.CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0.Int,
       ]
     ) || []
-  );
+  ), [])
 
   // Build initial picto info list from available pictos and the inventory info.
-  const initialPictos: PictoInfoType[] = allPictosMapping.map(
+  const initialPictos: PictoInfoType[] = useMemo(() => allPictosMapping.map(
     ([name, friendlyName]) => {
       const found = !!inventoryDict[name];
       const mastered = !!masteryDict[name];
       const level = levelDict[name] || 1;
       return { name, friendlyName, found, mastered, level };
     }
-  );
+  ), [])
 
   // State for pictos, search query, and sorting.
   const [pictos, setPictos] = useState<PictoInfoType[]>(initialPictos);
