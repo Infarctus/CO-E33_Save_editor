@@ -294,6 +294,7 @@ function App() {
             onCommitChanges={commitJsonChanges}
           />
         )}
+
       </main>
 
       <InfoBanner message={infoMessage} />
