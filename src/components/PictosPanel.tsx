@@ -330,7 +330,7 @@ const PictosPanel: FC<PictosPanelProps> = ({
 
   return (
     <div id="PictosPanel" className="tab-panel oveflow-auto">
-      <h2>Pictos Tab</h2>
+      <h2>Pictos</h2>
       {/* Search Bar */}
       <input
         type="text"
