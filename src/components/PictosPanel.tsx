@@ -234,7 +234,7 @@ const PictosPanel: FC<PictosPanelProps> = ({
             tag: { data: { Other: "NameProperty" } },
           },
           CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0: {
-            Int: 0,
+            Int: 1,
             tag: { data: { Other: "IntProperty" } },
           },
         },
@@ -460,7 +460,7 @@ const PictosPanel: FC<PictosPanelProps> = ({
               >
                 <input
                   type="number"
-                  min={0}
+                  min={1}
                   max={33}
                   value={picto.level}
                   disabled={!picto.found}
@@ -469,7 +469,7 @@ const PictosPanel: FC<PictosPanelProps> = ({
                       picto.name,
                       picto.found,
                       picto.mastered,
-                      clamp(e.target.valueAsNumber, 0, 33)
+                      clamp(e.target.valueAsNumber, 1, 33)
                       
                     )
                   }
