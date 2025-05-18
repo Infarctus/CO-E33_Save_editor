@@ -27,7 +27,13 @@ const SaveFilePanel: FC = () => {
         </a>
         <br />
         <br />
-        <b>Note:</b> When you export or overwrite the save the date will be set to the current date and time.
+        <b>Note:</b> 
+        <br />
+        - Items with <code style={{ backgroundColor: "red" }}>**</code> may not be obtainable in the game, and may have unknown effects.
+        <br />
+        - Some items are not marked with a ** but are not obtainable in the game.
+         <br />
+        - When you export or overwrite the save the date will be set to the current date and time. 
       </p>
     </div>
   )
