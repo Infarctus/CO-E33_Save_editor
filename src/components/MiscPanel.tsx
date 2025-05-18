@@ -116,7 +116,7 @@ const MiscPanel: React.FC<GeneralPanelProps> = ({
       item.key.Name = item.key.Name.slice(0, -1) + newValue;
       triggerSaveNeeded();
       logAndInfo(`${name} set to ${newValue}`);
-      setRefresh((r : any) => r + 1); // Force re-render
+      setRefresh((r : number) => r + 1); // Force re-render
     }
   };
 
