@@ -8,7 +8,7 @@ import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
 import { error, trace } from "@tauri-apps/plugin-log";
 import { useInfo } from "./InfoContext";
-import { clamp } from "../utils/uils";
+import { clamp } from "../utils/utils";
 
 // Placeholder for a pictos customization editor component
 interface PictosPanelProps {

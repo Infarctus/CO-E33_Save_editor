@@ -4,7 +4,7 @@ import { getPossibleWeapons } from "../utils/gameMappingProvider";
 import { WeaponInfoType } from "../types/jsonCustomMapping";
 import { trace } from "@tauri-apps/plugin-log";
 import { useInfo } from "./InfoContext";
-import { clamp } from "../utils/uils";
+import { clamp } from "../utils/utils";
 
 // Placeholder for a weapons customization editor component
 interface WeaponsPanelProps {
