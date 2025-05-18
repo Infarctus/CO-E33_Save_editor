@@ -220,7 +220,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            logAndInfo(`Character ${characterName} faces updated to ${newList.join("+ ")}`)
+            trace(`Character ${characterName} faces updated to ${newList.join("+ ")}`)
           }}
         />
 
@@ -253,7 +253,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 jsonMapping.root.properties.InventoryItems_0.Map.push({key: {Name: el}, value: {Int: 1}})
               }
             })
-            logAndInfo(`Character ${characterName} bodies updated to ${newList.join("+ ")}`)
+            trace(`Character ${characterName} bodies updated to ${newList.join("+ ")}`)
           }}
         />
         {/* 
