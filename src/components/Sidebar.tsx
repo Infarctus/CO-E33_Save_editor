@@ -21,33 +21,45 @@ const Sidebar: FC<SidebarProps> = ({
 }) => {
   return (
     <aside className="drawer">
-      <button id="OpenFile"
-       className="tab-button"
-       onClick={onOpenFile}
-       title="Select your save file">
+      <button
+        id="OpenFile"
+        className="tab-button"
+        onClick={onOpenFile}
+        title="Select your save file"
+      >
         Open File
       </button>
+      <div className="export-overwrite">
+        <button
+          id="ExportFile"
+          className="tab-button fileopen-dependant"
+          onClick={onExportFile}
+          disabled={!anyFileOpen}
+          style={{ width:  "50%", marginRight: "0.3em" }}
+          title={
+            anyFileOpen
+              ? "Export a file to wherever you want.\nYou will be prompted for the target destination."
+              : "Open a file before trying to export it\nIt's just over this button"
+          }
+        >
+          Export
+        </button>
 
-      <button
-        id="ExportFile"
-        className="tab-button fileopen-dependant"
-        onClick={onExportFile}
-        disabled={!anyFileOpen}
-        title={anyFileOpen ? "Export a file to wherever you want.\nYou will be prompted for the target destination." : "Open a file before trying to export it\nIt's just over this button"}
-      >
-        Export File
-      </button>
-
-      <button
-        id="OverwriteFile"
-        className="tab-button fileopen-dependant"
-        onClick={onOverwriteFile}
-        disabled={!anyFileOpen}
-        title={anyFileOpen ? "Directly overwrite the file you opened.\nUses the same file location and name." : "Open a file before trying to overwrite it\nIt's two buttons up"}
-
-      >
-        Overwrite File
-      </button>
+        <button
+          id="OverwriteFile"
+          className="tab-button fileopen-dependant"
+          onClick={onOverwriteFile}
+          disabled={!anyFileOpen}
+          style={{ width:  "50%" }}
+          title={
+            anyFileOpen
+              ? "Directly overwrite the file you opened.\nUses the same file location and name."
+              : "Open a file before trying to overwrite it\nIt's just over this button"
+          }
+        >
+          Overwrite
+        </button>
+      </div>
 
       <div className="spacer"></div>
 
@@ -98,7 +110,6 @@ const Sidebar: FC<SidebarProps> = ({
           />
           <span>Pictos</span>
         </li>
-        
 
         <li
           data-tab="Inventory"
@@ -166,9 +177,7 @@ const Sidebar: FC<SidebarProps> = ({
 
         <li
           data-tab="Backups"
-          className={`nav-item ${
-            activeTab === "Backups" ? "active" : ""
-          }`}
+          className={`nav-item ${activeTab === "Backups" ? "active" : ""}`}
           onClick={() => onTabChange("Backups")}
         >
           <img
