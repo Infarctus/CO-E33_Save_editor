@@ -7,18 +7,18 @@ import { initGameMappings } from './utils/gameMappingProvider'
 import { InfoProvider } from './components/InfoContext'
 
 attachConsole().then(() => {
-    debug('debug')
-    trace('trace')
+  debug('debug')
+  trace('trace')
 })
 
 initGameMappings()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-        <InfoProvider>
-            {' '}
-            {/* Wrap App with InfoProvider */}
-            <App />
-        </InfoProvider>
-    </React.StrictMode>
+  <React.StrictMode>
+    <InfoProvider>
+      {' '}
+      {/* Wrap App with InfoProvider */}
+      <App />
+    </InfoProvider>
+  </React.StrictMode>,
 )
