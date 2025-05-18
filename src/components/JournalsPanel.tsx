@@ -1,16 +1,12 @@
 import { useMemo, useState } from "react";
 import { JournalInfo } from "../types/jsonCustomMapping";
-import { BeginMapping } from "../types/jsonSaveMapping";
 import { getPossibleJournals } from "../utils/gameMappingProvider";
 import { useInfo } from "./InfoContext";
 import { error } from "@tauri-apps/plugin-log";
+import type { GeneralPanelProps } from "../types/panelTypes";
 
-interface JournalsPanelProps {
-  jsonMapping: BeginMapping | null;
-  triggerSaveNeeded: () => void;
-}
 
-const JournalsPanel: React.FC<JournalsPanelProps> = ({
+const JournalsPanel: React.FC<GeneralPanelProps> = ({
   jsonMapping,
   triggerSaveNeeded,
 }) => {

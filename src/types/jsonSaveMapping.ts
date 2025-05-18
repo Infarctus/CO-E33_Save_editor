@@ -205,6 +205,7 @@ export interface RootProperties {
   WeaponProgressions_0: WeaponProgressions_0;
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0;
   SaveDateTime_0:SaveDateTime_0;
+  EquippedConsumableShards_0 : EquippedConsumableShards_0;
   // Add other root properties as needed
 }
 
@@ -215,6 +216,15 @@ export interface BeginMapping {
     properties: RootProperties;
   };
   extra: any;
+}
+
+export interface EquippedConsumableShards_0 {
+  tag: any;
+  Array: {
+    Base: {
+      Name: string[];
+    };
+  };
 }
 
 export interface WeaponProgressions_0 {
@@ -316,54 +326,4 @@ export function setValueOfTag(
   }
 }
 
-// Gen Function
-export function generatePassiveEffectProgression(): PassiveEffectsProgressions_0 {
-  return {
-    tag: {
-      data: {
-        Array: {
-          Struct: {
-            struct_type: { 
-              Struct:"/Game/Gameplay/Lumina/FPassiveEffectProgression.FPassiveEffectProgression"
-            },
-            id: "25fd746e-4d79-298f-a2b1-aaaa36138cab"
-          },
-        },
-      },
-    },
-    Array: {
-      Struct: {
-        type_: "StructProperty",
-        struct_type: {
-          Struct:
-            "/Game/Gameplay/Lumina/FPassiveEffectProgression.FPassiveEffectProgression",
-        },
-        id: "25fd746e-4d79-298f-a2b1-aaaa36138cab",
-        value: [],
-      },
-    },
-  };
-}
 
-export function generatePictoPassiveEffectProgression(
-  pictoName: string,
-  islearnt: boolean,
-  LearntSteps: number
-): ItemsPassiveEffectsProgressions_0 {
-  return {
-    Struct: {
-      PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0: {
-        Name: pictoName,
-        tag: { data: { Other: "NameProperty" } },
-      },
-      IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0: {
-        Bool: islearnt,
-        tag: { data: { Other: "BoolProperty" } },
-      },
-      LearntSteps_6_A14D681549E830249C77BD95F2B4CF3F_0: {
-        Int: LearntSteps,
-        tag: { data: { Other: "IntProperty" } },
-      },
-    },
-  };
-}
