@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { error, trace } from "@tauri-apps/plugin-log";
+import { trace } from "@tauri-apps/plugin-log";
 import type { GeneralPanelProps } from "../types/panelTypes";
 import { useInfo } from "./InfoContext";
 import { clamp } from "../utils/utils";
@@ -18,7 +18,7 @@ function renderNumberInput(
         htmlFor={label.toLowerCase() + "-input"}
         style={{ marginRight: "0.5rem" }}
       >
-        {label}:
+        {label}
       </label>
       <input
         type="number"
@@ -68,8 +68,8 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({
     const itemsSet = new Set(MiscItemsInv.map(([name]) => name));
     const itemMap = Object.fromEntries(
       (jsonMapping.root.properties.InventoryItems_0.Map || [])
-      .filter((el) => itemsSet.has(el.key.Name))
-      .map((el) => [el.key.Name, el.value.Int])
+        .filter((el) => itemsSet.has(el.key.Name))
+        .map((el) => [el.key.Name, el.value.Int])
     );
     // Return entries in the order of MiscItemsInv
     return Object.fromEntries(
@@ -139,7 +139,7 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({
       ).map((el) => [el.key.Name, el.value.Int])
     );
   }, [jsonMapping]);
-  upgradeWeaponMatsdef.forEach(([name, friendlyName]) => {
+  upgradeWeaponMatsdef.forEach(([name]) => {
     if (!upgradeWeaponMats[name]) {
       upgradeWeaponMats[name] = 0;
     }
