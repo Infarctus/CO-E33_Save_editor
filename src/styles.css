@@ -224,7 +224,7 @@ button {
   justify-content: left;
   font-size: 14px;
   z-index: 1000;
-  margin-left: 5px;
+  padding-left: 5px;
   border-top: 1px solid var(--col-border-1);
 }
 
