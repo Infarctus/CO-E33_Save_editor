@@ -135,6 +135,9 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
       upgradeWeaponMats[name] = 0
     }
   })
+const upgradeWeaponMatsOrdered = Object.fromEntries(
+    upgradeWeaponMatsdef.map(([name]) => [name, upgradeWeaponMats[name] ?? 0])
+)
 
   return (
     <div id='RessourcesPanel' className='tab-panel overflow-auto'>
@@ -180,11 +183,11 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
 
       <h3>Upgrade Weapon Materials</h3>
 
-      {Object.entries(upgradeWeaponMats).map(([name, level]) => {
+      {Object.entries(upgradeWeaponMatsOrdered).map(([name, level]) => {
         // Find the friendly name from TintsBeg
         const friendlyName =
           upgradeWeaponMatsdef.find(([baseName]) => name.startsWith(baseName))?.[1] || name
-        return renderNumberInput(level, friendlyName, 0, 99, (newValue) =>
+        return renderNumberInput(level, friendlyName, 0, 2147483647, (newValue) =>
           SetInventoryItems(name, newValue),
         )
       })}
