@@ -1,5 +1,5 @@
 import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs"
-import type { BeginMapping, IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag, ItemsPassiveEffectsProgressions_0, PassiveEffectsProgressions_0 } from "../types/jsonSaveMapping"
+import type { BeginMapping, IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag, ItemsPassiveEffectsProgressions_0, PassiveEffectsProgressions_0, InventoryItems_0 } from "../types/jsonSaveMapping"
 import { debug, error, trace } from "@tauri-apps/plugin-log"
 
 /**
@@ -131,4 +131,19 @@ export function generatePictoPassiveEffectProgression(
       },
     },
   };
+}
+
+export function generateInventoryItems_0(
+  genname : string,
+  genvalue : number,
+) : InventoryItems_0{
+  return {
+    key: {
+      Name: genname,
+    },
+    value: {
+      Int: genvalue,
+    },
+  };
+
 }
