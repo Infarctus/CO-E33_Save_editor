@@ -35,7 +35,7 @@ const Sidebar: FC<SidebarProps> = ({
           className="tab-button fileopen-dependant"
           onClick={onExportFile}
           disabled={!anyFileOpen}
-          style={{ width:  "50%", marginRight: "0.3em" }}
+          style={{ width:  "49%", marginRight: "2%" }}
           title={
             anyFileOpen
               ? "Export a file to wherever you want.\nYou will be prompted for the target destination."
@@ -50,7 +50,7 @@ const Sidebar: FC<SidebarProps> = ({
           className="tab-button fileopen-dependant"
           onClick={onOverwriteFile}
           disabled={!anyFileOpen}
-          style={{ width:  "50%" }}
+          style={{ width:  "49%" }}
           title={
             anyFileOpen
               ? "Directly overwrite the file you opened.\nUses the same file location and name."
