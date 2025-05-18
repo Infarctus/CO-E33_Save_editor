@@ -9,7 +9,8 @@
     "build-arch-from-deb": "node src-tauri/misc/arch-package.cjs",
     "preview": "vite preview",
     "tauri": "tauri",
-    "buildjson": "python originalGameMapping/createcustommappings.py"
+    "buildjson": "python originalGameMapping/createcustommappings.py",
+    "format": "prettier --write ./src"
   },
   "dependencies": {
     "@tauri-apps/api": "^2",
