@@ -67,6 +67,8 @@ def genskinmapping():
         curritem = itemsdef[item]
         if curritem.get("Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78") != 'E_jRPG_ItemType::NewEnumerator16':
             continue
+        if item.endswith("_Default"):
+            continue
         charname = item.removeprefix("Skin").split("_")[0]
         type = "Skins" if item.startswith("Skin") else "Faces"
         charname = item.removeprefix(type[:-1]).split("_")[0]
