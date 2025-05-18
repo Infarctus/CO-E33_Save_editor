@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, type FC } from "react"
 import { BackupInfoType } from "../types/jsonCustomMapping"
 import { getAllBackups } from "../utils/fileManagement";
 import { error, trace } from "@tauri-apps/plugin-log";
-import { copyFile, mkdir, exists, remove, readDir } from "@tauri-apps/plugin-fs"
+import { copyFile } from "@tauri-apps/plugin-fs"
 import { appLocalDataDir, join } from "@tauri-apps/api/path";
 
 const BackupsPanel: FC = () => {
