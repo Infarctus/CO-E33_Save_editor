@@ -172,7 +172,7 @@ const Sidebar: FC<SidebarProps> = ({
           onClick={() => onTabChange("Backups")}
         >
           <img
-            src="/iconsidebar/backups.svg"
+            src="/iconsidebar/btnBackup.png"
             alt="Backups"
             className="nav-icon"
           />
