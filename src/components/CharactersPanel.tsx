@@ -8,6 +8,7 @@ import { getValueFromTag } from "../utils/jsonSaveMapping"
 import { getPossibleSkinsFor, getUnlockedSkinsFor, getPossibleFacesFor,getUnlockedFacesFor } from "../utils/gameMappingProvider"
 import { trace } from "@tauri-apps/plugin-log"
 import { useInfo } from "./InfoContext"
+import { clamp } from "../utils/utils"
 
 
 
@@ -116,7 +117,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             triggerSaveNeeded()
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
-            ].value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = Number(newValue)
+            ].value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int = clamp(Number(newValue), 1, 99)
             logAndInfo(`Character ${characterName} CurrentLevel updated to ${newValue}`)
             
           }}
