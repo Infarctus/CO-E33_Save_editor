@@ -191,10 +191,12 @@ export interface CharactersInCollection0_Mapping {
 
 export interface InventoryItems_0Mapping {
   tag: any;
-  Map: Array<{
+  Map: Array<InventoryItems_0>;
+}
+
+export interface InventoryItems_0 {
     key: { Name: string };
     value: { Int: number };
-  }>;
 }
 
 export interface RootProperties {

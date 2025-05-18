@@ -25,7 +25,7 @@ import PictosPanel from "./components/PictosPanel";
 import { trace, error } from "@tauri-apps/plugin-log";
 import { useInfo } from "./components/InfoContext";
 import WeaponsPanel from "./components/WeaponsPanel";
-import MiscPanel from "./components/MiscPanel";
+import RessourcesPanel from "./components/RessourcesPanel";
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>("SaveFile");
@@ -297,8 +297,8 @@ function App() {
             triggerSaveNeeded={triggerSaveNeeded}
           />
         )}
-        {activeTab === "Misc" && (
-          <MiscPanel
+        {activeTab === "Ressources" && (
+          <RessourcesPanel
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
           />
