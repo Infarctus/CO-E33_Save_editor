@@ -36,6 +36,7 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         >
           Click here
         </a>
+        <br />
         <b>Note:</b> 
         <br />
         - Items with <code style={{ backgroundColor: "red" }}>**</code> may not be obtainable in the game, and may have unknown effects.
@@ -49,8 +50,6 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         <br />
 
 
-        <br />
-        <br />
         {(openResult !== null) && (
           <div>
             <p>
