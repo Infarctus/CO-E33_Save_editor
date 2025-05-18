@@ -8,8 +8,8 @@ import { InfoProvider } from "./components/InfoContext";
 
 
 attachConsole().then(() => {
-      debug("debug HellO wOrld f108277c-f5ae-495c-901d-6d6ccf13d55a")
-      trace("console debug")
+      debug("debug")
+      trace("trace")
     });
 
 
