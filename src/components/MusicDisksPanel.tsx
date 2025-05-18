@@ -1,21 +1,16 @@
 import { useMemo, useState } from "react";
 import { MusicDisckInfo } from "../types/jsonCustomMapping";
-import { BeginMapping } from "../types/jsonSaveMapping";
 import { getPossibleMusicDisks } from "../utils/gameMappingProvider";
 import { useInfo } from "./InfoContext";
 import { error, trace } from "@tauri-apps/plugin-log";
+import type { GeneralPanelProps } from "../types/panelTypes";
 
-
-interface MusicDisksPanelProps {
-  jsonMapping: BeginMapping | null;
-  triggerSaveNeeded: () => void;
-}
 
 type SortField = "name" | "found" | null;
 type SortDirection = "asc" | "desc";
 
 
-const MusicDisksPanel: React.FC<MusicDisksPanelProps> = ({
+const MusicDisksPanel: React.FC<GeneralPanelProps> = ({
   jsonMapping,
   triggerSaveNeeded,
 }) => {

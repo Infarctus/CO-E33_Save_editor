@@ -109,6 +109,7 @@ const Sidebar: FC<SidebarProps> = ({
           />
           <span>Weapons</span>
         </li>
+        
 
         <li
           data-tab="Pictos"
@@ -172,6 +173,21 @@ const Sidebar: FC<SidebarProps> = ({
             className="nav-icon"
           />
           <span>Journals</span>
+        </li>
+        <li
+          data-tab="Misc"
+          className={`nav-item fileopen-dependant ${
+            activeTab === "Misc" ? "active" : ""
+          }`}
+          aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => anyFileOpen && onTabChange("Misc")}
+        >
+          <img
+            src="/iconsidebar/btnWeapon.png"
+            alt="Misc"
+            className="nav-icon"
+          />
+          <span>Misc</span>
         </li>
 
         <li

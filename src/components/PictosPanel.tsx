@@ -1,25 +1,20 @@
 import { FC, useState, useMemo } from "react";
-import type { BeginMapping } from "../types/jsonSaveMapping";
 import {
   generatePassiveEffectProgression,
   generatePictoPassiveEffectProgression,
-} from "../types/jsonSaveMapping";
+} from "../utils/jsonSaveMapping";
 import { getPossiblePictos } from "../utils/gameMappingProvider";
 import { PictoInfo as PictoInfoType } from "../types/jsonCustomMapping";
 import { error, trace } from "@tauri-apps/plugin-log";
 import { useInfo } from "./InfoContext";
 import { clamp } from "../utils/utils";
+import type { GeneralPanelProps } from "../types/panelTypes";
 
-// Placeholder for a pictos customization editor component
-interface PictosPanelProps {
-  jsonMapping: BeginMapping | null;
-  triggerSaveNeeded: () => void;
-}
 
 type SortField = "friendlyName" | "found" | "mastered" | "level" | null;
 type SortDirection = "asc" | "desc";
 
-const PictosPanel: FC<PictosPanelProps> = ({
+const PictosPanel: FC<GeneralPanelProps> = ({
   jsonMapping,
   triggerSaveNeeded,
 }) => {
