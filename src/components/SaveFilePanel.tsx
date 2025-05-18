@@ -11,16 +11,16 @@ interface SaveFilePanelProps {
 }
 
 
-const SaveFilePanel: FC<SaveFilePanelProps> = ({openResult, jsonMapping}) => {
+const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
   return (
     <div id="SaveFilePanel">
-      <p id="information-msg">    
+      <p id="information-msg">
         This tool allows you to edit your save files for the game. You can modify character attributes, inventory items, and more.
         <br />
         <b>Keep the game open on the main menu while modifying the files to be sure that the cloud saves does not overwrite your changes.</b> (Mostly for gamepass users)
         <br />
         <br />
-        Your save file is located at (you can copy-paste the highlighted path): 
+        Your save file is located at (you can copy-paste the highlighted path):
         <br />
         Steam : <code style={{ backgroundColor: "green" }}>%LOCALAPPDATA%\Sandfall\Saved\SaveGames\</code> + [user-id]\Expedition_X.sav (There's also a backup folder that you can use)
         <br />
@@ -28,13 +28,13 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({openResult, jsonMapping}) => {
         Gamepass : <code style={{ backgroundColor: "green" }}>%LOCALAPPDATA%\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\</code>
         <br />
         If you have any issues, please check :
-         <a
+        <a
           href="https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=posts"
           target="_blank"
           rel="noopener noreferrer"
-          style= {{ color: "lime" }}
+          style={{ color: "lime" }}
         >
-           Click here
+          Click here
         </a>
         <b>Note:</b> 
         <br />
@@ -49,7 +49,8 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({openResult, jsonMapping}) => {
         <br />
 
 
-
+        <br />
+        <br />
         {(openResult !== null) && (
           <div>
             <p>
@@ -64,13 +65,13 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({openResult, jsonMapping}) => {
                   Your playtime is {formatPlayTime(jsonMapping.root.properties.TimePlayed_0.Double)}
 
                 </>
-                
+
               )}
             </p>
           </div>
         ) || (
-          <div>No file is currently open.</div>
-        )}
+            <div>No file is currently open.</div>
+          )}
       </p>
     </div>
   )
