@@ -1,25 +1,24 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import App from "./App"
-import "./styles.css"
-import { attachConsole, debug, trace } from "@tauri-apps/plugin-log";
-import { initGameMappings } from "./utils/gameMappingProvider";
-import { InfoProvider } from "./components/InfoContext";
-
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './styles.css'
+import { attachConsole, debug, trace } from '@tauri-apps/plugin-log'
+import { initGameMappings } from './utils/gameMappingProvider'
+import { InfoProvider } from './components/InfoContext'
 
 attachConsole().then(() => {
-      debug("debug")
-      trace("trace")
-    });
+    debug('debug')
+    trace('trace')
+})
 
+initGameMappings()
 
-
-    initGameMappings();
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <InfoProvider> {/* Wrap App with InfoProvider */}
-      <App />
-    </InfoProvider>
-  </React.StrictMode>,
-);
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <React.StrictMode>
+        <InfoProvider>
+            {' '}
+            {/* Wrap App with InfoProvider */}
+            <App />
+        </InfoProvider>
+    </React.StrictMode>
+)
