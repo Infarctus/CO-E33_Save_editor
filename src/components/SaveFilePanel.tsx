@@ -14,7 +14,7 @@ interface SaveFilePanelProps {
 const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
   return (
     <div id="SaveFilePanel">
-      <p id="information-msg">
+      <div id="information-msg">
         This tool allows you to edit your save files for the game. You can modify character attributes, inventory items, and more.
         <br />
         <b>Keep the game open on the main menu while modifying the files to be sure that the cloud saves does not overwrite your changes.</b> (Mostly for gamepass users)
@@ -52,7 +52,7 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
 
         {(openResult !== null) && (
           <div>
-            <p>
+            <div>
               You have opened the file at <code>{openResult.originalSavPath}</code>
               <br />
               It does {jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null ? "NOT" : ""} look like a CO:E33 save.
@@ -66,12 +66,12 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
                 </>
 
               )}
-            </p>
+            </div>
           </div>
         ) || (
             <div>No file is currently open.</div>
           )}
-      </p>
+      </div>
     </div>
   )
 }
