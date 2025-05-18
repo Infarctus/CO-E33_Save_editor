@@ -34,6 +34,7 @@ function App() {
   const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null);
   // const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false);
+  const [updateKey, setUpdateKey] = useState(0); // State to trigger re-render
 
   const { infoMessage, setInfoMessage } = useInfo();
   function errorAndInfo(message: string) {
@@ -117,6 +118,8 @@ function App() {
     } else {
       errorAndInfo(saveProcessResult.message);
     }
+
+    setUpdateKey(prevKey => prevKey + 1);
   };
 
   const handleExportFile = async () => {
@@ -181,6 +184,9 @@ function App() {
       }
     } catch (err) {
       errorAndInfo("Error during export process:" + err);
+    } finally {
+    setUpdateKey(prevKey => prevKey + 1);
+
     }
   };
 
@@ -222,6 +228,8 @@ function App() {
       }
     } catch (err) {
       errorAndInfo("Error during overwrite process:" + err);
+    } finally {
+    setUpdateKey(prevKey => prevKey + 1);
     }
   };
 
@@ -250,7 +258,10 @@ function App() {
       />
 
       <main className="content">
-        {activeTab === "SaveFile" && <SaveFilePanel />}
+        {activeTab === "SaveFile" && <SaveFilePanel 
+        openResult={workingFileCurrent}
+        jsonMapping={jsonMapping}
+        key={updateKey} />}
 
         {activeTab === "Characters" && (
           <CharactersPanel
