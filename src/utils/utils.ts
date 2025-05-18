@@ -37,7 +37,7 @@ const formatPlayTime = (totalSeconds: number) => {
     result += `${minutes}m `;
   }
   if (seconds > 0 || (days === 0 && hours === 0 && minutes === 0)) { // Include seconds if there are any or if there are no days, hours, or minutes
-    result += `${seconds.toPrecision(1)}s`;
+    result += `${seconds.toPrecision(2)}s`;
   }
 
   return result.trim(); // Remove any leading/trailing whitespace
