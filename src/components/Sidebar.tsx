@@ -65,6 +65,21 @@ const Sidebar: FC<SidebarProps> = ({
 
       <ul className="nav-list">
         <li
+          data-tab="SaveFile"
+          className={`nav-item ${
+            activeTab === "SaveFile" ? "active" : ""
+          }`}
+          // aria-disabled={!anyFileOpen ? "true" : undefined}
+          onClick={() => onTabChange("SaveFile")}
+        >
+          <img
+            src="/iconsidebar/btnCharacters.png"
+            alt="SaveFile"
+            className="nav-icon"
+          />
+          <span>Home</span>
+        </li>
+        <li
           data-tab="Characters"
           className={`nav-item fileopen-dependant ${
             activeTab === "Characters" ? "active" : ""
