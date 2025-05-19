@@ -17,6 +17,7 @@ let pictosJson: CustomPictosMapping
 let musicJson: CustomMusicMapping
 let weaponsJson: CustomWeaponsMapping
 let journalsJson: CustomJournalMapping
+let monocoSkillsJson: { MonocoSkills: { [key: string]: string } }
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -48,10 +49,15 @@ export async function initGameMappings() {
     const stringJournalsJson = await readTextFile(resourceJournalsPath)
     journalsJson = JSON.parse(stringJournalsJson)
     if (!('Journals' in journalsJson)) throw 'Journals Json not as expected'
+
+    const resourceMonocoSkillsPath = await path.join(MainDirPath, 'monocoskills.json')
+    const stringMonocoSkillsJson = await readTextFile(resourceMonocoSkillsPath)
+    monocoSkillsJson = JSON.parse(stringMonocoSkillsJson)
+    if (!('MonocoSkills' in monocoSkillsJson)) throw 'MonocoSkills Json not as expected'
   } catch (e: any) {
     trace(e)
     alert(
-      'Failed to get some mapping files. Stome stuff will not work !\nYou should re-download this mod.',
+      'Failed to get some mapping files. Some stuff will not work !\nYou should re-download this mod.',
     )
   }
 }
@@ -133,6 +139,15 @@ export function getPossibleJournals(): [string, string][] {
   debug('getting journals')
   if (journalsJson.Journals) {
     return Object.entries(journalsJson.Journals)
+  } else {
+    return [['nothing', 'nothing']]
+  }
+}
+
+export function getPossibleMonocoSkills(): [string, string][] {
+  debug('getting monoco skills')
+  if (monocoSkillsJson.MonocoSkills) {
+    return Object.entries(monocoSkillsJson.MonocoSkills)
   } else {
     return [['nothing', 'nothing']]
   }
