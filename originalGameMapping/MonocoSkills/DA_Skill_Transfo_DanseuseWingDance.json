@@ -1,0 +1,69 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_DanseuseWingDance",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "DanseuseWingDance",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 8,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_DanseuseWingDance_Name",
+        "SourceString": "Danseuse Waltz",
+        "LocalizedString": "Danseuse Waltz"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_DanseuseWingDance_Description_Long",
+        "SourceString": "Deals high single target <keyword id=\"Element_Fire\">Fire</> damage. 3 hits.\nDeals more damage against <keyword id=\"StatusEffect_Burn\">Burning</> targets.\n<keyword id=\"MonocoMask_Balanced_Left\">Balanced Mask</>: Increased damage.",
+        "LocalizedString": "Deals high single target <keyword id=\"Element_Fire\">Fire</> damage. 3 hits.\nDeals more damage against <keyword id=\"StatusEffect_Burn\">Burning</> targets.\n<keyword id=\"MonocoMask_Balanced_Left\">Balanced Mask</>: Increased damage."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_DanseuseWingDance_Description_Short",
+        "SourceString": "High <keyword id=\"Element_Fire\">Fire</> damage. 3 hits.\nDamage increased against <keyword id=\"StatusEffect_Burn\">Burning</> targets.\n<keyword id=\"MonocoMask_Balanced_Left\">Balanced Mask</>: Increased damage.",
+        "LocalizedString": "High <keyword id=\"Element_Fire\">Fire</> damage. 3 hits.\nDamage increased against <keyword id=\"StatusEffect_Burn\">Burning</> targets.\n<keyword id=\"MonocoMask_Balanced_Left\">Balanced Mask</>: Increased damage."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "BaseElementalType": "EAttackType::NewEnumerator0",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_DanseuseWingDance.BP_Battle_SkillScript_Transfo_DanseuseWingDance_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_DanseuseWingDance:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_DanseuseWingDance.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_DanseuseWingDance",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator4",
+        "E_Transform_Masks_Mechanic::NewEnumerator0"
+      ],
+      "AdvanceMeter": 3
+    }
+  }
+]

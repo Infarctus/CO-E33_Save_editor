@@ -1,0 +1,45 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_MightyStrike",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "MightyStrike",
+      "SkillType": "ESkillType::NewEnumerator2",
+      "APCost": 1,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_MightyStrike_Name",
+        "SourceString": "Mighty Strike",
+        "LocalizedString": "Mighty Strike"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_MightyStrike_Description_Long",
+        "SourceString": "Deals high single target damage. 2 hits.\nUses weapon's element.\nDeals double damage if the target is <keyword id=\"StatusEffect_Stunned\">Stunned</>\nGoes to <keyword id=\"MonocoMask_Almighty\">Almighty Mask</>.",
+        "LocalizedString": "Deals high single target damage. 2 hits.\nUses weapon's element.\nDeals double damage if the target is <keyword id=\"StatusEffect_Stunned\">Stunned</>\nGoes to <keyword id=\"MonocoMask_Almighty\">Almighty Mask</>."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_MightyStrike_Description_Short",
+        "SourceString": "High {DynamicElement} damage. 2 hits.\nDeals double damage if the target is <keyword id=\"StatusEffect_Stunned\">Stunned</>\nGoes to <keyword id=\"MonocoMask_Almighty\">Almighty Mask</>.",
+        "LocalizedString": "High {DynamicElement} damage. 2 hits.\nDeals double damage if the target is <keyword id=\"StatusEffect_Stunned\">Stunned</>\nGoes to <keyword id=\"MonocoMask_Almighty\">Almighty Mask</>."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "DynamicElementOverride": "ESkillElementOverride::NewEnumerator1",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Monoco_MightyStrike.BP_Battle_SkillScript_Monoco_MightyStrike_C",
+        "SubPathString": ""
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  }
+]

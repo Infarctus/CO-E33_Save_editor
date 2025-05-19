@@ -1,0 +1,71 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_TroubadourBuff",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "Trumpet",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 3,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_TroubadourBuff_Name",
+        "SourceString": "Troubadour Trumpet",
+        "LocalizedString": "Troubadour Trumpet"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_TroubadourBuff_Description_Long",
+        "SourceString": "Applies a random buff to 1 to 3 allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: applies a second random buff.",
+        "LocalizedString": "Applies a random buff to 1 to 3 allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: applies a second random buff."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_TroubadourBuff_Description_Short",
+        "SourceString": "Applies a random buff to 1 to 3 allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: applies a second random buff.",
+        "LocalizedString": "Applies a random buff to 1 to 3 allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: applies a second random buff."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator2",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_TroubadourBuff.BP_Battle_SkillScript_Transfo_TroubadourBuff_C",
+        "SubPathString": ""
+      },
+      "SkillTags": [
+        "SkillInfos.SkillEffect.Buff"
+      ],
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_TroubadourBuff:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_TroubadourBuff.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_TroubadourBuff",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator2",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 4
+    }
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_StalactMeleeCombo",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "StalactCombo",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 4,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_StalactCombo_Name",
+        "SourceString": "Stalact Punches",
+        "LocalizedString": "Stalact Punches"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_StalactCombo_Description_Long",
+        "SourceString": "Deals medium single target <keyword id=\"Element_Ice\">Ice</> damage. 4 hits.\nHigh <keyword id=\"BreakDamage\">Break damage</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "Deals medium single target <keyword id=\"Element_Ice\">Ice</> damage. 4 hits.\nHigh <keyword id=\"BreakDamage\">Break damage</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_StalactCombo_Description_Short",
+        "SourceString": "Deals medium <keyword id=\"Element_Ice\">Ice</> damage. 4 hits.\nHigh <keyword id=\"BreakDamage\">Break damage</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "Deals medium <keyword id=\"Element_Ice\">Ice</> damage. 4 hits.\nHigh <keyword id=\"BreakDamage\">Break damage</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "BaseElementalType": "EAttackType::NewEnumerator1",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_StalactCombo.BP_Battle_SkillScript_Transfo_StalactCombo_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_StalactMeleeCombo:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_StalactMeleeCombo.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_StalactMeleeCombo",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator1",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 4
+    }
+  }
+]

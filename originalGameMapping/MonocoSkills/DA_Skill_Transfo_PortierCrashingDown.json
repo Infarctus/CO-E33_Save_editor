@@ -1,0 +1,83 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_PortierCrashingDown",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "PortierCrashingDown",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 8,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_PortierSmash_Name",
+        "SourceString": "Portier Crash",
+        "LocalizedString": "Portier Crash"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_PortierSmash_Description_Long",
+        "SourceString": "Deals high <keyword id=\"Element_Physical\">Physical</> damage to all enemies. 1 hit.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "Deals high <keyword id=\"Element_Physical\">Physical</> damage to all enemies. 1 hit.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_PortierSmash_Description_Short",
+        "SourceString": "Deals high <keyword id=\"Element_Physical\">Physical</> damage to all enemies. 1 hit.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "Deals high <keyword id=\"Element_Physical\">Physical</> damage to all enemies. 1 hit.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator19",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_PortierCrashingDown.BP_Battle_SkillScript_Transfo_PortierCrashingDown_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_PortierCrashingDown:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PortierCrashingDown.1"
+        },
+        {
+          "ObjectName": "BP_SkillDataComponent_PerformBreakStun_C'DA_Skill_Transfo_PortierCrashingDown:BP_SkillDataComponent_PerformBreakStun_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PortierCrashingDown.2"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_PortierCrashingDown",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator1",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 5
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_PerformBreakStun_C",
+    "Name": "BP_SkillDataComponent_PerformBreakStun_C_0",
+    "Outer": "DA_Skill_Transfo_PortierCrashingDown",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/Shared/PerformBreakStun/BP_SkillDataComponent_PerformBreakStun.BP_SkillDataComponent_PerformBreakStun_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_PerformBreakStun_C'Default__BP_SkillDataComponent_PerformBreakStun_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/Shared/PerformBreakStun/BP_SkillDataComponent_PerformBreakStun.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

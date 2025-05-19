@@ -1,0 +1,71 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_PelerinFreshAir",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "PelerinFreshAir",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 5,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_PelerinFreshAir_Name",
+        "SourceString": "Pèlerin Heal",
+        "LocalizedString": "Pèlerin Heal"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_PelerinFreshAir_Description_Long",
+        "SourceString": "Applies <keyword id=\"Buff_Regen\">Regen</> to all allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: also <keyword id=\"Heal\">Heals</> 40% Health.",
+        "LocalizedString": "Applies <keyword id=\"Buff_Regen\">Regen</> to all allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: also <keyword id=\"Heal\">Heals</> 40% Health."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_PelerinFreshAir_Description_Short",
+        "SourceString": "Applies <keyword id=\"Buff_Regen\">Regen</> to all allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: also <keyword id=\"Heal\">Heals</> 40% Health.",
+        "LocalizedString": "Applies <keyword id=\"Buff_Regen\">Regen</> to all allies.\n<keyword id=\"MonocoMask_Caster_Left\">Caster Mask</>: also <keyword id=\"Heal\">Heals</> 40% Health."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator2",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_PelerinFreshAir.BP_Battle_SkillScript_Transfo_PelerinFreshAir_C",
+        "SubPathString": ""
+      },
+      "SkillTags": [
+        "SkillInfos.SkillEffect.Heal"
+      ],
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_PelerinFreshAir:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PelerinFreshAir.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_PelerinFreshAir",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator2",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 3
+    }
+  }
+]

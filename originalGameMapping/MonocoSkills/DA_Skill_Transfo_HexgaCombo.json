@@ -1,0 +1,69 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_HexgaCombo",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "HexgaCombo",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 5,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_HexgaCombo_Name",
+        "SourceString": "Hexga Crush",
+        "LocalizedString": "Hexga Crush"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_HexgaCombo_Description_Long",
+        "SourceString": "Deals medium single target <keyword id=\"Element_Earth\">Earth</> damage. 2 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</> to the target for 3 turns.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increases <keyword id=\"Buff_Defenseless\">Defenceless</> duration to 5 turns.",
+        "LocalizedString": "Deals medium single target <keyword id=\"Element_Earth\">Earth</> damage. 2 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</> to the target for 3 turns.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increases <keyword id=\"Buff_Defenseless\">Defenceless</> duration to 5 turns."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_HexgaCombo_Description_Short",
+        "SourceString": "Medium <keyword id=\"Element_Earth\">Earth</> damage. 2 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increases <keyword id=\"Buff_Defenseless\">Defenceless</> duration to 5 turns.",
+        "LocalizedString": "Medium <keyword id=\"Element_Earth\">Earth</> damage. 2 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increases <keyword id=\"Buff_Defenseless\">Defenceless</> duration to 5 turns."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "BaseElementalType": "EAttackType::NewEnumerator3",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_HexgaCombo.BP_Battle_SkillScript_Transfo_HexgaCombo_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_HexgaCombo:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_HexgaCombo.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_HexgaCombo",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator1",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 6
+    }
+  }
+]

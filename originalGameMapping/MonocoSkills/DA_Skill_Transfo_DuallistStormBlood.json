@@ -1,0 +1,82 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_DuallistStormBlood",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "StormBlood",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 8,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_DuallistStormBlood_Name",
+        "SourceString": "Duallist Storm",
+        "LocalizedString": "Duallist Storm"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_DuallistStormBlood_Description_Long",
+        "SourceString": "Deals extreme single target <keyword id=\"Element_Physical\">Physical</> damage. 4 hits.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Almighty_Left\">Almighty Mask</>: Increased damage.",
+        "LocalizedString": "Deals extreme single target <keyword id=\"Element_Physical\">Physical</> damage. 4 hits.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Almighty_Left\">Almighty Mask</>: Increased damage."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_DuallistStormBlood_Description_Short",
+        "SourceString": "Deals extreme <keyword id=\"Element_Physical\">Physical</> damage. 4 hits.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Almighty_Left\">Almighty Mask</>: Increased damage.",
+        "LocalizedString": "Deals extreme <keyword id=\"Element_Physical\">Physical</> damage. 4 hits.\nCan <keyword id=\"Break\">Break</>\n<keyword id=\"MonocoMask_Almighty_Left\">Almighty Mask</>: Increased damage."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_DuallistStormBlood.BP_Battle_SkillScript_Transfo_DuallistStormBlood_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_DuallistStormBlood:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_DuallistStormBlood.1"
+        },
+        {
+          "ObjectName": "BP_SkillDataComponent_PerformBreakStun_C'DA_Skill_Transfo_DuallistStormBlood:BP_SkillDataComponent_PerformBreakStun_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_DuallistStormBlood.2"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_DuallistStormBlood",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 1
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_PerformBreakStun_C",
+    "Name": "BP_SkillDataComponent_PerformBreakStun_C_0",
+    "Outer": "DA_Skill_Transfo_DuallistStormBlood",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/Shared/PerformBreakStun/BP_SkillDataComponent_PerformBreakStun.BP_SkillDataComponent_PerformBreakStun_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_PerformBreakStun_C'Default__BP_SkillDataComponent_PerformBreakStun_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/Shared/PerformBreakStun/BP_SkillDataComponent_PerformBreakStun.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted"
+  }
+]

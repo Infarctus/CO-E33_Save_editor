@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_Lancelier",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "LancelierEstoc",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 2,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_LancelierEstoc_Name",
+        "SourceString": "Lancelier Impale",
+        "LocalizedString": "Lancelier Impale"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_LancelierEstoc_Description_Long",
+        "SourceString": "Deals low single target <keyword id=\"Element_Ice\">Ice</> damage. 1 hit.\n<keyword id=\"Buff_Slow\">Slows</> the target for 3 turns.\n<keyword id=\"MonocoMask_Agile_Left\">Agile Mask</>: Increased damage.",
+        "LocalizedString": "Deals low single target <keyword id=\"Element_Ice\">Ice</> damage. 1 hit.\n<keyword id=\"Buff_Slow\">Slows</> the target for 3 turns.\n<keyword id=\"MonocoMask_Agile_Left\">Agile Mask</>: Increased damage."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_LancelierEstoc_Description_Short",
+        "SourceString": "Low <keyword id=\"Element_Ice\">Ice</> damage. 1 hit.\nApplies <keyword id=\"Buff_Slow\">Slow</>\n<keyword id=\"MonocoMask_Agile_Left\">Agile Mask</>: Increased damage.",
+        "LocalizedString": "Low <keyword id=\"Element_Ice\">Ice</> damage. 1 hit.\nApplies <keyword id=\"Buff_Slow\">Slow</>\n<keyword id=\"MonocoMask_Agile_Left\">Agile Mask</>: Increased damage."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_Lancelier.BP_Battle_SkillScript_Transfo_Lancelier_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_Lancelier:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_Lancelier.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_Lancelier",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator3",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 4
+    }
+  }
+]

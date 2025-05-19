@@ -6,8 +6,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 def jsondump(obj, file):
     with open(file, "w", encoding="utf-8") as f:
-        #json.dump(obj, f, indent=2, ensure_ascii=False)
-        json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
+        json.dump(obj, f, indent=2, ensure_ascii=False)
+        #json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
 
 
 itemtypes = {'E_jRPG_ItemType::NewEnumerator0': 'Weapon', 'E_jRPG_ItemType::NewEnumerator6': 'N/A', 'E_jRPG_ItemType::NewEnumerator7': 'Consumable', 'E_jRPG_ItemType::NewEnumerator10': 'Pictos', 'E_jRPG_ItemType::NewEnumerator11': 'Key', 'E_jRPG_ItemType::NewEnumerator12': 'Inventory', 'E_jRPG_ItemType::NewEnumerator14': 'Shard', 'E_jRPG_ItemType::NewEnumerator15': 'Gold', 'E_jRPG_ItemType::NewEnumerator16': 'CharacterCustomization', 'E_jRPG_ItemType::NewEnumerator17': 'SkillUnlocker'}
@@ -190,8 +190,78 @@ def genjournalsmapping():
 
     print("Journal mapping generated successfully.")
 
+def genquestitemsmapping():
+    items = "originalGameMapping/DT_QuestItems.json"
+
+    output_path = os.path.join(output_dir, "questitems.json")
+
+    with open(items, "r", encoding="utf-8") as f:
+        itemsdef = json.load(f)[0].get("Rows")
+    
+    output_data = {
+        "QuestItems": {}
+    }
+
+    weirditems = {}
+
+    for item in itemsdef:
+        curritem = itemsdef[item]
+        friendlyname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
+        if not friendlyname:
+            friendlyname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("CultureInvariantString")+"**"
+            weirditems[item] = friendlyname
+        else:
+            output_data["QuestItems"][item] = friendlyname
+    
+    output_data["QuestItems"] = dict(
+        sorted(output_data["QuestItems"].items(), key=lambda x: x[1])
+    )
+    weirditems = dict(
+        sorted(weirditems.items(), key=lambda x: x[1])
+    )
+    output_data["QuestItems"].update(weirditems)
 
 
+    jsondump(output_data, output_path)
+
+    print("Quest item mapping generated successfully.")
+
+def genmonocoskillsmapping():
+    skillsdir = "originalGameMapping/MonocoSkills"
+    output_path = os.path.join(output_dir, "monocoskills.json")
+
+    output_data = {
+        "MonocoSkills": {}
+    }
+
+    for filename in os.listdir(skillsdir):
+        if not filename.endswith(".json"):
+            continue
+        with open(os.path.join(skillsdir, filename), "r", encoding="utf-8") as f:
+            skilldef = json.load(f)[0].get("Properties")
+            skillkey = skilldef.get("NameID")
+            skillname = skilldef.get("name").get("SourceString")
+            if not skillname:
+                skillname = skilldef.get("name").get("CultureInvariantString")+"**"
+            output_data["MonocoSkills"][skillkey] = skillname
+
+    output_data["MonocoSkills"] = dict(
+        sorted(output_data["MonocoSkills"].items(), key=lambda x: x[1])
+    )
+
+    jsondump(output_data, output_path)
+
+    print("Monoco skill mapping generated successfully.")
+
+
+
+
+
+
+
+
+genmonocoskillsmapping()
+#genquestitemsmapping()
 #genweaponmapping()    
 #genjournalsmapping()
 #genpictomapping()
