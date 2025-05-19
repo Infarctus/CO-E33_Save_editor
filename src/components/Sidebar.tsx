@@ -118,7 +118,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? 'true' : undefined}
           onClick={() => anyFileOpen && onTabChange('Ressources')}
         >
-          <img src='/iconsidebar/btnWeapon.png' alt='Ressources' className='nav-icon' />
+          <img src='/iconsidebar/btnRessources.png' alt='Ressources' className='nav-icon' />
           <span>Ressources</span>
         </li>
 
