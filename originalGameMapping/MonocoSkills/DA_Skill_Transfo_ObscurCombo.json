@@ -1,0 +1,69 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_ObscurCombo",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "ObscurCombo",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 6,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_ObscurCombo_Name",
+        "SourceString": "Obscur Sword",
+        "LocalizedString": "Obscur Sword"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_ObscurCombo_Description_Long",
+        "SourceString": "Deals high single target <keyword id=\"Element_Dark\">Dark</> damage. 5 hits.\nDeals more damage against <keyword id=\"Buff_Powerless\">Powerless</> targets.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "Deals high single target <keyword id=\"Element_Dark\">Dark</> damage. 5 hits.\nDeals more damage against <keyword id=\"Buff_Powerless\">Powerless</> targets.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_ObscurCombo_Description_Short",
+        "SourceString": "High <keyword id=\"Element_Dark\">Dark</> damage. 5 hits.\nDeals more damage against <keyword id=\"Buff_Powerless\">Powerless</> targets.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "High <keyword id=\"Element_Dark\">Dark</> damage. 5 hits.\nDeals more damage against <keyword id=\"Buff_Powerless\">Powerless</> targets.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "BaseElementalType": "EAttackType::NewEnumerator4",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_ObscurDarkSlashes.BP_Battle_SkillScript_Transfo_ObscurDarkSlashes_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_ObscurCombo:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ObscurCombo.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_ObscurCombo",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator1",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 3
+    }
+  }
+]

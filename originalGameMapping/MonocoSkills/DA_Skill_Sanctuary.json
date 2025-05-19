@@ -1,0 +1,48 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Sanctuary",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "Sanctuary",
+      "SkillType": "ESkillType::NewEnumerator2",
+      "APCost": 2,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_Sanctuary_Name",
+        "SourceString": "Sanctuary",
+        "LocalizedString": "Sanctuary"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_Sanctuary_Description_Long",
+        "SourceString": "Gives 2 <keyword id=\"Shield\">Shields</> and applies <keyword id=\"Buff_Regen\">Regen</> to all allies for 3 turns.",
+        "LocalizedString": "Gives 2 <keyword id=\"Shield\">Shields</> and applies <keyword id=\"Buff_Regen\">Regen</> to all allies for 3 turns."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_Sanctuary_Description_Short",
+        "SourceString": "Gives 2 <keyword id=\"Shield\">Shields</> and applies <keyword id=\"Buff_Regen\">Regen</> to all allies for 3 turns.",
+        "LocalizedString": "Gives 2 <keyword id=\"Shield\">Shields</> and applies <keyword id=\"Buff_Regen\">Regen</> to all allies for 3 turns."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator8",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Monoco_Sanctuary.BP_Battle_SkillScript_Monoco_Sanctuary_C",
+        "SubPathString": ""
+      },
+      "SkillTags": [
+        "SkillInfos.SkillEffect.Buff",
+        "SkillInfos.SkillEffect.Heal"
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BP_DataAsset_Skill_C",
+    "Name": "DA_Skill_Transfo_GrosseTeteWrecking",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_Skill.BP_DataAsset_Skill_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_Skill_C'Default__BP_DataAsset_Skill_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "NameID": "GrosseTeteWrecking",
+      "SkillType": "ESkillType::NewEnumerator1",
+      "APCost": 6,
+      "name": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_GrosseTeteWrecking_Name",
+        "SourceString": "Grosse Tête Whack",
+        "LocalizedString": "Grosse Tête Whack"
+      },
+      "Description": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_GrosseTeteWrecking_Description_Long",
+        "SourceString": "Deals high single target <keyword id=\"Element_Physical\">Physical</> damage. 5 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</> for 3 turns.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "Deals high single target <keyword id=\"Element_Physical\">Physical</> damage. 5 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</> for 3 turns.\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "ShortDescription": {
+        "TableId": "/Game/StringTables/ST_MainCharacters_Skills.ST_MainCharacters_Skills",
+        "Key": "Monoco_GrosseTeteWrecking_Description_Short",
+        "SourceString": "High <keyword id=\"Element_Physical\">Physical</> damage. 5 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage.",
+        "LocalizedString": "High <keyword id=\"Element_Physical\">Physical</> damage. 5 hits.\nApplies <keyword id=\"Buff_Defenseless\">Defenceless</>\n<keyword id=\"MonocoMask_Heavy_Left\">Heavy Mask</>: Increased damage."
+      },
+      "TargetingType": "E_jRPG_TargetingType::NewEnumerator1",
+      "SkillScript": {
+        "AssetPathName": "/Game/Gameplay/Battle/Skills/Content/Monoco/BP_Battle_SkillScript_Transfo_GrosseTeteWrecking.BP_Battle_SkillScript_Transfo_GrosseTeteWrecking_C",
+        "SubPathString": ""
+      },
+      "SkillComponentList": [
+        {
+          "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'DA_Skill_Transfo_GrosseTeteWrecking:BP_SkillDataComponent_MaskMechanic_C_0'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_GrosseTeteWrecking.1"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_Skill_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_Skill.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SkillDataComponent_MaskMechanic_C",
+    "Name": "BP_SkillDataComponent_MaskMechanic_C_0",
+    "Outer": "DA_Skill_Transfo_GrosseTeteWrecking",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.BP_SkillDataComponent_MaskMechanic_C'",
+    "Template": {
+      "ObjectName": "BP_SkillDataComponent_MaskMechanic_C'Default__BP_SkillDataComponent_MaskMechanic_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/SkillDataComponents/UniqueMechanic_Masks/BP_SkillDataComponent_MaskMechanic.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "AnyMaskInList": [
+        "E_Transform_Masks_Mechanic::NewEnumerator1",
+        "E_Transform_Masks_Mechanic::NewEnumerator4"
+      ],
+      "AdvanceMeter": 4
+    }
+  }
+]
