@@ -96,6 +96,34 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     logAndInfo('Music disk ' + musicDisksname + ': ' + newFound)
   }
 
+  // Add this function to handle toggling all music disks
+  const handleToggleAll = (foundAll: boolean) => {
+    // Update the InventoryItems_0.Map in the save structure
+    const inventoryArr = jsonMapping.root.properties.InventoryItems_0.Map
+
+    if (foundAll) {
+      // Add all disks if not already present
+      allMusicDisks.forEach(([name]) => {
+        if (!inventoryArr.some((el: any) => el.key.Name === name)) {
+          inventoryArr.push({
+            key: { Name: name },
+            value: { Int: 1 },
+          })
+        }
+      })
+    } else {
+      // Remove all disks
+      jsonMapping.root.properties.InventoryItems_0.Map = inventoryArr.filter(
+        (el: any) => !allMusicDisks.some(([name]) => el.key.Name === name)
+      )
+    }
+
+    setMusicDisks((prev) =>
+      prev.map((disk) => ({ ...disk, found: foundAll }))
+    )
+    triggerSaveNeeded()
+  }
+
   // Handle sorting when headers are clicked.
   const handleSort = (field: SortField) => {
     // Determine new direction. If already sorting by this field, reverse the direction; otherwise, default to ascending.
@@ -134,6 +162,18 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
   return (
     <div id='MusicDisksPanel' className='tab-panel oveflow-auto'>
       <h2>Music Disks</h2>
+      {/* Toggle All Buttons */}
+      <div style={{ marginBottom: '1em' }}>
+        <button
+          onClick={() => handleToggleAll(true)}
+          style={{ marginRight: '0.5em' }}
+        >
+          Mark All as Found
+        </button>
+        <button onClick={() => handleToggleAll(false)}>
+          Mark All as Not Found
+        </button>
+      </div>
       {/* Search Bar */}
       <input
         type='text'
