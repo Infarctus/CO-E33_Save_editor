@@ -86,6 +86,34 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
     triggerSaveNeeded()
   }
 
+  // Add this function to handle toggling all journals
+  const handleToggleAll = (foundAll: boolean) => {
+    // Update the InventoryItems_0.Map in the save structure
+    const inventoryArr = jsonMapping.root.properties.InventoryItems_0.Map
+
+    if (foundAll) {
+      // Add all journals if not already present
+      allJournals.forEach(([name]) => {
+        if (!inventoryArr.some((el: any) => el.key.Name === name)) {
+          inventoryArr.push({
+            key: { Name: name },
+            value: { Int: 1 },
+          })
+        }
+      })
+    } else {
+      // Remove all journals
+      jsonMapping.root.properties.InventoryItems_0.Map = inventoryArr.filter(
+        (el: any) => !allJournals.some(([name]) => el.key.Name === name)
+      )
+    }
+
+    setJournals((prev) =>
+      prev.map((journal) => ({ ...journal, found: foundAll }))
+    )
+    triggerSaveNeeded()
+  }
+
   type SortField = 'name' | 'found' | null
   type SortDirection = 'asc' | 'desc'
 
@@ -124,6 +152,18 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
   return (
     <div id='JournalPanel' className='tab-panel oveflow-auto'>
       <h2>Journals</h2>
+      {/* Toggle All Buttons */}
+      <div style={{ marginBottom: '1em' }}>
+        <button
+          onClick={() => handleToggleAll(true)}
+          style={{ marginRight: '0.5em' }}
+        >
+          Mark All as Found
+        </button>
+        <button onClick={() => handleToggleAll(false)}>
+          Mark All as Not Found
+        </button>
+      </div>
       {/* Search Bar */}
       <input
         type='text'

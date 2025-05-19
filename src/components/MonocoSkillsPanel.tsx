@@ -80,9 +80,44 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
         )
     }, [skills, searchQuery])
 
+    const handleToggleAll = (unlockAll: boolean) => {
+        // Update the Monoco skills array in the save structure
+        const skillsArr =
+            monocoObj.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0
+                .Array.Base.Name
+
+        if (unlockAll) {
+            // Add all skills if not already present
+            allMonocoSkills.forEach(([name]) => {
+                if (!skillsArr.includes(name)) {
+                    skillsArr.push(name)
+                }
+            })
+        } else {
+            // Remove all skills
+            skillsArr.length = 0
+        }
+
+        setSkills((prev) =>
+            prev.map((skill) => ({ ...skill, unlocked: unlockAll })),
+        )
+        triggerSaveNeeded()
+    }
+
     return (
         <div id='MonocoSkillsPanel' className='tab-panel overflow-auto'>
             <h2>Monoco Skills</h2>
+            <div style={{ marginBottom: '1em' }}>
+                <button
+                    onClick={() => handleToggleAll(true)}
+                    style={{ marginRight: '0.5em' }}
+                >
+                    Unlock All
+                </button>
+                <button onClick={() => handleToggleAll(false)}>
+                    Lock All
+                </button>
+            </div>
             {/* Search Bar */}
             <input
                 type='text'
