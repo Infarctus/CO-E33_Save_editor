@@ -23,6 +23,7 @@ import { trace, error } from '@tauri-apps/plugin-log'
 import { useInfo } from './components/InfoContext'
 import WeaponsPanel from './components/WeaponsPanel'
 import RessourcesPanel from './components/RessourcesPanel'
+import MonocoSkillsPanel from './components/MonocoSkillsPanel'
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
@@ -274,6 +275,9 @@ function App() {
         )}
         {activeTab === 'Ressources' && (
           <RessourcesPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
+        )}
+        {activeTab === 'MonocoSkills' && (
+          <MonocoSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
         )}
 
         {activeTab === 'Backups' && <BackupsPanel />}

@@ -6,8 +6,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 def jsondump(obj, file):
     with open(file, "w", encoding="utf-8") as f:
-        json.dump(obj, f, indent=2, ensure_ascii=False)
-        #json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
+        #json.dump(obj, f, indent=2, ensure_ascii=False)
+        json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
 
 
 itemtypes = {'E_jRPG_ItemType::NewEnumerator0': 'Weapon', 'E_jRPG_ItemType::NewEnumerator6': 'N/A', 'E_jRPG_ItemType::NewEnumerator7': 'Consumable', 'E_jRPG_ItemType::NewEnumerator10': 'Pictos', 'E_jRPG_ItemType::NewEnumerator11': 'Key', 'E_jRPG_ItemType::NewEnumerator12': 'Inventory', 'E_jRPG_ItemType::NewEnumerator14': 'Shard', 'E_jRPG_ItemType::NewEnumerator15': 'Gold', 'E_jRPG_ItemType::NewEnumerator16': 'CharacterCustomization', 'E_jRPG_ItemType::NewEnumerator17': 'SkillUnlocker'}
@@ -246,7 +246,7 @@ def genmonocoskillsmapping():
             output_data["MonocoSkills"][skillkey] = skillname
 
     output_data["MonocoSkills"] = dict(
-        sorted(output_data["MonocoSkills"].items(), key=lambda x: x[1])
+        sorted(output_data["MonocoSkills"].items(), key=lambda x: x[1].lower().replace("é", "e"))
     )
 
     jsondump(output_data, output_path)

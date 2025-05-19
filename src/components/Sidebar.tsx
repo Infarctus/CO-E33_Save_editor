@@ -93,6 +93,17 @@ const Sidebar: FC<SidebarProps> = ({
         </li>
 
         <li
+          data-tab='MonocoSkills'
+          className={`nav-item fileopen-dependant ${activeTab === 'MonocoSkills' ? 'active' : ''}`}
+          aria-disabled={!anyFileOpen ? 'true' : undefined}
+          onClick={() => anyFileOpen && onTabChange('MonocoSkills')}
+        >
+          <img src='/iconsidebar/btnMonocoSkills.png' alt='Weapons' className='nav-icon' />
+          <span>Monoco Skills</span>
+        </li>
+
+
+        <li
           data-tab='Pictos'
           className={`nav-item fileopen-dependant ${activeTab === 'Pictos' ? 'active' : ''}`}
           aria-disabled={!anyFileOpen ? 'true' : undefined}
