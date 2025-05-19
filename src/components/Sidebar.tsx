@@ -112,8 +112,17 @@ const Sidebar: FC<SidebarProps> = ({
           <img src='/iconsidebar/btnPicto.png' alt='Pictos' className='nav-icon' />
           <span>Pictos</span>
         </li>
-
         <li
+          data-tab='Ressources'
+          className={`nav-item fileopen-dependant ${activeTab === 'Ressources' ? 'active' : ''}`}
+          aria-disabled={!anyFileOpen ? 'true' : undefined}
+          onClick={() => anyFileOpen && onTabChange('Ressources')}
+        >
+          <img src='/iconsidebar/btnWeapon.png' alt='Ressources' className='nav-icon' />
+          <span>Ressources</span>
+        </li>
+
+        {/*<li
           data-tab='Inventory'
           className={`nav-item fileopen-dependant hidden ${
             activeTab === 'Inventory' ? 'active' : ''
@@ -123,7 +132,7 @@ const Sidebar: FC<SidebarProps> = ({
         >
           <img src='/iconsidebar/inventory.svg' alt='Inventory' className='nav-icon' />
           <span>Inventory</span>
-        </li>
+        </li>*/}
 
         <li
           data-tab='MusicDisks'
@@ -144,15 +153,7 @@ const Sidebar: FC<SidebarProps> = ({
           <img src='/iconsidebar/btnJournal.png' alt='Music Disks' className='nav-icon' />
           <span>Journals</span>
         </li>
-        <li
-          data-tab='Ressources'
-          className={`nav-item fileopen-dependant ${activeTab === 'Ressources' ? 'active' : ''}`}
-          aria-disabled={!anyFileOpen ? 'true' : undefined}
-          onClick={() => anyFileOpen && onTabChange('Ressources')}
-        >
-          <img src='/iconsidebar/btnWeapon.png' alt='Ressources' className='nav-icon' />
-          <span>Ressources</span>
-        </li>
+        
 
         <li
           data-tab='RawJson'
