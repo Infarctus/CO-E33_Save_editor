@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { JournalInfo } from '../types/jsonCustomMapping'
+import type { JournalInfo } from '../types/jsonCustomMapping'
 import { getPossibleJournals } from '../utils/gameMappingProvider'
 import { useInfo } from './InfoContext'
 import { error } from '@tauri-apps/plugin-log'

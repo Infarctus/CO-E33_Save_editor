@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { MusicDisckInfo } from '../types/jsonCustomMapping'
+import type { MusicDisckInfo } from '../types/jsonCustomMapping'
 import { getPossibleMusicDisks } from '../utils/gameMappingProvider'
 import { useInfo } from './InfoContext'
 import { error, trace } from '@tauri-apps/plugin-log'
