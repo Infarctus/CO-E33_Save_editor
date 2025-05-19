@@ -1,8 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { JournalInfo } from '../types/jsonCustomMapping'
 import { getPossibleMonocoSkills } from '../utils/gameMappingProvider'
-import { useInfo } from './InfoContext'
-import { error } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../types/panelTypes'
 
 type SkillInfo = { name: string; friendlyName: string; unlocked: boolean }
