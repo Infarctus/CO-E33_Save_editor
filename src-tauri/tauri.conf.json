@@ -28,7 +28,7 @@
       "assets/uesave"
     ],
     "active": true,
-    "targets": "msi",
+    "targets": ["deb", "rpm", "appimage", "msi"],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -43,7 +43,8 @@
     "longDescription": "A Save Editor for Clair Obscur: Expedition 33",
     "windows": {
       "webviewInstallMode": {
-        "type": "embedBootstrapper"
+        "type": "fixedRuntime",
+        "path": "./Microsoft.WebView2.FixedVersionRuntime.136.0.3240.76.x64"
       }
     }
   }
