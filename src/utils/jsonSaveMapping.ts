@@ -34,7 +34,7 @@ export async function saveMappingJsonToDisk(
   targetPath: string,
   jsonMapping: BeginMapping,
 ): Promise<boolean> {
-  if (!!jsonMapping?.root?.properties?.SaveDateTime_0?.Struct?.DateTime && false) {
+  if (!!jsonMapping?.root?.properties?.SaveDateTime_0?.Struct?.DateTime) {
     const now = new Date()
     const ticks = 621355968000000000 + (now.getTime() - now.getTimezoneOffset() * 60000) * 10000
     jsonMapping.root.properties.SaveDateTime_0.Struct.DateTime = ticks
