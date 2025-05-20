@@ -313,28 +313,43 @@ input:checked + .slider:before {
 /* dark styling of the editor */
 div.jsoneditor,
 div.jsoneditor-menu {
-  border-color: #4b4b4b;
+  border-color: var(--col-border-1);
 }
 div.jsoneditor-menu {
-  background-color: #4b4b4b;
+  background-color: #003032;
 }
 div.jsoneditor-tree,
 div.jsoneditor textarea.jsoneditor-text {
-  background-color: #666666;
-  color: #ffffff;
+  background-color: #01393b;
 }
 div.jsoneditor-field,
 div.jsoneditor-value {
-  color: #ffffff;
+  color: var(--col-text-1);
 }
-table.jsoneditor-search div.jsoneditor-frame {
-  background: #808080;
+table.jsoneditor-search, div.jsoneditor-frame {
+  background-color: var(--col-1);
+  border-radius: 2px;
+  color: var(--col-text-1);
+}
+div.jsoneditor-search  input {
+  
+  color: var(--col-text-1);
 }
 
-tr.jsoneditor-highlight,
+/* tr.jsoneditor-highlight,
 tr.jsoneditor-selected {
-  background-color: #808080;
+  background-color: var(--col-2);
+} */
+
+div.jsoneditor-navigation-bar {
+  background-color: var(--col-1);
+  color: var(--col-text-1);
 }
+
+div.jsoneditor-contextmenu li {
+  background-color: var(--col-4);
+}
+
 
 div.jsoneditor-field[contenteditable='true']:focus,
 div.jsoneditor-field[contenteditable='true']:hover,
@@ -342,8 +357,8 @@ div.jsoneditor-value[contenteditable='true']:focus,
 div.jsoneditor-value[contenteditable='true']:hover,
 div.jsoneditor-field.jsoneditor-highlight,
 div.jsoneditor-value.jsoneditor-highlight {
-  background-color: #808080;
-  border-color: #808080;
+  background-color: var(--col-1);
+  border-color: var(--col-border-2);
 }
 
 div.jsoneditor-field.highlight-active,
@@ -352,12 +367,12 @@ div.jsoneditor-field.highlight-active:hover,
 div.jsoneditor-value.highlight-active,
 div.jsoneditor-value.highlight-active:focus,
 div.jsoneditor-value.highlight-active:hover {
-  background-color: #b1b1b1;
-  border-color: #b1b1b1;
+  background-color: #ffc400;
+  border-color: #ffc400;
 }
 
 div.jsoneditor-tree button:focus {
-  background-color: #868686;
+  background-color: var(--col-2);
 }
 
 /* coloring of JSON in tree mode */
