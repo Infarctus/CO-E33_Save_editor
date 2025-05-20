@@ -22,7 +22,7 @@ function renderNumberInput(
         min={minInput}
         max={maxInput}
         value={value}
-        onChange={(e) => onChange(clamp(parseInt(e.target.value, 10), minInput, maxInput) || 0)}
+        onChange={(e) => onChange(clamp(e.target.valueAsNumber, minInput, maxInput) || 0)}
         style={{ width: 'auto' }}
       />
     </div>
