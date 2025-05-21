@@ -39,7 +39,7 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
       Object.fromEntries(
         jsonMapping.root.properties.InventoryItems_0.Map.map((el) => [
           el.key.Name,
-          el.value.Int === 1,
+          el.value.Int !== 0,
         ]) || [],
       ),
     [],
