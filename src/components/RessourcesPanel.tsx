@@ -49,6 +49,7 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
 
   // Gold Editor
   const goldValue = jsonMapping.root.properties.Gold_0.Int
+  const recoatValue = jsonMapping.root.properties.InventoryItems_0.Map.find((el) => el.key.Name == "Consumable_Respec")?.value.Int ?? 0
   const MiscItemsInv: [string, string][] = [
     ['HealingTint_Shard', 'Healing Tint'],
     ['EnergyTint_Shard', 'Energy Tint'],
@@ -88,6 +89,10 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     logAndInfo(`Gold set to ${newValue}`)
   }
 
+    const RecoatChange = (newValue: number) => {
+      SetInventoryItems("Consumable_Respec", newValue)
+  }
+
   const SetInventoryItems = (name: string, newValue: number) => {
     // Find the item in the InventoryItems_0.Map array and update its value
     const item = jsonMapping.root.properties.InventoryItems_0.Map.find(
@@ -98,6 +103,8 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
       item.value.Int = newValue
       logAndInfo(`${name} set to ${newValue}`)
     } else {
+      logAndInfo(`${name} added and set to ${newValue}`)
+
       const newvalue = generateInventoryItems_0(name, newValue)
       jsonMapping.root.properties.InventoryItems_0.Map.push(newvalue)
     }
@@ -144,7 +151,9 @@ const upgradeWeaponMatsOrdered = Object.fromEntries(
       <h2>Ressources</h2>
 
       {renderNumberInput(goldValue, 'Gold', 0, 2147483647, GoldChange)}
-      <h3>Tints</h3>
+      {renderNumberInput(recoatValue, 'Recoat', 0, 9999, RecoatChange)} 
+      {/* limit to 9999 is set randomly, not tested */}
+            <h3>Tints</h3>
       <table>
         <tbody>
           {Array.from({
