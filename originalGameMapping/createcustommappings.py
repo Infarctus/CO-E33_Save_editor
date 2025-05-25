@@ -226,7 +226,7 @@ def genquestitemsmapping():
 
     print("Quest item mapping generated successfully.")
 
-def genmonocoskillsmapping():
+def oldgenmonocoskillsmapping():
     skillsdir = "originalGameMapping/MonocoSkills"
     output_path = os.path.join(output_dir, "monocoskills.json")
 
@@ -253,14 +253,51 @@ def genmonocoskillsmapping():
 
     print("Monoco skill mapping generated successfully.")
 
+def genmonocoskillsmapping():
+    output_path = os.path.join(output_dir, "monocoskills.json")
+    input_skills = "originalGameMapping/DA_SkillGraph_Monoco.json"
 
+    with open(input_skills, "r", encoding="utf-8") as f:
+        skillstreedef = json.load(f)[0].get("Properties").get("Nodes")
+    output_data = {
+        "MonocoSkills": {},
+        "MonocoGradient":{}
+    }
 
+    for item in skillstreedef:
+        item = item.get("SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF")
+        itemrequirement = item.get("RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E").get("RowName")
+        fileskillDA = item.get("Skill_2_9E4FC5804778258FBAA04BBF7F68F799").get("ObjectPath").replace("/Game/Gameplay/SkillTree/Content/Monoco/Skills/","originalGameMapping/MonocoSkills/").replace(".0", ".json")
+        with open(fileskillDA, "r", encoding="utf-8") as f:
+            skill = json.load(f)[0].get("Properties")
+            skillkey = skill.get("NameID")
+            skillname = skill.get("name").get("SourceString")
+
+         # Skip if the item requirement is "None"
+        if "GradientUnlock" in itemrequirement:
+            output_data["MonocoGradient"][skillkey] = skillname
+            continue
+        else:
+            output_data["MonocoSkills"][skillkey] = {"skillname":skillname,"itemrequirements":itemrequirement}
+    
+    # Sort the skills alphabetically by skill name
+    output_data["MonocoSkills"] = dict(
+        sorted(output_data["MonocoSkills"].items(), key=lambda x: x[1]["skillname"].lower().replace("é", "e"))
+    )
+    output_data["MonocoGradient"] = dict(
+        sorted(output_data["MonocoGradient"].items(), key=lambda x: x[1].lower().replace("é", "e"))
+    )
+
+    jsondump(output_data, output_path)
+    print("New Monoco skill mapping generated successfully.")
+        
 
 
 
 
 
 genmonocoskillsmapping()
+#oldgenmonocoskillsmapping()
 #genquestitemsmapping()
 #genweaponmapping()    
 #genjournalsmapping()

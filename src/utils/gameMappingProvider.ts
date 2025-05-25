@@ -20,7 +20,7 @@ let pictosJson: CustomPictosMapping
 let musicJson: CustomMusicMapping
 let weaponsJson: CustomWeaponsMapping
 let journalsJson: CustomJournalMapping
-let monocoSkillsJson: { MonocoSkills: { [key: string]: string } }
+let monocoSkillsJson: { MonocoSkills: { [key: string]: { "skillname": string,"itemrequirements":string} } }
 let questItemsJson: QuestItemsMapping
 
 //initGameMappings()
@@ -153,12 +153,12 @@ export function getPossibleJournals(): [string, string][] {
   }
 }
 
-export function getPossibleMonocoSkills(): [string, string][] {
+export function getPossibleMonocoSkills(): [string, { skillname: string , itemrequirements: string; }][] {
   debug('getting monoco skills')
   if (monocoSkillsJson.MonocoSkills) {
     return Object.entries(monocoSkillsJson.MonocoSkills)
   } else {
-    return [['nothing', 'nothing']]
+    return [['nothing', { skillname: "nothing", itemrequirements: "nothing" }]]
   }
 }
 
@@ -172,15 +172,15 @@ export function getPossibleQuestItems(): [string, string][] {
   }
 }
 
-export function SetInventoryItem(jsonMapping: BeginMapping, name: string, newValue: number, found: boolean = true): string {
+export function SetInventoryItem(jsonMapping: BeginMapping, name: string, newValue: number, newfound: boolean = true): string {
   // Find the item in the InventoryItems_0.Map array and update its value
 
   const itemIndex = jsonMapping.root.properties.InventoryItems_0.Map.findIndex(
-    (el: any) => el.key.Name === name,
+    (el) => el.key.Name === name,
   )
   // triggerSaveNeeded()
   if (itemIndex != -1) {
-    if (found) {
+    if (newfound) {
       jsonMapping.root.properties.InventoryItems_0.Map[itemIndex].value.Int = newValue
       return `set inventory item ${name} to ${newValue} `
 
@@ -191,7 +191,7 @@ export function SetInventoryItem(jsonMapping: BeginMapping, name: string, newVal
 
     }
   } else {
-    if (found) {
+    if (newfound) {
       const newvalue = generateInventoryItems_0(name, newValue)
       jsonMapping.root.properties.InventoryItems_0.Map.push(newvalue)
       return `${name} added to inventory and set to ${newValue}`

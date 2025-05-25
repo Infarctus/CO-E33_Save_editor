@@ -1,1 +1,193 @@
-{"MonocoSkills":{"AbbestMelee":"Abbest Wind","AberrationBurningLight":"Aberration Light","BalletCharm":"Ballet Charm","BenisseurMortar":"Bénisseur Mortar","BoucheclierShield":"Boucheclier Fortify","HammerSmash":"Braseleur Smash","BreakPoint":"Break Point","BrulerAnchorSmash":"Bruler Bash","ChalierRelentlessSword":"Chalier Combo","ChapelierAxeSlash":"Chapelier Slash","ChevaliereCAOECombo":"Chevalière Ice","ChevaliereCAC":"Chevalière Piercing","ChevaliereBAoECombo":"Chevalière Thrusts","ClairEnfeeble":"Clair Enfeeble","ContorsionnisteAngryBlast":"Contorsionniste Blast","CreationFromTheVoid":"Création Void","CrulerShield":"Cruler Barrier","HeavyCultistBloodSword":"Cultist Blood","FlyingSlashes":"Cultist Slashes","DanseuseWingDance":"Danseuse Waltz","DemineurThunderStrike":"Démineur Thunder","StormBlood":"Duallist Storm","EchassierCombo":"Échassier Stabs","EvequeSpear":"Évêque Spear","GaultCombo":"Gault Fury","GlaiseEarthquakes":"Glaise Earthquakes","GrosseTeteWrecking":"Grosse Tête Whack","HexgaCombo":"Hexga Crush","JarCombo":"Jar Lampstorm","LampmasterSwordOfLight":"Lampmaster Light","LancelierEstoc":"Lancelier Impale","LusterCombo":"Luster Slices","MightyStrike":"Mighty Strike","MoissonneuseVendange":"Moissonneuse Vendange","ObscurCombo":"Obscur Sword","OrphelinBuff":"Orphelin Cheers","PortierCrashingDown":"Portier Crash","PotierBuff":"Potier Energy","PelerinFreshAir":"Pèlerin Heal","RamasseurBonk":"Ramasseur Bonk","RocherHammering":"Rocher Hammering","ThunderEstoc":"Sakapatate Estoc","ThunderThrows":"Sakapatate Explosion","PotatobagBossFireShots":"Sakapatate Fire","PotatobagSlam":"Sakapatate Slam","Sanctuary":"Sanctuary","SaplingAbsorption":"Sapling Absorption","StalactCombo":"Stalact Punches","Trumpet":"Troubadour Trumpet"}}
+{
+  "MonocoSkills": {
+    "AbbestMelee": {
+      "skillname": "Abbest Wind",
+      "itemrequirements": "AbbestFoot"
+    },
+    "AberrationBurningLight": {
+      "skillname": "Aberration Light",
+      "itemrequirements": "AberrationFoot"
+    },
+    "BalletCharm": {
+      "skillname": "Ballet Charm",
+      "itemrequirements": "BalletFoot"
+    },
+    "BenisseurMortar": {
+      "skillname": "Bénisseur Mortar",
+      "itemrequirements": "BenisseurFoot"
+    },
+    "BoucheclierShield": {
+      "skillname": "Boucheclier Fortify",
+      "itemrequirements": "BoucheclierFoot"
+    },
+    "HammerSmash": {
+      "skillname": "Braseleur Smash",
+      "itemrequirements": "BraseleurFoot"
+    },
+    "BrulerAnchorSmash": {
+      "skillname": "Bruler Bash",
+      "itemrequirements": "BrulerFoot"
+    },
+    "ChalierRelentlessSword": {
+      "skillname": "Chalier Combo",
+      "itemrequirements": "None"
+    },
+    "ChapelierAxeSlash": {
+      "skillname": "Chapelier Slash",
+      "itemrequirements": "ChapelierFoot"
+    },
+    "ChevaliereCAOECombo": {
+      "skillname": "Chevalière Ice",
+      "itemrequirements": "GoldChevaliereFoot"
+    },
+    "ChevaliereCAC": {
+      "skillname": "Chevalière Piercing",
+      "itemrequirements": "CeramicChevaliereFoot"
+    },
+    "ChevaliereBAoECombo": {
+      "skillname": "Chevalière Thrusts",
+      "itemrequirements": "SteelChevaliereFoot"
+    },
+    "ClairEnfeeble": {
+      "skillname": "Clair Enfeeble",
+      "itemrequirements": "ClairFoot"
+    },
+    "ContorsionnisteAngryBlast": {
+      "skillname": "Contorsionniste Blast",
+      "itemrequirements": "ContorsionnisteFoot"
+    },
+    "CreationFromTheVoid": {
+      "skillname": "Création Void",
+      "itemrequirements": "CreationFoot"
+    },
+    "CrulerShield": {
+      "skillname": "Cruler Barrier",
+      "itemrequirements": "CrulerFoot"
+    },
+    "HeavyCultistBloodSword": {
+      "skillname": "Cultist Blood",
+      "itemrequirements": "HeavyCultistFoot"
+    },
+    "FlyingSlashes": {
+      "skillname": "Cultist Slashes",
+      "itemrequirements": "FlyingCultistFoot"
+    },
+    "DanseuseWingDance": {
+      "skillname": "Danseuse Waltz",
+      "itemrequirements": "DanseuseFoot"
+    },
+    "DemineurThunderStrike": {
+      "skillname": "Démineur Thunder",
+      "itemrequirements": "DemineurFoot"
+    },
+    "StormBlood": {
+      "skillname": "Duallist Storm",
+      "itemrequirements": "DuallistFoot"
+    },
+    "EchassierCombo": {
+      "skillname": "Échassier Stabs",
+      "itemrequirements": "EchassierFoot"
+    },
+    "EvequeSpear": {
+      "skillname": "Évêque Spear",
+      "itemrequirements": "EvequeFoot"
+    },
+    "GaultCombo": {
+      "skillname": "Gault Fury",
+      "itemrequirements": "GaultFoot"
+    },
+    "GlaiseEarthquakes": {
+      "skillname": "Glaise Earthquakes",
+      "itemrequirements": "GlaiseFoot"
+    },
+    "GrosseTeteWrecking": {
+      "skillname": "Grosse Tête Whack",
+      "itemrequirements": "GrosseTeteFoot"
+    },
+    "HexgaCombo": {
+      "skillname": "Hexga Crush",
+      "itemrequirements": "HexgaFoot"
+    },
+    "JarCombo": {
+      "skillname": "Jar Lampstorm",
+      "itemrequirements": "JarFoot"
+    },
+    "LampmasterSwordOfLight": {
+      "skillname": "Lampmaster Light",
+      "itemrequirements": "LampmasterFoot"
+    },
+    "LancelierEstoc": {
+      "skillname": "Lancelier Impale",
+      "itemrequirements": "LancelierFoot"
+    },
+    "LusterCombo": {
+      "skillname": "Luster Slices",
+      "itemrequirements": "LusterFoot"
+    },
+    "MoissonneuseVendange": {
+      "skillname": "Moissonneuse Vendange",
+      "itemrequirements": "MoissonneuseFoot"
+    },
+    "ObscurCombo": {
+      "skillname": "Obscur Sword",
+      "itemrequirements": "ObscurFoot"
+    },
+    "OrphelinBuff": {
+      "skillname": "Orphelin Cheers",
+      "itemrequirements": "OrphelinFoot"
+    },
+    "PortierCrashingDown": {
+      "skillname": "Portier Crash",
+      "itemrequirements": "PortierFoot"
+    },
+    "PotierBuff": {
+      "skillname": "Potier Energy",
+      "itemrequirements": "PotierFoot"
+    },
+    "PelerinFreshAir": {
+      "skillname": "Pèlerin Heal",
+      "itemrequirements": "PelerinFoot"
+    },
+    "RamasseurBonk": {
+      "skillname": "Ramasseur Bonk",
+      "itemrequirements": "RamasseurFoot"
+    },
+    "RocherHammering": {
+      "skillname": "Rocher Hammering",
+      "itemrequirements": "RocherFoot"
+    },
+    "ThunderEstoc": {
+      "skillname": "Sakapatate Estoc",
+      "itemrequirements": "RangerSakapatateFoot"
+    },
+    "ThunderThrows": {
+      "skillname": "Sakapatate Explosion",
+      "itemrequirements": "CatapultSakapatateFoot"
+    },
+    "PotatobagBossFireShots": {
+      "skillname": "Sakapatate Fire",
+      "itemrequirements": "BossSakapatateFoot"
+    },
+    "PotatobagSlam": {
+      "skillname": "Sakapatate Slam",
+      "itemrequirements": "RobustSakapatateFoot"
+    },
+    "SaplingAbsorption": {
+      "skillname": "Sapling Absorption",
+      "itemrequirements": "SaplingFoot"
+    },
+    "StalactCombo": {
+      "skillname": "Stalact Punches",
+      "itemrequirements": "None"
+    },
+    "Trumpet": {
+      "skillname": "Troubadour Trumpet",
+      "itemrequirements": "TroubadourFoot"
+    }
+  },
+  "MonocoGradient": {
+    "BreakPoint": "Break Point",
+    "MightyStrike": "Mighty Strike",
+    "Sanctuary": "Sanctuary"
+  }
+}
