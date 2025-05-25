@@ -4,6 +4,7 @@
   --col-2: #4b746e;
   --col-4: #cfe0c3;
   --col-interactive: #0f0f0f98;
+  --col-forbidden: #ff613198;
 
   --col-border-1: #ddd;
   --col-border-2: #8d8d8d;
@@ -139,6 +140,7 @@ button {
 [aria-disabled],
 [disabled] {
   color: var(--col-text-disabled);
+  background-color: var(--col-forbidden);
 }
 
 .tab-panel {
@@ -293,7 +295,11 @@ select > option {
   width: 20px;
 }
 
-input:checked + .slider {
+.slider[aria-disabled], .slider[disabled] {
+  background-color: var(--col-forbidden);
+}
+
+input:checked + .slider:not([aria-disabled]) {
   background-color: var(--col-1);
 }
 
