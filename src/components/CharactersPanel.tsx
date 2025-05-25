@@ -1,6 +1,6 @@
 'use client'
 
-import { type FC, useState, useEffect } from 'react'
+import { type FC, useState, useEffect, useMemo } from 'react'
 import type { OpenProcessResult } from '../types/fileTypes'
 import { getECharacterAttributeEnumValue } from '../types/enums'
 import type { BeginMapping, CharactersInCollection0_Mapping } from '../types/jsonSaveMapping'
@@ -66,8 +66,6 @@ const CharactersPanel: FC<CharactersPanelProps> = ({
               character.key.Name,
               jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name),
             )}
-            allowedSkins={getPossibleSkinsFor(character.key.Name)}
-            allowedCustomizationsFace={getPossibleFacesFor(character.key.Name)}
             currentFaces={getUnlockedFacesFor(
               character.key.Name,
               jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name),
@@ -85,9 +83,7 @@ interface CharacterSectionProps {
   jsonMapping: BeginMapping
   triggerSaveNeeded: () => void
   currentSkins: string[]
-  allowedSkins: [string, string][]
   currentFaces: string[]
-  allowedCustomizationsFace: [string, string][]
 }
 
 const CharacterSection: FC<CharacterSectionProps> = ({
@@ -96,8 +92,6 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   jsonMapping,
   triggerSaveNeeded,
   currentSkins,
-  allowedSkins,
-  allowedCustomizationsFace,
   currentFaces,
 }) => {
   const { setInfoMessage } = useInfo()
@@ -106,6 +100,10 @@ const CharacterSection: FC<CharacterSectionProps> = ({
     setInfoMessage(message)
     trace(message)
   }
+
+  const allowedCustomizationsFace = useMemo(()=> getPossibleFacesFor(character.key.Name), [])
+
+  const allowedSkins = useMemo(() => getPossibleSkinsFor(character.key.Name), [])
 
   let characterName = character.key.Name
   if (character.key.Name == 'Frey') characterName = 'Gustave'
@@ -283,42 +281,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             trace(`Character ${characterName} bodies updated to ${newList.join('+ ')}`)
           }}
         />
-        {/* 
-        <DropdownEditor
-          labelText="Character Customization (face)"
-          currentValue={
-            character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct
-              .CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0
-          }
-          options={allowedCustomizationsFace}
-          onChange={(newValue) => {
-            triggerSaveNeeded()
-            jsonMapping.root.properties.CharactersCollection_0.Map[
-              characterIndex
-            ].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0.Name =
-              newValue
-            trace(`Character ${character.key.Name} Face Customization updated to ${newValue}`)
-          }}
-        />
-
-
-        <DropdownEditor
-          labelText="Character Customization (skin)"
-          currentValue={
-            character.value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct
-              .CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0
-          }
-          options={allowedCustomizationsFace}
-          onChange={(newValue) => {
-            triggerSaveNeeded()
-            jsonMapping.root.properties.CharactersCollection_0.Map[
-              characterIndex
-            ].value.Struct.Struct.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0.Struct.Struct.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0.Name =
-              newValue
-            trace(`Character ${character.key.Name} Skin Customization updated to ${newValue}`)
-          }}
-        /> 
-*/}
+      
       </div>
     </section>
   )
@@ -357,102 +320,6 @@ const PropertyEditor: FC<PropertyEditorProps> = ({
     </div>
   )
 }
-{
-  /*
-interface SkillsEditorProps {
-  titleText: string
-  currentList: string[]
-  availableOptions: string[]
-  onUpdateSkill: (newList: string[]) => void
-}
-
-const SkillsEditor: FC<SkillsEditorProps> = ({ titleText, currentList, availableOptions, onUpdateSkill }) => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [searchText, setSearchText] = useState("")
-  const [selectedSkills, setSelectedSkills] = useState<string[]>(currentList)
-  const [availableSkills, setAvailableSkills] = useState<string[]>(
-    availableOptions.filter((skill) => !currentList.includes(skill)),
-  )
-
-  useEffect(() => {
-    setSelectedSkills(currentList)
-    setAvailableSkills(availableOptions.filter((skill) => !currentList.includes(skill)))
-  }, [currentList, availableOptions])
-
-  const filteredAvailableSkills = availableSkills.filter((skill) =>
-    skill.toLowerCase().includes(searchText.toLowerCase()),
-  )
-
-  const filteredSelectedSkills = selectedSkills.filter((skill) =>
-    skill.toLowerCase().includes(searchText.toLowerCase()),
-  )
-
-  const handleAddSkill = (skill: string) => {
-    const newSelectedSkills = [...selectedSkills, skill]
-    setSelectedSkills(newSelectedSkills)
-    setAvailableSkills(availableSkills.filter((s) => s !== skill))
-    onUpdateSkill(newSelectedSkills)
-  }
-
-  const handleRemoveSkill = (skill: string) => {
-    const newSelectedSkills = selectedSkills.filter((s) => s !== skill)
-    setSelectedSkills(newSelectedSkills)
-    setAvailableSkills([...availableSkills, skill].sort())
-    onUpdateSkill(newSelectedSkills)
-  }
-
-  return (
-    <div className="characterEditModule" style={{ marginTop: "1rem" }}>
-      <div className="header">
-        <h4>{titleText}</h4>
-        <button onClick={() => setIsVisible(!isVisible)}>
-          {isVisible ? "Collapse" : "Expand"}
-        </button>
-      </div>
-
-      {isVisible && (
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-          <thead>
-            <tr>
-              <td colSpan={2}>
-                <input
-                  type="search"
-                  placeholder="Search items"
-                  value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td className="skillEditorTitle">Owned</td>
-              <td className="skillEditorTitle">Not owned</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="skillsEditorSkillsContainer">
-                {filteredSelectedSkills.map((skill) => (
-                  <div key={skill} className="skillEditorItem" onClick={() => handleRemoveSkill(skill)}>
-                    {skill}
-                  </div>
-                ))}
-              </td>
-              <td className="skillsEditorSkillsContainer">
-                {filteredAvailableSkills.map((skill) => (
-                  <div key={skill} className="skillEditorItem" onClick={() => handleAddSkill(skill)}>
-                    {skill}
-                  </div>
-                ))}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      )}
-    </div>
-  )
-}
-*/
-}
 
 interface CharacCustoEditorProps {
   titleText: string
@@ -476,12 +343,6 @@ const CharacCustoEditor: FC<CharacCustoEditorProps> = ({
     fullList.filter((skill) => !currentList.includes(skill[0])),
   )
 
-  // useEffect(() => {
-  //     const selectedSkins = fullList.filter((el) => currentList.includes(el[0]));
-  //     trace("updated selected skins+ now:"+selectedSkins.length)
-  //     setSelectedSkins(selectedSkins);
-  //     setAvailableSkins(fullList.filter((skill) => !currentList.includes(skill[0])));
-  // }, [currentList, fullList]);
   useEffect(() => {
     trace('Updated selectedSkins length: ' + selectedSkins.length)
     onUpdateSkin(selectedSkins.map((el) => el[0]))
