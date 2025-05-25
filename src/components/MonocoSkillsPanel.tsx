@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { getPossibleMonocoSkills, SetInventoryItem } from '../utils/gameMappingProvider'
 import type { GeneralPanelProps } from '../types/panelTypes'
-import { trace } from '@tauri-apps/plugin-log'
 
 type SkillInfo = { name: string; friendlyName: string;item: string|null; unlocked: boolean }
 
@@ -60,7 +59,6 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
 
         if (newUnlocked) {
             if (itemrequirements !== null) {
-                trace(`Setting inventory item: ${itemrequirements}`)
                 SetInventoryItem(jsonMapping, itemrequirements, 1)
             }
             // Add if not present
@@ -110,7 +108,7 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
                 }
             })
         } else {
-            allMonocoSkills.forEach(([name, { itemrequirements }]) => {
+            allMonocoSkills.forEach(([_name, { itemrequirements }]) => {
                 if (itemrequirements !== null) {
                     SetInventoryItem(jsonMapping, itemrequirements, 1, false)
                 }
