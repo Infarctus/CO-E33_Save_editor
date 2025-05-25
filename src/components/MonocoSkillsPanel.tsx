@@ -52,24 +52,26 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
         // Find the Monoco skills array in the save structure
         const skillsArr =
             monocoObj.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0
-                .Array.Base.Name
+                .Array.Base.Name.map((el) => el.toLowerCase())
 
         if (newUnlocked) {
             // Add if not present
-            if (!skillsArr.includes(skillName)) {
-                skillsArr.push(skillName)
+            if (!skillsArr.includes(skillName.toLowerCase())) {
+                monocoObj.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0
+                .Array.Base.Name.push(skillName)
             }
         } else {
             // Remove if present
             const idx = skillsArr.indexOf(skillName)
             if (idx !== -1) {
-                skillsArr.splice(idx, 1)
+                monocoObj.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0
+                .Array.Base.Name.splice(idx, 1)
             }
         }
 
         setSkills((prev) =>
             prev.map((skill) =>
-                skill.name === skillName ? { ...skill, unlocked: newUnlocked } : skill,
+                skill.name.toLowerCase() === skillName.toLowerCase() ? { ...skill, unlocked: newUnlocked } : skill,
             ),
         )
         triggerSaveNeeded()
