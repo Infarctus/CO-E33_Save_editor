@@ -160,7 +160,7 @@ const Sidebar: FC<SidebarProps> = ({
           aria-disabled={!anyFileOpen ? 'true' : undefined}
           onClick={() => anyFileOpen && onTabChange('QuestItems')}
         >
-          <img src='/iconsidebar/btnJournal.png' alt='Music Disks' className='nav-icon' />
+          <img src='/iconsidebar/btnQuestItems.png' alt='Quest items' className='nav-icon' />
           <span>Quest Items</span>
         </li>
 
