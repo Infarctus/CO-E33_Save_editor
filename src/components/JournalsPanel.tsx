@@ -6,16 +6,12 @@ import { error, trace } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../types/panelTypes'
 
 
-  const { setInfoMessage } = useInfo()
-
-  function logAndInfo(message: string) {
-    setInfoMessage(message)
-    trace(message)
-  }
-
 
 
 const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+
+
+
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
     return (
       <div id='JournalsPanel' className='tab-panel overflow-auto'>
