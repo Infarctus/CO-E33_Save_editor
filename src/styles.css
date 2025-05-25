@@ -4,7 +4,7 @@
   --col-2: #4b746e;
   --col-4: #cfe0c3;
   --col-interactive: #0f0f0f98;
-  --col-forbidden: #ff613198;
+  --col-forbidden: #ad2d06bb;
 
   --col-border-1: #ddd;
   --col-border-2: #8d8d8d;
@@ -140,7 +140,6 @@ button {
 [aria-disabled],
 [disabled] {
   color: var(--col-text-disabled);
-  background-color: var(--col-forbidden);
 }
 
 .tab-panel {
@@ -238,6 +237,11 @@ input {
   transition: border-color 0.25s;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+}
+
+input[disabled] {
+  background-color: var(--col-forbidden);
+
 }
 
 .slider[aria-disabled]:hover {
