@@ -319,6 +319,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+
+code {
+  white-space: normal; /* Allows wrapping */
+  word-wrap: break-word; /* Breaks long words if necessary */
+  overflow-wrap: break-word; /* Ensures long words break to the next line */
+}
+
 /* jsoneditor dark theme */
 /* dark styling of the editor */
 div.jsoneditor,
