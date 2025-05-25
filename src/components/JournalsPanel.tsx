@@ -1,11 +1,17 @@
 import { useMemo, useState } from 'react'
 import type { JournalInfo } from '../types/jsonCustomMapping'
-import { getPossibleJournals } from '../utils/gameMappingProvider'
+import { getPossibleJournals, SetInventoryItem } from '../utils/gameMappingProvider'
 import { useInfo } from './InfoContext'
-import { error } from '@tauri-apps/plugin-log'
+import { error, trace } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../types/panelTypes'
 
+
+
+
 const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+
+
+
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
     return (
       <div id='JournalsPanel' className='tab-panel overflow-auto'>
@@ -51,26 +57,14 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
 
   const handleMusicDiskChange = (Journalname: string, newFound: boolean) => {
-    let thisMusicDiskWas: JournalInfo | undefined
-    thisMusicDiskWas = journals.find((journal) => journal.name === Journalname)
-    if (!thisMusicDiskWas) {
-      logAndError(`Music disk ${Journalname} not found in the list.`)
+
+
+    if (journals.findIndex((journla) => journla.name === Journalname) == -1) {
+      logAndError(`Journal ${Journalname} not found in the list.`)
       return
-    } else {
-      if (thisMusicDiskWas.found && newFound === false) {
-        jsonMapping.root.properties.InventoryItems_0.Map =
-          jsonMapping.root.properties.InventoryItems_0.Map.filter((inventoryEl) =>
-            inventoryEl.key.Name === Journalname ? false : true,
-          )
-      } else if (!thisMusicDiskWas.found && newFound === true) {
-        jsonMapping.root.properties.InventoryItems_0.Map.push({
-          key: {
-            Name: Journalname,
-          },
-          value: { Int: 1 },
-        })
-      }
     }
+    logAndInfo(SetInventoryItem(jsonMapping, Journalname, 1, newFound))
+
 
     setJournals((prev) =>
       prev.map((journal) => {
@@ -243,3 +237,4 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
 }
 
 export default JournalsPanel
+

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { MusicDisckInfo } from '../types/jsonCustomMapping'
-import { getPossibleMusicDisks } from '../utils/gameMappingProvider'
+import { getPossibleMusicDisks, SetInventoryItem } from '../utils/gameMappingProvider'
 import { useInfo } from './InfoContext'
 import { error, trace } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../types/panelTypes'
@@ -60,26 +60,11 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
 
   const handleMusicDiskChange = (musicDisksname: string, newFound: boolean) => {
-    let thisMusicDiskWas: MusicDisckInfo | undefined
-    thisMusicDiskWas = musicDisks.find((musicDisk) => musicDisk.name === musicDisksname)
-    if (!thisMusicDiskWas) {
+    if (musicDisks.findIndex((musicDisk) => musicDisk.name === musicDisksname) == -1) {
       logAndError(`Music disk ${musicDisksname} not found in the list.`)
       return
-    } else {
-      if (thisMusicDiskWas.found && newFound === false) {
-        jsonMapping.root.properties.InventoryItems_0.Map =
-          jsonMapping.root.properties.InventoryItems_0.Map.filter((inventoryEl) =>
-            inventoryEl.key.Name === musicDisksname ? false : true,
-          )
-      } else if (!thisMusicDiskWas.found && newFound === true) {
-        jsonMapping.root.properties.InventoryItems_0.Map.push({
-          key: {
-            Name: musicDisksname,
-          },
-          value: { Int: 1 },
-        })
-      }
-    }
+    } 
+    logAndInfo(SetInventoryItem(jsonMapping, musicDisksname, 1, newFound))
 
     setMusicDisks((prev) =>
       prev.map((disk) => {
@@ -93,7 +78,6 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
       }),
     )
     triggerSaveNeeded()
-    logAndInfo('Music disk ' + musicDisksname + ': ' + newFound)
   }
 
   // Add this function to handle toggling all music disks
