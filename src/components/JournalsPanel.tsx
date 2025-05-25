@@ -29,6 +29,11 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
     error(message)
   }
 
+    function logAndInfo(message: string) {
+    setInfoMessage(message)
+    trace(message)
+  }
+
   const allJournals = useMemo(() => getPossibleJournals(), [])
 
   const inventoryDict: { [key: string]: boolean } = useMemo(
