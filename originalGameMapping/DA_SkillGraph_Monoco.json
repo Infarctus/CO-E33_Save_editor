@@ -1,0 +1,1098 @@
+[
+  {
+    "Type": "BP_DataAsset_SkillGraph_C",
+    "Name": "DA_SkillGraph_Monoco",
+    "Class": "BlueprintGeneratedClass'/Game/Gameplay/SkillTree/BP_DataAsset_SkillGraph.BP_DataAsset_SkillGraph_C'",
+    "Template": {
+      "ObjectName": "BP_DataAsset_SkillGraph_C'Default__BP_DataAsset_SkillGraph_C'",
+      "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_SkillGraph.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Nodes": [
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_Lancelier'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_Lancelier.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "LancelierFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 300.0,
+            "Y": 425.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_DuallistStormBlood'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_DuallistStormBlood.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "DuallistFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 925.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_TroubadourBuff'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_TroubadourBuff.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "TroubadourFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 800.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_BraseleurHammerSmash'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_BraseleurHammerSmash.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "BraseleurFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 550.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_JarCombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_JarCombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "JarFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 550.0,
+            "Y": 825.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_AbbestMelee'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_AbbestMelee.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "AbbestFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 175.0,
+            "Y": 425.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_BenisseurMortar'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_BenisseurMortar.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "BenisseurFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 675.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_BrulerAnchorsmash'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_BrulerAnchorsmash.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "BrulerFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 300.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ChalierRelentlessSword'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ChalierRelentlessSword.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": false
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 175.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_DanseuseWingDance'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_DanseuseWingDance.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "DanseuseFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 925.0,
+            "Y": 825.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_DemineurThunderStrike'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_DemineurThunderStrike.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "DemineurFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 175.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_FlyingCultistSlash'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_FlyingCultistSlash.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "FlyingCultistFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 300.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_GaultCombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_GaultCombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "GaultFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 675.0,
+            "Y": 825.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_GlaiseEarthquakes'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_GlaiseEarthquakes.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "GlaiseFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 800.0,
+            "Y": 825.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_LusterCombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_LusterCombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "LusterFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 550.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_PelerinFreshAir'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PelerinFreshAir.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "PelerinFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 425.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_PortierCrashingDown'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PortierCrashingDown.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "PortierFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 425.0,
+            "Y": 425.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_PotatoBagMageThunderThrows'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PotatoBagMageThunderThrows.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "CatapultSakapatateFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 175.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_PotatobagRangerThunderEstoc'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PotatobagRangerThunderEstoc.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "RangerSakapatateFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 300.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_PotatobagTankSlam'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PotatobagTankSlam.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "RobustSakapatateFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 425.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_PotierBuff'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PotierBuff.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "PotierFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 300.0,
+            "Y": 825.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_RamasseurBonk'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_RamasseurBonk.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "RamasseurFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 675.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_SaplingAbsorption'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_SaplingAbsorption.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "SaplingFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 425.0,
+            "Y": 825.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_CrulerShield'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_CrulerShield.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "CrulerFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 425.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_MoissonneuseVendange'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_MoissonneuseVendange.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "CompositeDataTable'DT_jRPG_Items_Composite'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_jRPG_Items_Composite.0"
+              },
+              "RowName": "MoissonneuseFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 800.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_BoucheclierShield'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_BoucheclierShield.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "CompositeDataTable'DT_jRPG_Items_Composite'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_jRPG_Items_Composite.0"
+              },
+              "RowName": "BoucheclierFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 800.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ContorsionnisteAngryBlast'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ContorsionnisteAngryBlast.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "CompositeDataTable'DT_jRPG_Items_Composite'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_jRPG_Items_Composite.0"
+              },
+              "RowName": "ContorsionnisteFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 675.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ChapelierAxeSlash'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ChapelierAxeSlash.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "CompositeDataTable'DT_jRPG_Items_Composite'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_jRPG_Items_Composite.0"
+              },
+              "RowName": "ChapelierFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 925.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_BalletCharm'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_BalletCharm.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "CompositeDataTable'DT_jRPG_Items_Composite'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_jRPG_Items_Composite.0"
+              },
+              "RowName": "BalletFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 800.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_HexgaCombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_HexgaCombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "HexgaFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 425.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_OrphelinBuff'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_OrphelinBuff.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "OrphelinFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 925.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_StalactMeleeCombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_StalactMeleeCombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": false
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 300.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ChevaliereBAoECombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ChevaliereBAoECombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "SteelChevaliereFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 800.0,
+            "Y": 425.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ChevaliereCAC'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ChevaliereCAC.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "CeramicChevaliereFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 925.0,
+            "Y": 425.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ChevaliereCAoECombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ChevaliereCAoECombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "GoldChevaliereFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 675.0,
+            "Y": 425.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_PotatobagBoss_FireShots'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_PotatobagBoss_FireShots.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "BossSakapatateFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 550.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_BreakPoint'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_BreakPoint.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_Items_GradientAttackUnlocks'",
+                "ObjectPath": "/Game/Gameplay/SkillTree/Content/DT_Items_GradientAttackUnlocks.0"
+              },
+              "RowName": "GradientUnlock_Monoco3"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1300.0,
+            "Y": 675.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_EchassierCombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_EchassierCombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "EchassierFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1050.0,
+            "Y": 625.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_GrosseTeteWrecking'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_GrosseTeteWrecking.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "GrosseTeteFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1050.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ObscurCombo'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ObscurCombo.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "ObscurFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1050.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_ClairEnfeeble'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_ClairEnfeeble.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "ClairFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 925.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_LampmasterSwordOfLight'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_LampmasterSwordOfLight.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "LampmasterFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 675.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_RocherHammering'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_RocherHammering.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "RocherFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 550.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_CreationFromTheVoid'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_CreationFromTheVoid.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "CreationFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1050.0,
+            "Y": 325.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_AberrationBurningLight'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_AberrationBurningLight.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "AberrationFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1050.0,
+            "Y": 425.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_MightyStrike'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_MightyStrike.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_Items_GradientAttackUnlocks'",
+                "ObjectPath": "/Game/Gameplay/SkillTree/Content/DT_Items_GradientAttackUnlocks.0"
+              },
+              "RowName": "GradientUnlock_Monoco1"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1300.0,
+            "Y": 375.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Sanctuary'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Sanctuary.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_Items_GradientAttackUnlocks'",
+                "ObjectPath": "/Game/Gameplay/SkillTree/Content/DT_Items_GradientAttackUnlocks.0"
+              },
+              "RowName": "GradientUnlock_Monoco2"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 1300.0,
+            "Y": 525.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_HeavyCultistBloodSword'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_HeavyCultistBloodSword.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "HeavyCultistFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 175.0,
+            "Y": 725.0
+          }
+        },
+        {
+          "SkillUnlock_3_15FA1C06433ACE049603919CDF6155FF": {
+            "Skill_2_9E4FC5804778258FBAA04BBF7F68F799": {
+              "ObjectName": "BP_DataAsset_Skill_C'DA_Skill_Transfo_EvequeSpear'",
+              "ObjectPath": "/Game/Gameplay/SkillTree/Content/Monoco/Skills/DA_Skill_Transfo_EvequeSpear.0"
+            },
+            "UnlockCost_5_E90ABE13467BBA2959E91AB582E679AF": 0,
+            "IsStartingSkill_13_E1837512408188F4B7D355B6B67B8C1E": true,
+            "RequiresUnlockItem_18_D9EBC20F41097DD7517E428E4A57655E": {
+              "DataTable": {
+                "ObjectName": "DataTable'DT_ShapeshiftCaptureLootItems'",
+                "ObjectPath": "/Game/jRPGTemplate/Datatables/DT_ShapeshiftCaptureLootItems.0"
+              },
+              "RowName": "EvequeFoot"
+            },
+            "IsSecret_11_8074DE284785FEC2841D2EBBB4749CF3": true
+          },
+          "Position2D_6_76DE3C8540C4DF06623F629E63159001": {
+            "X": 550.0,
+            "Y": 425.0
+          }
+        }
+      ],
+      "CustomGroupingPolicies": [
+        {
+          "ObjectName": "BlueprintGeneratedClass'BP_GroupingPolicy_UniqueMechanic_Masks_C'",
+          "ObjectPath": "/Game/Gameplay/SkillTree/Algorithm/Content/BP_GroupingPolicy_UniqueMechanic_Masks.0"
+        }
+      ],
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DataAsset_SkillGraph_C'",
+        "ObjectPath": "/Game/Gameplay/SkillTree/BP_DataAsset_SkillGraph.0"
+      }
+    }
+  }
+]

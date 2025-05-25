@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react'
-import { getPossibleMonocoSkills } from '../utils/gameMappingProvider'
+import { getPossibleMonocoSkills, SetInventoryItem } from '../utils/gameMappingProvider'
 import type { GeneralPanelProps } from '../types/panelTypes'
+import { trace } from '@tauri-apps/plugin-log'
 
-type SkillInfo = { name: string; friendlyName: string; unlocked: boolean }
+type SkillInfo = { name: string; friendlyName: string;item: string|null; unlocked: boolean }
 
 const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
     if (!jsonMapping || !jsonMapping?.root?.properties?.CharactersCollection_0) {
@@ -38,29 +39,39 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
 
     const initialSkills: SkillInfo[] = useMemo(
         () =>
-            allMonocoSkills.map(([name, friendlyName]) => ({
-                name,
-                friendlyName,
-                unlocked: !!unlockedDict[name],
-            })),
+            allMonocoSkills.map(([name, { skillname, itemrequirements }]) => {
+                return {
+                    name,
+                    friendlyName: skillname,
+                    item: itemrequirements =="None" ? null : itemrequirements,
+                    unlocked: !!unlockedDict[name],
+                }
+            }),
         [allMonocoSkills, unlockedDict],
     )
     const [skills, setSkills] = useState<SkillInfo[]>(initialSkills)
     const [searchQuery, setSearchQuery] = useState<string>('')
 
-    const handleSkillToggle = (skillName: string, newUnlocked: boolean) => {
+    const handleSkillToggle = (skillName: string,itemrequirements:string|null, newUnlocked: boolean) => {
         // Find the Monoco skills array in the save structure
         const skillsArr =
             monocoObj.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0
                 .Array.Base.Name.map((el) => el.toLowerCase())
 
         if (newUnlocked) {
+            if (itemrequirements !== null) {
+                trace(`Setting inventory item: ${itemrequirements}`)
+                SetInventoryItem(jsonMapping, itemrequirements, 1)
+            }
             // Add if not present
             if (!skillsArr.includes(skillName.toLowerCase())) {
                 monocoObj.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0
                 .Array.Base.Name.push(skillName)
             }
         } else {
+            if (itemrequirements !== null) {
+                SetInventoryItem(jsonMapping, itemrequirements, 0, false)
+            }
             // Remove if present
             const idx = skillsArr.indexOf(skillName)
             if (idx !== -1) {
@@ -90,12 +101,20 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
 
         if (unlockAll) {
             // Add all skills if not already present
-            allMonocoSkills.forEach(([name]) => {
+            allMonocoSkills.forEach(([name, { itemrequirements }]) => {
+                if (itemrequirements !== null) {
+                    SetInventoryItem(jsonMapping, itemrequirements, 1)
+                }
                 if (!skillsArr.includes(name)) {
                     skillsArr.push(name)
                 }
             })
         } else {
+            allMonocoSkills.forEach(([name, { itemrequirements }]) => {
+                if (itemrequirements !== null) {
+                    SetInventoryItem(jsonMapping, itemrequirements, 1, false)
+                }
+            })
             // Remove all skills
             skillsArr.length = 0
         }
@@ -169,7 +188,7 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
                                         type='checkbox'
                                         checked={skill.unlocked}
                                         onChange={(e) =>
-                                            handleSkillToggle(skill.name, e.target.checked)
+                                            handleSkillToggle(skill.name,skill.item, e.target.checked)
                                         }
                                     />
                                     <div className='slider round'></div>
