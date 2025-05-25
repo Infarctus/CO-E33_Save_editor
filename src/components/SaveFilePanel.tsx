@@ -15,45 +15,68 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         This tool allows you to edit your save files for the game. You can modify character
         attributes, inventory items, and more.
         <br />
+        Steam users can edit/overwrite/hot-reload saves while the game is running, but it is{' '}
         <b>
-          Keep the game open on the main menu while modifying the files to be sure that the cloud
-          saves does not overwrite your changes.
+          not recommended for GamePass users.
         </b>{' '}
-        (Mostly for gamepass users)
+         They should instead shut off the game and wait a bit.
+         <br />
+         If you don't want cloud saves to overwrite your modifications, easiest method is disabling internet.
         <br />
+        <br />
+        <hr />
         <br />
         Your save file is located at (you can copy-paste the highlighted path):
         <br />
-        Steam :{' '}
-        <code style={{ backgroundColor: 'green' }}>%LOCALAPPDATA%\Sandfall\Saved\SaveGames\</code> +
-        [user-id]\Expedition_X.sav (There's also a backup folder that you can use)
+        <ul>
+          <li>
+            Steam :{' '}
+            <code style={{ backgroundColor: 'green' }}>%LOCALAPPDATA%\Sandfall\Saved\SaveGames\</code> +
+            [user-id]\Expedition_X.sav (There's also a backup folder that you can use)
+
+          </li>
+
+          <li>
+            Gamepass :{' '}
+            <code style={{ backgroundColor: 'green' }}>
+              %LOCALAPPDATA%\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\
+            </code>
+            <br />
+            If you have any issues, please check {' '}
+            <a
+              href='https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=posts'
+              target='_blank'
+              rel='noopener noreferrer'
+              style={{ color: 'lime' }}
+            >
+              the pinned post on our Nexus page
+            </a>
+          </li>
+        </ul>
         <br />
+        <hr />
         <br />
-        Gamepass :{' '}
-        <code style={{ backgroundColor: 'green' }}>
-          %LOCALAPPDATA%\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\
-        </code>
+        <b>Notes:</b>
+        <ul>
+          <li>
+            Items with <code style={{ backgroundColor: 'red' }}>**</code> may not be obtainable
+            in the game, and may have unknown effects.
+          </li>
+          <li>
+            Some items are not marked with ** but are not obtainable in the game.
+          </li>
+          <li>
+            When you export or overwrite the save the date will be set to the current date and time.
+          </li>
+          <li>
+            Playing around the Raw Json tab is both powerful and dangerous; use at your own risk
+            <br />
+            The Quest Items tab may also have unknown effects.
+          </li>
+        </ul>
+
         <br />
-        If you have any issues, please check :
-        <a
-          href='https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=posts'
-          target='_blank'
-          rel='noopener noreferrer'
-          style={{ color: 'lime' }}
-        >
-          Click here
-        </a>
-        <br />
-        <b>Note:</b>
-        <br />- Items with <code style={{ backgroundColor: 'red' }}>**</code> may not be obtainable
-        in the game, and may have unknown effects.
-        <br />
-        - Some items are not marked with a ** but are not obtainable in the game.
-        <br />- When you export or overwrite the save the date will be set to the current date and
-        time.
-        <b>Note:</b> When you export or overwrite the save the date will be set to the current date
-        and time.
-        <br />
+        <hr />
         <br />
         {(openResult !== null && (
           <div>
