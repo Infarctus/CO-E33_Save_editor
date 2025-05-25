@@ -8,9 +8,12 @@ import type {
   CustomMusicMapping,
   CustomWeaponsMapping,
   CustomJournalMapping,
+  QuestItemsMapping,
 } from '../types/jsonCustomMapping'
 import { trace, debug } from '@tauri-apps/plugin-log'
 import { path } from '@tauri-apps/api'
+import { BeginMapping } from '../types/jsonSaveMapping'
+import { generateInventoryItems_0 } from './jsonSaveMapping'
 
 let skinsJson: CharCustomizationMapping
 let pictosJson: CustomPictosMapping
@@ -18,6 +21,7 @@ let musicJson: CustomMusicMapping
 let weaponsJson: CustomWeaponsMapping
 let journalsJson: CustomJournalMapping
 let monocoSkillsJson: { MonocoSkills: { [key: string]: string } }
+let questItemsJson: QuestItemsMapping
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -54,6 +58,11 @@ export async function initGameMappings() {
     const stringMonocoSkillsJson = await readTextFile(resourceMonocoSkillsPath)
     monocoSkillsJson = JSON.parse(stringMonocoSkillsJson)
     if (!('MonocoSkills' in monocoSkillsJson)) throw 'MonocoSkills Json not as expected'
+
+    const resourceQuestItemsPath = await path.join(MainDirPath, 'questitems.json')
+    const stringQuestItemsJson = await readTextFile(resourceQuestItemsPath)
+    questItemsJson = JSON.parse(stringQuestItemsJson)
+    if (!('QuestItems' in questItemsJson)) throw 'QuestItems Json not as expected'
   } catch (e: any) {
     trace(e)
     alert(
@@ -151,4 +160,42 @@ export function getPossibleMonocoSkills(): [string, string][] {
   } else {
     return [['nothing', 'nothing']]
   }
+}
+
+
+export function getPossibleQuestItems(): [string, string][] {
+  debug('getting quest items')
+  if (questItemsJson.QuestItems) {
+    return Object.entries(questItemsJson.QuestItems)
+  } else {
+    return [['nothing', 'nothing']]
+  }
+}
+
+export function SetInventoryItem(jsonMapping: BeginMapping, name: string, newValue: number, found: boolean = true): string {
+  // Find the item in the InventoryItems_0.Map array and update its value
+
+  const itemIndex = jsonMapping.root.properties.InventoryItems_0.Map.findIndex(
+    (el: any) => el.key.Name === name,
+  )
+  // triggerSaveNeeded()
+  if (itemIndex != -1) {
+    if (found) {
+      jsonMapping.root.properties.InventoryItems_0.Map[itemIndex].value.Int = newValue
+      return `set inventory item ${name} to ${newValue} `
+
+    } else {
+      
+      jsonMapping.root.properties.InventoryItems_0.Map.splice(itemIndex, 1)
+      return `removed ${name} from inventory`
+
+    }
+  } else {
+    if (found) {
+      const newvalue = generateInventoryItems_0(name, newValue)
+      jsonMapping.root.properties.InventoryItems_0.Map.push(newvalue)
+      return `${name} added to inventory and set to ${newValue}`
+    }
+  }
+  return "How did we get here"
 }

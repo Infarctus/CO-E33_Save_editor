@@ -25,6 +25,13 @@ export interface PictoInfo {
   level: number
 }
 
+export interface QuestItemsInfo {
+  name: string
+  friendlyName: string
+  inInventory: boolean
+  value: number
+}
+
 export interface MusicDisckInfo {
   name: string
   friendlyName: string
@@ -49,6 +56,12 @@ export interface CustomWeaponsMapping {
     [charname: string]: {
       [weaponKey: string]: string
     }
+  }
+}
+
+export interface QuestItemsMapping {
+  QuestItems: {
+    [questTitle: string]:  string
   }
 }
 

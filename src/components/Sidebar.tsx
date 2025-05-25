@@ -154,6 +154,15 @@ const Sidebar: FC<SidebarProps> = ({
           <span>Journals</span>
         </li>
         
+          <li
+          data-tab='QuestItems'
+          className={`nav-item fileopen-dependant ${activeTab === 'QuestItems' ? 'active' : ''}`}
+          aria-disabled={!anyFileOpen ? 'true' : undefined}
+          onClick={() => anyFileOpen && onTabChange('QuestItems')}
+        >
+          <img src='/iconsidebar/btnJournal.png' alt='Music Disks' className='nav-icon' />
+          <span>Quest Items</span>
+        </li>
 
         <li
           data-tab='RawJson'

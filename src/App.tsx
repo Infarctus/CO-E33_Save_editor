@@ -24,6 +24,7 @@ import { useInfo } from './components/InfoContext'
 import WeaponsPanel from './components/WeaponsPanel'
 import RessourcesPanel from './components/RessourcesPanel'
 import MonocoSkillsPanel from './components/MonocoSkillsPanel'
+import QuestItemsPanel from './components/QuestItemsPanel'
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
@@ -279,7 +280,9 @@ function App() {
         {activeTab === 'MonocoSkills' && (
           <MonocoSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
         )}
-
+        {activeTab === 'QuestItems' && (
+          <QuestItemsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
+        )}
         {activeTab === 'Backups' && <BackupsPanel />}
 
         {activeTab === 'RawJson' && (
