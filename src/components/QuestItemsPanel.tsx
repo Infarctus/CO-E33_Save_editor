@@ -1,11 +1,7 @@
 import { FC, useState, useMemo } from 'react'
-import {
-  generatePassiveEffectProgression,
-  generatePictoPassiveEffectProgression,
-} from '../utils/jsonSaveMapping'
 import { getPossibleQuestItems, SetInventoryItem } from '../utils/gameMappingProvider'
-import { PictoInfo as PictoInfoType, QuestItemsInfo } from '../types/jsonCustomMapping'
-import { error, trace } from '@tauri-apps/plugin-log'
+import { QuestItemsInfo } from '../types/jsonCustomMapping'
+import { error } from '@tauri-apps/plugin-log'
 import { useInfo } from './InfoContext'
 import { clamp } from '../utils/utils'
 import type { GeneralPanelProps } from '../types/panelTypes'
@@ -15,11 +11,6 @@ type SortDirection = 'asc' | 'desc'
 
 const QuestItemsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   const { setInfoMessage } = useInfo()
-
-  function logAndInfo(message: string) {
-    setInfoMessage(message)
-    trace(message)
-  }
 
   function logAndError(message: string) {
     setInfoMessage(message)
