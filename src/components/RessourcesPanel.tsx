@@ -4,6 +4,7 @@ import type { GeneralPanelProps } from '../types/panelTypes'
 import { useInfo } from './InfoContext'
 import { clamp } from '../utils/utils'
 import { generateInventoryItems_0 } from '../utils/jsonSaveMapping'
+import { SetInventoryItem } from '../utils/gameMappingProvider'
 
 function renderNumberInput(
   value: number,
@@ -89,27 +90,16 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     logAndInfo(`Gold set to ${newValue}`)
   }
 
-    const RecoatChange = (newValue: number) => {
-      SetInventoryItems("Consumable_Respec", newValue)
+  const RecoatChange = (newValue: number) => {
+    SetInventoryItems("Consumable_Respec", newValue)
   }
 
   const SetInventoryItems = (name: string, newValue: number) => {
-    // Find the item in the InventoryItems_0.Map array and update its value
-    const item = jsonMapping.root.properties.InventoryItems_0.Map.find(
-      (el: any) => el.key.Name === name,
-    )
+    logAndInfo(SetInventoryItem(jsonMapping, name, newValue))
     triggerSaveNeeded()
-    if (item) {
-      item.value.Int = newValue
-      logAndInfo(`${name} set to ${newValue}`)
-    } else {
-      logAndInfo(`${name} added and set to ${newValue}`)
-
-      const newvalue = generateInventoryItems_0(name, newValue)
-      jsonMapping.root.properties.InventoryItems_0.Map.push(newvalue)
-    }
     setRefreshTintsLvl((r: number) => r + 1) // Force re-render
   }
+
   const SetTintsLvl = (name: string, newValue: number) => {
     const item = jsonMapping.root.properties.InventoryItems_0.Map.find(
       (el: any) => el.key.Name === name,
