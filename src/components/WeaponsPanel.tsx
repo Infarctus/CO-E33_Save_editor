@@ -51,6 +51,11 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
     [],
   )
 
+  const equippedWeaponsToNotUnown = useMemo(
+    () => jsonMapping.root.properties.CharactersCollection_0.Map.flatMap((char) => char.value.Struct.Struct.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9_0.Map.map((equippedItem) => equippedItem.value.Name))
+      //root►properties►CharactersCollection_0►Map►0 (this is the index of the character, you can check its name inside the "key" of this item instead of the value here->)►value►Struct►Struct►EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9_0►Map►1►value►Name:"Scaverim" 
+  , [])
+
   const levelDict: { [key: string]: number } = useMemo(
     () =>
       Object.fromEntries(
@@ -296,7 +301,9 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
         </thead>
         <tbody>
           {displayedWeapons.map((weaponOwner) => (
-            <tr key={weaponOwner[0]}>
+            <tr 
+            key={weaponOwner[0]}
+           >
               <td colSpan={4}>
                 <details>
                   <summary
@@ -317,7 +324,9 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                   >
                     <tbody>
                       {weaponOwner[1].map((weapon) => (
-                        <tr key={weapon.name}>
+                        <tr 
+                        key={weapon.name}
+                          >
                           <td></td>
                           <td
                             style={{
@@ -334,11 +343,15 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                               borderBottom: '1px solid #eee',
                               textAlign: 'center',
                             }}
+
                           >
                             <label className='switch'>
                               <input
                                 type='checkbox'
                                 checked={weapon.found}
+                        disabled={equippedWeaponsToNotUnown.includes(weapon.name)}
+                          // title={equippedWeaponsToNotUnown.includes(weapon.name) ? "You can't un-find this weapon because it is currently equipped and it would break your game" : undefined}
+
                                 onChange={(e) => {
                                   if (!e.target.checked && weapon.level !== 1) {
                                     weapon.level = 1
@@ -351,7 +364,11 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                                   )
                                 }}
                               />
-                              <div className='slider round'></div>
+                              <div className='slider round'
+                                                      aria-disabled={equippedWeaponsToNotUnown.includes(weapon.name) ? true:undefined}
+
+                          title={equippedWeaponsToNotUnown.includes(weapon.name) ? "You can't un-find this weapon because it is currently equipped and it would break your game" : undefined}
+                              ></div>
                             </label>
                           </td>
                           <td
