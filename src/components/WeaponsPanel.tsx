@@ -216,7 +216,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
           if (sortField === 'friendlyName') {
             aVal = a.friendlyName.toLowerCase()
             bVal = b.friendlyName.toLowerCase()
-          } else if (sortField === 'inInventory') {
+          } else if (sortField === 'found') {
             aVal = a[sortField] ? 1 : 0
             bVal = b[sortField] ? 1 : 0
           } else if (sortField === 'level') {

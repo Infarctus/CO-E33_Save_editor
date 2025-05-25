@@ -3,7 +3,6 @@ import { trace } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../types/panelTypes'
 import { useInfo } from './InfoContext'
 import { clamp } from '../utils/utils'
-import { generateInventoryItems_0 } from '../utils/jsonSaveMapping'
 import { SetInventoryItem } from '../utils/gameMappingProvider'
 
 function renderNumberInput(
