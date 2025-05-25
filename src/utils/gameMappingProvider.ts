@@ -176,7 +176,7 @@ export function SetInventoryItem(jsonMapping: BeginMapping, name: string, newVal
   // Find the item in the InventoryItems_0.Map array and update its value
 
   const itemIndex = jsonMapping.root.properties.InventoryItems_0.Map.findIndex(
-    (el) => el.key.Name === name,
+    (el) => el.key.Name.toLowerCase() === name.toLowerCase(),
   )
   // triggerSaveNeeded()
   if (itemIndex != -1) {
