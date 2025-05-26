@@ -133,12 +133,15 @@ const MonocoSkillsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSa
 
   return (
     <div id='MonocoSkillsPanel' className='tab-panel overflow-auto'>
+       <div className='header'>
       <h2>Monoco Skills</h2>
-      <div style={{ marginBottom: '1em' }}>
-        <button onClick={() => handleToggleAll(true)} style={{ marginRight: '0.5em' }}>
+        {/* Toggle All Buttons */}
+        <div>
+           <button onClick={() => handleToggleAll(true)} style={{ marginRight: '0.5em' }}>
           Unlock All
         </button>
         <button onClick={() => handleToggleAll(false)}>Lock All</button>
+        </div>
       </div>
       {/* Search Bar */}
       <input
