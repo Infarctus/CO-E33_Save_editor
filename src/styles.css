@@ -169,6 +169,10 @@ button {
   align-items: center;
 }
 
+.header > div > button {
+  margin-right: '0.5em'
+}
+
 /* CHARACTERS BOX RELATED STUFF */
 .characterBox {
   border: 1px solid var(--col-border-1);
