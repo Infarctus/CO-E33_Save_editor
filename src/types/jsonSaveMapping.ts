@@ -208,6 +208,7 @@ export interface RootProperties {
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
   SaveDateTime_0: SaveDateTime_0
   EquippedConsumableShards_0: EquippedConsumableShards_0
+  FinishedGameCount_0: IntTag | null
   // Add other root properties as needed
 }
 
@@ -282,43 +283,3 @@ export interface ItemsPassiveEffectsProgressions_0 {
   }
 }
 
-// Helper function to get value from different tag types
-export function getValueFromTag(
-  tag: IntTag | IntSingleton | DoubleTag | BoolTag | StringTag | StringsArrayTag,
-): string {
-  if ('Double' in tag) {
-    return (tag as DoubleTag).Double.toString()
-  } else if ('Int' in tag) {
-    return (tag as IntTag | IntSingleton).Int.toString()
-  } else if ('Bool' in tag) {
-    return (tag as BoolTag).Bool.toString()
-  } else if ('Name' in tag) {
-    return (tag as StringTag).Name.toString()
-  } else if ('Array' in tag) {
-    return (tag as StringsArrayTag).Array.Base.Name.join(', ')
-  } else {
-    return 'Unknown tag ' + JSON.stringify(tag)
-  }
-}
-
-// Helper function to set value for different tag types
-export function setValueOfTag(
-  tag: IntTag | DoubleTag | BoolTag | StringTag | StringsArrayTag,
-  value: number | boolean | string | string[],
-): void {
-  if ('Double' in tag) {
-    ;(tag as DoubleTag).Double =
-      typeof value === 'number' ? value : Number.parseFloat(value.toString())
-  } else if ('Int' in tag) {
-    ;(tag as IntTag).Int = typeof value === 'number' ? value : Number.parseInt(value.toString())
-  } else if ('Bool' in tag) {
-    ;(tag as BoolTag).Bool =
-      typeof value === 'boolean' ? value : value.toString().toLowerCase() === 'true'
-  } else if ('Name' in tag) {
-    ;(tag as StringTag).Name = value.toString()
-  } else if ('Array' in tag) {
-    ;(tag as StringsArrayTag).Array.Base.Name = Array.isArray(value) ? value : [value.toString()]
-  } else {
-    throw new Error('Unknown tag type')
-  }
-}
