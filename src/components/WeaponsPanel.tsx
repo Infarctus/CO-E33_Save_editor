@@ -105,7 +105,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
     weaponName: string,
     newFound: boolean,
     newLevel: number,
-    updateTheStateVar: boolean = true
+    updateTheStateVar: boolean = true,
   ) => {
     // Update local state accordingly.
     var thisWeaponWas: WeaponInfoType = weapons[owner].find((e) => e.name === weaponName)!
@@ -172,22 +172,22 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
       // set weaponProg to 0
     }
 
-    if (updateTheStateVar){
-    const updatedWeapons = { ...weapons }
-    updatedWeapons[owner] = updatedWeapons[owner].map((weapon) => {
-      if (weapon.name === weaponName) {
-        return {
-          name: thisWeaponWas.friendlyName,
-          friendlyName: thisWeaponWas.friendlyName,
-          found: newFound,
-          level: newLevel,
+    if (updateTheStateVar) {
+      const updatedWeapons = { ...weapons }
+      updatedWeapons[owner] = updatedWeapons[owner].map((weapon) => {
+        if (weapon.name === weaponName) {
+          return {
+            name: thisWeaponWas.friendlyName,
+            friendlyName: thisWeaponWas.friendlyName,
+            found: newFound,
+            level: newLevel,
+          }
         }
-      }
-      return weapon
-    })
-    setWeapons(updatedWeapons)
-    logAndInfo('Weapon update:' + weaponName + ' ' + newFound + ' ' + newLevel)
-  }
+        return weapon
+      })
+      setWeapons(updatedWeapons)
+      logAndInfo('Weapon update:' + weaponName + ' ' + newFound + ' ' + newLevel)
+    }
   }
 
   // Handle sorting when headers are clicked.
@@ -203,7 +203,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
 
   // Memoize and compute the final list after filtering and sorting.
   const displayedWeapons = useMemo(() => {
-    trace("Did recalculate displayedWeapons")
+    trace('Did recalculate displayedWeapons')
     let filtered = Object.entries(weapons)
       .filter(([, weaponsList]) => {
         return (weaponsList as WeaponInfoType[]).some((weapon) => {
@@ -245,78 +245,86 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
 
   function handleToggleAll(allFound: boolean, levelMax: boolean): void {
     if (jsonMapping == null) {
-      error("Null jsonMapping while trying to handleToggleAll for Weapons")
-      return;
+      error('Null jsonMapping while trying to handleToggleAll for Weapons')
+      return
     }
 
     if (!allFound && !levelMax) {
       // reset all (but not the equipped ones)
-      const weaponsToForget = Object.entries(weapons).flatMap((el) => el[1]).map((el) => el.name).filter((el) => !equippedWeaponsToNotUnown.includes(el))
+      const weaponsToForget = Object.entries(weapons)
+        .flatMap((el) => el[1])
+        .map((el) => el.name)
+        .filter((el) => !equippedWeaponsToNotUnown.includes(el))
 
       jsonMapping.root.properties.InventoryItems_0.Map =
-        jsonMapping.root.properties.InventoryItems_0.Map.filter((el) => !weaponsToForget.includes(el.key.Name))
+        jsonMapping.root.properties.InventoryItems_0.Map.filter(
+          (el) => !weaponsToForget.includes(el.key.Name),
+        )
 
       jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value =
-        jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.filter((el) => !weaponsToForget.includes(el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name))
+        jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.filter(
+          (el) =>
+            !weaponsToForget.includes(
+              el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name,
+            ),
+        )
 
-      const updatedWeapons = { ...weapons };
+      const updatedWeapons = { ...weapons }
       Object.entries(updatedWeapons).forEach(([keyOwner, weaponList]) => {
         updatedWeapons[keyOwner] = weaponList.map((weapon) => {
-          if (weaponsToForget.includes(weapon.name) && !equippedWeaponsToNotUnown.includes(weapon.name)) {
-            return { ...weapon, found: false, level: 1 };
+          if (
+            weaponsToForget.includes(weapon.name) &&
+            !equippedWeaponsToNotUnown.includes(weapon.name)
+          ) {
+            return { ...weapon, found: false, level: 1 }
           }
-          return weapon;
-        });
-      });
-      setWeapons(updatedWeapons);
+          return weapon
+        })
+      })
+      setWeapons(updatedWeapons)
 
-      trace("Forgot all possible weapons")
-
+      trace('Forgot all possible weapons')
     } else if (allFound) {
       Object.entries(weapons).map((el) => {
         el[1].forEach((weapon) => {
-          if (!weapon.found)
-            handleWeaponCheckUpdate(el[0], weapon.name, true, weapon.level, false)
+          if (!weapon.found) handleWeaponCheckUpdate(el[0], weapon.name, true, weapon.level, false)
         })
       })
 
-      const updatedWeapons = { ...weapons };
+      const updatedWeapons = { ...weapons }
       Object.entries(updatedWeapons).forEach(([keyOwner, weaponList]) => {
         updatedWeapons[keyOwner] = weaponList.map((weapon) => {
           if (!weapon.found) {
-            return { ...weapon, found: true, level: 1 };
+            return { ...weapon, found: true, level: 1 }
           }
-          return weapon;
-        });
-      });
-      setWeapons(updatedWeapons);
-
-
+          return weapon
+        })
+      })
+      setWeapons(updatedWeapons)
     } else if (levelMax) {
       Object.entries(weapons).map((el) => {
         el[1].forEach((weapon) => {
-          if (weapon.found)
-            handleWeaponCheckUpdate(el[0], weapon.name, true, 33, false)
+          if (weapon.found) handleWeaponCheckUpdate(el[0], weapon.name, true, 33, false)
         })
       })
 
-      const updatedWeapons = { ...weapons };
+      const updatedWeapons = { ...weapons }
       Object.entries(updatedWeapons).forEach(([keyOwner, weaponList]) => {
         updatedWeapons[keyOwner] = weaponList.map((weapon) => {
           if (weapon.found) {
-            return { ...weapon, found: true, level: 33 };
+            return { ...weapon, found: true, level: 33 }
           }
-          return weapon;
-        });
-      });
-      setWeapons(updatedWeapons);
+          return weapon
+        })
+      })
+      setWeapons(updatedWeapons)
     }
   }
 
   return (
     <div id='WeaponsPanel' className='tab-panel-weapons oveflow-auto'>
       <div className='header'>
-      <h2>Weapons</h2>
+        <h2>Weapons</h2>
         {/* Toggle All Buttons */}
         <div>
           <button onClick={() => handleToggleAll(true, false)} style={{ marginRight: '0.5em' }}>
