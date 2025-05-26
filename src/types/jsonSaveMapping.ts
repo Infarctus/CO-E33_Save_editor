@@ -1,14 +1,22 @@
 // Base tag types
-export interface Tags {
+export interface Tags<T = string> {
   data: {
-    Other: string
+    Other: T
+  }
+}
+
+export interface TagsArray<T = string> {
+  data: {
+    Array: {
+      Other: T
+    }
   }
 }
 
 // Basic property types
 export interface IntTag {
   Int: number
-  tag: Tags
+  tag: Tags<"IntProperty">
 }
 
 export interface IntSingleton {
@@ -17,21 +25,21 @@ export interface IntSingleton {
 
 export interface DoubleTag {
   Double: number
-  tag: Tags
+  tag: Tags<"DoubleProperty">
 }
 
 export interface BoolTag {
   Bool: boolean
-  tag: Tags
+  tag: Tags<"BoolProperty">
 }
 
 export interface StringTag {
   Name: string
-  tag: Tags
+  tag: Tags<"NameProperty">
 }
 
 export interface StringsArrayTag {
-  tag: any
+  tag: TagsArray<"NameProperty">
   Array: {
     Base: {
       Name: string[]
@@ -51,7 +59,6 @@ export interface CharacterValue {
 }
 
 interface CharacterValueStructProperties {
-  LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0: IntTag
   CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0: IntTag
   CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0: IntTag
   CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0: StringTag
@@ -145,28 +152,8 @@ interface CharacterValueStructProperties {
       }
     }>
   }
-  UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0: {
-    tag: any
-    Array: {
-      Base: {
-        Name: string[]
-      }
-    }
-  }
-  EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0: {
-    tag: {
-      data: {
-        Array: {
-          Other: string
-        }
-      }
-    }
-    Array: {
-      Base: {
-        Name: string[]
-      }
-    }
-  }
+  UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0: StringsArrayTag
+  EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0: StringsArrayTag
   CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0: {
     tag: any
     Struct: {
@@ -177,6 +164,7 @@ interface CharacterValueStructProperties {
     }
   }
   IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0: BoolTag
+  LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0: IntTag
 }
 
 export interface CharactersCollection_0Mapping {
@@ -207,9 +195,8 @@ export interface RootProperties {
   WeaponProgressions_0: WeaponProgressions_0
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
   SaveDateTime_0: SaveDateTime_0
-  EquippedConsumableShards_0: EquippedConsumableShards_0
+  EquippedConsumableShards_0: StringsArrayTag
   FinishedGameCount_0: IntTag | null
-  // Add other root properties as needed
 }
 
 export interface BeginMapping {
@@ -219,15 +206,6 @@ export interface BeginMapping {
     properties: RootProperties
   }
   extra: any
-}
-
-export interface EquippedConsumableShards_0 {
-  tag: any
-  Array: {
-    Base: {
-      Name: string[]
-    }
-  }
 }
 
 export interface WeaponProgressions_0 {
