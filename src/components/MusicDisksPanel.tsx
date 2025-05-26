@@ -143,14 +143,18 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
 
   return (
     <div id='MusicDisksPanel' className='tab-panel oveflow-auto'>
+       <div className='header'>
       <h2>Music Disks</h2>
-      {/* Toggle All Buttons */}
-      <div style={{ marginBottom: '1em' }}>
-        <button onClick={() => handleToggleAll(true)} style={{ marginRight: '0.5em' }}>
+        {/* Toggle All Buttons */}
+        <div>
+          <button onClick={() => handleToggleAll(true)} style={{ marginRight: '0.5em' }}>
           Mark All as Found
         </button>
         <button onClick={() => handleToggleAll(false)}>Mark All as Not Found</button>
+        </div>
       </div>
+      {/* Toggle All Buttons */}
+       
       {/* Search Bar */}
       <input
         type='text'
