@@ -63,7 +63,7 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     if (musicDisks.findIndex((musicDisk) => musicDisk.name === musicDisksname) == -1) {
       logAndError(`Music disk ${musicDisksname} not found in the list.`)
       return
-    } 
+    }
     logAndInfo(SetInventoryItem(jsonMapping, musicDisksname, 1, newFound))
 
     setMusicDisks((prev) =>
@@ -98,13 +98,11 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     } else {
       // Remove all disks
       jsonMapping.root.properties.InventoryItems_0.Map = inventoryArr.filter(
-        (el: any) => !allMusicDisks.some(([name]) => el.key.Name === name)
+        (el: any) => !allMusicDisks.some(([name]) => el.key.Name === name),
       )
     }
 
-    setMusicDisks((prev) =>
-      prev.map((disk) => ({ ...disk, found: foundAll }))
-    )
+    setMusicDisks((prev) => prev.map((disk) => ({ ...disk, found: foundAll })))
     triggerSaveNeeded()
   }
 
@@ -148,15 +146,10 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
       <h2>Music Disks</h2>
       {/* Toggle All Buttons */}
       <div style={{ marginBottom: '1em' }}>
-        <button
-          onClick={() => handleToggleAll(true)}
-          style={{ marginRight: '0.5em' }}
-        >
+        <button onClick={() => handleToggleAll(true)} style={{ marginRight: '0.5em' }}>
           Mark All as Found
         </button>
-        <button onClick={() => handleToggleAll(false)}>
-          Mark All as Not Found
-        </button>
+        <button onClick={() => handleToggleAll(false)}>Mark All as Not Found</button>
       </div>
       {/* Search Bar */}
       <input

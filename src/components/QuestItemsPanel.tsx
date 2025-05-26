@@ -45,9 +45,6 @@ const QuestItemsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
     [],
   )
 
-
-
-
   // Build initial questItem info list from available questItems and the inventory info.
   const initialQuestItems: QuestItemsInfo[] = useMemo(
     () =>
@@ -67,19 +64,13 @@ const QuestItemsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
 
   // Called whenever a checkbox is toggled.
   // The function receives the questItem's name along with the updated found and mastered values.
-  const handlePictoCheckUpdate = (
-    questItemName: string, 
-    newFound: boolean,
-    newValue: number,
-  ) => {
-  
+  const handlePictoCheckUpdate = (questItemName: string, newFound: boolean, newValue: number) => {
     if (questItems.findIndex((el) => el.name == questItemName) == -1) {
       logAndError('No associated questItem to ' + questItemName)
       return
     }
     // Trigger any external save/update call.
     triggerSaveNeeded()
-
 
     SetInventoryItem(jsonMapping, questItemName, newValue, newFound)
 
@@ -140,7 +131,7 @@ const QuestItemsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
   return (
     <div id='QuestItemsPanel' className='tab-panel oveflow-auto'>
       <h2>QuestItems</h2>
-      <p  style={{ color: 'red' }}>Careful. You're on your own by editing anything from this tab.</p>
+      <p style={{ color: 'red' }}>Careful. You're on your own by editing anything from this tab.</p>
 
       {/* Search Bar */}
       <input
@@ -206,17 +197,13 @@ const QuestItemsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
                       if (!e.target.checked && questItem.value !== 1) {
                         questItem.value = 1
                       }
-                      handlePictoCheckUpdate(
-                        questItem.name,
-                        e.target.checked,
-                        questItem.value,
-                      )
+                      handlePictoCheckUpdate(questItem.name, e.target.checked, questItem.value)
                     }}
                   />
                   <div className='slider round'></div>
                 </label>
               </td>
-             
+
               <td
                 style={{
                   textAlign: 'center',

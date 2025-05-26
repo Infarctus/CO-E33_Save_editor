@@ -101,7 +101,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
     trace(message)
   }
 
-  const allowedCustomizationsFace = useMemo(()=> getPossibleFacesFor(character.key.Name), [])
+  const allowedCustomizationsFace = useMemo(() => getPossibleFacesFor(character.key.Name), [])
 
   const allowedSkins = useMemo(() => getPossibleSkinsFor(character.key.Name), [])
 
@@ -281,7 +281,6 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             trace(`Character ${characterName} bodies updated to ${newList.join('+ ')}`)
           }}
         />
-      
       </div>
     </section>
   )

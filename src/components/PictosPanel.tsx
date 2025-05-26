@@ -97,7 +97,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
   // Called whenever a checkbox is toggled.
   // The function receives the picto's name along with the updated found and mastered values.
   const handlePictoCheckUpdate = (
-    pictoName: string, 
+    pictoName: string,
     newFound: boolean,
     newMastered: boolean,
     newLevel: number,
@@ -131,7 +131,9 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
       const currentArrPassEffectProg =
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value
       const passiveEffectsProgIndex = currentArrPassEffectProg.findIndex(
-        (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() === pictoName.toLowerCase(),
+        (el) =>
+          el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() ===
+          pictoName.toLowerCase(),
       )
       trace('setting prog val to 0, unmaster')
       if (passiveEffectsProgIndex !== -1) {
@@ -148,7 +150,9 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
       const currentArrPassEffectProg =
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value
       const passiveEffectsProgIndex = currentArrPassEffectProg.findIndex(
-        (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() === pictoName.toLowerCase(),
+        (el) =>
+          el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() ===
+          pictoName.toLowerCase(),
       )
       trace('removing from PassiveEffectsProgressions_0')
       if (passiveEffectsProgIndex !== -1) {
@@ -159,13 +163,17 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
 
       trace('removing from inventory')
       jsonMapping.root.properties.InventoryItems_0.Map =
-        jsonMapping.root.properties.InventoryItems_0.Map.filter((el) => el.key.Name.toLowerCase() !== pictoName.toLowerCase())
+        jsonMapping.root.properties.InventoryItems_0.Map.filter(
+          (el) => el.key.Name.toLowerCase() !== pictoName.toLowerCase(),
+        )
       //remove from inventory
 
       trace('Remove from weaponProg')
       const currentArr = jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value
       const index = currentArr.findIndex(
-        (el) => el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name.toLowerCase() === pictoName.toLowerCase(),
+        (el) =>
+          el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name.toLowerCase() ===
+          pictoName.toLowerCase(),
       )
       if (index !== -1) {
         // Clone the array
@@ -177,7 +185,9 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
       const currentArrPassEffectProg =
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value
       const passiveEffectsProgIndex = currentArrPassEffectProg.findIndex(
-        (el) => el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() === pictoName.toLowerCase(),
+        (el) =>
+          el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() ===
+          pictoName.toLowerCase(),
       )
       trace('setting mastered to true')
       if (passiveEffectsProgIndex !== -1) {
@@ -225,7 +235,9 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
       trace('setting prog level val to ' + newLevel)
       const currentArr = jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value
       const index = currentArr.findIndex(
-        (el) => el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name.toLowerCase() === pictoName.toLowerCase(),
+        (el) =>
+          el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name.toLowerCase() ===
+          pictoName.toLowerCase(),
       )
       if (index !== -1) {
         // Clone the array

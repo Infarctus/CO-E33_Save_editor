@@ -102,7 +102,6 @@ const Sidebar: FC<SidebarProps> = ({
           <span>Monoco Skills</span>
         </li>
 
-
         <li
           data-tab='Pictos'
           className={`nav-item fileopen-dependant ${activeTab === 'Pictos' ? 'active' : ''}`}
@@ -153,8 +152,8 @@ const Sidebar: FC<SidebarProps> = ({
           <img src='/iconsidebar/btnJournal.png' alt='Music Disks' className='nav-icon' />
           <span>Journals</span>
         </li>
-        
-          <li
+
+        <li
           data-tab='QuestItems'
           className={`nav-item fileopen-dependant ${activeTab === 'QuestItems' ? 'active' : ''}`}
           aria-disabled={!anyFileOpen ? 'true' : undefined}

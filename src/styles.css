@@ -241,7 +241,6 @@ input {
 
 input[disabled] {
   background-color: var(--col-forbidden);
-
 }
 
 .slider[aria-disabled]:hover {
@@ -299,7 +298,8 @@ select > option {
   width: 20px;
 }
 
-.slider[aria-disabled], .slider[disabled] {
+.slider[aria-disabled],
+.slider[disabled] {
   background-color: var(--col-forbidden);
 }
 
@@ -318,7 +318,6 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
 
 code {
   white-space: normal; /* Allows wrapping */
@@ -343,13 +342,13 @@ div.jsoneditor-field,
 div.jsoneditor-value {
   color: var(--col-text-1);
 }
-table.jsoneditor-search, div.jsoneditor-frame {
+table.jsoneditor-search,
+div.jsoneditor-frame {
   background-color: var(--col-1);
   border-radius: 2px;
   color: var(--col-text-1);
 }
-div.jsoneditor-search  input {
-  
+div.jsoneditor-search input {
   color: var(--col-text-1);
 }
 
@@ -366,7 +365,6 @@ div.jsoneditor-navigation-bar {
 div.jsoneditor-contextmenu li {
   background-color: var(--col-4);
 }
-
 
 div.jsoneditor-field[contenteditable='true']:focus,
 div.jsoneditor-field[contenteditable='true']:hover,

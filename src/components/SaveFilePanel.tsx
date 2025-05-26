@@ -16,12 +16,11 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         attributes, inventory items, and more.
         <br />
         Steam users can edit/overwrite/hot-reload saves while the game is running, but it is{' '}
-        <b>
-          not recommended for GamePass users.
-        </b>{' '}
-         They should instead shut off the game and wait a bit.
-         <br />
-         If you don't want cloud saves to overwrite your modifications, easiest method is disabling internet.
+        <b>not recommended for GamePass users.</b> They should instead shut off the game and wait a
+        bit.
+        <br />
+        If you don't want cloud saves to overwrite your modifications, easiest method is disabling
+        internet.
         <br />
         <br />
         <hr />
@@ -31,9 +30,10 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         <ul>
           <li>
             Steam :{' '}
-            <code style={{ backgroundColor: 'green' }}>%LOCALAPPDATA%\Sandfall\Saved\SaveGames\</code> +
-            [user-id]\Expedition_X.sav (There's also a backup folder that you can use)
-
+            <code style={{ backgroundColor: 'green' }}>
+              %LOCALAPPDATA%\Sandfall\Saved\SaveGames\
+            </code>{' '}
+            + [user-id]\Expedition_X.sav (There's also a backup folder that you can use)
           </li>
 
           <li>
@@ -42,7 +42,7 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
               %LOCALAPPDATA%\Packages\KeplerInteractive.Expedition33_ymj30pw7xe604\SystemAppData\wgs\
             </code>
             <br />
-            If you have any issues, please check {' '}
+            If you have any issues, please check{' '}
             <a
               href='https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=posts'
               target='_blank'
@@ -59,12 +59,10 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         <b>Notes:</b>
         <ul>
           <li>
-            Items with <code style={{ backgroundColor: 'red' }}>**</code> may not be obtainable
-            in the game, and may have unknown effects.
+            Items with <code style={{ backgroundColor: 'red' }}>**</code> may not be obtainable in
+            the game, and may have unknown effects.
           </li>
-          <li>
-            Some items are not marked with ** but are not obtainable in the game.
-          </li>
+          <li>Some items are not marked with ** but are not obtainable in the game.</li>
           <li>
             When you export or overwrite the save the date will be set to the current date and time.
           </li>
@@ -74,7 +72,6 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
             The Quest Items tab may also have unknown effects.
           </li>
         </ul>
-
         <br />
         <hr />
         <br />
