@@ -394,8 +394,18 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
           </button>
           <button onClick={() => handlePictoAllLevelSet((document.getElementById("levelInput")! as HTMLInputElement).valueAsNumber)}>
             Set level to{' ->'}
-          </button>
-          <input type="number" id="levelInput" />
+            </button>
+          <input
+            type='number'
+            min={1}
+            max={33}
+            id="levelInput"
+            defaultValue={1}
+            onInput={(e) => {
+              const target = e.target as HTMLInputElement
+              target.valueAsNumber = clamp(target.valueAsNumber, 1, 33)
+            }}
+          />
           <button onClick={() => handlePictoAllReset()}>
             Reset all
           </button>
