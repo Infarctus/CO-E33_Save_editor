@@ -16,7 +16,7 @@ export interface TagsArray<T = string> {
 // Basic property types
 export interface IntTag {
   Int: number
-  tag: Tags<"IntProperty">
+  tag: Tags<'IntProperty'>
 }
 
 export interface IntSingleton {
@@ -25,21 +25,21 @@ export interface IntSingleton {
 
 export interface DoubleTag {
   Double: number
-  tag: Tags<"DoubleProperty">
+  tag: Tags<'DoubleProperty'>
 }
 
 export interface BoolTag {
   Bool: boolean
-  tag: Tags<"BoolProperty">
+  tag: Tags<'BoolProperty'>
 }
 
 export interface StringTag {
   Name: string
-  tag: Tags<"NameProperty">
+  tag: Tags<'NameProperty'>
 }
 
 export interface StringsArrayTag {
-  tag: TagsArray<"NameProperty">
+  tag: TagsArray<'NameProperty'>
   Array: {
     Base: {
       Name: string[]
@@ -48,15 +48,6 @@ export interface StringsArrayTag {
 }
 
 // Character-related types
-export interface KeyCharacters {
-  Name: string
-}
-
-export interface CharacterValue {
-  Struct: {
-    Struct: CharacterValueStructProperties
-  }
-}
 
 interface CharacterValueStructProperties {
   CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0: IntTag
@@ -173,8 +164,14 @@ export interface CharactersCollection_0Mapping {
 }
 
 export interface CharactersInCollection0_Mapping {
-  key: KeyCharacters
-  value: CharacterValue
+  key: {
+    Name: string
+  }
+  value: {
+    Struct: {
+      Struct: CharacterValueStructProperties
+    }
+  }
 }
 
 export interface InventoryItems_0Mapping {
@@ -260,4 +257,3 @@ export interface ItemsPassiveEffectsProgressions_0 {
     LearntSteps_6_A14D681549E830249C77BD95F2B4CF3F_0: IntTag
   }
 }
-

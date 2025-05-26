@@ -5,13 +5,7 @@ import { useInfo } from './InfoContext'
 import { error, trace } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../types/panelTypes'
 
-
-
-
 const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
-
-
-
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
     return (
       <div id='JournalsPanel' className='tab-panel overflow-auto'>
@@ -29,7 +23,7 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
     error(message)
   }
 
-    function logAndInfo(message: string) {
+  function logAndInfo(message: string) {
     setInfoMessage(message)
     trace(message)
   }
@@ -62,14 +56,11 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
 
   const handleMusicDiskChange = (Journalname: string, newFound: boolean) => {
-
-
     if (journals.findIndex((journla) => journla.name === Journalname) == -1) {
       logAndError(`Journal ${Journalname} not found in the list.`)
       return
     }
     logAndInfo(SetInventoryItem(jsonMapping, Journalname, 1, newFound))
-
 
     setJournals((prev) =>
       prev.map((journal) => {
@@ -103,13 +94,11 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
     } else {
       // Remove all journals
       jsonMapping.root.properties.InventoryItems_0.Map = inventoryArr.filter(
-        (el: any) => !allJournals.some(([name]) => el.key.Name === name)
+        (el: any) => !allJournals.some(([name]) => el.key.Name === name),
       )
     }
 
-    setJournals((prev) =>
-      prev.map((journal) => ({ ...journal, found: foundAll }))
-    )
+    setJournals((prev) => prev.map((journal) => ({ ...journal, found: foundAll })))
     triggerSaveNeeded()
   }
 
@@ -153,15 +142,10 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
       <h2>Journals</h2>
       {/* Toggle All Buttons */}
       <div style={{ marginBottom: '1em' }}>
-        <button
-          onClick={() => handleToggleAll(true)}
-          style={{ marginRight: '0.5em' }}
-        >
+        <button onClick={() => handleToggleAll(true)} style={{ marginRight: '0.5em' }}>
           Mark All as Found
         </button>
-        <button onClick={() => handleToggleAll(false)}>
-          Mark All as Not Found
-        </button>
+        <button onClick={() => handleToggleAll(false)}>Mark All as Not Found</button>
       </div>
       {/* Search Bar */}
       <input
@@ -242,4 +226,3 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
 }
 
 export default JournalsPanel
-

@@ -61,7 +61,7 @@ export interface CustomWeaponsMapping {
 
 export interface QuestItemsMapping {
   QuestItems: {
-    [questTitle: string]:  string
+    [questTitle: string]: string
   }
 }
 
