@@ -1,8 +1,8 @@
-function clamp(value: number, min: number, max: number): number {
+export function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value))
 }
 
-const ticksToDate = (ticks: number) => {
+export const ticksToDate = (ticks: number) => {
   // .NET epoch (January 1, 0001)
   const dotNetEpoch = new Date(0) // This is January 1, 1970
   dotNetEpoch.setFullYear(1) // Set to January 1, 0001
@@ -14,7 +14,7 @@ const ticksToDate = (ticks: number) => {
   return new Date(dotNetEpoch.getTime() + milliseconds)
 }
 
-const formatPlayTime = (totalSeconds: number) => {
+export const formatPlayTime = (totalSeconds: number) => {
   const secondsInMinute = 60
   const secondsInHour = 3600 // 60 * 60
   const secondsInDay = 86400 // 60 * 60 * 24
@@ -42,5 +42,3 @@ const formatPlayTime = (totalSeconds: number) => {
 
   return result.trim() // Remove any leading/trailing whitespace
 }
-
-export { clamp, ticksToDate, formatPlayTime }
