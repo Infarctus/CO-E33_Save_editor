@@ -268,13 +268,13 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
       error('Null jsonMapping while trying to handleFindPictoAllclick for Pictos')
       return
     }
-    let counter = 0;
+    let counter = 0
     const updatedPictos = pictos.map((picto) => {
-      if (safe && picto.friendlyName.endsWith("*")) {
-        return picto; // Skip if the picto is marked as "unsafe" (ends with *)
+      if (safe && picto.friendlyName.endsWith('*')) {
+        return picto // Skip if the picto is marked as "unsafe" (ends with *)
       }
       if (!picto.found) {
-        counter++;
+        counter++
         handlePictoCheckUpdate(picto.name, true, picto.mastered, picto.level, false, true)
         return { ...picto, found: true, level: 1 }
       }
@@ -289,14 +289,14 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
       error('Null jsonMapping while trying to handlePictoAllMasteryfound for Pictos')
       return
     }
-    let counter = 0;
+    let counter = 0
     const updatedPictos = pictos.map((picto) => {
       if (picto.found && masterAll && !picto.mastered) {
-        counter++;
+        counter++
         handlePictoCheckUpdate(picto.name, true, true, picto.level, false, true)
         return { ...picto, mastered: true }
       } else if (picto.mastered && !masterAll) {
-        counter++;
+        counter++
         handlePictoCheckUpdate(picto.name, picto.found, false, picto.level, false, true)
         return { ...picto, mastered: false }
       }
@@ -311,10 +311,10 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
       error('Null jsonMapping while trying to handlePictoAllLevelSet for Pictos')
       return
     }
-    let counter = 0;
+    let counter = 0
     const updatedPictos = pictos.map((picto) => {
       if (picto.found && picto.level !== level) {
-        counter++;
+        counter++
         handlePictoCheckUpdate(picto.name, true, picto.mastered, level, false, true)
         return { ...picto, level: level }
       }

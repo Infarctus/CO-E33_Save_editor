@@ -1,5 +1,7 @@
 export function clamp(value: number, min: number, max: number): number {
-  if(Number.isNaN(value)){value = min}
+  if (Number.isNaN(value)) {
+    value = min
+  }
   return Math.max(min, Math.min(max, value))
 }
 
