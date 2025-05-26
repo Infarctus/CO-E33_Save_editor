@@ -5,7 +5,7 @@ import {
   generatePictoPassiveEffectProgression,
 } from '../utils/jsonSaveMapping'
 import { getPossiblePictos } from '../utils/gameMappingProvider'
-import { PictoInfo as PictoInfoType } from '../types/jsonCustomMapping'
+import type { PictoInfo as PictoInfoType } from '../types/jsonCustomMapping'
 import { error, trace } from '@tauri-apps/plugin-log'
 import { useInfo } from './InfoContext'
 import { clamp } from '../utils/utils'
@@ -15,7 +15,6 @@ type SortField = 'friendlyName' | 'found' | 'mastered' | 'level' | null
 type SortDirection = 'asc' | 'desc'
 
 const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
-
   const { setInfoMessage } = useInfo()
 
   function logAndInfo(message: string) {
@@ -107,6 +106,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
     newMastered: boolean,
     newLevel: number,
     updateStateVar = true,
+    bulk = false,
   ) => {
     // Update local state accordingly.
     var thisPictoWas: PictoInfoType
@@ -136,7 +136,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
           el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() ===
           pictoName.toLowerCase(),
       )
-      trace('setting prog val to 0, unmaster')
+      if (!bulk) trace('setting prog val to 0, unmaster')
       if (passiveEffectsProgIndex !== -1) {
         // Clone the array
         const newArr = currentArrPassEffectProg.slice()
@@ -155,21 +155,21 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
           el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() ===
           pictoName.toLowerCase(),
       )
-      trace('removing from PassiveEffectsProgressions_0')
+      if (!bulk) trace('removing from PassiveEffectsProgressions_0')
       if (passiveEffectsProgIndex !== -1) {
         const newArr = currentArrPassEffectProg.slice()
         newArr.splice(passiveEffectsProgIndex, 1)
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value = newArr
       }
 
-      trace('removing from inventory')
+      if (!bulk) trace('removing from inventory')
       jsonMapping.root.properties.InventoryItems_0.Map =
         jsonMapping.root.properties.InventoryItems_0.Map.filter(
           (el) => el.key.Name.toLowerCase() !== pictoName.toLowerCase(),
         )
       //remove from inventory
 
-      trace('Remove from weaponProg')
+      if (!bulk) trace('Remove from weaponProg')
       const currentArr = jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value
       const index = currentArr.findIndex(
         (el) =>
@@ -190,7 +190,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
           el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name.toLowerCase() ===
           pictoName.toLowerCase(),
       )
-      trace('setting mastered to true')
+      if (!bulk) trace('setting mastered to true')
       if (passiveEffectsProgIndex !== -1) {
         const newArr = currentArrPassEffectProg.slice()
         newArr[
@@ -200,20 +200,20 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
           true
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value = newArr
       } else {
-        trace('generating new passive effect for picto')
+        if (!bulk) trace('generating new passive effect for picto')
         jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.push(
           generatePictoPassiveEffectProgression(pictoName, true, 4),
         )
       }
     } else if (!thisPictoWas!.found && newFound) {
-      trace('adding to inventory')
+      if (!bulk) trace('adding to inventory')
       jsonMapping.root.properties.InventoryItems_0.Map.push(generateInventoryItems_0(pictoName, 1))
 
-      trace('adding To PassiveEffectsProgressions')
+      if (!bulk) trace('adding To PassiveEffectsProgressions')
       jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.push(
         generatePictoPassiveEffectProgression(pictoName, false, 0),
       )
-      trace('adding To weaponProg')
+      if (!bulk) trace('adding To weaponProg')
       jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.push({
         Struct: {
           DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0: {
@@ -229,7 +229,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
 
       // add to
     } else if (newLevel != thisPictoWas!.level) {
-      trace('setting prog level val to ' + newLevel)
+      if (!bulk) trace('setting prog level val to ' + newLevel)
       const currentArr = jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value
       const index = currentArr.findIndex(
         (el) =>
@@ -246,7 +246,6 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
     }
 
     if (updateStateVar) {
-
       setPictos((prev) =>
         prev.map((picto) => {
           if (picto.name === pictoName) {
@@ -264,81 +263,99 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
     }
   }
 
-  function handleFindPictoAllclick(findAll: boolean): void {
+  function handleFindPictoAllclick(safe: boolean): void {
     if (jsonMapping == null) {
-      error("Null jsonMapping while trying to handleFindPictoAllclick for Pictos")
-      return;
+      error('Null jsonMapping while trying to handleFindPictoAllclick for Pictos')
+      return
     }
-
+    let counter = 0;
     const updatedPictos = pictos.map((picto) => {
-      if (!picto.found && findAll) {
-        handlePictoCheckUpdate(picto.name, true, picto.mastered, picto.level, false);
-        return { ...picto, found: true, level: 1 };
-      } else if (picto.found && !findAll) {
-        handlePictoCheckUpdate(picto.name, false, false, 1, false);
-        return { ...picto, found: false, mastered: false, level: 1 };
+      if (safe && picto.friendlyName.endsWith("*")) {
+        return picto; // Skip if the picto is marked as "unsafe" (ends with *)
       }
-      return picto;
-    });
-    setPictos(updatedPictos);
+      if (!picto.found) {
+        counter++;
+        handlePictoCheckUpdate(picto.name, true, picto.mastered, picto.level, false, true)
+        return { ...picto, found: true, level: 1 }
+      }
+      return picto
+    })
+    setPictos(updatedPictos)
+    logAndInfo(`Set ${counter} pictos to found.`)
   }
 
   function handlePictoAllMasteryfound(masterAll: boolean): void {
     if (jsonMapping == null) {
-      error("Null jsonMapping while trying to handlePictoAllMasteryfound for Pictos")
-      return;
+      error('Null jsonMapping while trying to handlePictoAllMasteryfound for Pictos')
+      return
     }
-
+    let counter = 0;
     const updatedPictos = pictos.map((picto) => {
       if (picto.found && masterAll && !picto.mastered) {
-        handlePictoCheckUpdate(picto.name, true, true, picto.level, false);
-        return { ...picto, mastered: true };
+        counter++;
+        handlePictoCheckUpdate(picto.name, true, true, picto.level, false, true)
+        return { ...picto, mastered: true }
       } else if (picto.mastered && !masterAll) {
-        handlePictoCheckUpdate(picto.name, picto.found, false, picto.level, false);
-        return { ...picto, mastered: false };
+        counter++;
+        handlePictoCheckUpdate(picto.name, picto.found, false, picto.level, false, true)
+        return { ...picto, mastered: false }
       }
-      return picto;
-    });
-    setPictos(updatedPictos);
+      return picto
+    })
+    setPictos(updatedPictos)
+    logAndInfo(`Set ${counter} pictos to ${masterAll ? 'mastered' : 'unmastered'}.`)
   }
 
   function handlePictoAllLevelSet(level: number): void {
     if (jsonMapping == null) {
-      error("Null jsonMapping while trying to handlePictoAllLevelSet for Pictos")
-      return;
+      error('Null jsonMapping while trying to handlePictoAllLevelSet for Pictos')
+      return
     }
-
+    let counter = 0;
     const updatedPictos = pictos.map((picto) => {
-      if (picto.found) {
-        handlePictoCheckUpdate(picto.name, true, picto.mastered, level, false);
-        return { ...picto, level: level };
+      if (picto.found && picto.level !== level) {
+        counter++;
+        handlePictoCheckUpdate(picto.name, true, picto.mastered, level, false, true)
+        return { ...picto, level: level }
       }
-      return picto;
-    });
-    setPictos(updatedPictos);
+      return picto
+    })
+    setPictos(updatedPictos)
+    logAndInfo(`Set ${counter} pictos to level ${level}.`)
   }
 
   function handlePictoAllReset(): void {
     if (jsonMapping == null) {
-      error("Null jsonMapping while trying to handlePictoAllReset for Pictos")
-      return;
+      error('Null jsonMapping while trying to handlePictoAllReset for Pictos')
+      return
     }
 
     jsonMapping.root.properties.InventoryItems_0.Map =
-      jsonMapping.root.properties.InventoryItems_0.Map.filter((el) => !pictos.map((picto) => picto.name).includes(el.key.Name));
+      jsonMapping.root.properties.InventoryItems_0.Map.filter(
+        (el) => !pictos.map((picto) => picto.name).includes(el.key.Name),
+      )
 
     jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value =
-      jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.filter((el) => !pictos.map((picto) => picto.name).includes(el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name));
+      jsonMapping.root.properties.PassiveEffectsProgressions_0.Array.Struct.value.filter(
+        (el) =>
+          !pictos
+            .map((picto) => picto.name)
+            .includes(el.Struct.PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0.Name),
+      )
 
     jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value =
-      jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.filter((el) => !pictos.map((picto) => picto.name).includes(el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name));
+      jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.filter(
+        (el) =>
+          !pictos
+            .map((picto) => picto.name)
+            .includes(el.Struct.DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0.Name),
+      )
 
     const updatedPictos = pictos.map((picto) => {
-      return { ...picto, found: false, mastered: false, level: 1 };
-    });
-    setPictos(updatedPictos);
+      return { ...picto, found: false, mastered: false, level: 1 }
+    })
+    setPictos(updatedPictos)
   }
-
 
   // Handle sorting when headers are clicked.
   const handleSort = (field: SortField) => {
@@ -380,35 +397,34 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
 
   return (
     <div id='PictosPanel' className='tab-panel oveflow-auto'>
-      <div className="header">
+      <div className='header'>
         <h2>Pictos</h2>
         <div>
-          <button onClick={() => handleFindPictoAllclick(true)} >
-            Find all
-          </button>
-          <button onClick={() => handlePictoAllMasteryfound(true)}>
-            Master All Found
-          </button>
-          <button onClick={() => handlePictoAllMasteryfound(false)} >
-            Unmaster all
-          </button>
-          <button onClick={() => handlePictoAllLevelSet((document.getElementById("levelInput")! as HTMLInputElement).valueAsNumber)}>
+          <button onClick={() => handleFindPictoAllclick(true)}>Find all</button>
+          <button onClick={() => handleFindPictoAllclick(false)}>(Unsafe)Find all</button>
+          <button onClick={() => handlePictoAllMasteryfound(true)}>Master All Found</button>
+          <button onClick={() => handlePictoAllMasteryfound(false)}>Unmaster all</button>
+          <button
+            onClick={() =>
+              handlePictoAllLevelSet(
+                (document.getElementById('levelInput')! as HTMLInputElement).valueAsNumber,
+              )
+            }
+          >
             Set level to{' ->'}
-            </button>
+          </button>
           <input
             type='number'
             min={1}
             max={33}
-            id="levelInput"
+            id='levelInput'
             defaultValue={1}
             onInput={(e) => {
               const target = e.target as HTMLInputElement
               target.valueAsNumber = clamp(target.valueAsNumber, 1, 33)
             }}
           />
-          <button onClick={() => handlePictoAllReset()}>
-            Reset all
-          </button>
+          <button onClick={() => handlePictoAllReset()}>Reset all</button>
         </div>
       </div>
       {/* Search Bar */}
@@ -516,7 +532,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
                   <div
                     className='slider round'
                     aria-disabled={!picto.found ? true : undefined}
-                  //  aria-disabled={!picto.found}
+                    //  aria-disabled={!picto.found}
                   ></div>
                 </label>
               </td>
