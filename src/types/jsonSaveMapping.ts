@@ -220,7 +220,7 @@ export interface ExplorationProgression_0 {
   Struct: {
     Struct: {
       ExplorationCapacities_22_D278AAE341C821F118686B81FD83BBB0_0: ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_ExplorationCapacity.E_ExplorationCapacity'>
-      WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0: ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity'>
+      WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0? : ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity'>
     }
   }
 }
