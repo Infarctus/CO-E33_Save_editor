@@ -4,6 +4,7 @@ import { basename, join, appLocalDataDir } from '@tauri-apps/api/path'
 import { Command } from '@tauri-apps/plugin-shell'
 import type { SaveProcessResult, OpenProcessResult } from '../types/fileTypes'
 import { trace, error, warn } from '@tauri-apps/plugin-log'
+import { invoke } from '@tauri-apps/api/core'
 
 // Constants for configuration
 const SAVE_HANDLING_DIR_NAME = 'data' // Directory within appLocalDataDir for backups and temp files
@@ -203,4 +204,12 @@ export async function getAllBackups(): Promise<string[]> {
   const saveHandlingBasePath = await join(userDataPath, SAVE_HANDLING_DIR_NAME)
   const backupDir = await join(saveHandlingBasePath, 'backup')
   return (await readDir(backupDir)).map((el) => el.name).filter((el) => el.endsWith('.bak'))
+}
+
+export async function openLocalFolder(path: string) {
+  const userDataPath = await appLocalDataDir()
+  const saveHandlingBasePath = await join(userDataPath, path)
+  trace("Opening " + saveHandlingBasePath)
+
+  await invoke('open_explorer', { path: saveHandlingBasePath });
 }

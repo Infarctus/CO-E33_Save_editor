@@ -2,6 +2,7 @@ import type { FC } from 'react'
 import { OpenProcessResult } from '../types/fileTypes'
 import { formatPlayTime, ticksToDate } from '../utils/utils'
 import { BeginMapping } from '../types/jsonSaveMapping'
+import { openLocalFolder } from '../utils/fileManagement'
 
 interface SaveFilePanelProps {
   openResult: OpenProcessResult | null
@@ -97,6 +98,16 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
             </div>
           </div>
         )) || <div>No file is currently open.</div>}
+        <br />
+
+        <hr />
+        <br />
+        <div style={{display: "flex"}}>
+        <button onClick={() => openLocalFolder("data")}>Open editor folder</button>
+        <button onClick={() => openLocalFolder("logs")}>Open logs folder</button>
+        {/* <button>Open editor logs</button> */}
+
+        </div>
       </div>
     </div>
   )
