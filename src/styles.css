@@ -318,15 +318,23 @@ input:checked + .slider:before {
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }
 
 code {
-  white-space: normal; /* Allows wrapping */
-  word-wrap: break-word; /* Breaks long words if necessary */
-  overflow-wrap: break-word; /* Ensures long words break to the next line */
+  white-space: normal;
+  /* Allows wrapping */
+  word-wrap: break-word;
+  /* Breaks long words if necessary */
+  overflow-wrap: break-word;
+  /* Ensures long words break to the next line */
+}
+
+div.cadre {
+  border: 2px solid var(--col-border-1);
+  border-radius: 4px;
+  padding: 4px  ;
 }
 
 /* jsoneditor dark theme */

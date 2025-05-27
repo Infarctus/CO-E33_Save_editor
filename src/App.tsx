@@ -26,6 +26,7 @@ import RessourcesPanel from './components/RessourcesPanel'
 import MonocoSkillsPanel from './components/MonocoSkillsPanel'
 import QuestItemsPanel from './components/QuestItemsPanel'
 import EsquieSkillsPanel from './components/EsquieSkillsPanel'
+import { ErrorBoundary } from './components/ErrorBoundary'
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
@@ -246,56 +247,82 @@ function App() {
       />
 
       <main className='content'>
-        {activeTab === 'SaveFile' && (
+            {activeTab === 'SaveFile' && (
+        <ErrorBoundary>
           <SaveFilePanel
             openResult={workingFileCurrent}
             jsonMapping={jsonMapping}
             key={updateKey}
           />
-        )}
+        </ErrorBoundary>
+      )}
 
-        {activeTab === 'Characters' && (
+      {activeTab === 'Characters' && (
+        <ErrorBoundary>
           <CharactersPanel
             workingFileCurrent={workingFileCurrent}
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
           />
-        )}
+        </ErrorBoundary>
+      )}
 
-        {activeTab === 'Pictos' && (
+      {activeTab === 'Pictos' && (
+        <ErrorBoundary>
           <PictosPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
-        {activeTab === 'MusicDisks' && (
+        </ErrorBoundary>
+      )}
+      {activeTab === 'MusicDisks' && (
+        <ErrorBoundary>
           <MusicDisksPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
-        {activeTab === 'Journals' && (
+        </ErrorBoundary>
+      )}
+      {activeTab === 'Journals' && (
+        <ErrorBoundary>
           <JournalsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
+        </ErrorBoundary>
+      )}
 
-        {activeTab === 'Weapons' && (
+      {activeTab === 'Weapons' && (
+        <ErrorBoundary>
           <WeaponsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
-        {activeTab === 'Ressources' && (
+        </ErrorBoundary>
+      )}
+      {activeTab === 'Ressources' && (
+        <ErrorBoundary>
           <RessourcesPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
-        {activeTab === 'MonocoSkills' && (
+        </ErrorBoundary>
+      )}
+      {activeTab === 'MonocoSkills' && (
+        <ErrorBoundary>
           <MonocoSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
-        {activeTab === 'EsquieSkills' && (
+        </ErrorBoundary>
+      )}
+      {activeTab === 'EsquieSkills' && (
+        <ErrorBoundary>
           <EsquieSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
-        {activeTab === 'QuestItems' && (
+        </ErrorBoundary>
+      )}
+      {activeTab === 'QuestItems' && (
+        <ErrorBoundary>
           <QuestItemsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        )}
-        {activeTab === 'Backups' && <BackupsPanel />}
+        </ErrorBoundary>
+      )}
+      {activeTab === 'Backups' && (
+        <ErrorBoundary>
+          <BackupsPanel />
+        </ErrorBoundary>
+      )}
 
-        {activeTab === 'RawJson' && (
+      {activeTab === 'RawJson' && (
+        <ErrorBoundary>
           <RawJsonPanel
             jsonMapping={jsonMapping}
             onJsonChange={handleJsonChange}
             onCommitChanges={commitJsonChanges}
           />
-        )}
+        </ErrorBoundary>
+      )}
       </main>
 
       <InfoBanner message={infoMessage} />
