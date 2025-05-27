@@ -483,12 +483,13 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                               max={33}
                               value={weapon.level}
                               disabled={!weapon.found}
-                              onChange={(e) => {
+                              onInput={(e) => {
+                                const target = e.target as HTMLInputElement
                                 handleWeaponCheckUpdate(
                                   weaponOwner[0],
                                   weapon.name,
                                   weapon.found,
-                                  clamp(e.target.valueAsNumber, 1, 33),
+                                  clamp(target.valueAsNumber, 1, 33),
                                 )
                               }}
                             />
