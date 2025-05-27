@@ -1,0 +1,76 @@
+[
+  {
+    "Type": "UserDefinedEnum",
+    "Name": "E_WorldMapExplorationCapacity",
+    "Class": "UScriptClass'UserDefinedEnum'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "DisplayNameMap": [
+        {
+          "Key": "NewEnumerator0",
+          "Value": {
+            "Namespace": "",
+            "Key": "895EBB5846FD2D3CACC1ADAD26F4B95C",
+            "SourceString": "Base",
+            "LocalizedString": "Base"
+          }
+        },
+        {
+          "Key": "NewEnumerator1",
+          "Value": {
+            "Namespace": "",
+            "Key": "2D9E0CCD4EDA40F73D8B4D9381136BAE",
+            "SourceString": "HardenLands",
+            "LocalizedString": "HardenLands"
+          }
+        },
+        {
+          "Key": "NewEnumerator2",
+          "Value": {
+            "Namespace": "",
+            "Key": "A3626D194F7AB8EB8FBE98A11949C427",
+            "SourceString": "Swim",
+            "LocalizedString": "Swim"
+          }
+        },
+        {
+          "Key": "NewEnumerator3",
+          "Value": {
+            "Namespace": "",
+            "Key": "EE89133347FA3462D9F93E9F458B3FD3",
+            "SourceString": "SwimBoost",
+            "LocalizedString": "SwimBoost"
+          }
+        },
+        {
+          "Key": "NewEnumerator4",
+          "Value": {
+            "Namespace": "",
+            "Key": "12058BC941FA9F5650485085DB86FEA1",
+            "SourceString": "Fly",
+            "LocalizedString": "Fly"
+          }
+        },
+        {
+          "Key": "NewEnumerator5",
+          "Value": {
+            "Namespace": "",
+            "Key": "1523130445FBAD631FBCC19FC9DC5F93",
+            "SourceString": "Invalid",
+            "LocalizedString": "Invalid"
+          }
+        }
+      ]
+    },
+    "Names": {
+      "E_WorldMapExplorationCapacity::NewEnumerator5": 0,
+      "E_WorldMapExplorationCapacity::NewEnumerator0": 1,
+      "E_WorldMapExplorationCapacity::NewEnumerator1": 2,
+      "E_WorldMapExplorationCapacity::NewEnumerator2": 3,
+      "E_WorldMapExplorationCapacity::NewEnumerator3": 4,
+      "E_WorldMapExplorationCapacity::NewEnumerator4": 5,
+      "E_WorldMapExplorationCapacity::E_MAX": 6
+    },
+    "CppForm": "Namespaced"
+  }
+]
