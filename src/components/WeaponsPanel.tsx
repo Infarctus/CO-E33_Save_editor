@@ -353,7 +353,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
         </sup>
       )}
       {/* Table */}
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
         <thead>
           <tr>
             <th
@@ -361,7 +361,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                 borderBottom: '1px solid #ccc',
                 padding: '0.5em',
                 textAlign: 'left',
-                width: '10px',
+                width: '60px',
               }}
             >
               Owner
@@ -371,6 +371,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                 borderBottom: '1px solid #ccc',
                 cursor: 'pointer',
                 padding: '0.5em',
+                width: '40%',
               }}
               onClick={() => handleSort('friendlyName')}
             >
@@ -381,6 +382,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                 borderBottom: '1px solid #ccc',
                 cursor: 'pointer',
                 padding: '0.5em',
+                width: '15%',
               }}
               onClick={() => handleSort('found')}
             >
@@ -391,6 +393,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                 borderBottom: '1px solid #ccc',
                 cursor: 'pointer',
                 padding: '0.5em',
+                width: '15%',
               }}
               onClick={() => handleSort('level')}
             >
@@ -414,27 +417,36 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                   </summary>
                   <table
                     style={{
-                      width: 'calc(100% - 40px)',
+                      width: '100%',
                       borderCollapse: 'collapse',
-                      marginLeft: '40px',
+                      tableLayout: 'fixed',
                     }}
                   >
                     <tbody>
                       {weaponOwner[1].map((weapon) => (
                         <tr key={weapon.name}>
-                          <td></td>
                           <td
                             style={{
-                              padding: '1em',
+                              width: '20%',
+                              padding: '0.5em',
+                              borderRight: '1px solid #eee',
+                            }}
+                          >
+                            {/* Empty cell to align with Owner column */}
+                          </td>
+                          <td
+                            style={{
+                              padding: '0.5em',
                               borderBottom: '1px solid #eee',
-                              borderLeft: '1px solid #eee',
+                              textAlign: 'left',
                             }}
                           >
                             {weapon.friendlyName}
                           </td>
                           <td
                             style={{
-                              padding: '1em',
+                              width: '15%',
+                              padding: '0.5em',
                               borderBottom: '1px solid #eee',
                               textAlign: 'center',
                             }}
@@ -444,8 +456,6 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                                 type='checkbox'
                                 checked={weapon.found}
                                 disabled={equippedWeaponsToNotUnown.includes(weapon.name)}
-                                // title={equippedWeaponsToNotUnown.includes(weapon.name) ? "You can't un-find this weapon because it is currently equipped and it would break your game" : undefined}
-
                                 onChange={(e) => {
                                   if (!e.target.checked && weapon.level !== 1) {
                                     weapon.level = 1
@@ -473,6 +483,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                           </td>
                           <td
                             style={{
+                              width: '15%',
                               padding: '0.5em',
                               borderBottom: '1px solid #eee',
                               textAlign: 'center',
@@ -494,12 +505,6 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                               !weapon.found
                             )}
                           </td>
-                          <td
-                            style={{
-                              padding: '1em',
-                              borderBottom: '1px solid #eee',
-                            }}
-                          ></td>
                         </tr>
                       ))}
                     </tbody>
