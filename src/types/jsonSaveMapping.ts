@@ -139,14 +139,14 @@ export interface InventoryItems_0 {
 
 export interface RootProperties {
   CharactersCollection_0: CharactersCollection_0Mapping
-  InventoryItems_0: InventoryItems_0Mapping
   TimePlayed_0: DoubleTag
+  InventoryItems_0: InventoryItems_0Mapping
   Gold_0: IntTag
-  WeaponProgressions_0: WeaponProgressions_0
-  PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
-  SaveDateTime_0: SaveDateTime_0
-  EquippedConsumableShards_0: StringsArrayTag
   ExplorationProgression_0: ExplorationProgression_0
+  EquippedConsumableShards_0: StringsArrayTag
+  WeaponProgressions_0: WeaponProgressions_0
+  SaveDateTime_0: SaveDateTime_0
+  PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
   FinishedGameCount_0: IntTag | null
 }
 
