@@ -14,7 +14,32 @@ itemtypes = {'E_jRPG_ItemType::NewEnumerator0': 'Weapon', 'E_jRPG_ItemType::NewE
 itemsubtypes = {'E_jRPG_ItemSubtype::NewEnumerator0': 'Lune', 'E_jRPG_ItemSubtype::NewEnumerator1': 'Monoco', 'E_jRPG_ItemSubtype::NewEnumerator2': 'Sciel', 'E_jRPG_ItemSubtype::NewEnumerator11': 'Consumable', 'E_jRPG_ItemSubtype::NewEnumerator14': 'Maelle', 'E_jRPG_ItemSubtype::NewEnumerator15': 'Pictos', 'E_jRPG_ItemSubtype::NewEnumerator16': 'Noah', 'E_jRPG_ItemSubtype::NewEnumerator18': 'Key', 'E_jRPG_ItemSubtype::NewEnumerator19': 'Inventory', 'E_jRPG_ItemSubtype::NewEnumerator20': 'Invalid', 'E_jRPG_ItemSubtype::NewEnumerator21': 'Verso', 'E_jRPG_ItemSubtype::NewEnumerator22': 'Journal', 'E_jRPG_ItemSubtype::NewEnumerator23': 'Music Record'}
 
 
+
+
+
 def genpictomapping():
+    unavalablepictos = [
+"The Best Defense",
+"Bloody Bullet",
+"Passive Defense",
+"Dodge Specialist",
+"Dodge Helper",
+"Lucky Aim",
+"Successive Parry",
+"Parry Specialist",
+"Solidifying Meditation",
+"Great Energy Tint",
+"Great Healing Tint",
+"Charybde To Scylla",
+"Evasive Healer",
+"Charging Recovery",
+"Gradient Recovery",
+"Better Healing Tint",
+"Parry Helper",
+"Physical Fighter",
+"Shield Breaker",
+"Soul Eater",
+]
     items = "originalGameMapping/DT_jRPG_Items_Composite.json"
 
     with open(items, "r", encoding="utf-8") as f:
@@ -24,6 +49,8 @@ def genpictomapping():
     output_data = {
         "Pictos": {}
     }
+    Pictos1 = {}
+    Pictos2 = {}
 
     for item in itemsdef:
         curritem = itemsdef[item]
@@ -32,17 +59,23 @@ def genpictomapping():
         pictoname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
         if pictoname == None:
             pictoname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("CultureInvariantString")+"**"
-        
-        output_data["Pictos"][item] = pictoname
+            Pictos2[item] = pictoname
+        elif pictoname in unavalablepictos:
+            Pictos1[item] = pictoname+"*"
+        else:
+            output_data["Pictos"][item] = pictoname
     
-
-    # Move pictos with names ending with '**' to the end
-    pictos = list(output_data["Pictos"].items())
-    normal = [(k, v) for k, v in pictos if not v.endswith("**")]
-    normal = sorted(normal, key=lambda x: x[1])
-    starred = [(k, v) for k, v in pictos if v.endswith("**")]
-    starred = sorted(starred, key=lambda x: x[1])
-    output_data["Pictos"] = dict(normal + starred)
+    output_data["Pictos"] = dict(
+        sorted(output_data["Pictos"].items(), key=lambda x: x[1])
+    )
+    Pictos1 = dict(
+        sorted(Pictos1.items(), key=lambda x: x[1])
+    )
+    Pictos2 = dict(
+        sorted(Pictos2.items(), key=lambda x: x[1])
+    )
+    output_data["Pictos"].update(Pictos1)
+    output_data["Pictos"].update(Pictos2)
 
     jsondump(output_data, output_path)
 
@@ -296,11 +329,11 @@ def genmonocoskillsmapping():
 
 
 
-genmonocoskillsmapping()
+#genmonocoskillsmapping()
 #oldgenmonocoskillsmapping()
 #genquestitemsmapping()
 #genweaponmapping()    
 #genjournalsmapping()
-#genpictomapping()
+genpictomapping()
 #genskinmapping()
 #genmusicdiskmapping()
