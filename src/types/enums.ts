@@ -14,3 +14,18 @@ export function getECharacterAttributeEnumValue(index: number): string {
     'What is this shit'
   )
 }
+
+export enum E_WorldMapExplorationCapacity {
+  Base = "Base",
+  HardenLands = "HardenLands",
+  Swim = "Swim",
+  SwimBoost = "SwimBoost",
+  Fly = "Fly"
+}
+
+export function getE_WorldMapExplorationCapacity(index: number): string {
+  return (
+    Object.entries(E_WorldMapExplorationCapacity).find((_indx, value) => value == index)?.[0] ||
+    'What is this shit'
+  )
+}
