@@ -542,20 +542,21 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
                   textAlign: 'center',
                 }}
               >
-                <input
+                 <input
                   type='number'
                   min={1}
                   max={33}
                   value={picto.level}
                   disabled={!picto.found}
-                  onChange={(e) =>
+                  onInput={(e) => {
+                    const target = e.target as HTMLInputElement
                     handlePictoCheckUpdate(
                       picto.name,
                       picto.found,
                       picto.mastered,
-                      clamp(e.target.valueAsNumber, 1, 33),
+                      clamp(target.valueAsNumber, 1, 33),
                     )
-                  }
+                  }}
                 />
               </td>
             </tr>

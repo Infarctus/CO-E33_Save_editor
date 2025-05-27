@@ -314,7 +314,10 @@ const PropertyEditor: FC<PropertyEditorProps> = ({
         min={positiveOnly ? '0' : undefined}
         value={getValueFromTag(value)}
         style={{ flex: '1' }}
-        onChange={(e) => onChange(e.target.value)}
+        onInput={(e) => {
+          const target = e.target as HTMLInputElement
+          onChange(target.value)
+        }}
       />
     </div>
   )
