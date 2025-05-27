@@ -9,6 +9,7 @@ import type {
   ItemsPassiveEffectsProgressions_0,
   PassiveEffectsProgressions_0,
   InventoryItems_0,
+  RootProperties,
 } from '../types/jsonSaveMapping'
 import { debug, error, trace } from '@tauri-apps/plugin-log'
 
@@ -154,5 +155,12 @@ export function generateInventoryItems_0(genname: string, genvalue: number): Inv
     value: {
       Int: genvalue,
     },
+  }
+}
+
+export function createNewGamePlus(value: number): RootProperties["FinishedGameCount_0"] {
+  return {
+    Int: value,
+    tag: { data: { Other: 'IntProperty' } },
   }
 }
