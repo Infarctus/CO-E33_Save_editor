@@ -19,7 +19,7 @@ export enum E_WorldMapExplorationCapacity {
   Base = "Base",
   HardenLands = "HardenLands",
   Swim = "Swim",
-  SwimBoost = "SwimBoost",
+  SwimBoost = "SwimBoost", // I think it's breaking coral ability
   Fly = "Fly"
 }
 
