@@ -5,6 +5,7 @@ import { WeaponInfoType } from '../types/jsonCustomMapping'
 import { error, trace } from '@tauri-apps/plugin-log'
 import { useInfo } from './InfoContext'
 import { clamp } from '../utils/utils'
+import { renderNumberInput } from '../utils/HtmlElement'
 
 // Placeholder for a weapons customization editor component
 interface WeaponsPanelProps {
@@ -477,22 +478,21 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                               textAlign: 'center',
                             }}
                           >
-                            <input
-                              type='number'
-                              min={1}
-                              max={33}
-                              value={weapon.level}
-                              disabled={!weapon.found}
-                              onInput={(e) => {
-                                const target = e.target as HTMLInputElement
+                            {renderNumberInput(
+                              weapon.level,
+                              '',
+                              1,
+                              33,
+                              (newValue) => {
                                 handleWeaponCheckUpdate(
                                   weaponOwner[0],
                                   weapon.name,
                                   weapon.found,
-                                  clamp(target.valueAsNumber, 1, 33),
+                                  newValue,
                                 )
-                              }}
-                            />
+                              },
+                              !weapon.found
+                            )}
                           </td>
                           <td
                             style={{

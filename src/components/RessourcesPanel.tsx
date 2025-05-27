@@ -2,35 +2,8 @@ import { useMemo, useState } from 'react'
 import { trace } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../types/panelTypes'
 import { useInfo } from './InfoContext'
-import { clamp } from '../utils/utils'
 import { SetInventoryItem } from '../utils/gameMappingProvider'
-
-function renderNumberInput(
-  value: number,
-  label: string,
-  minInput: number,
-  maxInput: number,
-  onChange: (newValue: number) => void,
-) {
-  return (
-    <div style={{ marginBottom: '1rem' }}>
-      <label htmlFor={label.toLowerCase() + '-input'} style={{ marginRight: '0.5rem' }}>
-        {label}
-      </label>
-      <input
-        type='number'
-        min={minInput}
-        max={maxInput}
-        value={value}
-        onInput={(e) => {
-          const target = e.target as HTMLInputElement
-          onChange(clamp(target.valueAsNumber, minInput, maxInput) || 0)
-        }}
-        style={{ width: 'auto' }}
-      />
-    </div>
-  )
-}
+import { renderNumberInput } from '../utils/HtmlElement'
 
 const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
@@ -145,8 +118,8 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     <div id='RessourcesPanel' className='tab-panel overflow-auto'>
       <h2>Ressources</h2>
 
-      {renderNumberInput(goldValue, 'Gold', 0, 2147483647, GoldChange)}
-      {renderNumberInput(recoatValue, 'Recoat', 0, 9999, RecoatChange)}
+      {renderNumberInput(goldValue, 'Gold', 0, 2147483647, GoldChange, false, '0.5rem')}
+      {renderNumberInput(recoatValue, 'Recoat', 0, 9999, RecoatChange, false, '0.5rem')}
       {/* limit to 9999 is set randomly, not tested */}
       <h3>Tints</h3>
       <table>
@@ -191,8 +164,14 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
         // Find the friendly name from TintsBeg
         const friendlyName =
           upgradeWeaponMatsdef.find(([baseName]) => name.startsWith(baseName))?.[1] || name
-        return renderNumberInput(level, friendlyName, 0, 2147483647, (newValue) =>
-          SetInventoryItems(name, newValue),
+        return renderNumberInput(
+          level,
+          friendlyName,
+          0,
+          2147483647,
+          (newValue) => SetInventoryItems(name, newValue),
+          false,
+          '0.5rem',
         )
       })}
     </div>
