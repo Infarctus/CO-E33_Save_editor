@@ -1,11 +1,11 @@
 import { readTextFile, writeTextFile } from '@tauri-apps/plugin-fs'
 import type {
   BeginMapping,
-  
   ItemsPassiveEffectsProgressions_0,
   PassiveEffectsProgressions_0,
   InventoryItems_0,
   RootProperties,
+  ExplorationProgression_0
 } from '../types/jsonSaveMapping'
 import type {IntTag,
   DoubleTag,
@@ -163,5 +163,24 @@ export function createNewGamePlus(value: number): RootProperties["FinishedGameCo
   return {
     Int: value,
     tag: { data: { Other: 'IntProperty' } },
+  }
+}
+
+export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0(): ExplorationProgression_0["Struct"]["Struct"]["WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0"] {
+  return {
+    tag: {
+      data:{
+        Array:{
+          Byte: "/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity"
+        }
+      }
+    },
+    Array: {
+      Base: {
+        Byte: {
+          Label: [],
+        },
+      },
+    },
   }
 }

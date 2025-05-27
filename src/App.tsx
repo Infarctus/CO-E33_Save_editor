@@ -25,6 +25,7 @@ import WeaponsPanel from './components/WeaponsPanel'
 import RessourcesPanel from './components/RessourcesPanel'
 import MonocoSkillsPanel from './components/MonocoSkillsPanel'
 import QuestItemsPanel from './components/QuestItemsPanel'
+import EsquieSkillsPanel from './components/EsquieSkillsPanel'
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
@@ -279,6 +280,9 @@ function App() {
         )}
         {activeTab === 'MonocoSkills' && (
           <MonocoSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
+        )}
+        {activeTab === 'EsquieSkills' && (
+          <EsquieSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
         )}
         {activeTab === 'QuestItems' && (
           <QuestItemsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
