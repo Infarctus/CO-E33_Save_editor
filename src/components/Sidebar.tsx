@@ -15,8 +15,7 @@ interface NavItem {
   id: string
   label: string
   icon: string
-  requiresFile?: boolean
-  hidden?: boolean
+  requiresFile: boolean
 }
 
 export const navItems: NavItem[] = [
@@ -46,7 +45,6 @@ const Sidebar: FC<SidebarProps> = ({
   
 
   const renderNavItem = (item: NavItem) => {
-    if (item.hidden) return null
 
     const isDisabled = item.requiresFile && !anyFileOpen
     const handleClick = () => {
