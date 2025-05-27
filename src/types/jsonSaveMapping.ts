@@ -1,51 +1,16 @@
-// Base tag types
-export interface Tags<T = string> {
-  data: {
-    Other: T
-  }
-}
-
-export interface TagsArray<T = string> {
-  data: {
-    Array: {
-      Other: T
-    }
-  }
-}
-
-// Basic property types
-export interface IntTag {
-  Int: number
-  tag: Tags<'IntProperty'>
-}
-
-export interface IntSingleton {
-  Int: number
-}
-
-export interface DoubleTag {
-  Double: number
-  tag: Tags<'DoubleProperty'>
-}
-
-export interface BoolTag {
-  Bool: boolean
-  tag: Tags<'BoolProperty'>
-}
-
-export interface StringTag {
-  Name: string
-  tag: Tags<'NameProperty'>
-}
-
-export interface StringsArrayTag {
-  tag: TagsArray<'NameProperty'>
-  Array: {
-    Base: {
-      Name: string[]
-    }
-  }
-}
+import type {
+  BoolTag,
+  ByteArray,
+  DoubleTag,
+  IntTag,
+  MapTagKeyStruct,
+  MapTagSimple,
+  MapTagValueStruct,
+  StringTag,
+  StringsArrayTag,
+  StructProperty,
+  StructypeTag,
+} from './Tags'
 
 // Character-related types
 
@@ -57,18 +22,7 @@ interface CharacterValueStructProperties {
   CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32_0: DoubleTag
   CurrentMP_57_41D543664CC0A23407A2D4B4D32029F6_0: DoubleTag
   CharacterActions_113_D080F16E432739A28E50959EABF1EEB0_0: {
-    tag: {
-      data: {
-        Map: {
-          key_type: {
-            Other: string
-          }
-          value_type: {
-            Other: string
-          }
-        }
-      }
-    }
+    tag: MapTagSimple<'NameProperty', 'IntProperty'>
     Map: Array<{
       key: {
         Name: string
@@ -80,7 +34,13 @@ interface CharacterValueStructProperties {
   }
   CharacterActionsOrder_151_4F0BD1CF4D6D664017CE0CAAF2C1F1FC_0: StringsArrayTag
   PassiveEffectProgressions_179_EB0DD7D2437EFED3D549E5BB92A5FF4E_0: {
-    tag: any
+    tag: MapTagValueStruct<
+      'NameProperty',
+      StructProperty<
+        '/Game/Gameplay/Lumina/FPassiveEffectProgression.FPassiveEffectProgression',
+        '25fd746e-4d79-298f-a2b1-aaaa36138cab'
+      >
+    >
     Map: Array<{
       key: {
         Name: string
@@ -90,23 +50,13 @@ interface CharacterValueStructProperties {
   }
   EquippedPassiveEffects_176_BE669BB547A1E730FDBF5AB2F0675853_0: StringsArrayTag
   EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9_0: {
-    tag: {
-      data: {
-        Map: {
-          key_type: {
-            Struct: {
-              struct_type: {
-                Struct: string
-              }
-              id: string
-            }
-          }
-          value_type: {
-            Other: string
-          }
-        }
-      }
-    }
+    tag: MapTagKeyStruct<
+      StructProperty<
+        '/Game/Gameplay/Inventory/FEquipmentSlot.FEquipmentSlot',
+        '4b8ac189-497e-a9e9-aefd-1487d521343a'
+      >,
+      'NameProperty'
+    >
     Map: Array<{
       key: {
         Struct: {
@@ -146,7 +96,10 @@ interface CharacterValueStructProperties {
   UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0: StringsArrayTag
   EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0: StringsArrayTag
   CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0: {
-    tag: any
+    tag: StructypeTag<
+      '/Game/Gameplay/CharacterCustomization/Blueprints/S_CharacterCustomizationItemData.S_CharacterCustomizationItemData',
+      '325444f7-4490-96e4-be49-5491b251dde7'
+    >
     Struct: {
       Struct: {
         CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0: StringTag
@@ -159,7 +112,7 @@ interface CharacterValueStructProperties {
 }
 
 export interface CharactersCollection_0Mapping {
-  tag: any
+  tag: MapTagValueStruct<"NameProperty", StructProperty<"/Game/jRPGTemplate/Structures/S_jRPG_CharacterSaveState.S_jRPG_CharacterSaveState","2d62e679-419b-7c1b-f99b-178f140c61a6">>
   Map: Array<CharactersInCollection0_Mapping>
 }
 
@@ -175,7 +128,7 @@ export interface CharactersInCollection0_Mapping {
 }
 
 export interface InventoryItems_0Mapping {
-  tag: any
+  tag: MapTagSimple<"NameProperty", "IntProperty">
   Map: Array<InventoryItems_0>
 }
 
@@ -193,6 +146,7 @@ export interface RootProperties {
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
   SaveDateTime_0: SaveDateTime_0
   EquippedConsumableShards_0: StringsArrayTag
+  ExplorationProgression_0: ExplorationProgression_0
   FinishedGameCount_0: IntTag | null
 }
 
@@ -225,9 +179,9 @@ export interface WeaponProgressions_0 {
 export interface SaveDateTime_0 {
   tag: {
     data: {
-      Struct: {
-        struct_type: 'DateTime'
-        id: '00000000-0000-0000-0000-000000000000'
+      Struct:{
+        struct_type : "DateTime"
+        id : "00000000-0000-0000-0000-000000000000"
       }
     }
   }
@@ -255,5 +209,18 @@ export interface ItemsPassiveEffectsProgressions_0 {
     PassiveEffectName_3_A92DB6CC4549450728A867A714ADF6C5_0: StringTag
     IsLearnt_9_2561000E49D90653437DE9A45BE2A86D_0: BoolTag
     LearntSteps_6_A14D681549E830249C77BD95F2B4CF3F_0: IntTag
+  }
+}
+
+export interface ExplorationProgression_0 {
+  tag: StructypeTag<
+    '/Game/Gameplay/Exploration/FExplorationProgression_SaveState.FExplorationProgression_SaveState',
+    'cddea10c-44bf-8e85-05f6-38b4d02bb14c'
+  >
+  Struct: {
+    Struct: {
+      ExplorationCapacities_22_D278AAE341C821F118686B81FD83BBB0_0: ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_ExplorationCapacity.E_ExplorationCapacity'>
+      WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0: ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity'>
+    }
   }
 }
