@@ -1,6 +1,30 @@
+
+use std::process::Command;
+
 use tauri::Manager;
 use tauri_plugin_log::Target;
 use tauri_plugin_log::TargetKind;
+
+#[tauri::command]
+fn open_explorer(path: String) {
+    #[cfg(target_os = "windows")]
+    Command::new("explorer")
+        .arg(path)
+        .spawn()
+        .expect("Failed to open explorer");
+
+    #[cfg(target_os = "macos")]
+    Command::new("open")
+        .arg(path)
+        .spawn()
+        .expect("Failed to open finder");
+
+    #[cfg(target_os = "linux")]
+    Command::new("xdg-open")
+        .arg(path)
+        .spawn()
+        .expect("Failed to open file manager");
+}
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
@@ -31,6 +55,8 @@ pub fn run() {
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![open_explorer])
+       
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
