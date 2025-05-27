@@ -13,7 +13,7 @@ export function renderNumberInput(
   return (
     <div style={{ marginBottom: StylemarginBottom }}>
       {label !== "" && (
-      <label htmlFor={label.toLowerCase() + '-input'} style={{ marginRight: '0.5rem' }}>
+      <label htmlFor={label.toLowerCase() + '-label'} style={{ marginRight: '0.5rem' }}>
         {label}
       </label>
       )}
