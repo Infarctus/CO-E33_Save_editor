@@ -324,16 +324,35 @@ def genmonocoskillsmapping():
     jsondump(output_data, output_path)
     print("New Monoco skill mapping generated successfully.")
         
+def gengrandientskillmapping():
+    inputgradient = "originalGameMapping/DT_Items_GradientAttackUnlocks.json"
+    output_path = os.path.join(output_dir, "gradientskills.json")
+    with open(inputgradient, "r", encoding="utf-8") as f:
+        gradientlist = json.load(f)[0].get("Rows")
+
+    output_data = {
+        "GradientSkills": {}
+    }
+
+    for gradient in gradientlist:
+        if not "GradientUnlock_" in gradient:
+            continue
+        charname = str(gradient).removeprefix("GradientUnlock_")[:-1]
+        if not output_data["GradientSkills"].get(charname):
+            output_data["GradientSkills"][charname] = []
+        output_data["GradientSkills"][charname].append(gradient)
+
+    jsondump(output_data, output_path)
+    print("Gradient skill mapping generated successfully.")
 
 
 
-
-
+gengrandientskillmapping()
 #genmonocoskillsmapping()
 #oldgenmonocoskillsmapping()
 #genquestitemsmapping()
 #genweaponmapping()    
 #genjournalsmapping()
-genpictomapping()
+#genpictomapping()
 #genskinmapping()
 #genmusicdiskmapping()

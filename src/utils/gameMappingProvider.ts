@@ -24,6 +24,9 @@ let monocoSkillsJson: {
   MonocoSkills: { [key: string]: { skillname: string; itemrequirements: string } }
 }
 let questItemsJson: QuestItemsMapping
+let gradientSkillsJson: {
+  GradientSkills: { [characterName: string]: string[] }
+}
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -65,6 +68,12 @@ export async function initGameMappings() {
     const stringQuestItemsJson = await readTextFile(resourceQuestItemsPath)
     questItemsJson = JSON.parse(stringQuestItemsJson)
     if (!('QuestItems' in questItemsJson)) throw 'QuestItems Json not as expected'
+
+    const resourceGradientSkillsPath = await path.join(MainDirPath, 'gradientskills.json')
+    const stringGradientSkillsJson = await readTextFile(resourceGradientSkillsPath)
+    gradientSkillsJson = JSON.parse(stringGradientSkillsJson)
+    if (!('GradientSkills' in gradientSkillsJson)) throw 'GradientSkills Json not as expected'
+      
   } catch (e: any) {
     trace(e)
     alert(
@@ -117,6 +126,10 @@ export function getUnlockedFacesFor(characterName: string, inventory: string[]):
   } else {
     return ['nothing']
   }
+}
+
+export function getPossibleGrandientSkillsFor(characterName: string): string[] {
+  return gradientSkillsJson.GradientSkills[characterName] || ['nothing']
 }
 
 export function getPossiblePictos(): [string, string][] {
