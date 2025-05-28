@@ -77,9 +77,9 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
         Int: newValue,
         tag: {
           data: {
-            Other: "IntProperty"
-          }
-        }
+            Other: 'IntProperty',
+          },
+        },
       }
     } else {
       jsonMapping.root.properties.FinishedGameCount_0.Int = newValue
@@ -196,11 +196,8 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
       })}
 
       <h3>Other</h3>
-      {
-      renderNumberInput(ngValue?.Int ?? 0, 'NG+ count', 0, 2147483647, NGChange, false, '0.5rem')}
-
+      {renderNumberInput(ngValue?.Int ?? 0, 'NG+ count', 0, 2147483647, NGChange, false, '0.5rem')}
     </div>
-    
   )
 }
 

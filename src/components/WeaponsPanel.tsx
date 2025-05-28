@@ -502,7 +502,7 @@ const WeaponsPanel: FC<WeaponsPanelProps> = ({ jsonMapping, triggerSaveNeeded })
                                   newValue,
                                 )
                               },
-                              !weapon.found
+                              !weapon.found,
                             )}
                           </td>
                         </tr>

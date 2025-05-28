@@ -45,7 +45,7 @@ const Sidebar: FC<SidebarProps> = ({
         aria-disabled={isDisabled ? 'true' : undefined}
         onClick={handleClick}
       >
-        <img src={"/iconsidebar/"+item.icon} alt={item.label} className='nav-icon' />
+        <img src={'/iconsidebar/' + item.icon} alt={item.label} className='nav-icon' />
         <span>{item.label}</span>
       </li>
     )

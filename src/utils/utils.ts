@@ -9,7 +9,7 @@ export const ticksToDate = (ticks: number) => {
   // .NET ticks represent 100-nanosecond intervals since January 1, 0001 UTC
   // Convert ticks to milliseconds and adjust for Unix epoch (January 1, 1970)
   const milliseconds = (ticks - 621355968000000000) / 10000
-  
+
   // Create date directly from Unix timestamp
   return new Date(milliseconds)
 }

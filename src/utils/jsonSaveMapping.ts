@@ -5,13 +5,9 @@ import type {
   PassiveEffectsProgressions_0,
   InventoryItems_0,
   RootProperties,
-  ExplorationProgression_0
+  ExplorationProgression_0,
 } from '../types/jsonSaveMapping'
-import type {IntTag,
-  DoubleTag,
-  BoolTag,
-  StringTag,
-  StringsArrayTag,} from '../types/Tags'
+import type { IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag } from '../types/Tags'
 import { debug, error, trace } from '@tauri-apps/plugin-log'
 
 /**
@@ -159,21 +155,21 @@ export function generateInventoryItems_0(genname: string, genvalue: number): Inv
   }
 }
 
-export function createNewGamePlus(value: number): RootProperties["FinishedGameCount_0"] {
+export function createNewGamePlus(value: number): RootProperties['FinishedGameCount_0'] {
   return {
     Int: value,
     tag: { data: { Other: 'IntProperty' } },
   }
 }
 
-export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0(): ExplorationProgression_0["Struct"]["Struct"]["WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0"] {
+export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0(): ExplorationProgression_0['Struct']['Struct']['WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0'] {
   return {
     tag: {
-      data:{
-        Array:{
-          Byte: "/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity"
-        }
-      }
+      data: {
+        Array: {
+          Byte: '/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity',
+        },
+      },
     },
     Array: {
       Base: {

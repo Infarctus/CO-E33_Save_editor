@@ -37,18 +37,90 @@ interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: SaveFilePanel },
-  { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
-  { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
-  { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
-  { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
-  { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
-  { id: 'Ressources', label: 'Ressources & Misc', icon: 'btnRessources.png', requiresFile: true, component: RessourcesPanel },
-  { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
-  { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
-  { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
-  { id: 'RawJson', label: 'Raw json', icon: 'btnRawEditor.png', requiresFile: true, component: RawJsonPanel },
-  { id: 'Backups', label: 'Backups', icon: 'btnBackup.png', requiresFile: false, component: BackupsPanel },
+  {
+    id: 'SaveFile',
+    label: 'Home',
+    icon: 'btnHome.png',
+    requiresFile: false,
+    component: SaveFilePanel,
+  },
+  {
+    id: 'Characters',
+    label: 'Characters',
+    icon: 'btnCharacters.png',
+    requiresFile: true,
+    component: CharactersPanel,
+  },
+  {
+    id: 'Weapons',
+    label: 'Weapons',
+    icon: 'btnWeapon.png',
+    requiresFile: true,
+    component: WeaponsPanel,
+  },
+  {
+    id: 'MonocoSkills',
+    label: 'Monoco Skills',
+    icon: 'btnMonocoSkills.png',
+    requiresFile: true,
+    component: MonocoSkillsPanel,
+  },
+  {
+    id: 'EsquieSkills',
+    label: 'Esquie Skills',
+    icon: 'btnEsquie.png',
+    requiresFile: true,
+    component: EsquieSkillsPanel,
+  },
+  {
+    id: 'Pictos',
+    label: 'Pictos',
+    icon: 'btnPicto.png',
+    requiresFile: true,
+    component: PictosPanel,
+  },
+  {
+    id: 'Ressources',
+    label: 'Ressources & Misc',
+    icon: 'btnRessources.png',
+    requiresFile: true,
+    component: RessourcesPanel,
+  },
+  {
+    id: 'MusicDisks',
+    label: 'Music Disks',
+    icon: 'btnMusicRecordIcon.png',
+    requiresFile: true,
+    component: MusicDisksPanel,
+  },
+  {
+    id: 'Journals',
+    label: 'Journals',
+    icon: 'btnJournal.png',
+    requiresFile: true,
+    component: JournalsPanel,
+  },
+  {
+    id: 'QuestItems',
+    label: 'Quest Items',
+    icon: 'btnQuestItems.png',
+    requiresFile: true,
+    component: QuestItemsPanel,
+  },
+  {
+    id: 'RawJson',
+    label: 'Raw json',
+    icon: 'btnRawEditor.png',
+    requiresFile: true,
+    component: RawJsonPanel,
+  },
+  {
+    id: 'Backups',
+    label: 'Backups',
+    icon: 'btnBackup.png',
+    requiresFile: false,
+    component: BackupsPanel,
+  },
 ]
 
 function App() {
@@ -251,20 +323,20 @@ function App() {
         return {
           openResult: workingFileCurrent,
           jsonMapping,
-          key: updateKey
+          key: updateKey,
         }
       case 'RawJson':
         return {
           jsonMapping,
           onJsonChange: handleJsonChange,
-          onCommitChanges: commitJsonChanges
+          onCommitChanges: commitJsonChanges,
         }
       case 'Backups':
         return {}
       default:
         return {
           jsonMapping,
-          triggerSaveNeeded
+          triggerSaveNeeded,
         }
     }
   }
@@ -272,10 +344,10 @@ function App() {
   const renderPanels = () => {
     return navItems.map((item) => {
       if (activeTab !== item.id) return null
-      
+
       const Component = item.component
       const props = getComponentProps(item.id)
-      
+
       return (
         <ErrorBoundary key={item.id}>
           <Component {...props} />
@@ -295,9 +367,7 @@ function App() {
         anyFileOpen={workingFileCurrent !== null}
       />
 
-      <main className='content'>
-        {renderPanels()}
-      </main>
+      <main className='content'>{renderPanels()}</main>
 
       <InfoBanner message={infoMessage} />
     </div>

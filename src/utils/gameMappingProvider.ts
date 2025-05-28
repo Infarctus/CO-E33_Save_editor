@@ -73,7 +73,6 @@ export async function initGameMappings() {
     const stringGradientSkillsJson = await readTextFile(resourceGradientSkillsPath)
     gradientSkillsJson = JSON.parse(stringGradientSkillsJson)
     if (!('GradientSkills' in gradientSkillsJson)) throw 'GradientSkills Json not as expected'
-      
   } catch (e: any) {
     trace(e)
     alert(
