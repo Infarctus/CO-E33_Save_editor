@@ -36,91 +36,20 @@ interface NavItem {
   component: React.ComponentType<any>
 }
 
+// prettier-ignore
 export const navItems: NavItem[] = [
-  {
-    id: 'SaveFile',
-    label: 'Home',
-    icon: 'btnHome.png',
-    requiresFile: false,
-    component: SaveFilePanel,
-  },
-  {
-    id: 'Characters',
-    label: 'Characters',
-    icon: 'btnCharacters.png',
-    requiresFile: true,
-    component: CharactersPanel,
-  },
-  {
-    id: 'Weapons',
-    label: 'Weapons',
-    icon: 'btnWeapon.png',
-    requiresFile: true,
-    component: WeaponsPanel,
-  },
-  {
-    id: 'MonocoSkills',
-    label: 'Monoco Skills',
-    icon: 'btnMonocoSkills.png',
-    requiresFile: true,
-    component: MonocoSkillsPanel,
-  },
-  {
-    id: 'EsquieSkills',
-    label: 'Esquie Skills',
-    icon: 'btnEsquie.png',
-    requiresFile: true,
-    component: EsquieSkillsPanel,
-  },
-  {
-    id: 'Pictos',
-    label: 'Pictos',
-    icon: 'btnPicto.png',
-    requiresFile: true,
-    component: PictosPanel,
-  },
-  {
-    id: 'Ressources',
-    label: 'Ressources & Misc',
-    icon: 'btnRessources.png',
-    requiresFile: true,
-    component: RessourcesPanel,
-  },
-  {
-    id: 'MusicDisks',
-    label: 'Music Disks',
-    icon: 'btnMusicRecordIcon.png',
-    requiresFile: true,
-    component: MusicDisksPanel,
-  },
-  {
-    id: 'Journals',
-    label: 'Journals',
-    icon: 'btnJournal.png',
-    requiresFile: true,
-    component: JournalsPanel,
-  },
-  {
-    id: 'QuestItems',
-    label: 'Quest Items',
-    icon: 'btnQuestItems.png',
-    requiresFile: true,
-    component: QuestItemsPanel,
-  },
-  {
-    id: 'RawJson',
-    label: 'Raw json',
-    icon: 'btnRawEditor.png',
-    requiresFile: true,
-    component: RawJsonPanel,
-  },
-  {
-    id: 'Backups',
-    label: 'Backups',
-    icon: 'btnBackup.png',
-    requiresFile: false,
-    component: BackupsPanel,
-  },
+  { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: SaveFilePanel },
+  { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
+  { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
+  { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
+  { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
+  { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
+  { id: 'Ressources', label: 'Ressources & Misc', icon: 'btnRessources.png', requiresFile: true, component: RessourcesPanel },
+  { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
+  { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
+  { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
+  { id: 'RawJson', label: 'Raw json', icon: 'btnRawEditor.png', requiresFile: true, component: RawJsonPanel },
+  { id: 'Backups', label: 'Backups', icon: 'btnBackup.png', requiresFile: false, component: BackupsPanel },
 ]
 
 function App() {
