@@ -1,7 +1,6 @@
 'use client'
 
 import { type FC, useState, useEffect, useMemo } from 'react'
-import type { OpenProcessResult } from '../types/fileTypes'
 import { getECharacterAttributeEnumValue } from '../types/enums'
 import type { BeginMapping, CharactersInCollection0_Mapping } from '../types/jsonSaveMapping'
 import { getValueFromTag } from '../utils/jsonSaveMapping'
@@ -10,6 +9,8 @@ import {
   getUnlockedSkinsFor,
   getPossibleFacesFor,
   getUnlockedFacesFor,
+  getPossibleGrandientSkillsFor,
+  SetInventoryItem
 } from '../utils/gameMappingProvider'
 import { trace } from '@tauri-apps/plugin-log'
 import { useInfo } from './InfoContext'
@@ -20,16 +21,10 @@ interface CharactersPanelProps {
   triggerSaveNeeded: () => void
 }
 
-const CharactersPanel: FC<CharactersPanelProps> = ({
-  jsonMapping,
-  triggerSaveNeeded,
-}) => {
+const CharactersPanel: FC<CharactersPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   // Hard-coded allowed values for dropdowns etc.
 
-  if (
-    !jsonMapping ||
-    jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null
-  ) {
+  if (!jsonMapping || jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null) {
     return (
       <div id='CharactersPanel' className='tab-panel'>
         <h2>Characters</h2>
@@ -68,6 +63,7 @@ const CharactersPanel: FC<CharactersPanelProps> = ({
               character.key.Name,
               jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name),
             )}
+            gradientskill={getPossibleGrandientSkillsFor(character.key.Name)}
           />
         ))}
       </div>
@@ -82,8 +78,8 @@ interface CharacterSectionProps {
   triggerSaveNeeded: () => void
   currentSkins: string[]
   currentFaces: string[]
+  gradientskill: string[]
 }
-
 const CharacterSection: FC<CharacterSectionProps> = ({
   character,
   characterIndex,
@@ -91,8 +87,16 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   triggerSaveNeeded,
   currentSkins,
   currentFaces,
+  gradientskill,
 }) => {
   const { setInfoMessage } = useInfo()
+  const [isSkillsVisible, setIsSkillsVisible] = useState(false)
+
+  // Initialize local skills state from inventory
+  const [localSkills, setLocalSkills] = useState<Set<string>>(() => {
+    const inventoryItems = jsonMapping.root.properties.InventoryItems_0.Map.map(el => el.key.Name)
+    return new Set(gradientskill.filter(skill => inventoryItems.includes(skill)))
+  })
 
   function logAndInfo(message: string) {
     setInfoMessage(message)
@@ -102,6 +106,25 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   const allowedCustomizationsFace = useMemo(() => getPossibleFacesFor(character.key.Name), [])
 
   const allowedSkins = useMemo(() => getPossibleSkinsFor(character.key.Name), [])
+
+  const handleSkillToggle = (skillName: string, isUnlocked: boolean) => {
+    triggerSaveNeeded()
+    
+    SetInventoryItem(jsonMapping, skillName, 1, isUnlocked)
+    
+    // Update local state immediately
+    setLocalSkills(prev => {
+      const newSet = new Set(prev)
+      if (isUnlocked) {
+        newSet.add(skillName)
+      } else {
+        newSet.delete(skillName)
+      }
+      return newSet
+    })
+    
+    trace(`skill ${skillName} ${isUnlocked ? 'unlocked' : 'locked'}`)
+  }
 
   let characterName = character.key.Name
   if (character.key.Name == 'Frey') characterName = 'Gustave'
@@ -179,39 +202,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           })}
         </div>
 
-        {/* Skills */}
-        {/*<SkillsEditor
-          titleText="Skills"
-          currentList={
-            character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
-          }
-          availableOptions={allowedSkills}
-          onUpdateSkill={(newList) => {
-            triggerSaveNeeded()
-            jsonMapping.root.properties.CharactersCollection_0.Map[
-              characterIndex
-            ].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList
-            trace(`Character ${character.key.Name} UnlockedSkills updated to ${newList.join("+ ")}`)
-          }}
-        />
-        */}
-
-        {/* Pictos */}
-        {/*<SkillsEditor
-          titleText="Pictos"
-          currentList={
-            character.value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name
-          }
-          availableOptions={allowedSkills}
-          onUpdate={(newList) => {
-            triggerSaveNeeded()
-            jsonMapping.root.properties.CharactersCollection_0.Map[
-              characterIndex
-            ].value.Struct.Struct.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0.Array.Base.Name = newList
-            trace(`Character ${character.key.Name} Pictos updated to ${newList.join("+ ")}`)
-          }}
-        />
-        */}
+        
 
         {/* Character Customization (face) */}
         <CharacCustoEditor
@@ -279,6 +270,43 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             trace(`Character ${characterName} bodies updated to ${newList.join('+ ')}`)
           }}
         />
+
+        {/* Skills */}
+        {gradientskill.length > 0 && gradientskill[0] != "nothing" && (
+          <div className='characterEditModule' style={{ marginTop: '1rem' }}>
+            <div className='header'>
+              <h4>Skills Gradient</h4>
+              <button onClick={() => setIsSkillsVisible(!isSkillsVisible)}>
+                {isSkillsVisible ? 'Collapse' : 'Expand'}
+              </button>
+            </div>
+
+            {isSkillsVisible && (
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <tbody>
+                  {gradientskill.map((skill) => {
+                    const isUnlocked = localSkills.has(skill)
+                    return (
+                      <tr key={skill}>
+                        <td style={{ padding: '0.5em' }}>{skill.replace("Unlock_"," ")}</td>
+                        <td style={{ textAlign: 'center', padding: '0.5em' }}>
+                          <label className='switch'>
+                            <input
+                              type='checkbox'
+                              checked={isUnlocked}
+                              onChange={(e) => handleSkillToggle(skill, e.target.checked)}
+                            />
+                            <div className='slider round'></div>
+                          </label>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            )}
+          </div>
+        )}
       </div>
     </section>
   )

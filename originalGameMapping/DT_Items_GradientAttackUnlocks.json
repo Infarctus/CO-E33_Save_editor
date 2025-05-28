@@ -1,0 +1,646 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DT_Items_GradientAttackUnlocks",
+    "Class": "UScriptClass'DataTable'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "UserDefinedStruct'S_jRPG_Item_StaticData'",
+        "ObjectPath": "/Game/jRPGTemplate/Structures/S_jRPG_Item_StaticData.0"
+      }
+    },
+    "Rows": {
+      "GradientUnlock_Maelle1": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Maelle1",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Maelle1"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Maelle1"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Maelle2": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Maelle2",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Maelle2"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Maelle2"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Maelle3": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Maelle3",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Maelle3"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Maelle3"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Verso1": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Verso1",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Verso1"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Verso1"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Verso2": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Verso2",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Verso2"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Verso2"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Verso3": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Verso3",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Verso3"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Verso3"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Lune1": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Lune1",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Lune1"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Lune1"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Lune2": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Lune2",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Lune2"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Lune2"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Lune3": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Lune3",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Lune3"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Lune3"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Sciel1": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Sciel1",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Sciel1"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Sciel1"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Sciel2": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Sciel2",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Sciel2"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Sciel2"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Sciel3": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Sciel3",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Sciel3"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Sciel3"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Monoco1": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Monoco1",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Monoco1"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Monoco1"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Monoco2": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Monoco2",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Monoco2"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Monoco2"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "GradientUnlock_Monoco3": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "GradientUnlock_Monoco3",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "GradientUnlock_Monoco3"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator20",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "GradientUnlock_Monoco3"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "Gustave_SkillTreeUnlock": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Gustave_SkillTreeUnlock",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "Gustave_SkillTreeUnlock"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator16",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": "Gustave_SkillTreeUnlock"
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "Quest_MaellePainterSkillsUnlock": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Quest_MaellePainterSkillsUnlock",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "Quest_MaellePainterSkillsUnlock"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator18",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": null
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      },
+      "Quest_MaelleGustaveUnlock": {
+        "Item_HardcodedName_90_C7F763B74AAB28EF890A66854D7D95AA": "Quest_MaelleGustaveUnlock",
+        "Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA": {
+          "CultureInvariantString": "Quest_MaelleGustaveUnlock"
+        },
+        "Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78": "E_jRPG_ItemType::NewEnumerator17",
+        "Item_Subtype_87_0CE0028F4D632385B61EDABBFBDF5360": "E_jRPG_ItemSubtype::NewEnumerator18",
+        "Item_Rarity_86_4D9579394454700B6BC0ABAECA0714C8": "E_jRPG_ItemRarity::NewEnumerator5",
+        "Item_Icon_95_4D742A7E46F761161F9173969C69F468": {
+          "AssetPathName": "/Game/Gameplay/Inventory/Data/T_Inventory_MissingItem.T_Inventory_MissingItem",
+          "SubPathString": ""
+        },
+        "ItemDescription_32_0A978AFB4AB4B316342DD6A72ACDD4E1": {
+          "CultureInvariantString": null
+        },
+        "Item_BuyValue_83_87DF330B4B2375397869D6BFDB7C2DED": 10,
+        "Item_SellValue_84_23F9177348231971507F9494D0E3DA1D": 5,
+        "Consumable_CanBeUsedInBattle?_74_5EA5813946B70E3FD9333289C000D538": false,
+        "Consumable_CanBeUsedInInventory?_75_55B1EE634A155E1A8A4F439A77864154": false,
+        "Consumable_MaxStackAmount_76_2DD073774D235ED7EE5C8F99817D7FFA": 1,
+        "Consumable_TargetingType_79_04B50DFD410E7F51F4E5E1A128555D0B": "E_jRPG_TargetingType::NewEnumerator2",
+        "Pictos_ItemStats_91_229F4A00415AB214191377B73987FF7B": [],
+        "Pictos_Data_103_EE44D66B4E4F16A7FD44FF9F25777CF4": null,
+        "Pictos_UnlockedPassiveEffects_80_3D9B4EBE450583A832342793077EFC06": [],
+        "Pictos_SkinTexture_94_B9C9F0E345B3A0DF3E5F5D899B0C1342": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "Weapon_SkeletalMesh_92_39AC3B454F3982F34602CFBE066CA846": {
+          "AssetPathName": "",
+          "SubPathString": ""
+        },
+        "HideInInventory_105_28F500C94EA8D5C6632F7E8E4A85586E": true,
+        "HideInLootPopup_107_333FB0CB4314A0D9E40A7F8480A5686A": true
+      }
+    }
+  }
+]
