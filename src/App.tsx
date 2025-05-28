@@ -16,7 +16,7 @@ import RessourcesPanel from './components/RessourcesPanel'
 import MonocoSkillsPanel from './components/MonocoSkillsPanel'
 import QuestItemsPanel from './components/QuestItemsPanel'
 import EsquieSkillsPanel from './components/EsquieSkillsPanel'
-import { ErrorBoundary } from './components/ErrorBoundary'
+import { ErrorBoundary } from './utils/HtmlElement'
 import {
   handleSaveFileAndExtractToJson,
   handleJsonAndConvertToSaveFile,
