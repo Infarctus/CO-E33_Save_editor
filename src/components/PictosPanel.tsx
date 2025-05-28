@@ -542,7 +542,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
                   textAlign: 'center',
                 }}
               >
-                 <input
+                <input
                   type='number'
                   min={1}
                   max={33}

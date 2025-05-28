@@ -99,14 +99,12 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
           </div>
         )) || <div>No file is currently open.</div>}
         <br />
-
         <hr />
         <br />
-        <div style={{display: "flex"}}>
-        <button onClick={() => openLocalFolder("data")}>Open editor folder</button>
-        <button onClick={() => openLocalFolder("logs")}>Open logs folder</button>
-        {/* <button>Open editor logs</button> */}
-
+        <div style={{ display: 'flex' }}>
+          <button onClick={() => openLocalFolder('data')}>Open editor folder</button>
+          <button onClick={() => openLocalFolder('logs')}>Open logs folder</button>
+          {/* <button>Open editor logs</button> */}
         </div>
       </div>
     </div>

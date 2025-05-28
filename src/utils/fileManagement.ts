@@ -43,7 +43,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
       backupDir,
       `${now.toISOString().replace(/:/g, '–')}_${fileName}.bak`,
     )
-    const tempJsonPath = await join(saveHandlingBasePath, "CurrentWorkingSave.json")
+    const tempJsonPath = await join(saveHandlingBasePath, 'CurrentWorkingSave.json')
 
     // Create backup directory if it doesn't exist
     try {
@@ -203,7 +203,7 @@ export async function getAllBackups(): Promise<string[]> {
 export async function openLocalFolder(path: string) {
   const userDataPath = await appLocalDataDir()
   const saveHandlingBasePath = await join(userDataPath, path)
-  trace("Opening " + saveHandlingBasePath)
+  trace('Opening ' + saveHandlingBasePath)
 
-  await invoke('open_explorer', { path: saveHandlingBasePath });
+  await invoke('open_explorer', { path: saveHandlingBasePath })
 }

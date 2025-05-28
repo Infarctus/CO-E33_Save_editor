@@ -65,7 +65,7 @@ export interface StringsArrayTag {
 }
 
 export interface StructypeTag<StructPath = string, id = string> {
-    data: StructProperty<StructPath, id>
+  data: StructProperty<StructPath, id>
 }
 
 export interface StructProperty<StructPath = string, id = string> {

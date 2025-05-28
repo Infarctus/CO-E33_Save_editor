@@ -112,7 +112,13 @@ interface CharacterValueStructProperties {
 }
 
 export interface CharactersCollection_0Mapping {
-  tag: MapTagValueStruct<"NameProperty", StructProperty<"/Game/jRPGTemplate/Structures/S_jRPG_CharacterSaveState.S_jRPG_CharacterSaveState","2d62e679-419b-7c1b-f99b-178f140c61a6">>
+  tag: MapTagValueStruct<
+    'NameProperty',
+    StructProperty<
+      '/Game/jRPGTemplate/Structures/S_jRPG_CharacterSaveState.S_jRPG_CharacterSaveState',
+      '2d62e679-419b-7c1b-f99b-178f140c61a6'
+    >
+  >
   Map: Array<CharactersInCollection0_Mapping>
 }
 
@@ -128,7 +134,7 @@ export interface CharactersInCollection0_Mapping {
 }
 
 export interface InventoryItems_0Mapping {
-  tag: MapTagSimple<"NameProperty", "IntProperty">
+  tag: MapTagSimple<'NameProperty', 'IntProperty'>
   Map: Array<InventoryItems_0>
 }
 
@@ -179,9 +185,9 @@ export interface WeaponProgressions_0 {
 export interface SaveDateTime_0 {
   tag: {
     data: {
-      Struct:{
-        struct_type : "DateTime"
-        id : "00000000-0000-0000-0000-000000000000"
+      Struct: {
+        struct_type: 'DateTime'
+        id: '00000000-0000-0000-0000-000000000000'
       }
     }
   }
@@ -220,7 +226,7 @@ export interface ExplorationProgression_0 {
   Struct: {
     Struct: {
       ExplorationCapacities_22_D278AAE341C821F118686B81FD83BBB0_0: ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_ExplorationCapacity.E_ExplorationCapacity'>
-      WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0? : ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity'>
+      WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0?: ByteArray<'/Game/Gameplay/Exploration/ExplorationCapacities/E_WorldMapExplorationCapacity.E_WorldMapExplorationCapacity'>
     }
   }
 }

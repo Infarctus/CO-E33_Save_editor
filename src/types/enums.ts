@@ -16,11 +16,11 @@ export function getECharacterAttributeEnumValue(index: number): string {
 }
 
 export enum E_WorldMapExplorationCapacity {
-  Base = "Unlock Esquie",
-  HardenLands = "Break rocks",
-  Swim = "Swim",
-  SwimBoost = "Swim through coral", // I think it's breaking coral ability
-  Fly = "Fly"
+  Base = 'Unlock Esquie',
+  HardenLands = 'Break rocks',
+  Swim = 'Swim',
+  SwimBoost = 'Swim through coral', // I think it's breaking coral ability
+  Fly = 'Fly',
 }
 
 export function getE_WorldMapExplorationCapacity(index: number): string {

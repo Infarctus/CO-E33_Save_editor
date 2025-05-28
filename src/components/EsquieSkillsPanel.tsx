@@ -16,7 +16,7 @@ interface EsquieSkill {
   index: number
 }
 
-const esquieabilityenum = "E_WorldMapExplorationCapacity::NewEnumerator"
+const esquieabilityenum = 'E_WorldMapExplorationCapacity::NewEnumerator'
 
 const EsquieSkillsPanel: FC<EsquieSkillsPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.ExplorationProgression_0) {
@@ -42,8 +42,8 @@ const EsquieSkillsPanel: FC<EsquieSkillsPanelProps> = ({ jsonMapping, triggerSav
       !jsonMapping?.root?.properties?.ExplorationProgression_0?.Struct?.Struct
         ?.WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0
     ) {
-    jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 
-        = createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
+      jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 =
+        createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
       return []
     }
     return (
@@ -57,7 +57,7 @@ const EsquieSkillsPanel: FC<EsquieSkillsPanelProps> = ({ jsonMapping, triggerSav
     return Object.entries(E_WorldMapExplorationCapacity).map(([key, friendlyName], index) => ({
       name: key,
       friendlyName,
-      isUnlocked: currworldMapCapacities.includes(esquieabilityenum+index),
+      isUnlocked: currworldMapCapacities.includes(esquieabilityenum + index),
       index,
     }))
   }, [currworldMapCapacities])
@@ -65,13 +65,16 @@ const EsquieSkillsPanel: FC<EsquieSkillsPanelProps> = ({ jsonMapping, triggerSav
   const [skills, setSkills] = useState<EsquieSkill[]>(initialSkills)
 
   const handleSkillToggle = (skillIndex: number, isUnlocked: boolean) => {
-    const updatedSkills = skills.map(skill => 
-      skill.index === skillIndex ? { ...skill, isUnlocked } : skill
+    const updatedSkills = skills.map((skill) =>
+      skill.index === skillIndex ? { ...skill, isUnlocked } : skill,
     )
     setSkills(updatedSkills)
 
     // Update the actual save data
-    const currentCapacities = [...(jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0!.Array.Base.Byte.Label || [])]
+    const currentCapacities = [
+      ...(jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct
+        .WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0!.Array.Base.Byte.Label || []),
+    ]
     const skillKey = esquieabilityenum + skillIndex
 
     if (isUnlocked && !currentCapacities.includes(skillKey)) {
@@ -81,10 +84,11 @@ const EsquieSkillsPanel: FC<EsquieSkillsPanelProps> = ({ jsonMapping, triggerSav
       currentCapacities.splice(indexToRemove, 1)
     }
 
-    jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0!.Array.Base.Byte.Label = currentCapacities || []
+    jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.WorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0!.Array.Base.Byte.Label =
+      currentCapacities || []
     triggerSaveNeeded()
-    
-    const skill = updatedSkills.find(s => s.index === skillIndex)
+
+    const skill = updatedSkills.find((s) => s.index === skillIndex)
     logAndInfo(`${isUnlocked ? 'Unlocked' : 'Locked'} Esquie skill: ${skill?.friendlyName}`)
   }
 

@@ -10,7 +10,7 @@ import {
   getPossibleFacesFor,
   getUnlockedFacesFor,
   getPossibleGrandientSkillsFor,
-  SetInventoryItem
+  SetInventoryItem,
 } from '../utils/gameMappingProvider'
 import { trace } from '@tauri-apps/plugin-log'
 import { useInfo } from './InfoContext'
@@ -94,8 +94,8 @@ const CharacterSection: FC<CharacterSectionProps> = ({
 
   // Initialize local skills state from inventory
   const [localSkills, setLocalSkills] = useState<Set<string>>(() => {
-    const inventoryItems = jsonMapping.root.properties.InventoryItems_0.Map.map(el => el.key.Name)
-    return new Set(gradientskill.filter(skill => inventoryItems.includes(skill)))
+    const inventoryItems = jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name)
+    return new Set(gradientskill.filter((skill) => inventoryItems.includes(skill)))
   })
 
   function logAndInfo(message: string) {
@@ -109,11 +109,11 @@ const CharacterSection: FC<CharacterSectionProps> = ({
 
   const handleSkillToggle = (skillName: string, isUnlocked: boolean) => {
     triggerSaveNeeded()
-    
+
     SetInventoryItem(jsonMapping, skillName, 1, isUnlocked)
-    
+
     // Update local state immediately
-    setLocalSkills(prev => {
+    setLocalSkills((prev) => {
       const newSet = new Set(prev)
       if (isUnlocked) {
         newSet.add(skillName)
@@ -122,7 +122,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
       }
       return newSet
     })
-    
+
     trace(`skill ${skillName} ${isUnlocked ? 'unlocked' : 'locked'}`)
   }
 
@@ -202,8 +202,6 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           })}
         </div>
 
-        
-
         {/* Character Customization (face) */}
         <CharacCustoEditor
           titleText='Hair Customization'
@@ -272,7 +270,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
         />
 
         {/* Skills */}
-        {gradientskill.length > 0 && gradientskill[0] != "nothing" && (
+        {gradientskill.length > 0 && gradientskill[0] != 'nothing' && (
           <div className='characterEditModule' style={{ marginTop: '1rem' }}>
             <div className='header'>
               <h4>Skills Gradient</h4>
@@ -288,7 +286,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                     const isUnlocked = localSkills.has(skill)
                     return (
                       <tr key={skill}>
-                        <td style={{ padding: '0.5em' }}>{skill.replace("Unlock_"," ")}</td>
+                        <td style={{ padding: '0.5em' }}>{skill.replace('Unlock_', ' ')}</td>
                         <td style={{ textAlign: 'center', padding: '0.5em' }}>
                           <label className='switch'>
                             <input

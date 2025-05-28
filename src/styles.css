@@ -340,7 +340,7 @@ code {
 div.cadre {
   border: 2px solid var(--col-border-1);
   border-radius: 4px;
-  padding: 4px  ;
+  padding: 4px;
 }
 
 /* jsoneditor dark theme */
