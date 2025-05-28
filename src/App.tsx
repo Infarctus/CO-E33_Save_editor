@@ -10,6 +10,13 @@ import RawJsonPanel from './components/RawJsonPanel'
 import InfoBanner from './components/InfoBanner'
 import MusicDisksPanel from './components/MusicDisksPanel'
 import JournalsPanel from './components/JournalsPanel'
+import PictosPanel from './components/PictosPanel'
+import WeaponsPanel from './components/WeaponsPanel'
+import RessourcesPanel from './components/RessourcesPanel'
+import MonocoSkillsPanel from './components/MonocoSkillsPanel'
+import QuestItemsPanel from './components/QuestItemsPanel'
+import EsquieSkillsPanel from './components/EsquieSkillsPanel'
+import { ErrorBoundary } from './components/ErrorBoundary'
 import {
   handleSaveFileAndExtractToJson,
   handleJsonAndConvertToSaveFile,
@@ -18,43 +25,46 @@ import { getMappingJsonFromFile, saveMappingJsonToDisk } from './utils/jsonSaveM
 import type { OpenProcessResult } from './types/fileTypes'
 import type { BeginMapping } from './types/jsonSaveMapping'
 import './styles.css'
-import PictosPanel from './components/PictosPanel'
 import { trace, error } from '@tauri-apps/plugin-log'
 import { useInfo } from './components/InfoContext'
-import WeaponsPanel from './components/WeaponsPanel'
-import RessourcesPanel from './components/RessourcesPanel'
-import MonocoSkillsPanel from './components/MonocoSkillsPanel'
-import QuestItemsPanel from './components/QuestItemsPanel'
-import EsquieSkillsPanel from './components/EsquieSkillsPanel'
-import { ErrorBoundary } from './components/ErrorBoundary'
+
+interface NavItem {
+  id: string
+  label: string
+  icon: string
+  requiresFile: boolean
+  component: React.ComponentType<any>
+}
+
+export const navItems: NavItem[] = [
+  { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: SaveFilePanel },
+  { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
+  { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
+  { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
+  { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: EsquieSkillsPanel },
+  { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
+  { id: 'Ressources', label: 'Ressources', icon: 'btnRessources.png', requiresFile: true, component: RessourcesPanel },
+  { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
+  { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
+  { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
+  { id: 'RawJson', label: 'Raw json', icon: 'btnRawEditor.png', requiresFile: true, component: RawJsonPanel },
+  { id: 'Backups', label: 'Backups', icon: 'btnBackup.png', requiresFile: false, component: BackupsPanel },
+]
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
   const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null)
-  // const [infoMessage, setInfoMessage] = useState<string>("Welcome. Use the Open File button to get started.")
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
-  const [updateKey, setUpdateKey] = useState(0) // State to trigger re-render
+  const [updateKey, setUpdateKey] = useState(0)
 
   const { infoMessage, setInfoMessage } = useInfo()
+
   function errorAndInfo(message: string) {
     setInfoMessage(message)
     error(message)
   }
-
-  // Override console methods to capture logs
-  // useConsoleOverride(setLogs, setInfoMessage)
-
-  // // Use useEffect to call initGameMappings once when the component mounts
-  // useEffect(() => {
-  //    attachConsole().then(() => {
-  //     debug("debug HellO wOrld f108277c-f5ae-495c-901d-6d6ccf13d55a")
-  //     trace("console debug")
-  //   });
-
-  //   initGameMappings();
-  // }, []); // Empty dependency array ensures this runs only once
 
   const switchTab = async (tabName: string): Promise<boolean> => {
     // Check if we're leaving the RawJson tab with unsaved changes
@@ -235,6 +245,45 @@ function App() {
     }
   }
 
+  const getComponentProps = (tabId: string) => {
+    switch (tabId) {
+      case 'SaveFile':
+        return {
+          openResult: workingFileCurrent,
+          jsonMapping,
+          key: updateKey
+        }
+      case 'RawJson':
+        return {
+          jsonMapping,
+          onJsonChange: handleJsonChange,
+          onCommitChanges: commitJsonChanges
+        }
+      case 'Backups':
+        return {}
+      default:
+        return {
+          jsonMapping,
+          triggerSaveNeeded
+        }
+    }
+  }
+
+  const renderPanels = () => {
+    return navItems.map((item) => {
+      if (activeTab !== item.id) return null
+      
+      const Component = item.component
+      const props = getComponentProps(item.id)
+      
+      return (
+        <ErrorBoundary key={item.id}>
+          <Component {...props} />
+        </ErrorBoundary>
+      )
+    })
+  }
+
   return (
     <div className='layout'>
       <Sidebar
@@ -247,82 +296,7 @@ function App() {
       />
 
       <main className='content'>
-            {activeTab === 'SaveFile' && (
-        <ErrorBoundary>
-          <SaveFilePanel
-            openResult={workingFileCurrent}
-            jsonMapping={jsonMapping}
-            key={updateKey}
-          />
-        </ErrorBoundary>
-      )}
-
-      {activeTab === 'Characters' && (
-        <ErrorBoundary>
-          <CharactersPanel
-            workingFileCurrent={workingFileCurrent}
-            jsonMapping={jsonMapping}
-            triggerSaveNeeded={triggerSaveNeeded}
-          />
-        </ErrorBoundary>
-      )}
-
-      {activeTab === 'Pictos' && (
-        <ErrorBoundary>
-          <PictosPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-      {activeTab === 'MusicDisks' && (
-        <ErrorBoundary>
-          <MusicDisksPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-      {activeTab === 'Journals' && (
-        <ErrorBoundary>
-          <JournalsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-
-      {activeTab === 'Weapons' && (
-        <ErrorBoundary>
-          <WeaponsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-      {activeTab === 'Ressources' && (
-        <ErrorBoundary>
-          <RessourcesPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-      {activeTab === 'MonocoSkills' && (
-        <ErrorBoundary>
-          <MonocoSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-      {activeTab === 'EsquieSkills' && (
-        <ErrorBoundary>
-          <EsquieSkillsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-      {activeTab === 'QuestItems' && (
-        <ErrorBoundary>
-          <QuestItemsPanel jsonMapping={jsonMapping} triggerSaveNeeded={triggerSaveNeeded} />
-        </ErrorBoundary>
-      )}
-      {activeTab === 'Backups' && (
-        <ErrorBoundary>
-          <BackupsPanel />
-        </ErrorBoundary>
-      )}
-
-      {activeTab === 'RawJson' && (
-        <ErrorBoundary>
-          <RawJsonPanel
-            jsonMapping={jsonMapping}
-            onJsonChange={handleJsonChange}
-            onCommitChanges={commitJsonChanges}
-          />
-        </ErrorBoundary>
-      )}
+        {renderPanels()}
       </main>
 
       <InfoBanner message={infoMessage} />
