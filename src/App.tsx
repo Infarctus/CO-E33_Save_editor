@@ -146,7 +146,7 @@ function App() {
       // Ask user where to save the save file (either .sav or no extension)
       const currentFileExt =
         workingFileCurrent.originalSavPath?.lastIndexOf('.') === -1
-          ? '*'
+          ? null
           : workingFileCurrent.originalSavPath?.split('.')[1]
       trace(
         `${
@@ -160,8 +160,8 @@ function App() {
         title: 'Select the destination for the exported save file',
         filters: [
           {
-            name: `${currentFileExt} File`,
-            extensions: [currentFileExt ? currentFileExt : '*'],
+            name: `Export File`,
+            extensions: currentFileExt ? [currentFileExt] : [],
           },
         ],
       })

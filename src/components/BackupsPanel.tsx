@@ -58,7 +58,7 @@ const BackupsPanel: FC = () => {
       filters: [
         {
           name: `CO:E33 Save File`,
-          extensions: ['*'],
+          extensions: [],
         },
       ],
     })
