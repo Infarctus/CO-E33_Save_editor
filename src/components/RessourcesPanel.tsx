@@ -4,6 +4,7 @@ import type { GeneralPanelProps } from '../types/panelTypes'
 import { useInfo } from './InfoContext'
 import { SetInventoryItem } from '../utils/gameMappingProvider'
 import { renderNumberInput } from '../utils/HtmlElement'
+import type { IntTag } from '../types/Tags'
 
 const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
@@ -25,6 +26,8 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
 
   // Gold Editor
   const goldValue = jsonMapping.root.properties.Gold_0.Int
+
+  const ngValue = jsonMapping.root.properties.FinishedGameCount_0
   const recoatValue =
     jsonMapping.root.properties.InventoryItems_0.Map.find(
       (el) => el.key.Name == 'Consumable_Respec',
@@ -66,6 +69,23 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     jsonMapping.root.properties.Gold_0.Int = newValue
     triggerSaveNeeded()
     logAndInfo(`Gold set to ${newValue}`)
+  }
+
+  const NGChange = (newValue: number) => {
+    if (!jsonMapping.root.properties.FinishedGameCount_0) {
+      jsonMapping.root.properties.FinishedGameCount_0 = {
+        Int: newValue,
+        tag: {
+          data: {
+            Other: "IntProperty"
+          }
+        }
+      }
+    } else {
+      jsonMapping.root.properties.FinishedGameCount_0.Int = newValue
+    }
+    triggerSaveNeeded()
+    logAndInfo(`NG count set to ${newValue}`)
   }
 
   const RecoatChange = (newValue: number) => {
@@ -174,7 +194,13 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
           '0.5rem',
         )
       })}
+
+      <h3>Other</h3>
+      {
+      renderNumberInput(ngValue?.Int ?? 0, 'NG+ count', 0, 2147483647, NGChange, false, '0.5rem')}
+
     </div>
+    
   )
 }
 
