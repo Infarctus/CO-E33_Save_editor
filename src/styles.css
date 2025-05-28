@@ -83,12 +83,18 @@
   cursor: pointer;
   border-radius: 4px;
   transition: background 0.2s ease;
+  position: relative;
 }
 
 .nav-icon {
-  width: 24px;
-  height: 24px;
-  margin-right: 1rem;
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem;
+  margin-left: -0.55rem;
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .content {
