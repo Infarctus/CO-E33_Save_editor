@@ -4,7 +4,6 @@ import type { GeneralPanelProps } from '../types/panelTypes'
 import { useInfo } from './InfoContext'
 import { SetInventoryItem } from '../utils/gameMappingProvider'
 import { renderNumberInput } from '../utils/HtmlElement'
-import type { IntTag } from '../types/Tags'
 
 const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
