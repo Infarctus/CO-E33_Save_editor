@@ -16,20 +16,18 @@ import { useInfo } from './InfoContext'
 import { clamp } from '../utils/utils'
 
 interface CharactersPanelProps {
-  workingFileCurrent: OpenProcessResult | null
   jsonMapping: BeginMapping | null
   triggerSaveNeeded: () => void
 }
 
 const CharactersPanel: FC<CharactersPanelProps> = ({
-  workingFileCurrent,
   jsonMapping,
   triggerSaveNeeded,
 }) => {
   // Hard-coded allowed values for dropdowns etc.
 
   if (
-    workingFileCurrent == null ||
+    !jsonMapping ||
     jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null
   ) {
     return (

@@ -1,6 +1,7 @@
 'use client'
 
 import type { FC } from 'react'
+import { navItems } from '../App'
 
 interface SidebarProps {
   activeTab: string
@@ -18,21 +19,6 @@ interface NavItem {
   requiresFile: boolean
 }
 
-export const navItems: NavItem[] = [
-    { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false },
-    { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true },
-    { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true },
-    { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true },
-    { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnMonocoSkills.png', requiresFile: true },
-    { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true },
-    { id: 'Ressources', label: 'Ressources', icon: 'btnRessources.png', requiresFile: true },
-    { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true },
-    { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true },
-    { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true },
-    { id: 'RawJson', label: 'Raw json', icon: 'btnRawEditor.png', requiresFile: true },
-    { id: 'Backups', label: 'Backups', icon: 'btnBackup.png', requiresFile: false },
-  ]
-
 const Sidebar: FC<SidebarProps> = ({
   activeTab,
   onTabChange,
@@ -41,11 +27,7 @@ const Sidebar: FC<SidebarProps> = ({
   onOverwriteFile,
   anyFileOpen,
 }) => {
-  // Define all navigation items in one place
-  
-
   const renderNavItem = (item: NavItem) => {
-
     const isDisabled = item.requiresFile && !anyFileOpen
     const handleClick = () => {
       if (!isDisabled) {
