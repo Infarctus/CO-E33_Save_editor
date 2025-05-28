@@ -6,15 +6,12 @@ export function clamp(value: number, min: number, max: number): number {
 }
 
 export const ticksToDate = (ticks: number) => {
-  // .NET epoch (January 1, 0001)
-  const dotNetEpoch = new Date(0) // This is January 1, 1970
-  dotNetEpoch.setFullYear(1) // Set to January 1, 0001
-
-  // Calculate the milliseconds from ticks
+  // .NET ticks represent 100-nanosecond intervals since January 1, 0001 UTC
+  // Convert ticks to milliseconds and adjust for Unix epoch (January 1, 1970)
   const milliseconds = (ticks - 621355968000000000) / 10000
-
-  // Create a new date object
-  return new Date(dotNetEpoch.getTime() + milliseconds)
+  
+  // Create date directly from Unix timestamp
+  return new Date(milliseconds)
 }
 
 export const formatPlayTime = (totalSeconds: number) => {
