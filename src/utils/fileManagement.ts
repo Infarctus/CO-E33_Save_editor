@@ -43,13 +43,7 @@ export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResul
       backupDir,
       `${now.toISOString().replace(/:/g, '–')}_${fileName}.bak`,
     )
-    let rename = ''
-    if (fileName.endsWith('.sav')) {
-      rename = fileName.replace('.sav', '.json')
-    } else {
-      rename = fileName + '.json'
-    }
-    const tempJsonPath = await join(saveHandlingBasePath, rename)
+    const tempJsonPath = await join(saveHandlingBasePath, "CurrentWorkingSave.json")
 
     // Create backup directory if it doesn't exist
     try {
