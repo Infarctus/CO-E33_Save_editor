@@ -41,7 +41,7 @@ export const navItems: NavItem[] = [
   { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
   { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
   { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
-  { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: EsquieSkillsPanel },
+  { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
   { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
   { id: 'Ressources', label: 'Ressources', icon: 'btnRessources.png', requiresFile: true, component: RessourcesPanel },
   { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
