@@ -18,10 +18,10 @@
       "identifier": "fs:scope",
       "allow": [
         {
-          "path": "$LOCALDATA/Sandfall/Saved/*"
+          "path": "$LOCALDATA/Sandfall/Saved/**"
         },
         {
-          "path": "$LOCALDATA/Sandfall/Saved/*/*"
+          "path": "$LOCALDATA/Packages/KeplerInteractive.Expedition33_ymj30pw7xe604/SystemAppData/**"
         },
         {
           "path": "$APPLOCALDATA/data/*"
