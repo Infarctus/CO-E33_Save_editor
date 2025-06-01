@@ -185,23 +185,25 @@ def genweaponmapping():
             weaponname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("CultureInvariantString")+"**"
         output_data["Weapons"][charname][item] = weaponname
 
-    # Sort the weapons for each character alphabetically by weapon name
-    for char in output_data["Weapons"]:
-        output_data["Weapons"][char] = dict(
-            sorted(output_data["Weapons"][char].items(), key=lambda x: x[1])
-        )
 
     # Sort the characters alphabetically
     output_data["Weapons"] = dict(
         sorted(output_data["Weapons"].items(), key=lambda x: x[0])
     )
     
-    # Move weapons with names ending with '**' to the end for each character
+    # Sort the characters alphabetically, then sort weapons for each character and group by availability
     for char in output_data["Weapons"]:
         weapons = list(output_data["Weapons"][char].items())
-        normal = [(k, v) for k, v in weapons if not v.endswith("**")]
-        starred = [(k, v) for k, v in weapons if v.endswith("**")]
-        output_data["Weapons"][char] = dict(normal + starred)
+        normal = [(k, v) for k, v in weapons if not v.endswith("*")]
+        single_starred = [(k, v) for k, v in weapons if v.endswith("*") and not v.endswith("**")]
+        double_starred = [(k, v) for k, v in weapons if v.endswith("**")]
+        
+        # Sort each group alphabetically by weapon name
+        normal = sorted(normal, key=lambda x: x[1])
+        single_starred = sorted(single_starred, key=lambda x: x[1])
+        double_starred = sorted(double_starred, key=lambda x: x[1])
+        
+        output_data["Weapons"][char] = dict(normal + single_starred + double_starred)
 
     jsondump(output_data, output_path)
 
