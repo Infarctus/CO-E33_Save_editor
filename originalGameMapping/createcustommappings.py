@@ -95,6 +95,8 @@ def genskinmapping():
         "Skins": {},
         "Faces" : {}
     }
+
+    deluxeskins = ["Flowers","Gommage","Clair","Obscur"]
     
     for item in itemsdef:
         curritem = itemsdef[item]
@@ -110,6 +112,8 @@ def genskinmapping():
         if charname not in output_data[type]:
             output_data[type][charname] = {}
         skinname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
+        if skinname in deluxeskins:
+            skinname = skinname + " (DLC)"
         output_data[type][charname][item] = skinname
 
     for char in output_data["Skins"]:
@@ -162,6 +166,8 @@ def genweaponmapping():
         "Weapons": {}
     }
 
+    unobtainableweapons = ["Velokan","Telarim", "Milerim", "Nibalum", "Beselbum", "Gelerim"]
+
     for item in itemsdef:
         curritem = itemsdef[item]
         if curritem.get("Item_Type_88_2F24F8FB4235429B4DE1399DBA533C78") != 'E_jRPG_ItemType::NewEnumerator0':
@@ -173,6 +179,8 @@ def genweaponmapping():
         if charname not in output_data["Weapons"]:
             output_data["Weapons"][charname] = {}
         weaponname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
+        if weaponname in unobtainableweapons:
+            weaponname = weaponname+"*"
         if weaponname == None:
             weaponname = curritem.get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("CultureInvariantString")+"**"
         output_data["Weapons"][charname][item] = weaponname
@@ -347,7 +355,7 @@ def gengrandientskillmapping():
 
 
 
-gengrandientskillmapping()
+#gengrandientskillmapping()
 #genmonocoskillsmapping()
 #oldgenmonocoskillsmapping()
 #genquestitemsmapping()
