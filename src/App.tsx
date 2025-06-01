@@ -27,7 +27,7 @@ import type { BeginMapping } from './types/jsonSaveMapping'
 import './styles.css'
 import { trace, error } from '@tauri-apps/plugin-log'
 import { useInfo } from './components/InfoContext'
-import { SteamSaveAuto } from './utils/saveAutoExplorer'
+import { XBOXSaveAuto } from './utils/saveAutoExplorer'
 
 interface NavItem {
   id: string
@@ -54,7 +54,7 @@ export const navItems: NavItem[] = [
 ]
 
 function App() {
-  SteamSaveAuto()
+  XBOXSaveAuto()
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
