@@ -25,11 +25,6 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
     error(message)
   }
 
-  function logAndInfo(message: string) {
-    setInfoMessage(message)
-    trace(message)
-  }
-
   const allMusicDisks = useMemo(() => {
     return getPossibleMusicDisks()
   }, [])
@@ -64,7 +59,7 @@ const MusicDisksPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
       logAndError(`Music disk ${musicDisksname} not found in the list.`)
       return
     }
-    logAndInfo(SetInventoryItem(jsonMapping, musicDisksname, 1, newFound))
+    trace(SetInventoryItem(jsonMapping, musicDisksname, 1, newFound))
 
     setMusicDisks((prev) =>
       prev.map((disk) => {

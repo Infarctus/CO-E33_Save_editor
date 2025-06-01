@@ -23,11 +23,6 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
     error(message)
   }
 
-  function logAndInfo(message: string) {
-    setInfoMessage(message)
-    trace(message)
-  }
-
   const allJournals = useMemo(() => getPossibleJournals(), [])
 
   const inventoryDict: { [key: string]: boolean } = useMemo(
@@ -60,7 +55,7 @@ const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNe
       logAndError(`Journal ${Journalname} not found in the list.`)
       return
     }
-    logAndInfo(SetInventoryItem(jsonMapping, Journalname, 1, newFound))
+    trace(SetInventoryItem(jsonMapping, Journalname, 1, newFound))
 
     setJournals((prev) =>
       prev.map((journal) => {
