@@ -81,9 +81,11 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
             <div>
               You have opened the file at <code>{openResult.originalSavPath}</code>
               <br />
-              It does{' '}
-              {jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null ? 'NOT' : ''} look
-              like a CO:E33 save.
+              <b>
+                It does{' '}
+                {jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null ? 'NOT' : ''}{' '}
+                look like a CO:E33 save.
+              </b>
               {jsonMapping?.root?.properties?.CharactersCollection_0?.Map && (
                 <>
                   <br />
