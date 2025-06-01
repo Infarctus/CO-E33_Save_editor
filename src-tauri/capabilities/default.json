@@ -18,6 +18,12 @@
       "identifier": "fs:scope",
       "allow": [
         {
+          "path": "$LOCALDATA/Sandfall/Saved/*"
+        },
+        {
+          "path": "$LOCALDATA/Sandfall/Saved/*/*"
+        },
+        {
           "path": "$APPLOCALDATA/data/*"
         }
       ]
