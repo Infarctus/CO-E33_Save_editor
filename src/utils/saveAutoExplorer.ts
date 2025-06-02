@@ -16,7 +16,7 @@ export async function SteamSaveAuto(): Promise<SaveFile[]> {
     basesteamsavepath = await join(await localDataDir(), 'Sandfall', 'Saved', 'SaveGames')
   } else {
     trace("linux+all")
-    basesteamsavepath = await join("/run/media/cat/LINEX/SteamLibrary/steamapps/compatdata/1903340/pfx/drive_c/users/steamuser/AppData/Local/", 'Sandfall', 'Saved', 'SaveGames')
+    basesteamsavepath = await join(await localDataDir(),'Steam', 'steamapps', 'compatdata', '1903340', 'pfx', 'drive_c','users','steamuser','AppData','Local','Sandfall', 'Saved', 'SaveGames')
   }
   trace("trying to find saves at " + basesteamsavepath)
   try {
