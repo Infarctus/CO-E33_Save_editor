@@ -27,7 +27,6 @@ import type { BeginMapping } from './types/jsonSaveMapping'
 import './styles.css'
 import { trace, error } from '@tauri-apps/plugin-log'
 import { useInfo } from './components/InfoContext'
-import { XBOXSaveAuto } from './utils/saveAutoExplorer'
 
 interface NavItem {
   id: string
