@@ -5,7 +5,7 @@ import {
   generatePictoPassiveEffectProgression,
 } from '../../utils/jsonSaveMapping'
 import { getPossiblePictos } from '../../utils/gameMappingProvider'
-import type { PictoInfo as PictoInfoType } from '../../types/jsonCustomMapping'
+import type { PictoInfo } from '../../types/jsonCustomMapping'
 import { error, trace } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
 import { clamp } from '../../utils/utils'
@@ -81,7 +81,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
   )
 
   // Build initial picto info list from available pictos and the inventory info.
-  const initialPictos: PictoInfoType[] = useMemo(
+  const initialPictos: PictoInfo[] = useMemo(
     () =>
       allPictosMapping.map(([name, friendlyName]) => {
         const found = !!inventoryDict[name.toLowerCase()]
@@ -93,7 +93,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
   )
 
   // State for pictos, search query, and sorting.
-  const [pictos, setPictos] = useState<PictoInfoType[]>(initialPictos)
+  const [pictos, setPictos] = useState<PictoInfo[]>(initialPictos)
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [sortField, setSortField] = useState<SortField>(null)
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc')
@@ -109,7 +109,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
     bulk = false,
   ) => {
     // Update local state accordingly.
-    var thisPictoWas: PictoInfoType
+    var thisPictoWas: PictoInfo
     var pictoFound = false
 
     pictos.map((picto) => {
