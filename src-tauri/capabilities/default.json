@@ -21,6 +21,12 @@
           "path": "$LOCALDATA/Sandfall/Saved/**"
         },
         {
+          "path": "**/Sandfall/Saved/**"
+        },
+        {
+          "path": "**/temp/**"
+        },
+        {
           "path": "$LOCALDATA/Packages/KeplerInteractive.Expedition33_ymj30pw7xe604/SystemAppData/**"
         },
         {
@@ -38,6 +44,7 @@
         }
       ]
     },
-    "log:default"
+    "log:default",
+    "os:default"
   ]
 }

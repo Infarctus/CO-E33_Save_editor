@@ -3,6 +3,4 @@
 
 fn main() {
     co_e33_save_editor_lib::run();
-
-    
 }
