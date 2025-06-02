@@ -328,6 +328,22 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.popup {
+  position: absolute; /* Change to absolute to position relative to the parent */
+  z-index: 1;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the popup */
+  background-color: var(--col-bg); 
+  border: 2px solid var(--col-border-1);
+  padding: 20px; /* Padded border */
+  width: 75%; /* Use 95% of the parent width */
+  height: 75% ; /* Use 95% of the parent height */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Drop shadow effect */
+  overflow: auto; /* Add scroll if content overflows */
+}
+
 code {
   white-space: normal;
   /* Allows wrapping */

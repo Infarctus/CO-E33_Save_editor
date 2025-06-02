@@ -54,7 +54,6 @@ export const navItems: NavItem[] = [
 ]
 
 function App() {
-  XBOXSaveAuto()
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
