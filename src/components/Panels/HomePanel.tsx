@@ -16,88 +16,6 @@ interface SaveFilePanelProps {
 
 const HomePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
 
-  const [autoLoadPopupOpen, setAutoLoadPopupOpen] = useState<boolean>(false)
-  const [saveFilesSteam, setSaveFilesSteam] = useState<SaveFile[]>([])
-  const [indexFileEpicGamePass, setIndexFileEpicGamePass] = useState<string | null>()
-  const [outputContainers, setOutputContainers] = useState<[string, string][]>()
-  const popupRef = useRef<HTMLDivElement>(null);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
-      setAutoLoadPopupOpen(false);
-    }
-  };
-
-  const handleEscapePopupOutside = (event: KeyboardEvent) => {
-    if (popupRef.current && !popupRef.current.contains(event.target as Node) && event.key == "Escape") {
-      setAutoLoadPopupOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    if (indexFileEpicGamePass != null) {
-      try {
-        // Fetch save files asynchronously
-        const fetchData = async () => {
-          const result: [string, string][] = await invoke('get_expedition_folder_names_for_tauri', {
-            indexPath: indexFileEpicGamePass
-          })
-          const gamePassFolder = indexFileEpicGamePass.substring(0, indexFileEpicGamePass.lastIndexOf(sep()))
-          var usableResult : [string, string][] = []
-          result.forEach(async (pair) => {
-            const containerFolder = gamePassFolder + sep() + pair[1];
-            const entries = await readDir(containerFolder)
-            var savName = ""
-            for (const file of entries) {
-              if (file.isFile && file.name.length == 32) {
-                savName = file.name
-                continue
-              }
-            }
-            usableResult.push([pair[0],  containerFolder + sep() + savName])
-          })
-          setOutputContainers(usableResult)
-        };
-        fetchData()
-
-        // result is an array of [container_name, folder_name]
-      } catch (err) {
-        console.error(err);
-      }
-    } else {
-      setOutputContainers([])
-    }
-
-  }, [indexFileEpicGamePass])
-
-  useEffect(() => {
-    // Set up event listeners synchronously
-    if (autoLoadPopupOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleEscapePopupOutside);
-
-      // Fetch save files asynchronously
-      const fetchData = async () => {
-        const saveFilesSteam = await SteamSaveAuto() || [];
-        setSaveFilesSteam(saveFilesSteam);
-        const indexFileA = await XBOXSaveAuto();
-        setIndexFileEpicGamePass(indexFileA);
-      };
-
-      fetchData();
-    } else {
-      // Clean up event listeners synchronously
-      document.removeEventListener('keydown', handleEscapePopupOutside);
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-
-    // Cleanup function
-    return () => {
-      document.removeEventListener('keydown', handleEscapePopupOutside);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [autoLoadPopupOpen]); // Add dependencies if needed
-
 
   return (
     <div id='SaveFilePanel' className='tab-panel oveflow-auto'>
@@ -195,77 +113,10 @@ const HomePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         <div style={{ display: 'flex' }}>
           <button onClick={() => openLocalFolder('data')}>Open editor folder</button>
           <button onClick={() => openLocalFolder('logs')}>Open logs folder</button>
-          <button onClick={() => setAutoLoadPopupOpen(true)}>Discover saves folders</button>
           {/* <button>Open editor logs</button> */}
         </div>
       </div>
-      <div
-        className={`${autoLoadPopupOpen ? '' : 'hidden'}`}
-      >
-        <div id='AutoLoadPopup' className='popup' ref={popupRef}>
-          <h2>Autodiscovery</h2>
 
-          <table>
-            <thead>
-              <th>
-                <td>
-                  Steam Saves
-                </td>
-              </th>
-            </thead>
-            <tbody>
-              {saveFilesSteam.length == 0 && (
-                <tr>
-                  Nothing found
-                </tr>
-              )}
-              {saveFilesSteam.map((item) => (
-                <tr key={item.path}>
-                  <td>
-                    {item.name}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-            </table>
-
-
-            <br />
-            <br />
-            <table>
-              <thead>
-                <th>
-                  <td>
-                    Game Pass
-                  </td>
-                </th>
-              </thead>
-              <tbody>
-                {indexFileEpicGamePass === null && (
-                  <tr>
-                    No containers.index file found
-                  </tr>
-                )}
-                {outputContainers === undefined && (
-                  <tr>
-                    No EXPEDITION_* found inside the index
-                  </tr>
-                )}
-
-                {outputContainers?.map((item) => (
-                  <tr key={"container-"+item[0]}>
-                    <td>
-                      {item[0]}
-                    </td>
-                           <td>
-                      {item[1]}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-        </div>
-      </div>
     </div>
   )
 }
