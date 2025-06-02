@@ -151,6 +151,11 @@ const Sidebar: FC<SidebarProps> = ({
   return (
     <><aside className='drawer'>
       <button
+        className='tab-button'
+        onClick={() => setAutoLoadPopupOpen(true)}
+        title='Let the app search for the most common locations your Steam/Game pass saves might be'
+      >Autodiscover saves</button>
+      <button
         id='OpenFile'
         className='tab-button'
         onClick={openFileFree}
@@ -184,7 +189,7 @@ const Sidebar: FC<SidebarProps> = ({
         >
           Overwrite
         </button>
-          <button onClick={() => setAutoLoadPopupOpen(true)}>Discover saves folders</button>
+        
 
       </div>
 
