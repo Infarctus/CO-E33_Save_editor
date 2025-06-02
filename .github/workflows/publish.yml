@@ -22,10 +22,7 @@ jobs:
             args: ''
           - platform: 'windows-latest'
             args: ''
-          - platform : 'windows-latest'
-            args: ''
-            bundle-name: 'windows-fixed-runtime'
-            modify-config: true # This is used to modify the tauri.conf.json file to use the fixed runtime.
+            alternative-bundle-name: 'co-e33-save-editor-fixed-runtime'
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -55,15 +52,31 @@ jobs:
           workspaces: './src-tauri -> target'
 
       - name: Cache WebView2 Runtime
-        if: matrix.modify-config == true
         id: cache-webview2
         uses: actions/cache@v4
         with:
           path: ./src-tauri/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64
           key: webview2-runtime-137.0.3296.52-x64
 
+      
+
+      - name: install frontend dependencies
+        # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
+        run: npm install # change this to npm or pnpm depending on which one you use.
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
+          releaseName: 'App v__VERSION__'
+          releaseBody: 'See the assets to download this version and install.'
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.args }}
+
       - name :  Modify tauri config for fixed runtime (Windows only)
-        if: matrix.modify-config == true
+        if: matrix.platform == 'windows-latest'
         shell: pwsh
         run: |
           $extractPath = "./src-tauri/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
@@ -99,11 +112,8 @@ jobs:
             type = "fixedRuntime"
             path = "./Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
           }
+          $config.productName = "${{ matrix.alternative-bundle-name }}"
           $config | ConvertTo-Json -Depth 10 | Set-Content -Path $configFile
-
-      - name: install frontend dependencies
-        # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
-        run: npm install # change this to npm or pnpm depending on which one you use.
 
       - uses: tauri-apps/tauri-action@v0
         env:
@@ -115,4 +125,3 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
-
