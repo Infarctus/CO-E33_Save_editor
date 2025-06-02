@@ -14,9 +14,9 @@ const UESAVE_EXE_PATH = 'assets/uesave'
  * Handles the core logic of backing up a .sav file, converting it to .json using uesave,
  * and reading the resulting JSON data.
  */
-export async function handleSaveFileAndExtractToJson(): Promise<OpenProcessResult> {
+export async function handleSaveFileAndExtractToJson(savefilepath?: string): Promise<OpenProcessResult> {
   try {
-    const originalSavPath = await open({
+    const originalSavPath = savefilepath || await open({
       multiple: false,
       filters: [
         {
