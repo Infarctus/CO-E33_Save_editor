@@ -108,7 +108,6 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   const allowedSkins = useMemo(() => getPossibleSkinsFor(character.key.Name), [])
 
   const handleSkillToggle = (skillName: string, isUnlocked: boolean) => {
-    trace("handleSkillToggle")
     triggerSaveNeeded()
 
     SetInventoryItem(jsonMapping, skillName, 1, isUnlocked)
@@ -145,7 +144,6 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           labelText='Current Level'
           value={character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0}
           onChange={(newValue) => {
-            trace("PropertyEditor for CurrentLevel")
             triggerSaveNeeded()
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
@@ -164,7 +162,6 @@ const CharacterSection: FC<CharacterSectionProps> = ({
               .LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0
           }
           onChange={(newValue) => {
-            trace("PropertyEditor for LuminaFromConsumabel")
 
             triggerSaveNeeded()
             jsonMapping.root.properties.CharactersCollection_0.Map[
@@ -175,11 +172,31 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           }}
         />
 
+        <PropertyEditor
+          labelText='Current health'
+          value={
+            character.value.Struct.Struct
+              .CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32_0
+          }
+          onChange={(newValue) => {
+
+
+            triggerSaveNeeded()
+            jsonMapping.root.properties.CharactersCollection_0.Map[
+              characterIndex
+            ].value.Struct.Struct.CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32_0.Double =
+              Number(newValue)
+            logAndInfo(`Character ${characterName} CurrentHP updated to ${newValue}`)
+          }}
+          positiveOnly={true}
+          
+        />
+
         {/* Attribute Points */}
         <div className='characterEditModule' style={{ marginTop: '1rem' }}>
           <div className='header'>
             <h4>Attribute Points</h4>
-            <p>(max of total is 3*level)</p>
+            <p>(max of total is {character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int*3})</p>
           </div>
 
           {Object.entries(
@@ -348,7 +365,8 @@ const PropertyEditor: FC<PropertyEditorProps> = ({
         style={{ flex: '1' }}
         onInput={(e) => {
           const target = e.target as HTMLInputElement
-          onChange(target.value)
+
+          onChange(clamp(target.valueAsNumber, 0, 2147483647 ))
         }}
       />
     </div>
@@ -485,34 +503,5 @@ const CharacCustoEditor: FC<CharacCustoEditorProps> = ({
   )
 }
 
-{
-  /*
-  }
-interface DropdownEditorProps {
-  labelText: string
-  currentValue: StringTag
-  options: string[]
-  onChange: (newValue: string) => void
-}
-
-const DropdownEditor: FC<DropdownEditorProps> = ({ labelText, currentValue, options, onChange }) => {
-  return (
-    <div
-      className="characterEditModule"
-      style={{ display: "flex", justifyContent: "space-between", marginTop: "1rem" }}
-    >
-      <label style={{ flex: "1" }}>{labelText}</label>
-      <select style={{ flex: "1" }} value={currentValue.Name} onChange={(e) => onChange(e.target.value)}>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-    </div>
-  )
-}
-  */
-}
 
 export default CharactersPanel
