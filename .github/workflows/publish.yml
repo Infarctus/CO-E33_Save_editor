@@ -2,10 +2,8 @@ name: 'publish'
 
 on:
   workflow_dispatch:
-  push:
-    branches: ["reactjs"]
-    tags:
-      - 'app-v*'
+  release:
+    types: [published, created]
 
 jobs:
   publish-tauri:
