@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
-import { getPossibleMonocoSkills, SetInventoryItem } from '../utils/gameMappingProvider'
-import type { GeneralPanelProps } from '../types/panelTypes'
+import { getPossibleMonocoSkills, SetInventoryItem } from '../../utils/gameMappingProvider'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 type SkillInfo = { name: string; friendlyName: string; item: string | null; unlocked: boolean }
 

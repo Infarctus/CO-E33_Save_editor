@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
-import type { MusicDisckInfo } from '../types/jsonCustomMapping'
-import { getPossibleMusicDisks, SetInventoryItem } from '../utils/gameMappingProvider'
-import { useInfo } from './InfoContext'
+import type { MusicDisckInfo } from '../../types/jsonCustomMapping'
+import { getPossibleMusicDisks, SetInventoryItem } from '../../utils/gameMappingProvider'
+import { useInfo } from '../InfoContext'
 import { error, trace } from '@tauri-apps/plugin-log'
-import type { GeneralPanelProps } from '../types/panelTypes'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 type SortField = 'name' | 'found' | null
 type SortDirection = 'asc' | 'desc'

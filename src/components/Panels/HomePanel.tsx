@@ -1,15 +1,15 @@
-import type { FC } from 'react'
-import { OpenProcessResult } from '../types/fileTypes'
-import { formatPlayTime, ticksToDate } from '../utils/utils'
-import { BeginMapping } from '../types/jsonSaveMapping'
-import { openLocalFolder } from '../utils/fileManagement'
+import { type FC } from 'react'
+import { OpenProcessResult } from '../../types/fileTypes'
+import { formatPlayTime, ticksToDate } from '../../utils/utils'
+import { BeginMapping } from '../../types/jsonSaveMapping'
+import { openLocalFolder } from '../../utils/fileManagement'
 
 interface SaveFilePanelProps {
   openResult: OpenProcessResult | null
   jsonMapping: BeginMapping | null
 }
 
-const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
+const HomePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
   return (
     <div id='SaveFilePanel'>
       <div id='information-msg'>
@@ -113,4 +113,4 @@ const SaveFilePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
   )
 }
 
-export default SaveFilePanel
+export default HomePanel

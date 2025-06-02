@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
-import type { JournalInfo } from '../types/jsonCustomMapping'
-import { getPossibleJournals, SetInventoryItem } from '../utils/gameMappingProvider'
-import { useInfo } from './InfoContext'
+import type { JournalInfo } from '../../types/jsonCustomMapping'
+import { getPossibleJournals, SetInventoryItem } from '../../utils/gameMappingProvider'
+import { useInfo } from '../InfoContext'
 import { error, trace } from '@tauri-apps/plugin-log'
-import type { GeneralPanelProps } from '../types/panelTypes'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 const JournalsPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {

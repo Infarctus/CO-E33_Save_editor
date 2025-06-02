@@ -1,8 +1,8 @@
 import { type FC, useState, useMemo } from 'react'
-import type { BeginMapping } from '../types/jsonSaveMapping'
-import { E_WorldMapExplorationCapacity } from '../types/enums'
-import { useInfo } from './InfoContext'
-import { createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 } from '../utils/jsonSaveMapping'
+import type { BeginMapping } from '../../types/jsonSaveMapping'
+import { E_WorldMapExplorationCapacity } from '../../types/enums'
+import { useInfo } from '../InfoContext'
+import { createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 } from '../../utils/jsonSaveMapping'
 
 interface EsquieSkillsPanelProps {
   jsonMapping: BeginMapping | null

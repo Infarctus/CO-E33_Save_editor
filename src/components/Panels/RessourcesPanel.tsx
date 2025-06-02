@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react'
 import { trace } from '@tauri-apps/plugin-log'
-import type { GeneralPanelProps } from '../types/panelTypes'
-import { useInfo } from './InfoContext'
-import { SetInventoryItem } from '../utils/gameMappingProvider'
-import { renderNumberInput } from '../utils/HtmlElement'
+import type { GeneralPanelProps } from '../../types/panelTypes'
+import { useInfo } from '../InfoContext'
+import { SetInventoryItem } from '../../utils/gameMappingProvider'
+import { renderNumberInput } from '../../utils/HtmlElement'
 
 const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
