@@ -1,13 +1,8 @@
-import { useEffect, useRef, useState, type FC } from 'react'
+import { type FC } from 'react'
 import { formatPlayTime, ticksToDate } from '../../utils/utils'
 import { BeginMapping } from '../../types/jsonSaveMapping'
 import { openLocalFolder } from '../../utils/fileManagement'
 import { OpenProcessResult } from '../../types/fileTypes'
-import { SaveFile, SteamSaveAuto, XBOXSaveAuto } from '../../utils/saveAutoExplorer'
-import { invoke } from '@tauri-apps/api/core'
-import { trace } from '@tauri-apps/plugin-log'
-import { join, sep } from '@tauri-apps/api/path'
-import { readDir } from '@tauri-apps/plugin-fs'
 
 interface SaveFilePanelProps {
   openResult: OpenProcessResult | null
