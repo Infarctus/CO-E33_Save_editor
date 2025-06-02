@@ -1,6 +1,10 @@
 # [CO E33 Save Editor](https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=description)
 ### Clair Obscur Expedition 33 Save Editor
-### available on [nexusmods](https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=description)
+
+<a href="https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=description" rel="nofollow">
+<img src="https://raw.githubusercontent.com/Infarctus/CO-E33_Save_editor/refs/heads/reactjs/.github/images/nexuslogo.svg" alt="Get it on NexusMods" height="80/"  style="max-width: 100%;"/>
+</a>
+
 
 Allows you to painlessly edit certain elements of your save files.
 This program is compatible with Windows and Linux and requires little to no configuration.
