@@ -2,7 +2,7 @@
 ### Clair Obscur Expedition 33 Save Editor
 
 <a href="https://www.nexusmods.com/clairobscurexpedition33/mods/201?tab=description" rel="nofollow">
-<img src="https://raw.githubusercontent.com/Infarctus/CO-E33_Save_editor/refs/heads/reactjs/.github/images/nexuslogo.svg" alt="Get it on NexusMods" height="80/"  style="max-width: 100%;"/>
+<img src="./.github/images/nexuslogo.svg" alt="Get it on NexusMods" height="80/"  style="max-width: 100%;"/>
 </a>
 
 
