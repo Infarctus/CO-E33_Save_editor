@@ -108,6 +108,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   const allowedSkins = useMemo(() => getPossibleSkinsFor(character.key.Name), [])
 
   const handleSkillToggle = (skillName: string, isUnlocked: boolean) => {
+    trace("handleSkillToggle")
     triggerSaveNeeded()
 
     SetInventoryItem(jsonMapping, skillName, 1, isUnlocked)
@@ -144,6 +145,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           labelText='Current Level'
           value={character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0}
           onChange={(newValue) => {
+            trace("PropertyEditor for CurrentLevel")
             triggerSaveNeeded()
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
@@ -162,6 +164,8 @@ const CharacterSection: FC<CharacterSectionProps> = ({
               .LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0
           }
           onChange={(newValue) => {
+            trace("PropertyEditor for LuminaFromConsumabel")
+
             triggerSaveNeeded()
             jsonMapping.root.properties.CharactersCollection_0.Map[
               characterIndex
@@ -189,6 +193,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
                 labelText={getECharacterAttributeEnumValue(currpointlabel)}
                 value={points.value}
                 onChange={(newValue) => {
+            trace("PropertyEditor for AssignedAttrPoints")
                   triggerSaveNeeded()
                   jsonMapping.root.properties.CharactersCollection_0.Map[
                     characterIndex
@@ -208,6 +213,8 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           currentList={currentFaces}
           fullList={allowedCustomizationsFace}
           onUpdateSkin={(newList) => {
+            trace("CharacCustoEditor for Hair")
+
             triggerSaveNeeded()
             const allowedFacesRawNames = allowedCustomizationsFace.map((el) => el[0])
             allowedFacesRawNames.forEach((el) => {
@@ -237,7 +244,8 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           titleText='Body Customization'
           currentList={currentSkins}
           fullList={allowedSkins}
-          onUpdateSkin={(newList) => {
+          onUpdateSkin={(newList, firstTime?: boolean) => {
+            trace("CharacCustoEditor for Body")
             triggerSaveNeeded()
             const allowedSkinsRawNames = allowedSkins.map((el) => el[0])
             //jsonMapping.root.properties.InventoryItems_0.Map = jsonMapping.root.properties.InventoryItems_0.Map
@@ -365,13 +373,17 @@ const CharacCustoEditor: FC<CharacCustoEditorProps> = ({
   const [selectedSkins, setSelectedSkins] = useState<[string, string][]>(
     fullList.filter((el) => currentList.includes(el[0])),
   )
+  const [isFirstTime, setIsFirstTime] = useState(true)
+
   const [availableSkins, setAvailableSkins] = useState<[string, string][]>(
     fullList.filter((skill) => !currentList.includes(skill[0])),
   )
 
   useEffect(() => {
-    trace('Updated selectedSkins length: ' + selectedSkins.length)
-    onUpdateSkin(selectedSkins.map((el) => el[0]))
+    if (!isFirstTime) {
+      trace('Updated selectedSkins length: ' + selectedSkins.length)
+      onUpdateSkin(selectedSkins.map((el) => el[0]))
+    } else setIsFirstTime(false)
   }, [selectedSkins])
 
   const filteredAvailableSkins = availableSkins.filter((skill) =>
