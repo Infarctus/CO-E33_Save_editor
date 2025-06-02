@@ -3,19 +3,19 @@
 import { useState } from 'react'
 import { confirm } from '@tauri-apps/plugin-dialog'
 import Sidebar from './components/Sidebar'
-import SaveFilePanel from './components/SaveFilePanel'
-import CharactersPanel from './components/CharactersPanel'
-import BackupsPanel from './components/BackupsPanel'
-import RawJsonPanel from './components/RawJsonPanel'
+import HomePanel from './components/Panels/HomePanel'
+import CharactersPanel from './components/Panels/CharactersPanel'
+import BackupsPanel from './components/Panels/BackupsPanel'
+import RawJsonPanel from './components/Panels/RawJsonPanel'
 import InfoBanner from './components/InfoBanner'
-import MusicDisksPanel from './components/MusicDisksPanel'
-import JournalsPanel from './components/JournalsPanel'
-import PictosPanel from './components/PictosPanel'
-import WeaponsPanel from './components/WeaponsPanel'
-import RessourcesPanel from './components/RessourcesPanel'
-import MonocoSkillsPanel from './components/MonocoSkillsPanel'
-import QuestItemsPanel from './components/QuestItemsPanel'
-import EsquieSkillsPanel from './components/EsquieSkillsPanel'
+import MusicDisksPanel from './components/Panels/MusicDisksPanel'
+import JournalsPanel from './components/Panels/JournalsPanel'
+import PictosPanel from './components/Panels/PictosPanel'
+import WeaponsPanel from './components/Panels/WeaponsPanel'
+import RessourcesPanel from './components/Panels/RessourcesPanel'
+import MonocoSkillsPanel from './components/Panels/MonocoSkillsPanel'
+import QuestItemsPanel from './components/Panels/QuestItemsPanel'
+import EsquieSkillsPanel from './components/Panels/EsquieSkillsPanel'
 import { ErrorBoundary } from './utils/HtmlElement'
 import {
   handleSaveFileAndExtractToJson,
@@ -39,7 +39,7 @@ interface NavItem {
 
 // prettier-ignore
 export const navItems: NavItem[] = [
-  { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: SaveFilePanel },
+  { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: HomePanel },
   { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
   { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
   { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
@@ -136,7 +136,6 @@ function App() {
     // Ensure we have a workingFileCurrent with a tempJsonPath
     if (!workingFileCurrent || !workingFileCurrent.tempJsonPath || !jsonMapping) {
       errorAndInfo('No working file (temp JSON path) available.')
-
       return
     }
 

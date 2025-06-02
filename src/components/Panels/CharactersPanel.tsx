@@ -1,9 +1,9 @@
 'use client'
 
 import { type FC, useState, useEffect, useMemo } from 'react'
-import { getECharacterAttributeEnumValue } from '../types/enums'
-import type { BeginMapping, CharactersInCollection0_Mapping } from '../types/jsonSaveMapping'
-import { getValueFromTag } from '../utils/jsonSaveMapping'
+import { getECharacterAttributeEnumValue } from '../../types/enums'
+import type { BeginMapping, CharactersInCollection0_Mapping } from '../../types/jsonSaveMapping'
+import { getValueFromTag } from '../../utils/jsonSaveMapping'
 import {
   getPossibleSkinsFor,
   getUnlockedSkinsFor,
@@ -11,10 +11,10 @@ import {
   getUnlockedFacesFor,
   getPossibleGrandientSkillsFor,
   SetInventoryItem,
-} from '../utils/gameMappingProvider'
+} from '../../utils/gameMappingProvider'
 import { trace } from '@tauri-apps/plugin-log'
-import { useInfo } from './InfoContext'
-import { clamp } from '../utils/utils'
+import { useInfo } from '../InfoContext'
+import { clamp } from '../../utils/utils'
 
 interface CharactersPanelProps {
   jsonMapping: BeginMapping | null

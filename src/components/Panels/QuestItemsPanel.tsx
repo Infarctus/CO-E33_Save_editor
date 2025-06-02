@@ -1,10 +1,10 @@
 import { FC, useState, useMemo } from 'react'
-import { getPossibleQuestItems, SetInventoryItem } from '../utils/gameMappingProvider'
-import { QuestItemsInfo } from '../types/jsonCustomMapping'
+import { getPossibleQuestItems, SetInventoryItem } from '../../utils/gameMappingProvider'
+import { QuestItemsInfo } from '../../types/jsonCustomMapping'
 import { error } from '@tauri-apps/plugin-log'
-import { useInfo } from './InfoContext'
-import { clamp } from '../utils/utils'
-import type { GeneralPanelProps } from '../types/panelTypes'
+import { useInfo } from '../InfoContext'
+import { clamp } from '../../utils/utils'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 type SortField = 'friendlyName' | 'inInventory' | 'level' | null
 type SortDirection = 'asc' | 'desc'

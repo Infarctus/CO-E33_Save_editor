@@ -3,13 +3,13 @@ import {
   generateInventoryItems_0,
   generatePassiveEffectProgression,
   generatePictoPassiveEffectProgression,
-} from '../utils/jsonSaveMapping'
-import { getPossiblePictos } from '../utils/gameMappingProvider'
-import type { PictoInfo as PictoInfoType } from '../types/jsonCustomMapping'
+} from '../../utils/jsonSaveMapping'
+import { getPossiblePictos } from '../../utils/gameMappingProvider'
+import type { PictoInfo as PictoInfoType } from '../../types/jsonCustomMapping'
 import { error, trace } from '@tauri-apps/plugin-log'
-import { useInfo } from './InfoContext'
-import { clamp } from '../utils/utils'
-import type { GeneralPanelProps } from '../types/panelTypes'
+import { useInfo } from '../InfoContext'
+import { clamp } from '../../utils/utils'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 type SortField = 'friendlyName' | 'found' | 'mastered' | 'level' | null
 type SortDirection = 'asc' | 'desc'
