@@ -3,6 +3,7 @@ name: 'publish'
 on:
   workflow_dispatch:
   push:
+    branches: ["reactjs"]
     tags:
       - 'app-v*'
 
@@ -58,3 +59,74 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
+
+  publish-tauri-windows-fixed-runtime:
+    permissions:
+      contents: write
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'npm'
+
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust cache
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: './src-tauri -> target'
+
+      - name: Cache WebView2 Runtime
+        id: cache-webview2
+        uses: actions/cache@v4
+        with:
+          path: ./src-tauri/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64
+          key: webview2-runtime-137.0.3296.52-x64
+
+      - name: Setup WebView2 Fixed Runtime and Modify Config
+        shell: pwsh
+        run: |
+          $extractPath = "./src-tauri/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
+
+          if ("${{ steps.cache-webview2.outputs.cache-hit }}" -ne "true") {
+            Write-Host "Cache miss - downloading WebView2 Runtime..."
+            
+            $url = "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/0d5fcbfe-fa86-4697-8d1e-2067ab37b0a7/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64.cab"
+            $tempFile = "./WebView2Runtime.cab"
+            
+            Invoke-WebRequest -Uri $url -OutFile $tempFile
+            New-Item -ItemType Directory -Force -Path $extractPath
+            expand $tempFile $extractPath -F:*
+            Remove-Item $tempFile
+            Write-Host "Extracted WebView2 Runtime to $extractPath"
+          } else {
+            Write-Host "Cache hit - using cached WebView2 Runtime"
+          }
+
+          # Modify tauri config
+          $configFile = './src-tauri/tauri.conf.json'
+          $config = Get-Content -Raw -Path $configFile | ConvertFrom-Json
+          $config.bundle.windows.webviewInstallMode = @{
+            type = "fixedRuntime"
+            path = "./Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
+          }
+          $config.productName = "co-e33-save-editor-windows-fixed-runtime"
+          $config | ConvertTo-Json -Depth 10 | Set-Content -Path $configFile
+
+      - name: install frontend dependencies
+        run: npm install
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: app-v__VERSION__
+          releaseName: 'App v__VERSION__'
+          releaseBody: 'Windows version with bundled WebView2 runtime. See the assets to download this version and install.'
+          releaseDraft: true
+          prerelease: false
