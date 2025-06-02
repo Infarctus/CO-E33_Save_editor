@@ -95,7 +95,7 @@ function App() {
     setSaveNeeded(true)
   }
 
-  const handleOpenFile = async () => {
+  const handleOpenFile = async (forcedPath?: string) => {
     if ((await switchTab('SaveFile')) === false) return
 
     if (workingFileCurrent != null && saveNeeded) {
@@ -112,7 +112,7 @@ function App() {
     setWorkingFileCurrent(null)
     updateNavStates(false)
 
-    const saveProcessResult = await handleSaveFileAndExtractToJson()
+    const saveProcessResult = await handleSaveFileAndExtractToJson(forcedPath)
     if (saveProcessResult.success) {
       setWorkingFileCurrent(saveProcessResult)
       setInfoMessage(saveProcessResult.message)
