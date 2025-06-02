@@ -3,7 +3,7 @@ name: 'publish'
 on:
   workflow_dispatch:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   publish-tauri:
