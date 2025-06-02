@@ -14,22 +14,17 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          #- platform: 'macos-latest' # for Arm based macs (M1 and above).
-          # args: '--target aarch64-apple-darwin'
-          #- platform: 'macos-latest' # for Intel based macs.
-          #  args: '--target x86_64-apple-darwin'
           - platform: 'ubuntu-22.04'
             args: ''
           - platform: 'windows-latest'
             args: ''
-            alternative-bundle-name: 'co-e33-save-editor-fixed-runtime'
 
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
 
       - name: install dependencies (ubuntu only)
-        if: matrix.platform == 'ubuntu-22.04' # This must match the platform value defined above.
+        if: matrix.platform == 'ubuntu-22.04'
         run: |
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
@@ -38,12 +33,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'npm' # Set this to npm, yarn or pnpm.
+          cache: 'npm'
 
       - name: install Rust stable
-        uses: dtolnay/rust-toolchain@stable # Set this to dtolnay/rust-toolchain@nightly
+        uses: dtolnay/rust-toolchain@stable
         with:
-          # Those targets are only used on macos runners so it's in an `if` to slightly speed up windows and linux builds.
           targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
 
       - name: Rust cache
@@ -51,76 +45,14 @@ jobs:
         with:
           workspaces: './src-tauri -> target'
 
-      - name: Cache WebView2 Runtime
-        id: cache-webview2
-        uses: actions/cache@v4
-        with:
-          path: ./src-tauri/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64
-          key: webview2-runtime-137.0.3296.52-x64
-
-      
-
       - name: install frontend dependencies
-        # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
-        run: npm install # change this to npm or pnpm depending on which one you use.
+        run: npm install
 
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
-          releaseName: 'App v__VERSION__'
-          releaseBody: 'See the assets to download this version and install.'
-          releaseDraft: true
-          prerelease: false
-          args: ${{ matrix.args }}
-
-      - name :  Modify tauri config for fixed runtime (Windows only)
-        if: matrix.platform == 'windows-latest'
-        shell: pwsh
-        run: |
-          $extractPath = "./src-tauri/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
-
-          if ("${{ steps.cache-webview2.outputs.cache-hit }}" -ne "true") {
-            Write-Host "Cache miss - downloading WebView2 Runtime..."
-            
-            # Download WebView2 Fixed Runtime
-            $url = "https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/0d5fcbfe-fa86-4697-8d1e-2067ab37b0a7/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64.cab"
-            $tempFile = "./WebView2Runtime.cab"
-            
-            # Download the runtime
-            Write-Host "Downloading WebView2 Runtime CAB file"
-            Invoke-WebRequest -Uri $url -OutFile $tempFile
-            
-            # Create extraction directory
-            New-Item -ItemType Directory -Force -Path $extractPath
-            
-            # Extract the CAB file
-            expand $tempFile $extractPath -F:*
-            Write-Host "Extracted WebView2 Runtime to $extractPath"
-            
-            # Clean up temp file
-            Remove-Item $tempFile
-          } else {
-            Write-Host "Cache hit - using cached WebView2 Runtime"
-          }
-
-          # Modify tauri config
-          $configFile = './src-tauri/tauri.conf.json'
-          $config = Get-Content -Raw -Path $configFile | ConvertFrom-Json
-          $config.bundle.windows.webviewInstallMode = @{
-            type = "fixedRuntime"
-            path = "./Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
-          }
-          $config.productName = "${{ matrix.alternative-bundle-name }}"
-          $config | ConvertTo-Json -Depth 10 | Set-Content -Path $configFile
-
-      - uses: tauri-apps/tauri-action@v0
-        if: matrix.platform == 'windows-latest'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
+          tagName: app-v__VERSION__
           releaseName: 'App v__VERSION__'
           releaseBody: 'See the assets to download this version and install.'
           releaseDraft: true
