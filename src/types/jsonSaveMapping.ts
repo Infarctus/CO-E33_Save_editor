@@ -153,6 +153,7 @@ export interface RootProperties {
   WeaponProgressions_0: WeaponProgressions_0
   SaveDateTime_0: SaveDateTime_0
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
+  InteractedObjects_0 : InteractedObjects_0
   FinishedGameCount_0: IntTag | null
 }
 
@@ -163,6 +164,18 @@ export interface BeginMapping {
     properties: RootProperties
   }
   extra: any
+}
+
+export interface InteractedObjects_0 {
+  tag : MapTagSimple<"NameProperty","BoolProperty">
+  Map: Array<{
+    key: {
+      Name: string
+    }
+    value: {
+      Bool: boolean
+    }
+  }>
 }
 
 export interface WeaponProgressions_0 {
