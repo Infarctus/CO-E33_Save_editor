@@ -64,6 +64,12 @@ export interface StringsArrayTag {
   }
 }
 
+export interface ByteTag<ByteName = string> {
+  data : {
+    Byte: ByteName
+  }
+}
+
 export interface StructypeTag<StructPath = string, id = string> {
   data: StructProperty<StructPath, id>
 }

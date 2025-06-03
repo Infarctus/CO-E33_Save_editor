@@ -10,6 +10,7 @@ import type {
   StringsArrayTag,
   StructProperty,
   StructypeTag,
+  ByteTag,
 } from './Tags'
 
 // Character-related types
@@ -150,6 +151,7 @@ export interface RootProperties {
   Gold_0: IntTag
   ExplorationProgression_0: ExplorationProgression_0
   EquippedConsumableShards_0: StringsArrayTag
+  QuestStatuses_0 : QuestStatuses_0
   WeaponProgressions_0: WeaponProgressions_0
   SaveDateTime_0: SaveDateTime_0
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
@@ -174,6 +176,32 @@ export interface InteractedObjects_0 {
     }
     value: {
       Bool: boolean
+    }
+  }>
+}
+
+export interface QuestStatuses_0 {
+  tag: MapTagValueStruct<'NameProperty', StructProperty<"/Game/Gameplay/Quests/System/Runtime/S_QuestStatusData.S_QuestStatusData","779d48b0-4624-52ae-608a-fd8f50211b1a">>
+  Map: Array<{
+    key: { Name: string }
+    value: {
+      Struct: {
+        Struct: {
+          ObjectivesStatus_8_EA1232C14DA1F6DDA84EBA9185000F56_0:{
+            tag: any
+            Map: Array<{
+              key: { Name: string }
+              value: { Byte: { Label: string } } 
+            }>
+          }
+          QuestStatus_2_4D165F3F428FABC6B00F2BA89749B803_0: {
+            tag : ByteTag<"/Game/Gameplay/Quests/System/Runtime/E_QuestStatus.E_QuestStatus">
+            Byte:{
+              Label: string
+            }
+          }
+        }
+      }
     }
   }>
 }
