@@ -89,7 +89,7 @@ jobs:
       - name: Setup WebView2 Fixed Runtime and Modify Config
         shell: pwsh
         run: |
-          $extractPath = "./src-tauri/Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
+          $extractPath = "./src-tauri/"
 
           if ("${{ steps.cache-webview2.outputs.cache-hit }}" -ne "true") {
             Write-Host "Cache miss - downloading WebView2 Runtime..."
