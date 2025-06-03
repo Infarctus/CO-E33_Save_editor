@@ -189,6 +189,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
             logAndInfo(`Character ${characterName} CurrentHP updated to ${newValue}`)
           }}
           positiveOnly={true}
+          hoverText={'The game will max out HP at your character\'s max HP.\nO will make them die in the first turn of battle'}
           
         />
 
@@ -196,7 +197,19 @@ const CharacterSection: FC<CharacterSectionProps> = ({
         <div className='characterEditModule' style={{ marginTop: '1rem' }}>
           <div className='header'>
             <h4>Attribute Points</h4>
-            <p>(max of total is {character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int*3})</p>
+            {/* Calculate the sum once and store it in a variable */}
+            {(() => {
+              const totalAssignedPoints = character.value.Struct.Struct.AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0.Map.reduce((sum, curVal) => {
+                return sum + curVal.value.Int;
+              }, 0);
+              const maxPoints = character.value.Struct.Struct.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0.Int * 3;
+
+              return (
+                <p className={totalAssignedPoints > maxPoints ? 'red' : ''}>
+                  (max of sum is 3*level, currently {totalAssignedPoints}/{maxPoints})
+                </p>
+              );
+            })()}
           </div>
 
           {Object.entries(
@@ -340,6 +353,7 @@ interface PropertyEditorProps {
   value: any
   onChange: (newValue: string | number) => void
   positiveOnly?: boolean
+  hoverText?: string
 }
 
 const PropertyEditor: FC<PropertyEditorProps> = ({
@@ -347,6 +361,7 @@ const PropertyEditor: FC<PropertyEditorProps> = ({
   value,
   onChange,
   positiveOnly = true,
+  hoverText
 }) => {
   return (
     <div
@@ -368,7 +383,7 @@ const PropertyEditor: FC<PropertyEditorProps> = ({
 
           onChange(clamp(target.valueAsNumber, 0, 2147483647 ))
         }}
-      />
+        title={hoverText ? hoverText : undefined}      />
     </div>
   )
 }
