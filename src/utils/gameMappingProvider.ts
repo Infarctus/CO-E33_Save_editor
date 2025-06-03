@@ -27,6 +27,7 @@ let questItemsJson: QuestItemsMapping
 let gradientSkillsJson: {
   GradientSkills: { [characterName: string]: string[] }
 }
+let manorDoorsJson: { ManorDoors:  string[]  }
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -73,6 +74,12 @@ export async function initGameMappings() {
     const stringGradientSkillsJson = await readTextFile(resourceGradientSkillsPath)
     gradientSkillsJson = JSON.parse(stringGradientSkillsJson)
     if (!('GradientSkills' in gradientSkillsJson)) throw 'GradientSkills Json not as expected'
+
+    const resourceManorDoorsPath = await path.join(MainDirPath, 'manordoors.json')
+    const stringManorDoorsJson = await readTextFile(resourceManorDoorsPath)
+    manorDoorsJson = JSON.parse(stringManorDoorsJson)
+    if (!('ManorDoors' in manorDoorsJson)) throw 'ManorDoors Json not as expected'
+
   } catch (e: any) {
     trace(e)
     alert(
@@ -185,6 +192,15 @@ export function getPossibleQuestItems(): [string, string][] {
     return Object.entries(questItemsJson.QuestItems)
   } else {
     return [['nothing', 'nothing']]
+  }
+}
+
+export function getPossibleManorDoors(): string[] {
+  debug('getting manor doors')
+  if (manorDoorsJson.ManorDoors) {
+    return manorDoorsJson.ManorDoors
+  } else {
+    return ['nothing']
   }
 }
 

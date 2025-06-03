@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { trace } from '@tauri-apps/plugin-log'
 import type { GeneralPanelProps } from '../../types/panelTypes'
 import { useInfo } from '../InfoContext'
-import { SetInventoryItem } from '../../utils/gameMappingProvider'
+import { SetInventoryItem, getPossibleManorDoors } from '../../utils/gameMappingProvider'
 import { renderNumberInput } from '../../utils/HtmlElement'
 
 const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
@@ -133,6 +133,35 @@ const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveN
     upgradeWeaponMatsdef.map(([name]) => [name, upgradeWeaponMats[name] ?? 0]),
   )
 
+  const manordoors = useMemo(() => {
+    return getPossibleManorDoors()
+  },[])
+  const [allmanordoorsopened, setAllManordoorsOpened] = useState(() => {
+    return manordoors.every((door) => {
+      const item = jsonMapping.root.properties.InteractedObjects_0.Map.find(
+        (el) => el.key.Name === door,
+      )
+      return item && item.value.Bool
+    })
+  })
+  const openallmanordoors = () => {
+    setAllManordoorsOpened(true)
+    trace('Opening all manor doors')
+    manordoors.forEach((door) => {
+      const item = jsonMapping.root.properties.InteractedObjects_0.Map.find(
+        (el) => el.key.Name === door,
+      )
+      if (item && !item.value.Bool) { // should never happen, but just in case
+        item.value.Bool = true
+      } else if(!item) {
+        jsonMapping.root.properties.InteractedObjects_0.Map.push({
+          key: { Name: door },
+          value: { Bool: true },
+        })
+      }
+    })
+  }
+
   return (
     <div id='ResourcesPanel' className='tab-panel overflow-auto'>
       <h2>Resources</h2>
@@ -196,6 +225,16 @@ const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveN
 
       <h3>Other</h3>
       {renderNumberInput(ngValue?.Int ?? 0, 'NG+ count', 0, 2147483647, NGChange, false, '0.5rem')}
+      <button 
+        onClick={() => {
+          openallmanordoors()
+          triggerSaveNeeded()
+        }}
+        disabled={allmanordoorsopened}
+        style={{ marginTop: '0.5rem', ...(allmanordoorsopened ? { backgroundColor: '#06513c' } : {}) }}
+      >
+        {allmanordoorsopened ? "All Manor Doors Opened" : "Open All Manor Doors"}
+      </button>
     </div>
   )
 }
