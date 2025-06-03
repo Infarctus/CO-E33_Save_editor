@@ -83,9 +83,9 @@ export interface MapTagSimple<KeyType = string, ValueType = string> {
       key_type: {
         Other: KeyType
       }
-    }
-    value_type: {
-      Other: ValueType
+      value_type: {
+        Other: ValueType
+      }
     }
   }
 }
