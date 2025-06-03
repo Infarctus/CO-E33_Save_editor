@@ -274,7 +274,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
           titleText='Body Customization'
           currentList={currentSkins}
           fullList={allowedSkins}
-          onUpdateSkin={(newList, firstTime?: boolean) => {
+          onUpdateSkin={(newList) => {
             trace("CharacCustoEditor for Body")
             triggerSaveNeeded()
             const allowedSkinsRawNames = allowedSkins.map((el) => el[0])
