@@ -3,6 +3,7 @@ import { E_WorldMapExplorationCapacity } from '../../types/enums'
 import { useInfo } from '../InfoContext'
 import { createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 } from '../../utils/jsonSaveMapping'
 import { GeneralPanelProps } from '../../types/panelTypes'
+import { trace } from '@tauri-apps/plugin-log'
 
 interface EsquieSkill {
   name: string
@@ -23,12 +24,6 @@ const EsquieSkillsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeed
         </p>
       </div>
     )
-  }
-  const { setInfoMessage } = useInfo()
-
-  function logAndInfo(message: string) {
-    console.log(message)
-    setInfoMessage(message)
   }
 
   // Get the current WorldMapCapacities data
@@ -84,7 +79,7 @@ const EsquieSkillsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeed
     triggerSaveNeeded()
 
     const skill = updatedSkills.find((s) => s.index === skillIndex)
-    logAndInfo(`${isUnlocked ? 'Unlocked' : 'Locked'} Esquie skill: ${skill?.friendlyName}`)
+    trace(`${isUnlocked ? 'Unlocked' : 'Locked'} Esquie skill: ${skill?.friendlyName}`)
   }
 
   return (
