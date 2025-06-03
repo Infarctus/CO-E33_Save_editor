@@ -23,7 +23,7 @@ Available editors include:
 - Pictos editor (unlock, master, set level)
 - Weapons (unlock, set level, per character sorting)
 - Monoco skills unlocker
-- Ressourcetab : Chroma / Gold , Tints amount, Tints lvl, gear item upgrade
+- Resourcetab : Chroma / Gold , Tints amount, Tints lvl, gear item upgrade
 - NG+ edit
 - Esquie skills
 - Music disks (unlock)

@@ -12,7 +12,7 @@ import MusicDisksPanel from './components/Panels/MusicDisksPanel'
 import JournalsPanel from './components/Panels/JournalsPanel'
 import PictosPanel from './components/Panels/PictosPanel'
 import WeaponsPanel from './components/Panels/WeaponsPanel'
-import RessourcesPanel from './components/Panels/RessourcesPanel'
+import ResourcesPanel from './components/Panels/ResourcesPanel'
 import MonocoSkillsPanel from './components/Panels/MonocoSkillsPanel'
 import QuestItemsPanel from './components/Panels/QuestItemsPanel'
 import EsquieSkillsPanel from './components/Panels/EsquieSkillsPanel'
@@ -44,7 +44,7 @@ export const navItems: NavItem[] = [
   { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
   { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
   { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
-  { id: 'Ressources', label: 'Ressources & Misc', icon: 'btnRessources.png', requiresFile: true, component: RessourcesPanel },
+  { id: 'Resources', label: 'Resources & Misc', icon: 'btnResources.png', requiresFile: true, component: ResourcesPanel },
   { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
   { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
   { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
