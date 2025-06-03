@@ -361,7 +361,7 @@ def genmanordoormapping():
     }
     files = ["DJBE7GX6HAETWSRXO6OFRJUAA","8IRVA8RSVAKD8FH2T72N3ATWP"]
     for file in files:
-        inputmanorelements = f"originalGameMapping/levels/Manor/{file}.json"
+        inputmanorelements = f"originalGameMapping/levels/Manor/{file}.json" #unpublished files that are too big
         output_path = os.path.join(output_dir, "manordoors.json")
         with open(inputmanorelements, "r", encoding="utf-8") as f:
             manorelements = json.load(f)
@@ -388,4 +388,4 @@ def genmanordoormapping():
 #genpictomapping()
 #genskinmapping()
 #genmusicdiskmapping()
-genmanordoormapping()
+#genmanordoormapping()
