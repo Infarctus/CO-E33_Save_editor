@@ -303,45 +303,56 @@ select > option {
   content: '';
   height: 20px;
   left: 4px;
-  position: absolute;
-  transition: 0.2s;
+  position: absolute;transition: 0.2s;
   width: 20px;
 }
 
 .slider[aria-disabled],
-.slider[disabled] {
+.slider[disabled],
+.red {
   background-color: var(--col-forbidden);
 }
 
-input:checked + .slider:not([aria-disabled]) {
+input:checked+.slider:not([aria-disabled]) {
   background-color: var(--col-1);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(20px);
 }
 
 .slider.round {
   border-radius: 34px;
 }
+
 .slider.round:before {
   border-radius: 50%;
 }
 
 .popup {
-  position: absolute; /* Change to absolute to position relative to the parent */
+  position: absolute;
+  /* Change to absolute to position relative to the parent */
   z-index: 1;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust to center the popup */
-  background-color: var(--col-bg); 
+  top: 50%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* Adjust to center the popup */
+  background-color: var(--col-bg);
   border: 2px solid var(--col-border-1);
-  padding: 20px; /* Padded border */
-  width: 75%; /* Use 95% of the parent width */
-  height: 75% ; /* Use 95% of the parent height */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Drop shadow effect */
-  overflow: auto; /* Add scroll if content overflows */
+  padding: 20px;
+  /* Padded border */
+  width: 75%;
+  /* Use 95% of the parent width */
+  height: 75%;
+  /* Use 95% of the parent height */
+  border-radius: 10px;
+  /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Drop shadow effect */
+  overflow: auto;
+  /* Add scroll if content overflows */
 }
 
 code {

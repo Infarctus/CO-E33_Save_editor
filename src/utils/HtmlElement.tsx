@@ -27,7 +27,7 @@ export function renderNumberInput(
         disabled={disabled}
         onInput={(e) => {
           const target = e.target as HTMLInputElement
-          onChange(clamp(target.valueAsNumber, minInput, maxInput) || 0)
+          onChange(clamp(target.valueAsNumber, minInput, maxInput))
         }}
         style={{ width: 'auto' }}
       />
