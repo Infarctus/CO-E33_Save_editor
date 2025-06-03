@@ -1,13 +1,8 @@
 import { type FC, useState, useMemo } from 'react'
-import type { BeginMapping } from '../../types/jsonSaveMapping'
 import { E_WorldMapExplorationCapacity } from '../../types/enums'
 import { useInfo } from '../InfoContext'
 import { createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 } from '../../utils/jsonSaveMapping'
-
-interface EsquieSkillsPanelProps {
-  jsonMapping: BeginMapping | null
-  triggerSaveNeeded: () => void
-}
+import { GeneralPanelProps } from '../../types/panelTypes'
 
 interface EsquieSkill {
   name: string
@@ -18,7 +13,7 @@ interface EsquieSkill {
 
 const esquieabilityenum = 'E_WorldMapExplorationCapacity::NewEnumerator'
 
-const EsquieSkillsPanel: FC<EsquieSkillsPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+const EsquieSkillsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.ExplorationProgression_0) {
     return (
       <div id='JournalsPanel' className='tab-panel overflow-auto'>
