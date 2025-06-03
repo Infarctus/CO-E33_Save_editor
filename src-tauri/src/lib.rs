@@ -29,12 +29,6 @@ fn open_explorer(path: String) {
         .expect("Failed to open file manager");
 }
 
-// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
 
 /// Read a single little‐endian u8 from the stream.
 fn read_u8<R: Read>(reader: &mut R) -> io::Result<u8> {
@@ -276,9 +270,7 @@ pub fn run() {
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![greet])
-        .invoke_handler(tauri::generate_handler![open_explorer])
-        .invoke_handler(tauri::generate_handler![get_expedition_folder_names_for_tauri])
+        .invoke_handler(tauri::generate_handler![open_explorer,get_expedition_folder_names_for_tauri])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
