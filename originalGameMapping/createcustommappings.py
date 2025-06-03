@@ -19,27 +19,27 @@ itemsubtypes = {'E_jRPG_ItemSubtype::NewEnumerator0': 'Lune', 'E_jRPG_ItemSubtyp
 
 def genpictomapping():
     unavalablepictos = [
-"The Best Defense",
-"Bloody Bullet",
-"Passive Defense",
-"Dodge Specialist",
-"Dodge Helper",
-"Lucky Aim",
-"Successive Parry",
-"Parry Specialist",
-"Solidifying Meditation",
-"Great Energy Tint",
-"Great Healing Tint",
-"Charybde To Scylla",
-"Evasive Healer",
-"Charging Recovery",
-"Gradient Recovery",
-"Better Healing Tint",
-"Parry Helper",
-"Physical Fighter",
-"Shield Breaker",
-"Soul Eater",
-]
+        "The Best Defense",
+        "Bloody Bullet",
+        "Passive Defense",
+        "Dodge Specialist",
+        "Dodge Helper",
+        "Lucky Aim",
+        "Successive Parry",
+        "Parry Specialist",
+        "Solidifying Meditation",
+        "Great Energy Tint",
+        "Great Healing Tint",
+        "Charybde To Scylla",
+        "Evasive Healer",
+        "Charging Recovery",
+        "Gradient Recovery",
+        "Better Healing Tint",
+        "Parry Helper",
+        "Physical Fighter",
+        "Shield Breaker",
+        "Soul Eater",
+    ]
     items = "originalGameMapping/DT_jRPG_Items_Composite.json"
 
     with open(items, "r", encoding="utf-8") as f:
@@ -355,6 +355,25 @@ def gengrandientskillmapping():
     jsondump(output_data, output_path)
     print("Gradient skill mapping generated successfully.")
 
+def genmanordoormapping():
+    inputmanorelements = "originalGameMapping/levels/Manor/DJBE7GX6HAETWSRXO6OFRJUAA.json"
+    output_path = os.path.join(output_dir, "manordoors.json")
+    with open(inputmanorelements, "r", encoding="utf-8") as f:
+        manorelements = json.load(f)
+    
+    output_data = {
+        "ManorDoors": []
+    }
+
+    for element in manorelements:
+        if not "BP_GPE_ManorInsideDoor_C" in element["Type"]:
+            continue
+        door = element["Properties"]["ObjectGlobalID"]
+        output_data["ManorDoors"].append(door)
+
+    jsondump(output_data, output_path)
+    print("Manor door mapping generated successfully.")
+            
 
 
 #gengrandientskillmapping()
@@ -366,3 +385,4 @@ def gengrandientskillmapping():
 #genpictomapping()
 #genskinmapping()
 #genmusicdiskmapping()
+#genmanordoormapping()
