@@ -5,11 +5,11 @@ import { useInfo } from '../InfoContext'
 import { SetInventoryItem } from '../../utils/gameMappingProvider'
 import { renderNumberInput } from '../../utils/HtmlElement'
 
-const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
     return (
-      <div id='RessourcesPanel' className='tab-panel overflow-auto'>
-        <h2>Ressources</h2>
+      <div id='ResourcesPanel' className='tab-panel overflow-auto'>
+        <h2>Resources</h2>
         <p style={{ color: 'red' }}>
           The file you opened (if any) doesn't look like a CO:E33 save file
         </p>
@@ -134,8 +134,8 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
   )
 
   return (
-    <div id='RessourcesPanel' className='tab-panel overflow-auto'>
-      <h2>Ressources</h2>
+    <div id='ResourcesPanel' className='tab-panel overflow-auto'>
+      <h2>Resources</h2>
 
       {renderNumberInput(goldValue, 'Gold', 0, 2147483647, GoldChange, false, '0.5rem')}
       {renderNumberInput(recoatValue, 'Recoat', 0, 9999, RecoatChange, false, '0.5rem')}
@@ -200,4 +200,4 @@ const RessourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSave
   )
 }
 
-export default RessourcesPanel
+export default ResourcesPanel
