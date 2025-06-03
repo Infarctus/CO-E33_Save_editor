@@ -356,20 +356,23 @@ def gengrandientskillmapping():
     print("Gradient skill mapping generated successfully.")
 
 def genmanordoormapping():
-    inputmanorelements = "originalGameMapping/levels/Manor/DJBE7GX6HAETWSRXO6OFRJUAA.json"
-    output_path = os.path.join(output_dir, "manordoors.json")
-    with open(inputmanorelements, "r", encoding="utf-8") as f:
-        manorelements = json.load(f)
-    
     output_data = {
         "ManorDoors": []
     }
+    files = ["DJBE7GX6HAETWSRXO6OFRJUAA","8IRVA8RSVAKD8FH2T72N3ATWP"]
+    for file in files:
+        inputmanorelements = f"originalGameMapping/levels/Manor/{file}.json"
+        output_path = os.path.join(output_dir, "manordoors.json")
+        with open(inputmanorelements, "r", encoding="utf-8") as f:
+            manorelements = json.load(f)
+        
+        
 
-    for element in manorelements:
-        if not "BP_GPE_ManorInsideDoor_C" in element["Type"]:
-            continue
-        door = element["Properties"]["ObjectGlobalID"]
-        output_data["ManorDoors"].append(door)
+        for element in manorelements:
+            if not "BP_GPE_ManorInsideDoor_C" in element["Type"]:
+                continue
+            door = element["Properties"]["ObjectGlobalID"]
+            output_data["ManorDoors"].append(door)
 
     jsondump(output_data, output_path)
     print("Manor door mapping generated successfully.")
@@ -385,4 +388,4 @@ def genmanordoormapping():
 #genpictomapping()
 #genskinmapping()
 #genmusicdiskmapping()
-#genmanordoormapping()
+genmanordoormapping()
