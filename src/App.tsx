@@ -28,6 +28,7 @@ import './styles.css'
 import { trace, error } from '@tauri-apps/plugin-log'
 import { useInfo } from './components/InfoContext'
 import { extname } from '@tauri-apps/api/path'
+import FriendlyNevrons from './components/Panels/FriendlyNevrons'
 
 interface NavItem {
   id: string
@@ -46,6 +47,7 @@ export const navItems: NavItem[] = [
   { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
   { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
   { id: 'Resources', label: 'Resources & Misc', icon: 'btnResources.png', requiresFile: true, component: ResourcesPanel },
+  { id: 'FriendlyNevrons', label: 'Friendly Nevrons', icon: 'btnFriendlyNevrons.png', requiresFile: true, component: FriendlyNevrons },
   { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
   { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
   { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
