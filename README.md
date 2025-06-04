@@ -52,7 +52,7 @@ Read the pinned comment about where to find your save file !
 
 
 Additional info
-- When opening a file, our tool is able to correclty parse any Uneral Engine Save file (commonly referred to as GVAS).
+- When opening a file, our tool is able to correclty parse any Unreal Engine Save file (commonly referred to as GVAS).
 - If you tried opening something else, none of the tabs will be available. If it opens correctly, you can view its contents inside the Raw Json tab.
 - If any of the regular tab show something along the lines of "The file you opened (if any) doesn't look like a CO:E33 save file", this means that the structure of the properties inside the sav is not the one a regular CO:E33 save file is expected to have
 - When you save a filed edited with the editor, the date/time associated with it in-game will match your current date/time
