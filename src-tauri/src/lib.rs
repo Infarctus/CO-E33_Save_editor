@@ -4,7 +4,7 @@ use tauri_plugin_log::Target;
 use tauri_plugin_log::TargetKind;
 
 mod commands;
-use commands::getxboxfolder::getxboxfolder;
+use commands::getxboxfolder::getxboxsavesfrompath;
 use commands::openexplorer::open_explorer;
 
 
@@ -35,7 +35,7 @@ pub fn run() {
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![open_explorer,getxboxfolder])
+        .invoke_handler(tauri::generate_handler![open_explorer,getxboxsavesfrompath])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
