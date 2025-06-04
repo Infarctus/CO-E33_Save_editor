@@ -6,13 +6,24 @@ import 'jsoneditor/dist/jsoneditor.css'
 
 interface RawJsonPanelProps {
   jsonMapping: any
-  onJsonChange: () => void
-  onCommitChanges: (jsonData: any) => void
+  triggerSaveNeeded: () => void
+  setJsonChangedSinceInit: (newstate : boolean) => void
+  setJsonMapping: (jsonData: any) => void
 }
 
-const RawJsonPanel: FC<RawJsonPanelProps> = ({ jsonMapping, onJsonChange, onCommitChanges }) => {
+const RawJsonPanel: FC<RawJsonPanelProps> = ({ jsonMapping,triggerSaveNeeded, setJsonChangedSinceInit, setJsonMapping }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const editorRef = useRef<JSONEditor | null>(null)
+
+  const onjsonChange = () => {
+    setJsonChangedSinceInit(true)
+    triggerSaveNeeded()
+  }
+  const onCommitChanges = (jsonData: any) => {
+    setJsonMapping(jsonData)
+    setJsonChangedSinceInit(false)
+    triggerSaveNeeded()
+  }
 
   useEffect(() => {
     if (containerRef.current && jsonMapping) {
@@ -24,7 +35,7 @@ const RawJsonPanel: FC<RawJsonPanelProps> = ({ jsonMapping, onJsonChange, onComm
       // Create new editor instance
       editorRef.current = new JSONEditor(containerRef.current, {
         mode: 'tree',
-        onChange: onJsonChange,
+        onChange: onjsonChange,
       })
 
       // Set the JSON data

@@ -211,19 +211,6 @@ function App() {
     }
   }
 
-  const handleJsonChange = () => {
-    setJsonChangedSinceInit(true)
-  }
-
-  const commitJsonChanges = (jsonData: BeginMapping) => {
-    if (workingFileCurrent != null) {
-      setJsonChangedSinceInit(false)
-      triggerSaveNeeded()
-      setJsonMapping(jsonData)
-      trace('Committed raw json changes')
-    }
-  }
-
   const getComponentProps = (tabId: string) => {
     switch (tabId) {
       case 'SaveFile':
@@ -235,8 +222,9 @@ function App() {
       case 'RawJson':
         return {
           jsonMapping,
-          onJsonChange: handleJsonChange,
-          onCommitChanges: commitJsonChanges,
+          triggerSaveNeeded,
+          setJsonChangedSinceInit,
+          setJsonMapping
         }
       case 'Backups':
         return {}
