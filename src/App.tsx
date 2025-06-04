@@ -157,8 +157,7 @@ function App() {
           return
         }
       }
-          //? null
-          //: workingFileCurrent.originalSavPath?.split('.')[1]
+      
       trace(
         `${
           workingFileCurrent.originalSavPath

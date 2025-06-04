@@ -1,2 +1,3 @@
 - Fix typo Resources not Ressources
 - Added open all manor door button
+- Fixed gamepass save could not get exported
