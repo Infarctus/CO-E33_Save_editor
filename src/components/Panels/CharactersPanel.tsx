@@ -15,13 +15,9 @@ import {
 import { trace } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
 import { clamp } from '../../utils/utils'
+import { GeneralPanelProps } from '../../types/panelTypes'
 
-interface CharactersPanelProps {
-  jsonMapping: BeginMapping | null
-  triggerSaveNeeded: () => void
-}
-
-const CharactersPanel: FC<CharactersPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   // Hard-coded allowed values for dropdowns etc.
 
   if (!jsonMapping || jsonMapping?.root?.properties?.CharactersCollection_0?.Map == null) {
