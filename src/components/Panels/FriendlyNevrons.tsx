@@ -1,5 +1,4 @@
-import type { BeginMapping } from '../../types/jsonSaveMapping'
-import { trace, debug, error } from '@tauri-apps/plugin-log'
+import { trace, error } from '@tauri-apps/plugin-log'
 import { useMemo, useState, type FC } from 'react'
 import { GeneralPanelProps } from '../../types/panelTypes'
 
@@ -27,13 +26,14 @@ const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
     { Nevron_Troubadour: { key: 'KillCompletedTroubadour', name: 'Troubadour' } },
   ]
 
-  const nevrons = useMemo(() => {
+  const initialnevrons = useMemo(() => {
+    trace('Mapping nevrons from jsonMapping')
     return nevronslist.map((nevron) => {
       const basekey = Object.keys(nevron)[0]
       const { key: questKey, name } = nevron[basekey]
       const isKilled = jsonMapping.root.properties.QuestStatuses_0.Map.some(
         (el) =>
-          el.key.Name === questKey &&
+          el.key.Name === basekey &&
           el.value.Struct.Struct.ObjectivesStatus_8_EA1232C14DA1F6DDA84EBA9185000F56_0.Map.some(
             (objective) =>
               objective.key.Name === questKey &&
@@ -43,6 +43,8 @@ const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
       return { basekey, name, isKilled }
     })
   }, [jsonMapping])
+
+  const [nevrons, setNevrons] = useState(initialnevrons)
 
   const handletogglenevron = (basekey: string, newisKilled: boolean) => {
     const nevronItem = nevronslist.find((nevron) => Object.keys(nevron)[0] === basekey)
@@ -71,11 +73,46 @@ const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
         ? 'E_QuestStatus::NewEnumerator2'
         : 'E_QuestStatus::NewEnumerator0'
 
-      debug(`Toggled ${basekey} to ${newisKilled ? 'killed' : 'not killed'}`)
+      setNevrons((prev) =>
+        prev.map((nevron) =>
+          nevron.basekey === basekey ? { ...nevron, isKilled: newisKilled } : nevron,
+        ),
+      )
+
+      trace(`Toggled ${basekey} to ${newisKilled ? 'killed' : 'not killed'}`)
     } else {
       error(`Objective status not found for ${questKey}`)
     }
   }
+
+  return (
+    <div id='FriendlyNevronsPanel' className='tab-panel overflow-auto'>
+      <h2>Friendly Nevrons</h2>
+      <p>This panel allows you to toggle the status of friendly nevrons in your save file.</p>
+      <ul className='list-group'>
+        {nevrons.map((nevron) => (
+          <li
+        key={nevron.basekey}
+        className='list-group-item d-flex justify-content-between align-items-center'
+          >
+        <span>{nevron.name}</span>
+        <button
+          className={`btn`}
+          style={{
+            marginLeft: '10px',
+            marginBottom: '5px',
+            padding: '0.4rem',
+            ...(nevron.isKilled ? { backgroundColor: '#990000' } : {}),
+          }}
+          onClick={() => handletogglenevron(nevron.basekey, !nevron.isKilled)}
+        >
+          {nevron.isKilled ? 'Dead' : 'Alive'}
+        </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
 export default FriendlyNevrons
