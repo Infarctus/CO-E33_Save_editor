@@ -2,13 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './styles.css'
-import { attachConsole, debug, trace } from '@tauri-apps/plugin-log'
+import { attachConsole, trace } from '@tauri-apps/plugin-log'
 import { initGameMappings } from './utils/gameMappingProvider'
 import { InfoProvider } from './components/InfoContext'
 
 attachConsole().then(() => {
-  debug('debug')
-  trace('trace')
+  trace('attached console')
 })
 
 initGameMappings()
