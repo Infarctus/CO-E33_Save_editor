@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect, useRef, useState, type FC } from 'react'
-import { navItems } from '../App'
 import { SaveFile, SteamSaveAuto, XBOXSaveAuto } from '../utils/saveAutoExplorer'
 import { invoke } from '@tauri-apps/api/core'
 import { sep } from '@tauri-apps/api/path'
 import { readDir } from '@tauri-apps/plugin-fs'
+import { navItems } from './AllPanelComponent'
 
 interface SidebarProps {
   activeTab: string

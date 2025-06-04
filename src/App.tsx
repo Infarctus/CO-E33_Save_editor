@@ -2,58 +2,25 @@
 
 import { useState } from 'react'
 import { confirm } from '@tauri-apps/plugin-dialog'
+import { trace, error } from '@tauri-apps/plugin-log'
+import { extname } from '@tauri-apps/api/path'
+
 import Sidebar from './components/Sidebar'
-import HomePanel from './components/Panels/HomePanel'
-import CharactersPanel from './components/Panels/CharactersPanel'
-import BackupsPanel from './components/Panels/BackupsPanel'
-import RawJsonPanel from './components/Panels/RawJsonPanel'
 import InfoBanner from './components/InfoBanner'
-import MusicDisksPanel from './components/Panels/MusicDisksPanel'
-import JournalsPanel from './components/Panels/JournalsPanel'
-import PictosPanel from './components/Panels/PictosPanel'
-import WeaponsPanel from './components/Panels/WeaponsPanel'
-import ResourcesPanel from './components/Panels/ResourcesPanel'
-import MonocoSkillsPanel from './components/Panels/MonocoSkillsPanel'
-import QuestItemsPanel from './components/Panels/QuestItemsPanel'
-import EsquieSkillsPanel from './components/Panels/EsquieSkillsPanel'
+import { useInfo } from './components/InfoContext'
+import { navItems } from './components/AllPanelComponent'
+
 import { ErrorBoundary } from './utils/HtmlElement'
 import {
   handleSaveFileAndExtractToJson,
   handleJsonAndConvertToSaveFile,
 } from './utils/fileManagement'
 import { getMappingJsonFromFile, saveMappingJsonToDisk } from './utils/jsonSaveMapping'
+
 import type { OpenProcessResult } from './types/fileTypes'
 import type { BeginMapping } from './types/jsonSaveMapping'
+
 import './styles.css'
-import { trace, error } from '@tauri-apps/plugin-log'
-import { useInfo } from './components/InfoContext'
-import { extname } from '@tauri-apps/api/path'
-import FriendlyNevrons from './components/Panels/FriendlyNevrons'
-
-interface NavItem {
-  id: string
-  label: string
-  icon: string
-  requiresFile: boolean
-  component: React.ComponentType<any>
-}
-
-// prettier-ignore
-export const navItems: NavItem[] = [
-  { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: HomePanel },
-  { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
-  { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
-  { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
-  { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
-  { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
-  { id: 'Resources', label: 'Resources & Misc', icon: 'btnResources.png', requiresFile: true, component: ResourcesPanel },
-  { id: 'FriendlyNevrons', label: 'Friendly Nevrons', icon: 'btnFriendlyNevrons.png', requiresFile: true, component: FriendlyNevrons },
-  { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
-  { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
-  { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
-  { id: 'RawJson', label: 'Raw json', icon: 'btnRawEditor.png', requiresFile: true, component: RawJsonPanel },
-  { id: 'Backups', label: 'Backups', icon: 'btnBackup.png', requiresFile: false, component: BackupsPanel },
-]
 
 function App() {
   const [activeTab, setActiveTab] = useState<string>('SaveFile')
