@@ -1,5 +1,5 @@
 import type { BeginMapping } from '../../types/jsonSaveMapping'
-import { trace, debug } from '@tauri-apps/plugin-log'
+import { trace, debug, error } from '@tauri-apps/plugin-log'
 import { useMemo, useState, type FC } from 'react'
 import { GeneralPanelProps } from '../../types/panelTypes'
 
@@ -15,7 +15,7 @@ const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
     )
   }
 
-  const nevronslist : { [key: string]: { key: string; name: string } }[] = [
+  const nevronslist: { [key: string]: { key: string; name: string } }[] = [
     // they all exist on save creation
     { Nevron_JarNeedLight: { key: 'KilledJar', name: 'Jar' } },
     { Nevron_DemineurMissingMine: { key: 'KillDemineur', name: 'Démineur' } },
@@ -29,18 +29,53 @@ const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
 
   const nevrons = useMemo(() => {
     return nevronslist.map((nevron) => {
-      const key = Object.keys(nevron)[0]
-      const { key: questKey, name } = nevron[key]
+      const basekey = Object.keys(nevron)[0]
+      const { key: questKey, name } = nevron[basekey]
       const isKilled = jsonMapping.root.properties.QuestStatuses_0.Map.some(
-        (el) => el.key.Name === questKey && 
-        el.value.Struct.Struct.QuestStatus_2_4D165F3F428FABC6B00F2BA89749B803_0.Byte.Label == "E_QuestStatus::NewEnumerator2" && // not sure about those 2 which one is important
-        el.value.Struct.Struct.ObjectivesStatus_8_EA1232C14DA1F6DDA84EBA9185000F56_0.Map.some(
-          (objective) => objective.key.Name === questKey && objective.value.Byte.Label === 'E_ObjectiveStatus::NewEnumerator2'
-        )
+        (el) =>
+          el.key.Name === questKey &&
+          el.value.Struct.Struct.ObjectivesStatus_8_EA1232C14DA1F6DDA84EBA9185000F56_0.Map.some(
+            (objective) =>
+              objective.key.Name === questKey &&
+              objective.value.Byte.Label === 'E_QuestStatus::NewEnumerator2',
+          ),
       )
-      return {key, name, isKilled }
+      return { basekey, name, isKilled }
     })
   }, [jsonMapping])
+
+  const handletogglenevron = (basekey: string, newisKilled: boolean) => {
+    const nevronItem = nevronslist.find((nevron) => Object.keys(nevron)[0] === basekey)
+    const questKey = nevronItem ? nevronItem[basekey]?.key : undefined
+    if (!questKey) {
+      trace(`No quest key found for basekey: ${basekey}`)
+      return
+    }
+    triggerSaveNeeded()
+
+    const questStatus = jsonMapping.root.properties.QuestStatuses_0.Map.find(
+      (el) => el.key.Name === basekey,
+    )
+    if (!questStatus) {
+      error(`Quest status not found for ${basekey} this is not normal`)
+      return
+    }
+
+    const objectiveStatus =
+      questStatus.value.Struct.Struct.ObjectivesStatus_8_EA1232C14DA1F6DDA84EBA9185000F56_0.Map.find(
+        (objective) => objective.key.Name === questKey,
+      )
+
+    if (objectiveStatus) {
+      objectiveStatus.value.Byte.Label = newisKilled
+        ? 'E_QuestStatus::NewEnumerator2'
+        : 'E_QuestStatus::NewEnumerator0'
+
+      debug(`Toggled ${basekey} to ${newisKilled ? 'killed' : 'not killed'}`)
+    } else {
+      error(`Objective status not found for ${questKey}`)
+    }
+  }
 }
 
 export default FriendlyNevrons
