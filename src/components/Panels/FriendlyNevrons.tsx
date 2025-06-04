@@ -24,6 +24,8 @@ const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
     { Nevron_Benisseur: { key: 'KillCompletedBenisseur', name: 'Bénisseur' } },
     { Nevron_Hexga: { key: 'KillCompletedHexga', name: 'Hexga' } },
     { Nevron_Troubadour: { key: 'KillCompletedTroubadour', name: 'Troubadour' } },
+    { Nevron_DanseuseDanceClass: { key: 'KillDanseuseDanceTeacher', name: 'Danseuse' } },
+    { Nevron_JudgeOfMercy: { key: 'KillJudgeOfMercy', name: 'Blanche' } },
   ]
 
   const initialnevrons = useMemo(() => {
@@ -92,22 +94,22 @@ const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
       <ul className='list-group'>
         {nevrons.map((nevron) => (
           <li
-        key={nevron.basekey}
-        className='list-group-item d-flex justify-content-between align-items-center'
+            key={nevron.basekey}
+            className='list-group-item d-flex justify-content-between align-items-center'
           >
-        <span>{nevron.name}</span>
-        <button
-          className={`btn`}
-          style={{
-            marginLeft: '10px',
-            marginBottom: '5px',
-            padding: '0.4rem',
-            ...(nevron.isKilled ? { backgroundColor: '#990000' } : {}),
-          }}
-          onClick={() => handletogglenevron(nevron.basekey, !nevron.isKilled)}
-        >
-          {nevron.isKilled ? 'Dead' : 'Alive'}
-        </button>
+            <span>{nevron.name}</span>
+            <button
+              className={`btn`}
+              style={{
+                marginLeft: '10px',
+                marginBottom: '5px',
+                padding: '0.4rem',
+                ...(nevron.isKilled ? { backgroundColor: '#990000' } : {}),
+              }}
+              onClick={() => handletogglenevron(nevron.basekey, !nevron.isKilled)}
+            >
+              {nevron.isKilled ? 'Dead' : 'Alive'}
+            </button>
           </li>
         ))}
       </ul>
