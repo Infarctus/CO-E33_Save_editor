@@ -61,7 +61,7 @@ const Sidebar: FC<SidebarProps> = ({
       try {
         // Fetch save files asynchronously
        const fetchData = async () => {
-  const result: [string, string][] = await invoke('get_expedition_folder_names_for_tauri', {
+  const result: [string, string][] = await invoke('getxboxsavesfrompath', {
     indexPath: indexFileEpicGamePass
   });
   const gamePassFolder = indexFileEpicGamePass.substring(0, indexFileEpicGamePass.lastIndexOf(sep()));

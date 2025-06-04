@@ -180,7 +180,7 @@ fn get_expedition_folder_names<P: AsRef<Path>>(index_path: P) -> io::Result<Vec<
 }
 
 #[tauri::command]
-pub fn getxboxfolder(index_path: String) -> Result<Vec<(String, String)>, String> {
+pub fn getxboxsavesfrompath(index_path: String) -> Result<Vec<(String, String)>, String> {
     get_expedition_folder_names(index_path)
         .map_err(|e| format!("Failed to read containers.index: {}", e))
 }
