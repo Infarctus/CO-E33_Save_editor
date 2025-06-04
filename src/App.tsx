@@ -27,6 +27,7 @@ import type { BeginMapping } from './types/jsonSaveMapping'
 import './styles.css'
 import { trace, error } from '@tauri-apps/plugin-log'
 import { useInfo } from './components/InfoContext'
+import { extname } from '@tauri-apps/api/path'
 
 interface NavItem {
   id: string
@@ -132,7 +133,7 @@ function App() {
 
   const handleExportFile = async () => {
     // Ensure we have a workingFileCurrent with a tempJsonPath
-    if (!workingFileCurrent || !workingFileCurrent.tempJsonPath || !jsonMapping) {
+    if (!workingFileCurrent || !workingFileCurrent.tempJsonPath || !jsonMapping || !workingFileCurrent.originalSavPath) {
       errorAndInfo('No working file (temp JSON path) available.')
       return
     }
@@ -144,10 +145,20 @@ function App() {
       }
 
       // Ask user where to save the save file (either .sav or no extension)
-      const currentFileExt =
-        workingFileCurrent.originalSavPath?.lastIndexOf('.') === -1
-          ? null
-          : workingFileCurrent.originalSavPath?.split('.')[1]
+      let currentFileExt: string | null = null
+      try {
+        const ext = await extname(workingFileCurrent.originalSavPath)
+        currentFileExt = ext || null
+      } catch (err) {
+        if (err === "path does not have an extension") {
+          currentFileExt = null
+        } else {
+          errorAndInfo(`Error getting file extension: ${err}, try to use Overwrite instead.`)
+          return
+        }
+      }
+          //? null
+          //: workingFileCurrent.originalSavPath?.split('.')[1]
       trace(
         `${
           workingFileCurrent.originalSavPath
@@ -167,7 +178,7 @@ function App() {
       })
 
       if (!targetSavPath) {
-        errorAndInfo('Export canceled or no target SAV path selected.')
+        errorAndInfo('Export canceled or no target save path selected.')
         return
       }
 
