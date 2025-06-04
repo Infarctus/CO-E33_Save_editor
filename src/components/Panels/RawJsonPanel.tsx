@@ -3,6 +3,7 @@
 import { type FC, useEffect, useRef } from 'react'
 import JSONEditor from 'jsoneditor'
 import 'jsoneditor/dist/jsoneditor.css'
+import { trace } from '@tauri-apps/plugin-log'
 
 interface RawJsonPanelProps {
   jsonMapping: any
@@ -23,6 +24,7 @@ const RawJsonPanel: FC<RawJsonPanelProps> = ({ jsonMapping,triggerSaveNeeded, se
     setJsonMapping(jsonData)
     setJsonChangedSinceInit(false)
     triggerSaveNeeded()
+    trace("Committed raw json changes")
   }
 
   useEffect(() => {
