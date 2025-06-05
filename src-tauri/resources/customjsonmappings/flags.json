@@ -1,19 +1,19 @@
 {
   "Flags": {
     "Abbest Cave": {
-      "LevelKey": "SmallLevel_CaveAbbest",
+      "LevelKey": "Level_Cave_AbbestAlpha",
       "MainSpawnPoint": "Level.SpawnPoint.AbbestCave.Entry",
       "SubFlags": {
         "Level.SpawnPoint.AbbestCave.Arena": "Entrance"
       }
     },
     "Ancient Gestral City": {
-      "LevelKey": "MiniLevel_GestralTreeCity",
+      "LevelKey": "Level_Mini_GestralTreeCity",
       "MainSpawnPoint": "Level.SpawnPoint.GestralTreeCity.Entry",
       "SubFlags": {}
     },
     "Ancient Sanctuary": {
-      "LevelKey": "AncientSanctuary",
+      "LevelKey": "Level_AncientSanctuary_Main_V2",
       "MainSpawnPoint": "Level.SpawnPoint.AncientSanctuary.Entry",
       "SubFlags": {
         "Level.SpawnPoint.AncientSanctuary.RedForest": "Entrance",
@@ -23,24 +23,24 @@
       }
     },
     "Blades' Graveyard": {
-      "LevelKey": "MiniLevel_BladesGraveyard",
+      "LevelKey": "Level_Mini_BladesGraveyard",
       "MainSpawnPoint": "Level.SpawnPoint.BladeGraveyard.Entry",
       "SubFlags": {}
     },
     "Boat Graveyard": {
-      "LevelKey": "MiniLevel_BoatGraveyardPurple",
+      "LevelKey": "Level_Mini_BoatGraveyard_1",
       "MainSpawnPoint": "Level.SpawnPoint.BoatGraveyardPurple",
       "SubFlags": {}
     },
     "Coastal Cave": {
-      "LevelKey": "SmallLevel_CoastalCave",
+      "LevelKey": "SmallLevel_CrulerBrulerWeaponry_Blockout",
       "MainSpawnPoint": "Level.SpawnPoint.CrulerBruler.Entry",
       "SubFlags": {
         "Level.SpawnPoint.CrulerBruler.Forge": "Forge"
       }
     },
     "Crimson Forest": {
-      "LevelKey": "SideLevel_RedForest",
+      "LevelKey": "Level_RedForest_Main",
       "MainSpawnPoint": "Level.SpawnPoint.RedForest.Entry",
       "SubFlags": {
         "Level.SpawnPoint.RedForest.Plazza": "Crimson Perch",
@@ -48,28 +48,28 @@
       }
     },
     "Crushing Cavern": {
-      "LevelKey": "SmallLevel_CavernCrusher",
+      "LevelKey": "SmallLevel_Cavern_CrushingWalls",
       "MainSpawnPoint": "Level.SpawnPoint.CavernCrusher.Entry",
       "SubFlags": {
         "Level.SpawnPoint.CavernCrusher.Entry": "Entrance"
       }
     },
     "Dark Gestral Arena": {
-      "LevelKey": "SmallLevel_DarkGestralArena",
+      "LevelKey": "SmallLevel_FA_DarkGestralArena",
       "MainSpawnPoint": "Level.SpawnPoint.DarkGestralArena.Entry",
       "SubFlags": {
         "Level.SpawnPoint.DarkGestralArena.Entry": "Entrance"
       }
     },
     "Dark Shores": {
-      "LevelKey": "SideLevel_DarkShores",
+      "LevelKey": "Level_DarkShores_Main_V1",
       "MainSpawnPoint": "Level.SpawnPoint.DarkShores.Entry",
       "SubFlags": {
         "Level.SpawnPoint.DarkShores.Entry": "Bloodied Beach"
       }
     },
     "Endless Night Sanctuary": {
-      "LevelKey": "SideLevel_TwilightSanctuary",
+      "LevelKey": "Level_Side_TwilightSanctuary",
       "MainSpawnPoint": "Level.SpawnPoint.TwilightSanctuary.Entry",
       "SubFlags": {
         "Level.SpawnPoint.TwilightSanctuary.Arena": "Warrior's Route",
@@ -78,26 +78,26 @@
       }
     },
     "Endless Tower": {
-      "LevelKey": "SideLevel_CleasTower",
+      "LevelKey": "Level_Side_CleasTower",
       "MainSpawnPoint": "Level.SpawnPoint.CleasTower.Entrance",
       "SubFlags": {
         "Level.SpawnPoint.CleasTower.Entrance": "Entrance"
       }
     },
     "Endless Tower Entrance": {
-      "LevelKey": "SideLevel_CleasTower_Entrance",
+      "LevelKey": "CleasTower_GroundFloorEntrance",
       "MainSpawnPoint": "Level.SpawnPoint.CleasTower.GroundEntrance",
       "SubFlags": {}
     },
     "Esoteric Ruins": {
-      "LevelKey": "SmallLevel_DoorMaze",
+      "LevelKey": "SmallLevel_DoorMaze_Blockout",
       "MainSpawnPoint": "Level.SpawnPoint.DoorMaze.Entry",
       "SubFlags": {
         "Level.SpawnPoint.DoorMaze.CliffBottom": "Lumière's Wrecks"
       }
     },
     "Esquie's Nest": {
-      "LevelKey": "EsquieNest",
+      "LevelKey": "LevelMain_EsquieNest",
       "MainSpawnPoint": "Level.SpawnPoint.EsquieNest.Entry",
       "SubFlags": {
         "Level.SpawnPoint.EsquieNest.GestralEntry": "Entrance",
@@ -105,7 +105,7 @@
       }
     },
     "Falling Leaves": {
-      "LevelKey": "SideLevel_OrangeForest",
+      "LevelKey": "Level_OraneForest_Main",
       "MainSpawnPoint": "Level.SpawnPoint.CleaOrangeForest.Entry",
       "SubFlags": {
         "Level.SpawnPoint.CleaOrangeForest.CenterPlazza": "Resinveil Grove",
@@ -113,21 +113,21 @@
       }
     },
     "Floating Cemetery": {
-      "LevelKey": "SmallLevel_Cemetery",
+      "LevelKey": "SmallLevel_Cemetery_Blockout",
       "MainSpawnPoint": "Level.SpawnPoint.Cemetery.Entry",
       "SubFlags": {
         "Level.SpawnPoint.Cemetery.Entry": "Entrance"
       }
     },
     "Flying Casino": {
-      "LevelKey": "SmallLevel_FlyingCasinoEntrance",
+      "LevelKey": "SmallLevel_Mix_GL_AS_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.GobluLairs_X_AncientSanctuary.Entry",
       "SubFlags": {
         "Level.SpawnPoint.FlyingCasino.Entry": "Entrance"
       }
     },
     "Flying Manor": {
-      "LevelKey": "SideLevel_CleasFlyingHouse",
+      "LevelKey": "Level_CleaFlyingHouse_Main",
       "MainSpawnPoint": "Level.SpawnPoint.CleasFlyingHouse.Entry",
       "SubFlags": {
         "Level.SpawnPoint.CleasFlyingHouse.Entry": "Entrance",
@@ -135,7 +135,7 @@
       }
     },
     "Flying Waters": {
-      "LevelKey": "GoblusLair",
+      "LevelKey": "Level_Goblu_Main_V5",
       "MainSpawnPoint": "Level.SpawnPoint.Goblu.Entry",
       "SubFlags": {
         "Level.SpawnPoint.Goblu.Entry": "Entrance",
@@ -146,7 +146,7 @@
       }
     },
     "Forgotten Battlefield": {
-      "LevelKey": "ForgottenBattlefield",
+      "LevelKey": "Level_Main_ForgottenBattlefield_V2",
       "MainSpawnPoint": "Level.SpawnPoint.ForgottenBattlefield.Entry",
       "SubFlags": {
         "Level.SpawnPoint.ForgottenBattlefield.Entry": "Entrance",
@@ -158,7 +158,7 @@
       }
     },
     "Frozen Hearts": {
-      "LevelKey": "SidelLevel_FrozenHearts",
+      "LevelKey": "Level_Side_FrozenHeart",
       "MainSpawnPoint": "Level.SpawnPoint.FrozenHearts.Entrance",
       "SubFlags": {
         "Level.SpawnPoint.FrozenHearts.CaveStation": "Icebound Terminal",
@@ -168,14 +168,14 @@
       }
     },
     "Gestral Beach": {
-      "LevelKey": "SmallLevel_GestralBeach",
+      "LevelKey": "Level_GestralBeach_Day",
       "MainSpawnPoint": "Level.SpawnPoint.GestralBeach.Climb",
       "SubFlags": {
         "Level.SpawnPoint.GestralBeach.Climb": "Entrance"
       }
     },
     "Gestral Village": {
-      "LevelKey": "GestralVillage",
+      "LevelKey": "Level_Main_GestralVillage_V2",
       "MainSpawnPoint": "Level.SpawnPoint.GestralVillage.Entry",
       "SubFlags": {
         "Level.SpawnPoint.GestralVillage.VillageEntry": "Entrance",
@@ -183,14 +183,14 @@
       }
     },
     "Hidden Gestral Arena": {
-      "LevelKey": "SmallLevel_GestralHiddenArena",
+      "LevelKey": "SmallLevel_YF_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.GestralHiddenArena.Entry",
       "SubFlags": {
         "Level.SpawnPoint.GestralHiddenArena.Entry": "Entrance"
       }
     },
     "Inside The Monolith": {
-      "LevelKey": "Monolith_Interior_Climb",
+      "LevelKey": "Level_Monolith_Interior_Climb_Main",
       "MainSpawnPoint": "Level.SpawnPoint.MonolithInterior.Climb.Entry",
       "SubFlags": {
         "Level.SpawnPoint.MonolithInterior.Climb.Entry": "Entrance",
@@ -205,19 +205,19 @@
       }
     },
     "Isle of the Eyes": {
-      "LevelKey": "SmallLevel_Visages",
+      "LevelKey": "SmallLevel_MF_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.SmallLevelVisages.Entry",
       "SubFlags": {
         "Level.SpawnPoint.SmallLevelVisages.Entry": "Entrance"
       }
     },
     "Lost Woods": {
-      "LevelKey": "MiniLevel_CleasOrangeArea",
+      "LevelKey": "Level_Mini_CleasAreaOrange",
       "MainSpawnPoint": "Level.SpawnPoint.LostWoods.Entry",
       "SubFlags": {}
     },
     "Lumière": {
-      "LevelKey": "Lumiere",
+      "LevelKey": "Level_Lumiere_Main_V2",
       "MainSpawnPoint": "Level.SpawnPoint.LumiereAct01.Entry",
       "SubFlags": {
         "Level.SpawnPoint.LumiereAct03.Dock": "Harbour",
@@ -231,7 +231,7 @@
       }
     },
     "Monoco's Station": {
-      "LevelKey": "MonocoStation",
+      "LevelKey": "Level_MonocoStation",
       "MainSpawnPoint": "Level.SpawnPoint.MonocoStation.EntryForgotten",
       "SubFlags": {
         "Level.SpawnPoint.MonocoStation.IceCorridor": "Ice Corridor",
@@ -241,14 +241,14 @@
       }
     },
     "Monolith Peak": {
-      "LevelKey": "Monolith_Exterior_Peak",
+      "LevelKey": "Level_Monolith_Exterior_Peak_Main",
       "MainSpawnPoint": "Level.SpawnPoint.MonolithExterior.Peak.Entry",
       "SubFlags": {
         "Level.SpawnPoint.MonolithExterior.Peak.Entry": "Entrance"
       }
     },
     "Old Lumière": {
-      "LevelKey": "OldLumiere",
+      "LevelKey": "Level_OldLumiere_Main",
       "MainSpawnPoint": "Level.SpawnPoint.OldLumiere.Entry",
       "SubFlags": {
         "Level.SpawnPoint.OldLumiere.BrokenBuildings": "Entrance",
@@ -260,21 +260,21 @@
       }
     },
     "Painting Workshop": {
-      "LevelKey": "SideLevel_CleasWorkshop",
+      "LevelKey": "Level_Side_CleasWorkShop_V2",
       "MainSpawnPoint": "Level.SpawnPoint.CleaWorkshop.Path1",
       "SubFlags": {
         "Level.SpawnPoint.CleaWorkshop.BrokenLampmaster": "Broken Conception"
       }
     },
     "Red Woods": {
-      "LevelKey": "SmallLevel_RedWoods",
+      "LevelKey": "SmallLevel_AS_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.RedWoods.Entry",
       "SubFlags": {
         "Level.SpawnPoint.RedWoods.Entry": "Entrance"
       }
     },
     "Renoir's Drafts": {
-      "LevelKey": "SideLevel_AxonPath",
+      "LevelKey": "Level_Monolith_Floor_1",
       "MainSpawnPoint": "Level.SpawnPoint.AxonPath.Entry",
       "SubFlags": {
         "Level.SpawnPoint.AxonPath.SavepointEnd": "Golden Tree",
@@ -287,14 +287,14 @@
       "SubFlags": {}
     },
     "Sinister Cave": {
-      "LevelKey": "SmallLevel_SinisterCave",
+      "LevelKey": "Level_Cave_InvisibleCave",
       "MainSpawnPoint": "Level.SpawnPoint.SinisterCave.Entrance",
       "SubFlags": {
         "Level.SpawnPoint.SinisterCave.Entrance": "Entrance"
       }
     },
     "Sirène": {
-      "LevelKey": "Sirene",
+      "LevelKey": "Level_Sirene_Main_V2",
       "MainSpawnPoint": "Level.SpawnPoint.Sirene.Entry",
       "SubFlags": {
         "Level.SpawnPoint.Sirene.Ballet": "Dancing Classes",
@@ -304,7 +304,7 @@
       }
     },
     "Sirène's Dress": {
-      "LevelKey": "SmallLevel_Sirene",
+      "LevelKey": "SmallLevel_Sirene_MusicHear",
       "MainSpawnPoint": "Level.SpawnPoint.SireneSmallLevel.Entry",
       "SubFlags": {
         "Level.SpawnPoint.SireneSmallLevel.Entry": "Entrance",
@@ -312,14 +312,14 @@
       }
     },
     "Sky Island": {
-      "LevelKey": "SmallLevel_FloatingIsland",
+      "LevelKey": "SmallLevel_FA_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.SkyIsland.Entry",
       "SubFlags": {
         "Level.SpawnPoint.SkyIsland.Entry": "Entrance"
       }
     },
     "Spring Meadows": {
-      "LevelKey": "SpringMeadows",
+      "LevelKey": "Level_SpringMeadows_Main_V2",
       "MainSpawnPoint": "Level.SpawnPoint.SpringMeadows.Entry",
       "SubFlags": {
         "Level.SpawnPoint.SpringMeadows.Entry": "Entrance",
@@ -331,14 +331,14 @@
       }
     },
     "Stone Quarry": {
-      "LevelKey": "SmallLevel_StoneQuarry",
+      "LevelKey": "SmallLevel_FB_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.StoneQuarry.Entry",
       "SubFlags": {
         "Level.SpawnPoint.StoneQuarry.Entry": "Entrance"
       }
     },
     "Stone Wave Cliffs": {
-      "LevelKey": "SeaCliff",
+      "LevelKey": "Level_SeaCliff_Main_V2",
       "MainSpawnPoint": "Level.SpawnPoint.SeaCliff.Entry",
       "SubFlags": {
         "Level.SpawnPoint.SeaCliff.ZeppelinEntry": "Entrance",
@@ -350,14 +350,14 @@
       }
     },
     "Stone Wave Cliffs Cave": {
-      "LevelKey": "SmallLevel_StonewaveCliffsCave",
+      "LevelKey": "ConceptLevel_SeaCliff_V1",
       "MainSpawnPoint": "Level.SpawnPoint.StonewaveCliffsCave.Entry",
       "SubFlags": {
         "Level.SpawnPoint.StonewaveCliffsCave.Vista": "Entrance"
       }
     },
     "Sunless Cliffs": {
-      "LevelKey": "SmallLevel_ChromaZoneEntry",
+      "LevelKey": "Level_Main_ChromaZoneEntrance",
       "MainSpawnPoint": "Level.SpawnPoint.ChromaZoneEntrance.Entry",
       "SubFlags": {
         "Level.SpawnPoint.ChromaZoneEntrance.Cave": "Chroma Portal"
@@ -371,66 +371,66 @@
       }
     },
     "The Barrier": {
-      "LevelKey": "TheBarrier",
+      "LevelKey": "Level_TheBarrier_Main_V1",
       "MainSpawnPoint": "Level.SpawnPoint.TheBarrier.Entry",
       "SubFlags": {}
     },
     "The Canvas": {
-      "LevelKey": "SmallLevel_TheCanvas",
+      "LevelKey": "Level_Monolith_Interior_PaintressGrandFinale_Main",
       "MainSpawnPoint": "Level.SpawnPoint.TheCanvas.Entrance",
       "SubFlags": {
         "Level.SpawnPoint.TheCanvas.Entrance": "Entrance"
       }
     },
     "The Carousel": {
-      "LevelKey": "SmallLevel_TheCarrousel",
+      "LevelKey": "SmallLevel_Carrousel",
       "MainSpawnPoint": "Level.SpawnPoint.TheCarrousel.Entrance",
       "SubFlags": {
         "Level.SpawnPoint.TheCarrousel.Entrance": "Entrance"
       }
     },
     "The Chosen Path": {
-      "LevelKey": "SmallLevel_ChosenPath",
+      "LevelKey": "Level_Bonus_ChosenPath",
       "MainSpawnPoint": "Level.SpawnPoint.TheChosenPath.Entry",
       "SubFlags": {
         "Level.SpawnPoint.TheChosenPath.Entry": "Entrance"
       }
     },
     "The Crows": {
-      "LevelKey": "SmallLevel_Reacher",
+      "LevelKey": "SmallLevel_RZ_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.ReacherCliff.Entry",
       "SubFlags": {
         "Level.SpawnPoint.ReacherCliff.Entry": "Entrance"
       }
     },
     "The Fountain": {
-      "LevelKey": "SmallLevel_SpringMeadows",
+      "LevelKey": "SmallLevel_SM_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.TheFountain.Entry",
       "SubFlags": {
         "Level.SpawnPoint.TheFountain.Entry": "Entrance"
       }
     },
     "The Manor": {
-      "LevelKey": "Manor",
+      "LevelKey": "Manor_Main_WP",
       "MainSpawnPoint": "Level.SpawnPoint.Manor.Entrance",
       "SubFlags": {
         "Level.SpawnPoint.Manor.Entrance": "Entry Hall"
       }
     },
     "The Meadows": {
-      "LevelKey": "MiniLevel_Spring",
+      "LevelKey": "Level_Mini_SpringMeadows",
       "MainSpawnPoint": "Level.SpawnPoint.MiniSpringMeadow.Entry",
       "SubFlags": {}
     },
     "The Monolith": {
-      "LevelKey": "Monolith_Interior_PaintressIntro",
+      "LevelKey": "Level_PaintressIntro_Main",
       "MainSpawnPoint": "Level.SpawnPoint.MonolithInterior.PaintressIntro.Entry",
       "SubFlags": {
         "Level.SpawnPoint.MonolithInterior.PaintressIntro.Entry": "Entrance"
       }
     },
     "The Reacher": {
-      "LevelKey": "SideLevel_Reacher",
+      "LevelKey": "Level_Reacher_Main_V2",
       "MainSpawnPoint": "Level.SpawnPoint.Reacher.Entry",
       "SubFlags": {
         "Level.SpawnPoint.Reacher.Entry": "Entrance",
@@ -442,19 +442,19 @@
       }
     },
     "The Small Bourgeon": {
-      "LevelKey": "SmallLevel_GoblusLair_02",
+      "LevelKey": "SmallLevel_GL_Zone_01",
       "MainSpawnPoint": "Level.SpawnPoint.SmallBourgeon.Entry",
       "SubFlags": {
         "Level.SpawnPoint.SmallBourgeon.Entry": "Entrance"
       }
     },
     "Twilight Quarry": {
-      "LevelKey": "MiniLevel_BoatGraveyardBlue",
+      "LevelKey": "Level_Mini_BoatGraveyard_2",
       "MainSpawnPoint": "Level.SpawnPoint.BoatGraveyardBlue",
       "SubFlags": {}
     },
     "Visages": {
-      "LevelKey": "Visages",
+      "LevelKey": "Level_Visages_Main_V1",
       "MainSpawnPoint": "Level.SpawnPoint.Visages.Entry",
       "SubFlags": {
         "Level.SpawnPoint.Visages.Plazza": "Plazza",
@@ -465,19 +465,19 @@
       }
     },
     "White Sands": {
-      "LevelKey": "SmallLevel_WhiteSands",
+      "LevelKey": "Level_Monolith_Interior_Beach_Main",
       "MainSpawnPoint": "Level.SpawnPoint.WhiteSands.Entry",
       "SubFlags": {
         "Level.SpawnPoint.WhiteSands.Entry": "Entrance"
       }
     },
     "White Tree": {
-      "LevelKey": "MiniLevel_WhiteTree",
+      "LevelKey": "Level_Mini_YellowForestWhiteTree",
       "MainSpawnPoint": "Level.SpawnPoint.MiniWhiteTree.Entry",
       "SubFlags": {}
     },
     "Yellow Harvest": {
-      "LevelKey": "SideLevel_YellowForest",
+      "LevelKey": "Level_YellowForest_Main",
       "MainSpawnPoint": "Level.SpawnPoint.YellowForest.Entry",
       "SubFlags": {
         "Level.SpawnPoint.YellowForest.Entry": "Entrance",

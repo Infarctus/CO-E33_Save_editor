@@ -398,9 +398,11 @@ def genflagmapping():
             continue
         elif level == "SideLevel_CleasTower_Entrance":
             levelname += " Entrance"
+
+        key = levelinfo.get("LevelAssetName_85_BF09694C41CC0444295731A40341A5F9")
         
         levelflaginfo = {}
-        levelflaginfo["LevelKey"] = level
+        levelflaginfo["LevelKey"] = key
         
         mainspawnpoint = levelinfo.get("MainSpawnPoint_72_5C7B345E44E5B2867FCE0687BB65019F").get("TagName")
         levelflaginfo["MainSpawnPoint"] = mainspawnpoint
