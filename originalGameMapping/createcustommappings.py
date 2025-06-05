@@ -6,8 +6,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 def jsondump(obj, file):
     with open(file, "w", encoding="utf-8") as f:
-        #json.dump(obj, f, indent=2, ensure_ascii=False)
-        json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
+        json.dump(obj, f, indent=2, ensure_ascii=False)
+        #json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
 
 
 itemtypes = {'E_jRPG_ItemType::NewEnumerator0': 'Weapon', 'E_jRPG_ItemType::NewEnumerator6': 'N/A', 'E_jRPG_ItemType::NewEnumerator7': 'Consumable', 'E_jRPG_ItemType::NewEnumerator10': 'Pictos', 'E_jRPG_ItemType::NewEnumerator11': 'Key', 'E_jRPG_ItemType::NewEnumerator12': 'Inventory', 'E_jRPG_ItemType::NewEnumerator14': 'Shard', 'E_jRPG_ItemType::NewEnumerator15': 'Gold', 'E_jRPG_ItemType::NewEnumerator16': 'CharacterCustomization', 'E_jRPG_ItemType::NewEnumerator17': 'SkillUnlocker'}
@@ -377,6 +377,68 @@ def genmanordoormapping():
     jsondump(output_data, output_path)
     print("Manor door mapping generated successfully.")
             
+def genflagmapping():
+    inputflags = "originalGameMapping/DT_LevelData.json"
+    output_path = os.path.join(output_dir, "flags.json")
+    with open(inputflags, "r", encoding="utf-8") as f:
+        levelsinfolist = json.load(f)[0].get("Rows")
+
+    output_data = {
+        "Flags": {}
+    }
+
+    for level in levelsinfolist:
+        levelinfo = levelsinfolist[level]
+        if levelinfo.get("LevelType_37_EE4A371F4388B884A49327A9EEC1B9F0") != "ELevelType::NewEnumerator0":
+            continue
+        levelname = levelinfo.get("DisplayName_10_D3213B974EE2CBDD44757B978CD84FD8").get("SourceString")
+        if not levelname:
+            if level != "Map_BattleTesting":
+                print("Level name is empty for level that shouldnt be:", level)
+            continue
+        elif level == "SideLevel_CleasTower_Entrance":
+            levelname += " Entrance"
+        
+        levelflaginfo = {}
+        levelflaginfo["LevelKey"] = level
+        
+        mainspawnpoint = levelinfo.get("MainSpawnPoint_72_5C7B345E44E5B2867FCE0687BB65019F").get("TagName")
+        levelflaginfo["MainSpawnPoint"] = mainspawnpoint
+
+        subflags = {}
+        for flag in levelinfo.get("SubAreas_73_B59A02D5470428064B9B03A1A3F5F82C"):
+            flagkey = flag.get("Key").get("TagName")
+            flagname = flag.get("Value").get("SourceString")
+            if not flagname:
+                print("Flag name is empty for flag:", flagkey, "in level:", levelname)
+            subflags[flagkey] = flagname
+
+        levelflaginfo["SubFlags"] = subflags
+
+
+        if not output_data["Flags"].get(levelname):
+            output_data["Flags"][levelname] = levelflaginfo
+        else:
+            print("Duplicate level name found:", levelname)
+        
+    # Sort the levels alphabetically
+    # Separate normal levels from ones with **
+    normal_levels = {k: v for k, v in output_data["Flags"].items() if not k.endswith("**")}
+    starred_levels = {k: v for k, v in output_data["Flags"].items() if k.endswith("**")}
+    
+    # Sort each group alphabetically
+    normal_levels = dict(sorted(normal_levels.items(), key=lambda x: x[0]))
+    starred_levels = dict(sorted(starred_levels.items(), key=lambda x: x[0]))
+    
+    # Combine with ** levels at the end
+    output_data["Flags"] = {**normal_levels, **starred_levels}
+
+    jsondump(output_data, output_path)
+    print("Flag mapping generated successfully.")
+
+        
+
+
 
 
 #gengrandientskillmapping()
@@ -389,3 +451,4 @@ def genmanordoormapping():
 #genskinmapping()
 #genmusicdiskmapping()
 #genmanordoormapping()
+genflagmapping()
