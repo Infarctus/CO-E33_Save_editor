@@ -24,18 +24,19 @@ Available editors include:
 - Weapons (unlock, set level, per character sorting)
 - Monoco skills unlocker
 - Resourcetab : Chroma / Gold , Tints amount, Tints lvl, gear item upgrade
-- NG+ edit
+  -  NG+ edit
+  -  Open all manor doors
+- Unkill friendly Nevrons
 - Esquie skills
 - Music disks (unlock)
 - Journals (unlock)
 - A powerful json editor for advanced users
 - A backup tab
+- Auto save discovery
 
 Will be done in the future (not in order):
 - Add, remove chars for a save ?
-- Unkill friendly Nevrons ?
 - Relations
-- Auto save discovery
 - Backup clean
 - Teleport to a specific flag from anywhere to anywhere
 - Unkill bosses
