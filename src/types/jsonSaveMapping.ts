@@ -145,10 +145,14 @@ export interface InventoryItems_0 {
 }
 
 export interface RootProperties {
+  VisitedLevelRowNames_0 : StringsArrayTag
   CharactersCollection_0: CharactersCollection_0Mapping
+  MapToLoad_0 : StringTag
   TimePlayed_0: DoubleTag
   InventoryItems_0: InventoryItems_0Mapping
   Gold_0: IntTag
+  SpawnPointTagToLoadAt_0 : SpawnPointTagToLoadAt_0
+  ReturnSpawnPointTag_0 : ReturnSpawnPointTag_0 // unsure of its use
   ExplorationProgression_0: ExplorationProgression_0
   EquippedConsumableShards_0: StringsArrayTag
   QuestStatuses_0 : QuestStatuses_0
@@ -166,6 +170,30 @@ export interface BeginMapping {
     properties: RootProperties
   }
   extra: any
+} 
+
+export interface SpawnPointTagToLoadAt_0 {
+  tag: StructypeTag<
+    '/Script/GameplayTags.GameplayTag',
+    '00000000-0000-0000-0000-000000000000'
+  >
+  Struct: {
+    Struct: {
+     TagName_0: StringTag
+    }
+  }
+}
+
+export interface ReturnSpawnPointTag_0{
+  tag: StructypeTag<
+    '/Script/GameplayTags.GameplayTag',
+    '00000000-0000-0000-0000-000000000000'
+  >
+  Struct: {
+    Struct: {
+     TagName_0: StringTag
+    }
+  }
 }
 
 export interface InteractedObjects_0 {
