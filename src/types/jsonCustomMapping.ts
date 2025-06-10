@@ -70,3 +70,13 @@ export interface JournalInfo {
   friendlyName: string
   found: boolean
 }
+
+export interface FlagsMapping {
+  Flags: {
+    [locationName: string]: {
+      LevelKey: string
+      MainSpawnPoint: string
+      SubFlags: { [key: string]: [flagname : string] }
+    }
+  }
+}

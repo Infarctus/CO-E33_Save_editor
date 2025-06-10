@@ -9,6 +9,7 @@ import type {
   CustomWeaponsMapping,
   CustomJournalMapping,
   QuestItemsMapping,
+  FlagsMapping,
 } from '../types/jsonCustomMapping'
 import { trace, debug } from '@tauri-apps/plugin-log'
 import { path } from '@tauri-apps/api'
@@ -28,6 +29,7 @@ let gradientSkillsJson: {
   GradientSkills: { [characterName: string]: string[] }
 }
 let manorDoorsJson: { ManorDoors:  string[]  }
+let flagsJson: FlagsMapping
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -79,6 +81,11 @@ export async function initGameMappings() {
     const stringManorDoorsJson = await readTextFile(resourceManorDoorsPath)
     manorDoorsJson = JSON.parse(stringManorDoorsJson)
     if (!('ManorDoors' in manorDoorsJson)) throw 'ManorDoors Json not as expected'
+
+    const resourceFlagsPath = await path.join(MainDirPath, 'flags.json')
+    const stringFlagsJson = await readTextFile(resourceFlagsPath)
+    flagsJson = JSON.parse(stringFlagsJson)
+    if (!('Flags' in flagsJson)) throw 'Flags Json not as expected'
 
   } catch (e: any) {
     trace(e)
@@ -201,6 +208,15 @@ export function getPossibleManorDoors(): string[] {
     return manorDoorsJson.ManorDoors
   } else {
     return ['nothing']
+  }
+}
+
+export function getPossibleFlags() {
+  debug('getting flags')
+  if (flagsJson.Flags) {
+    return flagsJson.Flags
+  } else {
+    return []
   }
 }
 

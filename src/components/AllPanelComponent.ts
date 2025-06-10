@@ -11,6 +11,7 @@ import MonocoSkillsPanel from './Panels/MonocoSkillsPanel'
 import QuestItemsPanel from './Panels/QuestItemsPanel'
 import EsquieSkillsPanel from './Panels/EsquieSkillsPanel'
 import FriendlyNevrons from './Panels/FriendlyNevrons'
+import SpawnLocationPanel from './Panels/SpawnLocationPanel'
 
 interface NavItem {
   id: string
@@ -30,6 +31,7 @@ export const navItems: NavItem[] = [
   { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
   { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
   { id: 'Resources', label: 'Resources & Misc', icon: 'btnResources.png', requiresFile: true, component: ResourcesPanel },
+  { id: 'SpawnLocation', label: 'Spawn Location', icon: 'btnSpawnLocation.png', requiresFile: true, component: SpawnLocationPanel },
   { id: 'FriendlyNevrons', label: 'Friendly Nevrons', icon: 'btnFriendlyNevrons.png', requiresFile: true, component: FriendlyNevrons },
   { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
   { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },

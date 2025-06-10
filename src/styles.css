@@ -461,3 +461,50 @@ div.jsoneditor-value.jsoneditor-null {
 div.jsoneditor-value.jsoneditor-invalid {
   color: white;
 }
+
+/* Flag panel css*/
+.spawn-location-flags {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.location-section {
+  border: 1px solid var(--col-border-1);
+  border-radius: 8px;
+  padding: 12px;
+  background-color: var(--col-1);
+}
+
+.location-header {
+  margin: 0 0 8px 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--col-text-1);
+  text-align: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--col-border-2);
+}
+
+.flags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.flag-item {
+  padding: 4px 8px;
+  border: 1px solid var(--col-border-2);
+  border-radius: 4px;
+  background-color: var(--col-2);
+  color: var(--col-text-1);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.9em;
+}
+
+.flag-item:hover {
+  background-color: var(--col-4);
+  color: var(--col-bg);
+}
