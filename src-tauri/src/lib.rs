@@ -33,7 +33,6 @@ pub fn run() {
                 .set_focus();
         }))
         .plugin(tauri_plugin_dialog::init())
-        .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![open_explorer,getxboxsavesfrompath,save_to_json,json_to_save,test_resave])
