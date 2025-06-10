@@ -7,7 +7,7 @@ import type {
   RootProperties,
   ExplorationProgression_0,
 } from '../types/jsonSaveMapping'
-import type { IntTag, DoubleTag, BoolTag, StringTag, StringsArrayTag } from '../types/Tags'
+import type { IntComponent, DoubleComponent, BoolComponent, StringComponent, StringsArrayComponent } from '../types/Tags'
 import { debug, error, trace } from '@tauri-apps/plugin-log'
 
 /**
@@ -54,7 +54,7 @@ export async function saveMappingJsonToDisk(
  * Helper function to extract values from different tag types
  */
 export function getValueFromTag(
-  tag: IntTag | DoubleTag | BoolTag | StringTag | StringsArrayTag | any,
+  tag: IntComponent | DoubleComponent | BoolComponent | StringComponent | StringsArrayComponent | any,
 ): string {
   if ('Double' in tag) {
     return tag.Double.toString()
@@ -75,7 +75,7 @@ export function getValueFromTag(
  * Helper function to set value for different tag types
  */
 export function setValueOfTag(
-  tag: IntTag | DoubleTag | BoolTag | StringTag | StringsArrayTag,
+  tag: IntComponent | DoubleComponent | BoolComponent | StringComponent | StringsArrayComponent,
   value: number | boolean | string | string[],
 ): void {
   if ('Double' in tag) {

@@ -13,7 +13,7 @@ export interface TagsArray<T = string> {
   }
 }
 
-export interface ByteArray<BytePath = string> {
+export interface ByteArrayComponent<BytePath = string> {
   tag: {
     data: {
       Array: {
@@ -31,7 +31,7 @@ export interface ByteArray<BytePath = string> {
 }
 
 // Basic property types
-export interface IntTag {
+export interface IntComponent {
   Int: number
   tag: Tags<'IntProperty'>
 }
@@ -40,22 +40,22 @@ export interface IntSingleton {
   Int: number
 }
 
-export interface DoubleTag {
+export interface DoubleComponent {
   Double: number
   tag: Tags<'DoubleProperty'>
 }
 
-export interface BoolTag {
+export interface BoolComponent {
   Bool: boolean
   tag: Tags<'BoolProperty'>
 }
 
-export interface StringTag {
+export interface StringComponent {
   Name: string
   tag: Tags<'NameProperty'>
 }
 
-export interface StringsArrayTag {
+export interface StringsArrayComponent {
   tag: TagsArray<'NameProperty'>
   Array: {
     Base: {
@@ -64,13 +64,18 @@ export interface StringsArrayTag {
   }
 }
 
-export interface ByteTag<ByteName = string> {
-  data : {
-    Byte: ByteName
+export interface ByteComponent<ByteName = string> {
+  tag: {
+    data: {
+      Byte: ByteName
+    }
+  }
+  Byte: {
+    Label: string
   }
 }
 
-export interface StructypeTag<StructPath = string, id = string> {
+export interface StrucTypeTag<StructPath = string, id = string> {
   data: StructProperty<StructPath, id>
 }
 
