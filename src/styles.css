@@ -476,6 +476,10 @@ div.jsoneditor-value.jsoneditor-invalid {
   background-color: var(--col-1);
 }
 
+.location-section + .active {
+  background-color: #0043a2;
+}
+
 .location-header {
   margin: 0 0 8px 0;
   font-size: 1em;
@@ -502,6 +506,11 @@ div.jsoneditor-value.jsoneditor-invalid {
   cursor: pointer;
   transition: background-color 0.2s;
   font-size: 0.9em;
+}
+
+.flag-item.active {
+  background-color: #0043a2;
+  color: var(--col-text-1);
 }
 
 .flag-item:hover {

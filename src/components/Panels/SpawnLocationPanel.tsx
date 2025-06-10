@@ -15,29 +15,45 @@ const SpawnLocationPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNee
     )
   }
 
-  const Flags = getPossibleFlags()
+  const Flags = useMemo(() => getPossibleFlags(), [])
 
+  const [currlevel, setCurrLevel] = useState(jsonMapping.root.properties.MapToLoad_0.Name)
+  const [currflag, setCurrFlag] = useState(
+    jsonMapping.root.properties.SpawnPointTagToLoadAt_0.Struct.Struct.TagName_0.Name,
+  )
+
+  const handleFlagClick = (levelKey: string, flagKey: string) => {
+    setCurrLevel(levelKey)
+    setCurrFlag(flagKey)
+    trace(`Setting current level to ${levelKey} and flag to ${flagKey}`)
+    jsonMapping.root.properties.MapToLoad_0.Name = levelKey
+    jsonMapping.root.properties.SpawnPointTagToLoadAt_0.Struct.Struct.TagName_0.Name = flagKey
+    triggerSaveNeeded()
+  }
 
   const renderLocationTable = () => {
     return Object.entries(Flags).map(([locationName, locationData]) => {
-      // Create array of flags with MainSpawnPoint first (as "Main")
       const flags = [
-        { key: 'main', name: 'Main', isMain: true },
+        { key: locationData.MainSpawnPoint, name: 'Main', isMain: true },
         ...Object.entries(locationData.SubFlags).map(([key, flagname]) => ({
           key,
           name: flagname,
-          isMain: false
-        }))
+          isMain: false,
+        })),
       ]
 
       return (
-        <div key={locationName} className='location-section'>
+        <div
+          key={locationName}
+          className={`location-section${currlevel === locationData.LevelKey ? ' active' : ''}`}
+        >
           <h3 className='location-header'>{locationName}</h3>
           <div className='flags-container'>
             {flags.map((flag) => (
-              <div 
-                key={flag.key} 
-                className={`flag-item ${flag.isMain ? 'main-flag' : 'sub-flag'}`}
+              <div
+                key={flag.key}
+                className={`flag-item ${currflag === flag.key ? 'active' : ''}`}
+                onClick={() => handleFlagClick(locationData.LevelKey, flag.key)}
               >
                 {flag.name}
               </div>
@@ -48,13 +64,14 @@ const SpawnLocationPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNee
     })
   }
 
-
   return (
     <div id='SpawnLocationPanel' className='tab-panel overflow-auto'>
       <h2>Spawn Location</h2>
-      <div className='spawn-location-flags'>
-        {renderLocationTable()}
-      </div>
+      <p>
+        This panel allows you to change the spawn location of your character in the game. <br />
+        It is really wonky, so be careful when using it. And some flags dont even exist in the game.
+      </p>
+      <div className='spawn-location-flags'>{renderLocationTable()}</div>
     </div>
   )
 }

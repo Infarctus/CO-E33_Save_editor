@@ -6,8 +6,8 @@ os.makedirs(output_dir, exist_ok=True)
 
 def jsondump(obj, file):
     with open(file, "w", encoding="utf-8") as f:
-        json.dump(obj, f, indent=2, ensure_ascii=False)
-        #json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
+        #json.dump(obj, f, indent=2, ensure_ascii=False)
+        json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
 
 
 itemtypes = {'E_jRPG_ItemType::NewEnumerator0': 'Weapon', 'E_jRPG_ItemType::NewEnumerator6': 'N/A', 'E_jRPG_ItemType::NewEnumerator7': 'Consumable', 'E_jRPG_ItemType::NewEnumerator10': 'Pictos', 'E_jRPG_ItemType::NewEnumerator11': 'Key', 'E_jRPG_ItemType::NewEnumerator12': 'Inventory', 'E_jRPG_ItemType::NewEnumerator14': 'Shard', 'E_jRPG_ItemType::NewEnumerator15': 'Gold', 'E_jRPG_ItemType::NewEnumerator16': 'CharacterCustomization', 'E_jRPG_ItemType::NewEnumerator17': 'SkillUnlocker'}
@@ -96,7 +96,7 @@ def genskinmapping():
         "Faces" : {}
     }
 
-    deluxeskins = ["Flowers","Gommage","Clair","Obscur"]
+    deluxeskins = ["Flowers","Gommage","Clair","Obscur","Flower Suit"]
     
     for item in itemsdef:
         curritem = itemsdef[item]
@@ -398,6 +398,8 @@ def genflagmapping():
             continue
         elif level == "SideLevel_CleasTower_Entrance":
             levelname += " Entrance"
+        elif levelname == "Lumière":
+            levelname += " (ACT 3) except Main"
 
         key = levelinfo.get("LevelAssetName_85_BF09694C41CC0444295731A40341A5F9")
         
@@ -410,6 +412,8 @@ def genflagmapping():
         subflags = {}
         for flag in levelinfo.get("SubAreas_73_B59A02D5470428064B9B03A1A3F5F82C"):
             flagkey = flag.get("Key").get("TagName")
+            if flagkey == mainspawnpoint:
+                continue
             flagname = flag.get("Value").get("SourceString")
             if not flagname:
                 print("Flag name is empty for flag:", flagkey, "in level:", levelname)
@@ -453,4 +457,4 @@ def genflagmapping():
 #genskinmapping()
 #genmusicdiskmapping()
 #genmanordoormapping()
-genflagmapping()
+#genflagmapping()
