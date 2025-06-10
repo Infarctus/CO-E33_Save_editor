@@ -12,8 +12,6 @@
     "fs:default",
     "fs:allow-app-write-recursive",
     "fs:allow-resource-read-recursive",
-    "shell:default",
-    "shell:allow-execute",
     {
       "identifier": "fs:scope",
       "allow": [
@@ -31,16 +29,6 @@
         },
         {
           "path": "$APPLOCALDATA/data/*"
-        }
-      ]
-    },
-    {
-      "identifier": "shell:allow-execute",
-      "allow": [
-        {
-          "name": "assets/uesave",
-          "args": true,
-          "sidecar": true
         }
       ]
     },

@@ -24,9 +24,6 @@
     }
   },
   "bundle": {
-    "externalBin": [
-      "assets/uesave"
-    ],
     "active": true,
     "targets": ["deb", "rpm", "appimage", "msi"],
     "icon": [
@@ -37,8 +34,7 @@
       "icons/icon.ico"
     ],
     "resources": [
-      "resources/**/*",
-      "uesave_LICENSE.txt"
+      "resources/**/*"
     ],
     "longDescription": "A Save Editor for Clair Obscur: Expedition 33",
     "windows": {
