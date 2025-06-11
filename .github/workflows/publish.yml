@@ -113,7 +113,6 @@ jobs:
             type = "fixedRuntime"
             path = "./Microsoft.WebView2.FixedVersionRuntime.137.0.3296.52.x64"
           }
-          $config.productName = "co-e33-save-editor-windows-fixed-runtime"
           $config | ConvertTo-Json -Depth 10 | Set-Content -Path $configFile
 
       - name: install frontend dependencies
@@ -122,9 +121,13 @@ jobs:
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+
+      - name: Publish Fixed Runtime Release
+        uses: softprops/action-gh-release@v2
         with:
-          tagName: app-v__VERSION__
-          releaseName: 'App v__VERSION__'
-          releaseBody: 'Windows version with bundled WebView2 runtime. See the assets to download this version and install.'
-          releaseDraft: true
-          prerelease: false
+          name: tauri-windows-fixed-runtime
+          tag_name: ${{ github.event.release.tag_name }}
+          append_body: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
