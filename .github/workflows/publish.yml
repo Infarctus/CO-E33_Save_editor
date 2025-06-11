@@ -2,11 +2,22 @@ name: 'publish'
 
 on:
   workflow_dispatch:
+    inputs:
+      job:
+        description: 'Which job to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - fixed-runtime-only
+          - regular-only
   release:
     types: [published]
 
 jobs:
   publish-tauri:
+    if: ${{ github.event.inputs.job == 'all' || github.event.inputs.job == 'regular-only' || github.event_name == 'release' }}
     permissions:
       contents: write
     strategy:
@@ -59,6 +70,7 @@ jobs:
           args: ${{ matrix.args }}
 
   publish-tauri-windows-fixed-runtime:
+    if: ${{ github.event.inputs.job == 'all' || github.event.inputs.job == 'fixed-runtime-only' || github.event_name == 'release' }}
     permissions:
       contents: write
     runs-on: windows-latest
