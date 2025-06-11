@@ -119,6 +119,7 @@ jobs:
         run: npm install
 
       - uses: tauri-apps/tauri-action@v0
+        id: tauri-action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
@@ -127,7 +128,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: tauri-windows-fixed-runtime
-          tag_name: ${{ github.event.release.tag_name }}
+          tag_name: app-v${{ steps.tauri-action.outputs.appVersion }}
           append_body: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
