@@ -41,6 +41,29 @@
   flex-direction: column;
   gap: 0.5rem;
   height: calc(100vh - 35px);
+  overflow-y: auto; /* Add vertical scrollbar when needed */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.drawer::-webkit-scrollbar,
+main::-webkit-scrollbar {
+  width: 6px;
+}
+
+.drawer::-webkit-scrollbar-track,
+main::-webkit-scrollbar-track {
+  background: var(--col-bg);
+}
+
+.drawer::-webkit-scrollbar-thumb,
+main::-webkit-scrollbar-thumb {
+  background: var(--col-border-2);
+  border-radius: 3px;
+}
+
+.drawer::-webkit-scrollbar-thumb:hover,
+main::-webkit-scrollbar-thumb:hover {
+  background: var(--col-border-1);
 }
 
 .spacer {
@@ -152,6 +175,9 @@ button {
   display: block;
   margin-bottom: auto;
 }
+
+
+
 .search-bar {
   padding: 0.5em;
   width: -webkit-fill-available;
