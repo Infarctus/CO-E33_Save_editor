@@ -151,6 +151,7 @@ export interface RootProperties {
   TimePlayed_0: DoubleComponent
   InventoryItems_0: InventoryItems_0Mapping
   Gold_0: IntComponent
+  BattledEnemies_0 : BattledEnemies_0
   SpawnPointTagToLoadAt_0 : SpawnPointTagToLoadAt_0
   ReturnSpawnPointTag_0 : ReturnSpawnPointTag_0 // unsure of its use
   ExplorationProgression_0: ExplorationProgression_0
@@ -182,6 +183,18 @@ export interface SpawnPointTagToLoadAt_0 {
      TagName_0: StringComponent
     }
   }
+}
+
+export interface BattledEnemies_0 {
+  tag : MapTagSimple<"NameProperty","BoolProperty">
+  map : Array<{
+    key : {
+      Name: string
+    }
+    value : {
+      Bool: boolean
+    }
+  }>
 }
 
 export interface ReturnSpawnPointTag_0{
