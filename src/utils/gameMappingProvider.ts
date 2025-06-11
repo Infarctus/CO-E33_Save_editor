@@ -15,6 +15,7 @@ import { trace, debug } from '@tauri-apps/plugin-log'
 import { path } from '@tauri-apps/api'
 import { BeginMapping } from '../types/jsonSaveMapping'
 import { generateInventoryItems_0 } from './jsonSaveMapping'
+import { invoke } from '@tauri-apps/api/core'
 
 let skinsJson: CharCustomizationMapping
 let pictosJson: CustomPictosMapping
@@ -28,8 +29,9 @@ let questItemsJson: QuestItemsMapping
 let gradientSkillsJson: {
   GradientSkills: { [characterName: string]: string[] }
 }
-let manorDoorsJson: { ManorDoors:  string[]  }
 let flagsJson: FlagsMapping
+
+const manorDoorsJson: { ManorDoors: string[] } = await invoke("getmanordoors")
 
 //initGameMappings()
 export async function initGameMappings() {
@@ -76,11 +78,6 @@ export async function initGameMappings() {
     const stringGradientSkillsJson = await readTextFile(resourceGradientSkillsPath)
     gradientSkillsJson = JSON.parse(stringGradientSkillsJson)
     if (!('GradientSkills' in gradientSkillsJson)) throw 'GradientSkills Json not as expected'
-
-    const resourceManorDoorsPath = await path.join(MainDirPath, 'manordoors.json')
-    const stringManorDoorsJson = await readTextFile(resourceManorDoorsPath)
-    manorDoorsJson = JSON.parse(stringManorDoorsJson)
-    if (!('ManorDoors' in manorDoorsJson)) throw 'ManorDoors Json not as expected'
 
     const resourceFlagsPath = await path.join(MainDirPath, 'flags.json')
     const stringFlagsJson = await readTextFile(resourceFlagsPath)
