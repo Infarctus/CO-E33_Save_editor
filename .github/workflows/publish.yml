@@ -137,10 +137,12 @@ jobs:
       
 
       - name: Publish Fixed Runtime Release
-        uses: softprops/action-gh-release@v2
+        uses: actions/upload-artifact@v4 #softprops/action-gh-release@v2
         with:
           name: tauri-windows-fixed-runtime
-          tag_name: app-v${{ steps.tauri-action.outputs.appVersion }}
-          append_body: true
+          #tag_name: app-v${{ steps.tauri-action.outputs.appVersion }}
+          #append_body: true
+          path : ./src-tauri/target/release/bundle/msi/*.msi
+          # files : ./src-tauri/target/release/bundle/msi/*.msi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
