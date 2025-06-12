@@ -16,21 +16,36 @@ import { BeginMapping } from '../types/jsonSaveMapping'
 import { generateInventoryItems_0 } from './jsonSaveMapping'
 import { invoke } from '@tauri-apps/api/core'
 
-const skinsJson: CharCustomizationMapping = JSON.parse(await invoke('getskinmapping'))
-const pictosJson: CustomPictosMapping = JSON.parse(await invoke('getpictomapping'))
-const musicJson: CustomMusicMapping = JSON.parse(await invoke('getmusicdiskmapping'))
-const weaponsJson: CustomWeaponsMapping = JSON.parse(await invoke('getweaponmapping'))
-const journalsJson: CustomJournalMapping = JSON.parse(await invoke('getjournalsmapping'))
-const monocoSkillsJson: MonocoSkillsMapping = JSON.parse(await invoke('getmonocoskillsmapping'))
-const questItemsJson: QuestItemsMapping = JSON.parse(await invoke('getquestitemsmapping'))
-const gradientSkillsJson: GradientSkillsMapping = JSON.parse(await invoke('getgradientskillmapping'))
-const flagsJson: FlagsMapping = JSON.parse(await invoke('getflagmapping'))
-const manorDoorsJson: { ManorDoors: string[] } = JSON.parse(await invoke("getmanordoormapping"))
+let skinsJson: CharCustomizationMapping = { Skins: {}, Faces: {} }
+let pictosJson: CustomPictosMapping = { Pictos: {} }
+let musicJson: CustomMusicMapping = { MusicDisks: {} }
+let weaponsJson: CustomWeaponsMapping = { Weapons: {} }
+let journalsJson: CustomJournalMapping = { Journals: {} }
+let monocoSkillsJson: MonocoSkillsMapping = { MonocoSkills: {} }
+let questItemsJson: QuestItemsMapping = { QuestItems: {} }
+let gradientSkillsJson: GradientSkillsMapping = { GradientSkills: {} }
+let flagsJson: FlagsMapping = { Flags: {} }
+let manorDoorsJson: { ManorDoors: string[] } = { ManorDoors: [] }
 
-//initGameMappings()
+let mappingsInitialized = false
+
 export async function initGameMappings() {
+  if (mappingsInitialized) return
+  
   try {
+    // Load all mappings
+    skinsJson = JSON.parse(await invoke('getskinmapping'))
+    pictosJson = JSON.parse(await invoke('getpictomapping'))
+    musicJson = JSON.parse(await invoke('getmusicdiskmapping'))
+    weaponsJson = JSON.parse(await invoke('getweaponmapping'))
+    journalsJson = JSON.parse(await invoke('getjournalsmapping'))
+    monocoSkillsJson = JSON.parse(await invoke('getmonocoskillsmapping'))
+    questItemsJson = JSON.parse(await invoke('getquestitemsmapping'))
+    gradientSkillsJson = JSON.parse(await invoke('getgradientskillmapping'))
+    flagsJson = JSON.parse(await invoke('getflagmapping'))
+    manorDoorsJson = JSON.parse(await invoke("getmanordoormapping"))
 
+    // Validate mappings
     if (!('Faces' in skinsJson) || !('Skins' in skinsJson))
       throw 'Skins/Faces Json (characterCuztomization) not as expected'
 
@@ -49,6 +64,8 @@ export async function initGameMappings() {
     if (!('GradientSkills' in gradientSkillsJson)) throw 'GradientSkills Json not as expected'
 
     if (!('Flags' in flagsJson)) throw 'Flags Json not as expected'
+
+    mappingsInitialized = true
 
   } catch (e: any) {
     trace(e)
