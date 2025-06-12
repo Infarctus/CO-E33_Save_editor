@@ -1,10 +1,8 @@
 import os
 import json
 
-output_dir = "./src-tauri/resources/customjsonmappings"
 rust_dir = "./src-tauri/src/"
 rust_json_dir = "./src-tauri/src/jsonmappings"
-os.makedirs(output_dir, exist_ok=True)
 os.makedirs(rust_json_dir, exist_ok=True)
 
 
@@ -440,6 +438,22 @@ def genflagmapping():
     jsondumprust(output_data, "flagmapping")
     print("Flag mapping generated successfully.")
 
+def genbasecharactersavemapping():
+    inputcharacters = "originalGameMapping/DT_jRPG_CharacterSaveStates.json"
+    output_path = os.path.join(output_dir, "basecharacters.json")
+
+    with open(inputcharacters, "r", encoding="utf-8") as f:
+        characterslist = json.load(f)[0].get("Rows")
+
+    output_data = {
+        "Characters": {}
+    }
+
+    output_data["Characters"] = characterslist
+
+    jsondumprust(output_data, "basecharactersavemapping")
+
+    print("Character mapping generated successfully.")
         
 
 
@@ -455,3 +469,4 @@ def genflagmapping():
 #genmusicdiskmapping()
 #genmanordoormapping()
 #genflagmapping()
+#genbasecharactersavemapping()

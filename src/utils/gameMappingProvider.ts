@@ -26,6 +26,7 @@ let questItemsJson: QuestItemsMapping = { QuestItems: {} }
 let gradientSkillsJson: GradientSkillsMapping = { GradientSkills: {} }
 let flagsJson: FlagsMapping = { Flags: {} }
 let manorDoorsJson: { ManorDoors: string[] } = { ManorDoors: [] }
+let basecharactersavemappingJson : any = {Characters : {}}
 
 let mappingsInitialized = false
 
@@ -44,6 +45,7 @@ export async function initGameMappings() {
     gradientSkillsJson = JSON.parse(await invoke('getgradientskillmapping'))
     flagsJson = JSON.parse(await invoke('getflagmapping'))
     manorDoorsJson = JSON.parse(await invoke("getmanordoormapping"))
+    basecharactersavemappingJson = JSON.parse(await invoke("getbasecharactersavemapping"))
 
     // Validate mappings
     if (!('Faces' in skinsJson) || !('Skins' in skinsJson))
@@ -64,6 +66,10 @@ export async function initGameMappings() {
     if (!('GradientSkills' in gradientSkillsJson)) throw 'GradientSkills Json not as expected'
 
     if (!('Flags' in flagsJson)) throw 'Flags Json not as expected'
+
+    if (!('ManorDoors' in manorDoorsJson)) throw 'ManorDoors Json not as expected'
+
+    if (!('Characters' in basecharactersavemappingJson)) throw 'BaseCharacterSaveMapping Json not as expected'
 
     mappingsInitialized = true
 
@@ -197,6 +203,15 @@ export function getPossibleFlags() {
     return flagsJson.Flags
   } else {
     return []
+  }
+}
+
+export function getPossibleBaseCharacterSaveMapping(): string[] {
+  debug('getting base character save mapping')
+  if (basecharactersavemappingJson.Characters) {
+    return Object.keys(basecharactersavemappingJson.Characters)
+  } else {
+    return ['nothing']
   }
 }
 

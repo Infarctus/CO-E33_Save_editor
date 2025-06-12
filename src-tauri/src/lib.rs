@@ -8,6 +8,7 @@ use commands::openexplorer::open_explorer;
 use commands::uesave::{save_to_json, json_to_save,test_resave};
 
 mod jsonmappings;
+use jsonmappings::basecharactersavemapping::getbasecharactersavemapping;
 use jsonmappings::manordoormapping::getmanordoormapping;
 use jsonmappings::musicdiskmapping::getmusicdiskmapping;
 use jsonmappings::skinmapping::getskinmapping;
@@ -47,6 +48,7 @@ pub fn run() {
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
+            getbasecharactersavemapping,
             getmanordoormapping,
             getmusicdiskmapping,
             getskinmapping,

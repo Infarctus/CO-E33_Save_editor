@@ -8,3 +8,4 @@ pub mod pictomapping;
 pub mod skinmapping;
 pub mod musicdiskmapping;
 pub mod manordoormapping;
+pub mod basecharactersavemapping;
