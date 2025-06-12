@@ -134,12 +134,18 @@ jobs:
         id: tauri-action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Rename MSI file
+        shell: pwsh
+        run: |
+          $msiPath = Get-ChildItem -Path "./src-tauri/target/release/bundle/msi/*.msi" | Select-Object -First 1
+          $newName = "tauri-windows-fixed-runtime_${{ steps.tauri-action.outputs.appVersion }}_x64_en-US.msi"
+          Rename-Item -Path $msiPath.FullName -NewName $newName
       
 
       - name: Publish Fixed Runtime Release
         uses: softprops/action-gh-release@v2
         with:
-          name: tauri-windows-fixed-runtime
           tag_name: app-v${{ steps.tauri-action.outputs.appVersion }}
           append_body: true
           files : ./src-tauri/target/release/bundle/msi/*.msi
