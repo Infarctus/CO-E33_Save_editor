@@ -290,8 +290,9 @@ input[disabled] {
 select {
   border-radius: 8px;
   border: 1px solid transparent;
-  background-color: #0f0f0f98;
-  color: var(--col-text-1);
+  color: var(--col-text-1);  
+  background-color: var(--col-1);
+
 }
 
 select > option {
