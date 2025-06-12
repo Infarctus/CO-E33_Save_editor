@@ -215,8 +215,19 @@ export function getPossibleBaseCharacterSaveMapping(): string[] {
   }
 }
 
-export function getBaseCharacterFromName(name: string): Character {
+export function getRawBaseCharacterSaveMapping(): string[] {
   debug('getting base character save mapping')
+  if (basecharactersavemappingJson.Characters) {
+    return Object.values(basecharactersavemappingJson.Characters).map((el) => el.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5)
+  } else {
+    return ['nothing']
+  }
+}
+
+
+export function getBaseCharacterFromName(name: string): Character {
+  debug('getting base character save mapping for '+name)
+  if (name == "Frey") name = "Gustave"
     return basecharactersavemappingJson.Characters[name]
 }
 

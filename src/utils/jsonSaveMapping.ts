@@ -10,7 +10,7 @@ import type {
 } from '../types/jsonSaveMapping'
 import type { IntComponent, DoubleComponent, BoolComponent, StringComponent, StringsArrayComponent } from '../types/Tags'
 import { debug, error, trace, warn } from '@tauri-apps/plugin-log'
-import { getBaseCharacterFromName, getPossibleBaseCharacterSaveMapping } from './gameMappingProvider'
+import { getBaseCharacterFromName, getPossibleBaseCharacterSaveMapping, getRawBaseCharacterSaveMapping } from './gameMappingProvider'
 
 /**
  * Loads JSON mapping from a file
@@ -183,7 +183,7 @@ export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
   }
 }
 export function createNewCharacter(name: string): CharactersInCollection0_Mapping {
-  const a = getPossibleBaseCharacterSaveMapping();
+  const a = getRawBaseCharacterSaveMapping();
   trace("All strings: "+a)
   if (!a.includes(name)) {
     warn("Tried to add character "+name+" which does not exist; doing nothing")

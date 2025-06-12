@@ -11,7 +11,7 @@ import {
   getUnlockedFacesFor,
   getPossibleGrandientSkillsFor,
   SetInventoryItem,
-  getPossibleBaseCharacterSaveMapping,
+  getRawBaseCharacterSaveMapping,
 } from '../../utils/gameMappingProvider'
 import { trace } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
@@ -33,7 +33,7 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
   }
 
   const [characters, setCharacters] = useState(jsonMapping.root.properties.CharactersCollection_0.Map);
-  const allCharacterNames = getPossibleBaseCharacterSaveMapping();
+  const allCharacterNames = getRawBaseCharacterSaveMapping();
   const availableCharacterNames = allCharacterNames.filter(name => !characters.some(character => character.key.Name === name));
 
   const handleAddCharacter = (characterName: string) => {
@@ -66,9 +66,14 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
   <div>
     <select onChange={(event) => handleAddCharacter(event.target.value)}>
       <option value="Add Character">Add Character</option>
-      {availableCharacterNames.map(name => (
+      {availableCharacterNames.map(name => {
+        if (name == "Frey") name = "Gustave"
+        
+        
+        return (
+        
         <option key={name} value={name}>{name}</option>
-      ))}
+      )})}
     </select>
   </div>
 </div>
