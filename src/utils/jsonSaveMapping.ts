@@ -182,7 +182,7 @@ export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
   }
 }
 export function createNewCharacter(name: string): CharactersInCollection0_Mapping {
-  if ()
+  // if ()
   const newCharacter: CharactersInCollection0_Mapping = {
     "key": {
       "Name": name
@@ -506,7 +506,24 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
               }
             },
             "Struct": {
-              "Struct": {}
+              "Struct": {
+                CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0: {
+                  Name: "None",
+                  tag: {
+                    data: {
+                      Other: 'NameProperty'
+                    }
+                  }
+                },
+                CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0: {
+                  Name: "None",
+                  tag: {
+                    data: {
+                      Other: 'NameProperty'
+                    }
+                  }
+        }
+      }
             }
           },
           "IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0": {
