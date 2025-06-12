@@ -68,7 +68,6 @@ def genpictomapping():
     with open(items, "r", encoding="utf-8") as f:
         itemsdef = json.load(f)[0].get("Rows")
 
-    output_path = os.path.join(output_dir, "pictos.json")
     output_data = {
         "Pictos": {}
     }
@@ -108,8 +107,6 @@ def genskinmapping():
     items = "originalGameMapping/DT_jRPG_Items_Composite.json"
 
     disabledchar = ["Sophie","AliciaEpilogue","Alicia"]
-
-    output_path = os.path.join(output_dir, "skins.json")
     
     with open(items, "r", encoding="utf-8") as f:
         itemsdef = json.load(f)[0].get("Rows")
@@ -154,7 +151,6 @@ def genskinmapping():
 
 def genmusicdiskmapping():
     input_music = "originalGameMapping/DT_MusicRecords.json"
-    output_path = os.path.join(output_dir, "musicdisks.json")
 
     with open(input_music, "r", encoding="utf-8") as f:
         musiclist = json.load(f)[0].get("Rows")
@@ -177,7 +173,6 @@ def genmusicdiskmapping():
 
 def genweaponmapping():
     items = "originalGameMapping/DT_jRPG_Items_Composite.json"
-    output_path = os.path.join(output_dir, "weapons.json")
 
     with open(items, "r", encoding="utf-8") as f:
         itemsdef = json.load(f)[0].get("Rows")
@@ -234,7 +229,6 @@ def genweaponmapping():
 
 def genjournalsmapping(): 
     input_journals = "originalGameMapping/DT_Items_Journals.json"
-    output_path = os.path.join(output_dir, "journals.json")
 
     with open(input_journals, "r", encoding="utf-8") as f:
         journalslist = json.load(f)[0].get("Rows")
@@ -258,8 +252,6 @@ def genjournalsmapping():
 
 def genquestitemsmapping():
     items = "originalGameMapping/DT_QuestItems.json"
-
-    output_path = os.path.join(output_dir, "questitems.json")
 
     with open(items, "r", encoding="utf-8") as f:
         itemsdef = json.load(f)[0].get("Rows")
@@ -293,7 +285,6 @@ def genquestitemsmapping():
     print("Quest item mapping generated successfully.")
 
 def genmonocoskillsmapping():
-    output_path = os.path.join(output_dir, "monocoskills.json")
     input_skills = "originalGameMapping/DA_SkillGraph_Monoco.json"
 
     with open(input_skills, "r", encoding="utf-8") as f:
@@ -332,7 +323,6 @@ def genmonocoskillsmapping():
         
 def gengrandientskillmapping():
     inputgradient = "originalGameMapping/DT_Items_GradientAttackUnlocks.json"
-    output_path = os.path.join(output_dir, "gradientskills.json")
     with open(inputgradient, "r", encoding="utf-8") as f:
         gradientlist = json.load(f)[0].get("Rows")
 
@@ -358,7 +348,6 @@ def genmanordoormapping():
     files = ["DJBE7GX6HAETWSRXO6OFRJUAA","8IRVA8RSVAKD8FH2T72N3ATWP"]
     for file in files:
         inputmanorelements = f"originalGameMapping/levels/Manor/{file}.json" #unpublished files that are too big
-        output_path = os.path.join(output_dir, "manordoors.json")
         with open(inputmanorelements, "r", encoding="utf-8") as f:
             manorelements = json.load(f)
         
@@ -375,7 +364,6 @@ def genmanordoormapping():
             
 def genflagmapping():
     inputflags = "originalGameMapping/DT_LevelData.json"
-    output_path = os.path.join(output_dir, "flags.json")
     with open(inputflags, "r", encoding="utf-8") as f:
         levelsinfolist = json.load(f)[0].get("Rows")
 
@@ -440,7 +428,6 @@ def genflagmapping():
 
 def genbasecharactersavemapping():
     inputcharacters = "originalGameMapping/DT_jRPG_CharacterSaveStates.json"
-    output_path = os.path.join(output_dir, "basecharacters.json")
 
     with open(inputcharacters, "r", encoding="utf-8") as f:
         characterslist = json.load(f)[0].get("Rows")
