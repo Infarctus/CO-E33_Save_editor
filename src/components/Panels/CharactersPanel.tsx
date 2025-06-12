@@ -11,6 +11,7 @@ import {
   getUnlockedFacesFor,
   getPossibleGrandientSkillsFor,
   SetInventoryItem,
+  getPossibleBaseCharacterSaveMapping,
 } from '../../utils/gameMappingProvider'
 import { trace } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
@@ -32,23 +33,31 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
   }
 
   const [characters, setCharacters] = useState(jsonMapping.root.properties.CharactersCollection_0.Map);
-const allCharacterNames = ["Gustave", "Lune", /* add more character names here */];
-const availableCharacterNames = allCharacterNames.filter(name => !characters.some(character => character.key.Name === name));
+  const allCharacterNames = getPossibleBaseCharacterSaveMapping();
+  const availableCharacterNames = allCharacterNames.filter(name => !characters.some(character => character.key.Name === name));
 
   const handleAddCharacter = (characterName: string) => {
     if (characterName == "Gustave") characterName = "Frey"
-        const newCharacter: CharactersInCollection0_Mapping = createNewCharacter(characterName)
+    const newCharacter: CharactersInCollection0_Mapping = createNewCharacter(characterName)
 
     jsonMapping.root.properties.CharactersCollection_0.Map = [...jsonMapping.root.properties.CharactersCollection_0.Map, newCharacter];
-  setCharacters(jsonMapping.root.properties.CharactersCollection_0.Map)
+    setCharacters(jsonMapping.root.properties.CharactersCollection_0.Map)
     triggerSaveNeeded();
+
   };
 
-const handleRemoveCharacter = (characterName: string) => {
-  triggerSaveNeeded()
-  jsonMapping.root.properties.CharactersCollection_0.Map = jsonMapping.root.properties.CharactersCollection_0.Map.filter((el) => el.key.Name != characterName)
-  setCharacters(jsonMapping.root.properties.CharactersCollection_0.Map)
-}
+  const handleRemoveCharacter = (characterName: string) => {
+    triggerSaveNeeded()
+    jsonMapping.root.properties.CurrentParty_0.Array.Struct.value = jsonMapping.root.properties.CurrentParty_0.Array.Struct.value.filter((el) => el.Struct.CharacterHardcodedName_2_2A63D4C5433428900D69748563F50580_0.Name != characterName)
+    jsonMapping.root.properties.CharactersCollection_0.Map = jsonMapping.root.properties.CharactersCollection_0.Map.filter((el) => el.key.Name != characterName)
+    setCharacters(jsonMapping.root.properties.CharactersCollection_0.Map)
+  }
+
+  const  handleHideShowCharacter = (index: number) => {
+    jsonMapping.root.properties.CharactersCollection_0.Map[index].value.Struct.Struct.IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0.Bool = !jsonMapping.root.properties.CharactersCollection_0.Map[index].value.Struct.Struct.IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0.Bool
+    trace("Just set hidden of "+jsonMapping.root.properties.CharactersCollection_0.Map[index].key.Name+" to "+jsonMapping.root.properties.CharactersCollection_0.Map[index].value.Struct.Struct.IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0.Bool)
+    return jsonMapping.root.properties.CharactersCollection_0.Map[index].value.Struct.Struct.IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0.Bool
+  }
 
   return (
     <div id='CharactersPanel' className='tab-panel'>
@@ -80,6 +89,7 @@ const handleRemoveCharacter = (characterName: string) => {
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
             handleRemoveCharacter={handleRemoveCharacter}
+            handleHideShowCharacter={handleHideShowCharacter}
             currentSkins={getUnlockedSkinsFor(
               character.key.Name,
               jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name),
@@ -104,6 +114,7 @@ interface CharacterSectionProps {
   jsonMapping: BeginMapping
   triggerSaveNeeded: () => void
   handleRemoveCharacter: (characterName: string) => void
+  handleHideShowCharacter: (characterIndex: number) => boolean
   currentSkins: string[]
   currentFaces: string[]
   gradientskill: string[]
@@ -114,6 +125,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   jsonMapping,
   triggerSaveNeeded,
   handleRemoveCharacter,
+  handleHideShowCharacter,
   currentSkins,
   currentFaces,
   gradientskill,
@@ -156,12 +168,28 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   }
 
   let characterName = character.key.Name
+
   if (character.key.Name == 'Frey') characterName = 'Gustave'
+
+  const [isCharacterHidden, setIsCharacterHidden] = useState(
+  jsonMapping.root.properties.CharactersCollection_0.Map[characterIndex].value.Struct.Struct.IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0.Bool
+);
+
+
+
   return (
     <section className='characterBox'>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <button>Hide/Show</button>
-        <button onClick={() => handleRemoveCharacter(character.key.Name)}>Remove</button>
+        <button
+        onClick={()=>setIsCharacterHidden(handleHideShowCharacter(characterIndex))}
+        title={'Hide or show this character from your current team in-game.\nNo data is deleted; this is revertible'}
+        >
+          {isCharacterHidden ? "Show" : "Hide"}
+        </button>
+        <button 
+        onClick={() => handleRemoveCharacter(character.key.Name)}
+        title={'Erase this character.\nIt will be removed from your active team, and its data will be lost. '}
+        >Remove</button>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <img

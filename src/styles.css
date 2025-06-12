@@ -288,12 +288,20 @@ input[disabled] {
 }
 
 select {
-  border-radius: 8px;
+border-radius: 8px;
   border: 1px solid transparent;
-  color: var(--col-text-1);  
+  padding: 0.2em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+    color: var(--col-text-1);  
   background-color: var(--col-1);
-
+  text-shadow: var(--col-1);
+  /* -webkit-appearance: none; */
+   -webkit-appearance: none;
 }
+
+
 
 select > option {
   background-color: #0f0f0fc9;

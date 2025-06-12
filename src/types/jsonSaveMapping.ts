@@ -15,6 +15,51 @@ import type {
 
 // Character-related types
 
+
+
+interface CharacterActions {
+  Key: string;
+  Value: number;
+}
+
+interface EquippedItemsPerSlot {
+  Key: {
+    ItemType_4_419B69C74E6D605B52FA82A76F128C96: string;
+    SlotIndex_7_4AC21CC043F87846335A25B9212005AB: number;
+  };
+  Value: string;
+}
+
+interface CharacterCustomization {
+  CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA: string;
+  CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD: string;
+}
+
+export interface Character {
+  CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5: string;
+  CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854: number;
+  CurrentExperience_9_F9C772C9454408DBD6E1269409F37747: number;
+  AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001: number;
+  CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32: number;
+  CurrentMP_57_41D543664CC0A23407A2D4B4D32029F6: number;
+  CharacterActions_113_D080F16E432739A28E50959EABF1EEB0: CharacterActions[];
+  CharacterActionsOrder_151_4F0BD1CF4D6D664017CE0CAAF2C1F1FC: string[];
+  PassiveEffectProgressions_179_EB0DD7D2437EFED3D549E5BB92A5FF4E: any[];
+  EquippedPassiveEffects_176_BE669BB547A1E730FDBF5AB2F0675853: any[];
+  EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9: EquippedItemsPerSlot[];
+  AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E: any[];
+  UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592: string[];
+  EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F: string[];
+  CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C: CharacterCustomization;
+  IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB: boolean;
+  LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226: number;
+}
+
+export interface Characters {
+  [key: string]: Character;
+}
+
+
 interface CharacterValueStructProperties {
   CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0: IntComponent
   CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0: IntComponent
@@ -24,14 +69,7 @@ interface CharacterValueStructProperties {
   CurrentMP_57_41D543664CC0A23407A2D4B4D32029F6_0: DoubleComponent
   CharacterActions_113_D080F16E432739A28E50959EABF1EEB0_0: {
     tag: MapTagSimple<'NameProperty', 'IntProperty'>
-    Map: Array<{
-      key: {
-        Name: string
-      }
-      value: {
-        Int: number
-      }
-    }>
+    Map: CharacterActions[]
   }
   CharacterActionsOrder_151_4F0BD1CF4D6D664017CE0CAAF2C1F1FC_0: StringsArrayComponent
   PassiveEffectProgressions_179_EB0DD7D2437EFED3D549E5BB92A5FF4E_0: {
@@ -146,6 +184,7 @@ export interface InventoryItems_0 {
 
 export interface RootProperties {
   VisitedLevelRowNames_0 : StringsArrayComponent
+  CurrentParty_0: CurrentParty;
   CharactersCollection_0: CharactersCollection_0Mapping
   MapToLoad_0 : StringComponent
   TimePlayed_0: DoubleComponent
@@ -162,6 +201,41 @@ export interface RootProperties {
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
   InteractedObjects_0 : InteractedObjects_0
   FinishedGameCount_0: IntComponent | null
+}
+
+export interface Formation {
+  tag: {
+    data: {
+      Byte: string; // Path to the enumeration
+    }
+  };
+  Byte: {
+    Label: string; // Label of the enumeration value
+  };
+}
+
+
+export interface PartySlotStruct {
+  Struct: {
+    CharacterHardcodedName_2_2A63D4C5433428900D69748563F50580_0: StringComponent;
+    Formation_5_710E67F044BACE578CEE51AF24DC58B0_0: ByteComponent<"/Game/jRPGTemplate/Enumerations/E_jRPG_FormationType.E_jRPG_FormationType">;
+  }
+}
+
+export interface PartySlotArray {
+  Struct: {
+    type_: 'StructProperty';
+    struct_type: {
+      Struct: string; // Path to the struct type
+    };
+    id: string;
+    value: PartySlotStruct[];
+  }
+}
+
+export interface CurrentParty {
+  tag: StrucTypeTag;
+  Array: PartySlotArray;
 }
 
 export interface BeginMapping {

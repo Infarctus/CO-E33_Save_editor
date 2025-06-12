@@ -25,6 +25,7 @@ export interface MonocoSkillsMapping {
   MonocoSkills: { [key: string]: { skillname: string; itemrequirements: string } }
 }
 
+
 export interface PictoInfo {
   name: string
   friendlyName: string
