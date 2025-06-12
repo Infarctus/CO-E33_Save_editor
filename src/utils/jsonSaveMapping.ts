@@ -9,8 +9,8 @@ import type {
   CharactersInCollection0_Mapping,
 } from '../types/jsonSaveMapping'
 import type { IntComponent, DoubleComponent, BoolComponent, StringComponent, StringsArrayComponent } from '../types/Tags'
-import { debug, error, trace, warn } from '@tauri-apps/plugin-log'
-import { getBaseCharacterFromName, getPossibleBaseCharacterSaveMapping, getRawBaseCharacterSaveMapping } from './gameMappingProvider'
+import { debug, error, trace } from '@tauri-apps/plugin-log'
+import { getBaseCharacterFromName } from './gameMappingProvider'
 
 /**
  * Loads JSON mapping from a file
