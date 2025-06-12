@@ -5,7 +5,7 @@ import { useInfo } from '../InfoContext'
 import { SetInventoryItem, getPossibleManorDoors } from '../../utils/gameMappingProvider'
 import { renderNumberInput } from '../../utils/HtmlElement'
 
-const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+function ResourcesPanel({ jsonMapping, triggerSaveNeeded }: GeneralPanelProps) {
   if (!jsonMapping || !jsonMapping?.root?.properties?.InventoryItems_0) {
     return (
       <div id='ResourcesPanel' className='tab-panel overflow-auto'>
@@ -135,7 +135,7 @@ const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveN
 
   const manordoors = useMemo(() => {
     return getPossibleManorDoors()
-  },[])
+  }, [])
   const [allmanordoorsopened, setAllManordoorsOpened] = useState(() => {
     return manordoors.every((door) => {
       const item = jsonMapping.root.properties.InteractedObjects_0.Map.find(
@@ -151,9 +151,10 @@ const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveN
       const item = jsonMapping.root.properties.InteractedObjects_0.Map.find(
         (el) => el.key.Name === door,
       )
-      if (item && !item.value.Bool) { // should never happen, but just in case
+      if (item && !item.value.Bool) {
+        // should never happen, but just in case
         item.value.Bool = true
-      } else if(!item) {
+      } else if (!item) {
         jsonMapping.root.properties.InteractedObjects_0.Map.push({
           key: { Name: door },
           value: { Bool: true },
@@ -209,31 +210,37 @@ const ResourcesPanel: React.FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveN
       <h3>Upgrade Weapon Materials</h3>
 
       {Object.entries(upgradeWeaponMatsOrdered).map(([name, level]) => {
-        // Find the friendly name from TintsBeg
         const friendlyName =
           upgradeWeaponMatsdef.find(([baseName]) => name.startsWith(baseName))?.[1] || name
-        return renderNumberInput(
-          level,
-          friendlyName,
-          0,
-          2147483647,
-          (newValue) => SetInventoryItems(name, newValue),
-          false,
-          '0.5rem',
+        return (
+          <div key={name}>
+            {renderNumberInput(
+              level,
+              friendlyName,
+              0,
+              2147483647,
+              (newValue) => SetInventoryItems(name, newValue),
+              false,
+              '0.5rem',
+            )}
+          </div>
         )
       })}
 
       <h3>Other</h3>
       {renderNumberInput(ngValue?.Int ?? 0, 'NG+ count', 0, 2147483647, NGChange, false, '0.5rem')}
-      <button 
+      <button
         onClick={() => {
           openallmanordoors()
           triggerSaveNeeded()
         }}
         disabled={allmanordoorsopened}
-        style={{ marginTop: '0.5rem', ...(allmanordoorsopened ? { backgroundColor: '#06513c' } : {}) }}
+        style={{
+          marginTop: '0.5rem',
+          ...(allmanordoorsopened ? { backgroundColor: '#06513c' } : {}),
+        }}
       >
-        {allmanordoorsopened ? "All Manor Doors Opened" : "Open All Manor Doors"}
+        {allmanordoorsopened ? 'All Manor Doors Opened' : 'Open All Manor Doors'}
       </button>
     </div>
   )

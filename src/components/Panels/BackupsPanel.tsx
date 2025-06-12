@@ -110,7 +110,7 @@ const BackupsPanel: FC = () => {
               }}
               // onClick={() => handleSort("friendlyName")}
             >
-              Name{' '}
+              Name
               {/* {sortField === "friendlyName" &&
                 (sortDirection === "asc" ? "↑" : "↓")} */}
             </th>
@@ -121,7 +121,7 @@ const BackupsPanel: FC = () => {
               }}
               // onClick={() => handleSort("friendlyName")}
             >
-              Time{' '}
+              Time
               {/* {sortField === "friendlyName" &&
                 (sortDirection === "asc" ? "↑" : "↓")} */}
             </th>
@@ -132,10 +132,10 @@ const BackupsPanel: FC = () => {
               }}
               // onClick={() => handleSort("friendlyName")}
             >
-              {'Export'}{' '}
+              {'Export'}
               {/* {sortField === "friendlyName" &&
                 (sortDirection === "asc" ? "↑" : "↓")} */}
-            </th>{' '}
+            </th>
           </tr>
         </thead>
         <tbody>

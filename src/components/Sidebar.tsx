@@ -204,16 +204,14 @@ const Sidebar: FC<SidebarProps> = ({
 
           <table>
             <thead>
-              <th>
-                <td>
-                  Steam Saves
-                </td>
-              </th>
+              <tr>
+                <th>Steam Saves</th>
+              </tr>
             </thead>
             <tbody>
               {saveFilesSteam.length == 0 && (
                 <tr>
-                  Nothing found
+                  <td>Nothing found</td>
                 </tr>
               )}
               {saveFilesSteam.map((item) => (
@@ -234,21 +232,19 @@ const Sidebar: FC<SidebarProps> = ({
           <br />
           <table>
             <thead>
-              <th>
-                <td>
-                  Game Pass
-                </td>
-              </th>
+              <tr>
+                <th>Game Pass</th>
+              </tr>
             </thead>
             <tbody>
               {indexFileEpicGamePass === null && (
                 <tr>
-                  No containers.index file found
+                  <td>No containers.index file found</td>
                 </tr>
               )}
               {outputContainers === undefined && (
                 <tr>
-                  No EXPEDITION_* found inside the index
+                  <td>No EXPEDITION_* found inside the index</td>
                 </tr>
               )}
 

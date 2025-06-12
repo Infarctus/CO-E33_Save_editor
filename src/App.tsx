@@ -217,7 +217,6 @@ function App() {
         return {
           openResult: workingFileCurrent,
           jsonMapping,
-          key: updateKey,
         }
       case 'RawJson':
         return {
