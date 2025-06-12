@@ -1,6 +1,7 @@
 use tauri::Manager;
 use tauri_plugin_log::Target;
 use tauri_plugin_log::TargetKind;
+use tauri_plugin_window_state::StateFlags;
 
 mod commands;
 use commands::getxboxfolder::getxboxsavesfrompath;
@@ -47,6 +48,11 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_opener::init())
+        .plugin(
+            tauri_plugin_window_state::Builder::default()
+                .with_state_flags(StateFlags::all() & !StateFlags::VISIBLE)
+                .build(),
+        )
         .invoke_handler(tauri::generate_handler![
             getbasecharactersavemapping,
             getmanordoormapping,
