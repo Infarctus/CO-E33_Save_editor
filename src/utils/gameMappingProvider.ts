@@ -30,9 +30,6 @@ const manorDoorsJson: { ManorDoors: string[] } = JSON.parse(await invoke("getman
 //initGameMappings()
 export async function initGameMappings() {
   try {
-    trace('Loading game mappings...')
-    console.log(typeof skinsJson)
-    console.log(musicJson)
 
     if (!('Faces' in skinsJson) || !('Skins' in skinsJson))
       throw 'Skins/Faces Json (characterCuztomization) not as expected'
