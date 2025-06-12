@@ -234,7 +234,7 @@ def genweaponmapping():
 
     print("Weapon mapping generated successfully.")
 
-def genjournalsmapping():
+def genjournalsmapping(): 
     input_journals = "originalGameMapping/DT_Items_Journals.json"
     output_path = os.path.join(output_dir, "journals.json")
 
@@ -293,33 +293,6 @@ def genquestitemsmapping():
     jsondumprust(output_data, "questitemsmapping")
 
     print("Quest item mapping generated successfully.")
-
-def oldgenmonocoskillsmapping():
-    skillsdir = "originalGameMapping/MonocoSkills"
-    output_path = os.path.join(output_dir, "monocoskills.json")
-
-    output_data = {
-        "MonocoSkills": {}
-    }
-
-    for filename in os.listdir(skillsdir):
-        if not filename.endswith(".json"):
-            continue
-        with open(os.path.join(skillsdir, filename), "r", encoding="utf-8") as f:
-            skilldef = json.load(f)[0].get("Properties")
-            skillkey = skilldef.get("NameID")
-            skillname = skilldef.get("name").get("SourceString")
-            if not skillname:
-                skillname = skilldef.get("name").get("CultureInvariantString")+"**"
-            output_data["MonocoSkills"][skillkey] = skillname
-
-    output_data["MonocoSkills"] = dict(
-        sorted(output_data["MonocoSkills"].items(), key=lambda x: x[1].lower().replace("é", "e"))
-    )
-
-    jsondumprust(output_data, "monocoskillsmapping")
-
-    print("Monoco skill mapping generated successfully.")
 
 def genmonocoskillsmapping():
     output_path = os.path.join(output_dir, "monocoskills.json")
@@ -472,14 +445,13 @@ def genflagmapping():
 
 
 
-gengrandientskillmapping()
-genmonocoskillsmapping()
-oldgenmonocoskillsmapping()
-genquestitemsmapping()
-genweaponmapping()    
-genjournalsmapping()
-genpictomapping()
-genskinmapping()
-genmusicdiskmapping()
-genmanordoormapping()
-genflagmapping()
+#gengrandientskillmapping()
+#genmonocoskillsmapping()
+#genquestitemsmapping()
+#genweaponmapping()    
+#genjournalsmapping()
+#genpictomapping()
+#genskinmapping()
+#genmusicdiskmapping()
+#genmanordoormapping()
+#genflagmapping()
