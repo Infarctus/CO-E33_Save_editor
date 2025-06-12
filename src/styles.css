@@ -50,6 +50,10 @@ main::-webkit-scrollbar {
   width: 6px;
 }
 
+.drawer::-webkit-scrollbar {
+  width: 0px;
+}
+
 .drawer::-webkit-scrollbar-track,
 main::-webkit-scrollbar-track {
   background: var(--col-bg);
