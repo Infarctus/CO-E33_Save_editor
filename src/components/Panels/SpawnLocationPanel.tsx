@@ -38,7 +38,7 @@ useEffect(() => {
     triggerSaveNeeded()
   }
 
-  const renderLocationTable = (searchString: string) => {
+  const renderLocationTable = () => {
     return Object.entries(shownLocations).map(([locationName, locationData]) => {
       const flags = [
         { key: locationData.MainSpawnPoint, name: 'Main', isMain: true },
@@ -87,7 +87,7 @@ useEffect(() => {
       />
       <br />
       <br />
-      <div className='spawn-location-flags'>{renderLocationTable(searchString)}</div>
+      <div className='spawn-location-flags'>{renderLocationTable()}</div>
     </div>
   )
 }
