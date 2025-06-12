@@ -1,7 +1,5 @@
 'use client'
 
-import { readTextFile } from '@tauri-apps/plugin-fs'
-import { resolveResource } from '@tauri-apps/api/path'
 import type {
   CharCustomizationMapping,
   CustomPictosMapping,
@@ -10,78 +8,49 @@ import type {
   CustomJournalMapping,
   QuestItemsMapping,
   FlagsMapping,
+  GradientSkillsMapping,
+  MonocoSkillsMapping,
 } from '../types/jsonCustomMapping'
 import { trace, debug } from '@tauri-apps/plugin-log'
-import { path } from '@tauri-apps/api'
 import { BeginMapping } from '../types/jsonSaveMapping'
 import { generateInventoryItems_0 } from './jsonSaveMapping'
 import { invoke } from '@tauri-apps/api/core'
 
-let skinsJson: CharCustomizationMapping
-let pictosJson: CustomPictosMapping
-let musicJson: CustomMusicMapping
-let weaponsJson: CustomWeaponsMapping
-let journalsJson: CustomJournalMapping
-let monocoSkillsJson: {
-  MonocoSkills: { [key: string]: { skillname: string; itemrequirements: string } }
-}
-let questItemsJson: QuestItemsMapping
-let gradientSkillsJson: {
-  GradientSkills: { [characterName: string]: string[] }
-}
-let flagsJson: FlagsMapping
-
-const manorDoorsJson: { ManorDoors: string[] } = await invoke("getmanordoors")
+const skinsJson: CharCustomizationMapping = JSON.parse(await invoke('getskinmapping'))
+const pictosJson: CustomPictosMapping = JSON.parse(await invoke('getpictomapping'))
+const musicJson: CustomMusicMapping = JSON.parse(await invoke('getmusicdiskmapping'))
+const weaponsJson: CustomWeaponsMapping = JSON.parse(await invoke('getweaponmapping'))
+const journalsJson: CustomJournalMapping = JSON.parse(await invoke('getjournalsmapping'))
+const monocoSkillsJson: MonocoSkillsMapping = JSON.parse(await invoke('getmonocoskillsmapping'))
+const questItemsJson: QuestItemsMapping = JSON.parse(await invoke('getquestitemsmapping'))
+const gradientSkillsJson: GradientSkillsMapping = JSON.parse(await invoke('getgradientskillmapping'))
+const flagsJson: FlagsMapping = JSON.parse(await invoke('getflagmapping'))
+const manorDoorsJson: { ManorDoors: string[] } = JSON.parse(await invoke("getmanordoormapping"))
 
 //initGameMappings()
 export async function initGameMappings() {
   try {
-    const MainDirPath = await resolveResource('resources/customjsonmappings/')
-    const resourceSkinsPath = await path.join(MainDirPath, 'skins.json')
-    const stringSkinsJson = await readTextFile(resourceSkinsPath)
-    skinsJson = JSON.parse(stringSkinsJson)
-    // trace("Skins keys is " + Object.keys(skinsJson))
+    trace('Loading game mappings...')
+    console.log(typeof skinsJson)
+    console.log(musicJson)
+
     if (!('Faces' in skinsJson) || !('Skins' in skinsJson))
       throw 'Skins/Faces Json (characterCuztomization) not as expected'
 
-    const resourcePictosPath = await path.join(MainDirPath, 'pictos.json')
-    const stringPictosJson = await readTextFile(resourcePictosPath)
-    pictosJson = JSON.parse(stringPictosJson)
     if (!('Pictos' in pictosJson)) throw 'Pictos Json not as expected'
 
-    const resourceMusicPath = await path.join(MainDirPath, 'musicdisks.json')
-    const stringMusicJson = await readTextFile(resourceMusicPath)
-    musicJson = JSON.parse(stringMusicJson)
     if (!('MusicDisks' in musicJson)) throw 'Music Json not as expected'
 
-    const resourceWeaponsPath = await path.join(MainDirPath, 'weapons.json')
-    const stringWeaponsJson = await readTextFile(resourceWeaponsPath)
-    weaponsJson = JSON.parse(stringWeaponsJson)
     if (!('Weapons' in weaponsJson)) throw 'Weapons Json not as expected'
 
-    const resourceJournalsPath = await path.join(MainDirPath, 'journals.json')
-    const stringJournalsJson = await readTextFile(resourceJournalsPath)
-    journalsJson = JSON.parse(stringJournalsJson)
     if (!('Journals' in journalsJson)) throw 'Journals Json not as expected'
 
-    const resourceMonocoSkillsPath = await path.join(MainDirPath, 'monocoskills.json')
-    const stringMonocoSkillsJson = await readTextFile(resourceMonocoSkillsPath)
-    monocoSkillsJson = JSON.parse(stringMonocoSkillsJson)
     if (!('MonocoSkills' in monocoSkillsJson)) throw 'MonocoSkills Json not as expected'
 
-    const resourceQuestItemsPath = await path.join(MainDirPath, 'questitems.json')
-    const stringQuestItemsJson = await readTextFile(resourceQuestItemsPath)
-    questItemsJson = JSON.parse(stringQuestItemsJson)
     if (!('QuestItems' in questItemsJson)) throw 'QuestItems Json not as expected'
 
-    const resourceGradientSkillsPath = await path.join(MainDirPath, 'gradientskills.json')
-    const stringGradientSkillsJson = await readTextFile(resourceGradientSkillsPath)
-    gradientSkillsJson = JSON.parse(stringGradientSkillsJson)
     if (!('GradientSkills' in gradientSkillsJson)) throw 'GradientSkills Json not as expected'
 
-    const resourceFlagsPath = await path.join(MainDirPath, 'flags.json')
-    const stringFlagsJson = await readTextFile(resourceFlagsPath)
-    flagsJson = JSON.parse(stringFlagsJson)
     if (!('Flags' in flagsJson)) throw 'Flags Json not as expected'
 
   } catch (e: any) {

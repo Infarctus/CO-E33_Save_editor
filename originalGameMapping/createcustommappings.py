@@ -2,18 +2,43 @@ import os
 import json
 
 output_dir = "./src-tauri/resources/customjsonmappings"
+rust_dir = "./src-tauri/src/"
+rust_json_dir = "./src-tauri/src/jsonmappings"
 os.makedirs(output_dir, exist_ok=True)
+os.makedirs(rust_json_dir, exist_ok=True)
 
-def jsondump(obj, file):
-    with open(file, "w", encoding="utf-8") as f:
-        #json.dump(obj, f, indent=2, ensure_ascii=False)
-        json.dump(obj, f, separators=(',', ':'), ensure_ascii=False) # for release to minify the jsons
+
+def jsondumprust(obj, name):
+    rustcommandpath = os.path.join(rust_json_dir, f"{name}.rs")
+    stringwriting = "#[tauri::command]\n"  \
+    + f"pub fn get{name}() -> Result<String, String> {{ \n"  \
+    + f'   let json = r#"{json.dumps(obj, separators=(",", ":"), ensure_ascii=False)}"#;\n'   \
+    + "    Ok(json.to_string())\n"  \
+    + "}\n"  
+    with open(rustcommandpath, "w", encoding="utf-8") as f:
+        f.write(stringwriting)
+
+    with open(os.path.join(rust_json_dir, "mod.rs"), "r", encoding="utf-8") as f:
+        modcontent = f.read()
+
+    if not f"pub mod {name};" in modcontent:
+        with open(os.path.join(rust_json_dir, "mod.rs"), "a", encoding="utf-8") as f:
+            f.write(f"pub mod {name};\n")
+    
+    with open(os.path.join(rust_dir,"lib.rs"), "r+", encoding="utf-8") as f:
+        libcontent = f.read()
+        if not f"use jsonmappings::{name}::get{name};" in libcontent:
+            libcontent = libcontent.replace("mod jsonmappings;", f"mod jsonmappings;\nuse jsonmappings::{name}::get{name};") 
+
+        if not f"get{name}," in libcontent:
+            libcontent =  libcontent.replace("tauri::generate_handler![", f"tauri::generate_handler![\n            get{name},")
+        
+    with open(os.path.join(rust_dir,"lib.rs"), "w", encoding="utf-8") as f:
+        f.write(libcontent)
 
 
 itemtypes = {'E_jRPG_ItemType::NewEnumerator0': 'Weapon', 'E_jRPG_ItemType::NewEnumerator6': 'N/A', 'E_jRPG_ItemType::NewEnumerator7': 'Consumable', 'E_jRPG_ItemType::NewEnumerator10': 'Pictos', 'E_jRPG_ItemType::NewEnumerator11': 'Key', 'E_jRPG_ItemType::NewEnumerator12': 'Inventory', 'E_jRPG_ItemType::NewEnumerator14': 'Shard', 'E_jRPG_ItemType::NewEnumerator15': 'Gold', 'E_jRPG_ItemType::NewEnumerator16': 'CharacterCustomization', 'E_jRPG_ItemType::NewEnumerator17': 'SkillUnlocker'}
 itemsubtypes = {'E_jRPG_ItemSubtype::NewEnumerator0': 'Lune', 'E_jRPG_ItemSubtype::NewEnumerator1': 'Monoco', 'E_jRPG_ItemSubtype::NewEnumerator2': 'Sciel', 'E_jRPG_ItemSubtype::NewEnumerator11': 'Consumable', 'E_jRPG_ItemSubtype::NewEnumerator14': 'Maelle', 'E_jRPG_ItemSubtype::NewEnumerator15': 'Pictos', 'E_jRPG_ItemSubtype::NewEnumerator16': 'Noah', 'E_jRPG_ItemSubtype::NewEnumerator18': 'Key', 'E_jRPG_ItemSubtype::NewEnumerator19': 'Inventory', 'E_jRPG_ItemSubtype::NewEnumerator20': 'Invalid', 'E_jRPG_ItemSubtype::NewEnumerator21': 'Verso', 'E_jRPG_ItemSubtype::NewEnumerator22': 'Journal', 'E_jRPG_ItemSubtype::NewEnumerator23': 'Music Record'}
-
-
 
 
 
@@ -77,7 +102,7 @@ def genpictomapping():
     output_data["Pictos"].update(Pictos1)
     output_data["Pictos"].update(Pictos2)
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "pictomapping")
 
     print("Picto mapping generated successfully.")              
                 
@@ -125,7 +150,7 @@ def genskinmapping():
             sorted(output_data["Faces"][char].items(), key=lambda x: x[1])
         )
     
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "skinmapping")
 
     print("Skin mapping generated successfully.")
 
@@ -148,7 +173,7 @@ def genmusicdiskmapping():
         sorted(output_data["MusicDisks"].items(), key=lambda x: x[1])
     )
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "musicdiskmapping")
 
     print("Music disk mapping generated successfully.")
 
@@ -205,7 +230,7 @@ def genweaponmapping():
         
         output_data["Weapons"][char] = dict(normal + single_starred + double_starred)
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "weaponmapping")
 
     print("Weapon mapping generated successfully.")
 
@@ -229,7 +254,7 @@ def genjournalsmapping():
         sorted(output_data["Journals"].items(), key=lambda x: x[1])
     )
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "journalsmapping")
 
     print("Journal mapping generated successfully.")
 
@@ -265,7 +290,7 @@ def genquestitemsmapping():
     output_data["QuestItems"].update(weirditems)
 
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "questitemsmapping")
 
     print("Quest item mapping generated successfully.")
 
@@ -292,7 +317,7 @@ def oldgenmonocoskillsmapping():
         sorted(output_data["MonocoSkills"].items(), key=lambda x: x[1].lower().replace("é", "e"))
     )
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "monocoskillsmapping")
 
     print("Monoco skill mapping generated successfully.")
 
@@ -331,7 +356,7 @@ def genmonocoskillsmapping():
         sorted(output_data["MonocoGradient"].items(), key=lambda x: x[1].lower().replace("é", "e"))
     )
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "monocoskillsmapping")
     print("New Monoco skill mapping generated successfully.")
         
 def gengrandientskillmapping():
@@ -352,7 +377,7 @@ def gengrandientskillmapping():
             output_data["GradientSkills"][charname] = []
         output_data["GradientSkills"][charname].append(gradient)
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "gradientskillmapping")
     print("Gradient skill mapping generated successfully.")
 
 def genmanordoormapping():
@@ -374,7 +399,7 @@ def genmanordoormapping():
             door = element["Properties"]["ObjectGlobalID"]
             output_data["ManorDoors"].append(door)
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "manordoormapping")
     print("Manor door mapping generated successfully.")
             
 def genflagmapping():
@@ -439,7 +464,7 @@ def genflagmapping():
     # Combine with ** levels at the end
     output_data["Flags"] = {**normal_levels, **starred_levels}
 
-    jsondump(output_data, output_path)
+    jsondumprust(output_data, "flagmapping")
     print("Flag mapping generated successfully.")
 
         
@@ -447,14 +472,14 @@ def genflagmapping():
 
 
 
-#gengrandientskillmapping()
-#genmonocoskillsmapping()
-#oldgenmonocoskillsmapping()
-#genquestitemsmapping()
-#genweaponmapping()    
-#genjournalsmapping()
-#genpictomapping()
-#genskinmapping()
-#genmusicdiskmapping()
-#genmanordoormapping()
-#genflagmapping()
+gengrandientskillmapping()
+genmonocoskillsmapping()
+oldgenmonocoskillsmapping()
+genquestitemsmapping()
+genweaponmapping()    
+genjournalsmapping()
+genpictomapping()
+genskinmapping()
+genmusicdiskmapping()
+genmanordoormapping()
+genflagmapping()

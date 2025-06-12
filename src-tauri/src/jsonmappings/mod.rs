@@ -1,1 +1,10 @@
-pub mod manordoors;
+pub mod flagmapping;
+pub mod gradientskillmapping;
+pub mod monocoskillsmapping;
+pub mod questitemsmapping;
+pub mod weaponmapping;
+pub mod journalsmapping;
+pub mod pictomapping;
+pub mod skinmapping;
+pub mod musicdiskmapping;
+pub mod manordoormapping;
