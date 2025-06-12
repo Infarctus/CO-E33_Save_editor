@@ -183,11 +183,7 @@ export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
   }
 }
 export function createNewCharacter(name: string): CharactersInCollection0_Mapping {
-  const a = getRawBaseCharacterSaveMapping();
-  trace("All strings: "+a)
-  if (!a.includes(name)) {
-    warn("Tried to add character "+name+" which does not exist; doing nothing")
-  }
+
   const selectedChar = getBaseCharacterFromName(name)
   const newCharacter: CharactersInCollection0_Mapping = {
     "key": {

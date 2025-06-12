@@ -215,12 +215,16 @@ export function getPossibleBaseCharacterSaveMapping(): string[] {
   }
 }
 
-export function getRawBaseCharacterSaveMapping(): string[] {
+export function getRawBaseCharacterSaveMapping(): { [nameshown: string]: string } {
   debug('getting base character save mapping')
   if (basecharactersavemappingJson.Characters) {
-    return Object.values(basecharactersavemappingJson.Characters).map((el) => el.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5)
+    const mapping: { [baseName: string]: string } = {}
+    Object.entries(basecharactersavemappingJson.Characters).forEach(([baseName, character]) => {
+      mapping[baseName] = character.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5
+    })
+    return mapping
   } else {
-    return ['nothing']
+    return {}
   }
 }
 

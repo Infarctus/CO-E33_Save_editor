@@ -34,10 +34,9 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
 
   const [characters, setCharacters] = useState(jsonMapping.root.properties.CharactersCollection_0.Map);
   const allCharacterNames = getRawBaseCharacterSaveMapping();
-  const availableCharacterNames = allCharacterNames.filter(name => !characters.some(character => character.key.Name === name));
+  const availableCharacterNames = Object.entries(allCharacterNames).filter(name => !characters.some(character => character.key.Name === name[1]));
 
   const handleAddCharacter = (characterName: string) => {
-    if (characterName == "Gustave") characterName = "Frey"
     const newCharacter: CharactersInCollection0_Mapping = createNewCharacter(characterName)
 
     jsonMapping.root.properties.CharactersCollection_0.Map = [...jsonMapping.root.properties.CharactersCollection_0.Map, newCharacter];
@@ -64,15 +63,14 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
      <div className='header'>
   <h2>Characters</h2>
   <div>
-    <select onChange={(event) => handleAddCharacter(event.target.value)}>
+    <select style={{padding: '0.5rem'}} onChange={(event) => handleAddCharacter(event.target.value)}>
       <option value="Add Character">Add Character</option>
       {availableCharacterNames.map(name => {
-        if (name == "Frey") name = "Gustave"
         
         
         return (
         
-        <option key={name} value={name}>{name}</option>
+        <option key={name[0]} value={name[1]}>{name[0]}</option>
       )})}
     </select>
   </div>
