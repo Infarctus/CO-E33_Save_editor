@@ -9,8 +9,8 @@ import type {
   CharactersInCollection0_Mapping,
 } from '../types/jsonSaveMapping'
 import type { IntComponent, DoubleComponent, BoolComponent, StringComponent, StringsArrayComponent } from '../types/Tags'
-import { debug, error, trace, warn } from '@tauri-apps/plugin-log'
-import { getBaseCharacterFromName, getPossibleBaseCharacterSaveMapping, getRawBaseCharacterSaveMapping } from './gameMappingProvider'
+import { debug, error, trace } from '@tauri-apps/plugin-log'
+import { getBaseCharacterFromName } from './gameMappingProvider'
 
 /**
  * Loads JSON mapping from a file
@@ -185,6 +185,7 @@ export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
 export function createNewCharacter(name: string): CharactersInCollection0_Mapping {
 
   const selectedChar = getBaseCharacterFromName(name)
+  console.log(selectedChar.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9)
   const newCharacter: CharactersInCollection0_Mapping = {
     "key": {
       "Name": selectedChar.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5
@@ -348,7 +349,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                   }
                 },
                 "value": {
-                  "Name": selectedChar.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9.lastItem?.Value ?? "None"
+                  "Name": selectedChar.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9[0]?.Value ?? "None"
                 }
               }
             ]
