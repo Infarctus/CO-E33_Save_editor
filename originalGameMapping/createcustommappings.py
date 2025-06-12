@@ -429,14 +429,26 @@ def genflagmapping():
 def genbasecharactersavemapping():
     inputcharacters = "originalGameMapping/DT_jRPG_CharacterSaveStates.json"
 
+    unavailablecharacters = ["Julie","Sophie","Alicia"]
+
     with open(inputcharacters, "r", encoding="utf-8") as f:
         characterslist = json.load(f)[0].get("Rows")
+
+    characterslist
 
     output_data = {
         "Characters": {}
     }
 
-    output_data["Characters"] = characterslist
+    for key, value in characterslist.items():
+        if key in unavailablecharacters:
+            continue
+        if key == "Frey":
+            output_data["Characters"]["Gustave"] = value
+        else:
+            output_data["Characters"][key] = value
+
+
 
     jsondumprust(output_data, "basecharactersavemapping")
 
