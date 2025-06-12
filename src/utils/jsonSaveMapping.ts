@@ -6,6 +6,7 @@ import type {
   InventoryItems_0,
   RootProperties,
   ExplorationProgression_0,
+  CharactersInCollection0_Mapping,
 } from '../types/jsonSaveMapping'
 import type { IntComponent, DoubleComponent, BoolComponent, StringComponent, StringsArrayComponent } from '../types/Tags'
 import { debug, error, trace } from '@tauri-apps/plugin-log'
@@ -179,4 +180,354 @@ export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
       },
     },
   }
+}
+export function createNewCharacter(name: string): CharactersInCollection0_Mapping {
+  if ()
+  const newCharacter: CharactersInCollection0_Mapping = {
+    "key": {
+      "Name": name
+    },
+    "value": {
+      "Struct": {
+        "Struct": {
+          "CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5_0": {
+            "tag": {
+              "data": {
+                "Other": "NameProperty"
+              }
+            },
+            "Name": "Verso"
+          },
+          "CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0": {
+            "tag": {
+              "data": {
+                "Other": "IntProperty"
+              }
+            },
+            "Int": 1
+          },
+          "CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0": {
+            "tag": {
+              "data": {
+                "Other": "IntProperty"
+              }
+            },
+            "Int": 0
+          },
+          "AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001_0": {
+            "tag": {
+              "data": {
+                "Other": "IntProperty"
+              }
+            },
+            "Int": 0
+          },
+          "CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32_0": {
+            "tag": {
+              "data": {
+                "Other": "DoubleProperty"
+              }
+            },
+            "Double": 150.0
+          },
+          "CurrentMP_57_41D543664CC0A23407A2D4B4D32029F6_0": {
+            "tag": {
+              "data": {
+                "Other": "DoubleProperty"
+              }
+            },
+            "Double": 3.0
+          },
+          "CharacterActions_113_D080F16E432739A28E50959EABF1EEB0_0": {
+            "tag": {
+              "data": {
+                "Map": {
+                  "key_type": {
+                    "Other": "NameProperty"
+                  },
+                  "value_type": {
+                    "Other": "IntProperty"
+                  }
+                }
+              }
+            },
+            "Map": [
+              {
+                "key": {
+                  "Name": "Attack"
+                },
+                "value": {
+                  "Int": 1
+                }
+              },
+              {
+                "key": {
+                  "Name": "Defend"
+                },
+                "value": {
+                  "Int": 1
+                }
+              },
+              {
+                "key": {
+                  "Name": "Items"
+                },
+                "value": {
+                  "Int": 1
+                }
+              },
+              {
+                "key": {
+                  "Name": "Flee"
+                },
+                "value": {
+                  "Int": 1
+                }
+              },
+              {
+                "key": {
+                  "Name": "Magic_Fireball"
+                },
+                "value": {
+                  "Int": 1
+                }
+              },
+              {
+                "key": {
+                  "Name": "Magic_Thunder"
+                },
+                "value": {
+                  "Int": 1
+                }
+              }
+            ]
+          },
+          "CharacterActionsOrder_151_4F0BD1CF4D6D664017CE0CAAF2C1F1FC_0": {
+            "tag": {
+              "data": {
+                "Array": {
+                  "Other": "NameProperty"
+                }
+              }
+            },
+            "Array": {
+              "Base": {
+                "Name": []
+              }
+            }
+          },
+          "PassiveEffectProgressions_179_EB0DD7D2437EFED3D549E5BB92A5FF4E_0": {
+            "tag": {
+              "data": {
+                "Map": {
+                  "key_type": {
+                    "Other": "NameProperty"
+                  },
+                  "value_type": {
+                    "Struct": {
+                      "struct_type": {
+                        "Struct": "/Game/Gameplay/Lumina/FPassiveEffectProgression.FPassiveEffectProgression"
+                      },
+                      "id": "25fd746e-4d79-298f-a2b1-aaaa36138cab"
+                    }
+                  }
+                }
+              }
+            },
+            "Map": []
+          },
+          "EquippedPassiveEffects_176_BE669BB547A1E730FDBF5AB2F0675853_0": {
+            "tag": {
+              "data": {
+                "Array": {
+                  "Other": "NameProperty"
+                }
+              }
+            },
+            "Array": {
+              "Base": {
+                "Name": []
+              }
+            }
+          },
+          "EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9_0": {
+            "tag": {
+              "data": {
+                "Map": {
+                  "key_type": {
+                    "Struct": {
+                      "struct_type": {
+                        "Struct": "/Game/Gameplay/Inventory/FEquipmentSlot.FEquipmentSlot"
+                      },
+                      "id": "4b8ac189-497e-a9e9-aefd-1487d521343a"
+                    }
+                  },
+                  "value_type": {
+                    "Other": "NameProperty"
+                  }
+                }
+              }
+            },
+            "Map": [
+              {
+                "key": {
+                  "Struct": {
+                    "Struct": {
+                      "ItemType_4_419B69C74E6D605B52FA82A76F128C96_0": {
+                        "tag": {
+                          "data": {
+                            "Byte": "/Game/jRPGTemplate/Enumerations/E_jRPG_ItemType.E_jRPG_ItemType"
+                          }
+                        },
+                        "Byte": {
+                          "Label": "E_jRPG_ItemType::NewEnumerator0"
+                        }
+                      },
+                      "SlotIndex_7_4AC21CC043F87846335A25B9212005AB_0": {
+                        "tag": {
+                          "data": {
+                            "Other": "IntProperty"
+                          }
+                        },
+                        "Int": 0
+                      }
+                    }
+                  }
+                },
+                "value": {
+                  "Name": "Verleso"
+                }
+              }
+            ]
+          },
+          "AssignedAttributePoints_190_4E4BA51441F1E8D8E07ECA95442E0B7E_0": {
+            "tag": {
+              "data": {
+                "Map": {
+                  "key_type": {
+                    "Byte": "/Game/Gameplay/CharacterData/ECharacterAttribute.ECharacterAttribute"
+                  },
+                  "value_type": {
+                    "Other": "IntProperty"
+                  }
+                }
+              }
+            },
+            "Map": [
+              {
+                "key": {
+                  "Byte": {
+                    "Label": "ECharacterAttribute::NewEnumerator0"
+                  }
+                },
+                "value": {
+                  "Int": 0
+                }
+              },
+              {
+                "key": {
+                  "Byte": {
+                    "Label": "ECharacterAttribute::NewEnumerator1"
+                  }
+                },
+                "value": {
+                  "Int": 0
+                }
+              },
+              {
+                "key": {
+                  "Byte": {
+                    "Label": "ECharacterAttribute::NewEnumerator3"
+                  }
+                },
+                "value": {
+                  "Int": 0
+                }
+              },
+              {
+                "key": {
+                  "Byte": {
+                    "Label": "ECharacterAttribute::NewEnumerator4"
+                  }
+                },
+                "value": {
+                  "Int": 0
+                }
+              },
+              {
+                "key": {
+                  "Byte": {
+                    "Label": "ECharacterAttribute::NewEnumerator5"
+                  }
+                },
+                "value": {
+                  "Int": 0
+                }
+              }
+            ]
+          },
+          "UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592_0": {
+            "tag": {
+              "data": {
+                "Array": {
+                  "Other": "NameProperty"
+                }
+              }
+            },
+            "Array": {
+              "Base": {
+                "Name": []
+              }
+            }
+          },
+          "EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F_0": {
+            "tag": {
+              "data": {
+                "Array": {
+                  "Other": "NameProperty"
+                }
+              }
+            },
+            "Array": {
+              "Base": {
+                "Name": []
+              }
+            }
+          },
+          "CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C_0": {
+            "tag": {
+              "data": {
+                "Struct": {
+                  "struct_type": {
+                    "Struct": "/Game/Gameplay/CharacterCustomization/Blueprints/S_CharacterCustomizationItemData.S_CharacterCustomizationItemData"
+                  },
+                  "id": "325444f7-4490-96e4-be49-5491b251dde7"
+                }
+              }
+            },
+            "Struct": {
+              "Struct": {}
+            }
+          },
+          "IsExcluded_206_5D433A504D71F6A2FC9057945C23DDFB_0": {
+            "tag": {
+              "data": {
+                "Other": "BoolProperty"
+              }
+            },
+            "Bool": false
+          },
+          "LuminaFromConsumables_210_7CAC193144F82258C6A89BB09BB1D226_0": {
+            "tag": {
+              "data": {
+                "Other": "IntProperty"
+              }
+            },
+            "Int": 0
+          }
+        }
+      }
+    }
+  };
+  return newCharacter;
 }

@@ -3,7 +3,7 @@
 import { type FC, useState, useEffect, useMemo } from 'react'
 import { getECharacterAttributeEnumValue } from '../../types/enums'
 import type { BeginMapping, CharactersInCollection0_Mapping } from '../../types/jsonSaveMapping'
-import { getValueFromTag } from '../../utils/jsonSaveMapping'
+import { createNewCharacter, getValueFromTag } from '../../utils/jsonSaveMapping'
 import {
   getPossibleSkinsFor,
   getUnlockedSkinsFor,
@@ -31,10 +31,38 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
     )
   }
 
+  const [characters, setCharacters] = useState(jsonMapping.root.properties.CharactersCollection_0.Map);
+const allCharacterNames = ["Gustave", "Lune", /* add more character names here */];
+const availableCharacterNames = allCharacterNames.filter(name => !characters.some(character => character.key.Name === name));
+
+  const handleAddCharacter = (characterName: string) => {
+    if (characterName == "Gustave") characterName = "Frey"
+        const newCharacter: CharactersInCollection0_Mapping = createNewCharacter(characterName)
+
+    jsonMapping.root.properties.CharactersCollection_0.Map = [...jsonMapping.root.properties.CharactersCollection_0.Map, newCharacter];
+  setCharacters(jsonMapping.root.properties.CharactersCollection_0.Map)
+    triggerSaveNeeded();
+  };
+
+const handleRemoveCharacter = (characterName: string) => {
+  triggerSaveNeeded()
+  jsonMapping.root.properties.CharactersCollection_0.Map = jsonMapping.root.properties.CharactersCollection_0.Map.filter((el) => el.key.Name != characterName)
+  setCharacters(jsonMapping.root.properties.CharactersCollection_0.Map)
+}
+
   return (
     <div id='CharactersPanel' className='tab-panel'>
-      <h2>Characters</h2>
-
+     <div className='header'>
+  <h2>Characters</h2>
+  <div>
+    <select onChange={(event) => handleAddCharacter(event.target.value)}>
+      <option value="Add Character">Add Character</option>
+      {availableCharacterNames.map(name => (
+        <option key={name} value={name}>{name}</option>
+      ))}
+    </select>
+  </div>
+</div>
       <div
         style={{
           display: 'flex',
@@ -44,13 +72,14 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
           gap: '1rem',
         }}
       >
-        {jsonMapping.root.properties.CharactersCollection_0.Map.map((character, index) => (
+        {characters.map((character, index) => (
           <CharacterSection
             key={index}
             character={character}
             characterIndex={index}
             jsonMapping={jsonMapping}
             triggerSaveNeeded={triggerSaveNeeded}
+            handleRemoveCharacter={handleRemoveCharacter}
             currentSkins={getUnlockedSkinsFor(
               character.key.Name,
               jsonMapping.root.properties.InventoryItems_0.Map.map((el) => el.key.Name),
@@ -62,16 +91,19 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
             gradientskill={getPossibleGrandientSkillsFor(character.key.Name)}
           />
         ))}
+
       </div>
     </div>
   )
 }
+
 
 interface CharacterSectionProps {
   character: CharactersInCollection0_Mapping
   characterIndex: number
   jsonMapping: BeginMapping
   triggerSaveNeeded: () => void
+  handleRemoveCharacter: (characterName: string) => void
   currentSkins: string[]
   currentFaces: string[]
   gradientskill: string[]
@@ -81,6 +113,7 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   characterIndex,
   jsonMapping,
   triggerSaveNeeded,
+  handleRemoveCharacter,
   currentSkins,
   currentFaces,
   gradientskill,
@@ -126,6 +159,10 @@ const CharacterSection: FC<CharacterSectionProps> = ({
   if (character.key.Name == 'Frey') characterName = 'Gustave'
   return (
     <section className='characterBox'>
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <button>Hide/Show</button>
+        <button onClick={() => handleRemoveCharacter(character.key.Name)}>Remove</button>
+      </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <img
           src={`charactersicon/T_HUD_${characterName}_512x512.png`}
