@@ -16,17 +16,17 @@ import { BeginMapping } from '../types/jsonSaveMapping'
 import { generateInventoryItems_0 } from './jsonSaveMapping'
 import { invoke } from '@tauri-apps/api/core'
 
-let skinsJson: CharCustomizationMapping = { Skins: {}, Faces: {} }
-let pictosJson: CustomPictosMapping = { Pictos: {} }
-let musicJson: CustomMusicMapping = { MusicDisks: {} }
-let weaponsJson: CustomWeaponsMapping = { Weapons: {} }
-let journalsJson: CustomJournalMapping = { Journals: {} }
-let monocoSkillsJson: MonocoSkillsMapping = { MonocoSkills: {} }
-let questItemsJson: QuestItemsMapping = { QuestItems: {} }
-let gradientSkillsJson: GradientSkillsMapping = { GradientSkills: {} }
-let flagsJson: FlagsMapping = { Flags: {} }
-let manorDoorsJson: { ManorDoors: string[] } = { ManorDoors: [] }
-let basecharactersavemappingJson : any = {Characters : {}}
+let skinsJson: CharCustomizationMapping
+let pictosJson: CustomPictosMapping
+let musicJson: CustomMusicMapping
+let weaponsJson: CustomWeaponsMapping
+let journalsJson: CustomJournalMapping
+let monocoSkillsJson: MonocoSkillsMapping
+let questItemsJson: QuestItemsMapping 
+let gradientSkillsJson: GradientSkillsMapping
+let flagsJson: FlagsMapping 
+let manorDoorsJson: { ManorDoors: string[] } 
+let basecharactersavemappingJson : any 
 
 let mappingsInitialized = false
 
