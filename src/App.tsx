@@ -28,6 +28,7 @@ function App() {
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
   const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null)
   const [jsonChangedSinceInit, setJsonChangedSinceInit] = useState(false)
+  const [updateKey, setUpdateKey] = useState(0)
 
   const { infoMessage, setInfoMessage } = useInfo()
 
@@ -95,6 +96,8 @@ function App() {
     } else {
       errorAndInfo(saveProcessResult.message)
     }
+
+    setUpdateKey((prevKey) => prevKey + 1)
   }
 
   const handleExportFile = async () => {
@@ -162,7 +165,9 @@ function App() {
       }
     } catch (err) {
       errorAndInfo('Error during export process:' + err)
-    } 
+    } finally {
+      setUpdateKey((prevKey) => prevKey + 1)
+    }
   }
 
   const handleOverwriteFile = async () => {
@@ -201,7 +206,9 @@ function App() {
       }
     } catch (err) {
       errorAndInfo('Error during overwrite process:' + err)
-    } 
+    } finally {
+      setUpdateKey((prevKey) => prevKey + 1)
+    }
   }
 
   const getComponentProps = (tabId: string) => {
@@ -210,6 +217,7 @@ function App() {
         return {
           openResult: workingFileCurrent,
           jsonMapping,
+          key: updateKey,
         }
       case 'RawJson':
         return {
@@ -254,9 +262,7 @@ function App() {
         anyFileOpen={workingFileCurrent !== null}
       />
 
-      <main className='content'>{
-        renderPanels()
-      }</main>
+      <main className='content'>{renderPanels()}</main>
 
       <InfoBanner message={infoMessage} />
     </div>
