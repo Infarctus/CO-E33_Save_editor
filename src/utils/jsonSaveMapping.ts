@@ -9,7 +9,8 @@ import type {
   CharactersInCollection0_Mapping,
 } from '../types/jsonSaveMapping'
 import type { IntComponent, DoubleComponent, BoolComponent, StringComponent, StringsArrayComponent } from '../types/Tags'
-import { debug, error, trace } from '@tauri-apps/plugin-log'
+import { debug, error, trace, warn } from '@tauri-apps/plugin-log'
+import { getBaseCharacterFromName, getPossibleBaseCharacterSaveMapping } from './gameMappingProvider'
 
 /**
  * Loads JSON mapping from a file
@@ -182,10 +183,15 @@ export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
   }
 }
 export function createNewCharacter(name: string): CharactersInCollection0_Mapping {
-  // if ()
+  const a = getPossibleBaseCharacterSaveMapping();
+  trace("All strings: "+a)
+  if (!a.includes(name)) {
+    warn("Tried to add character "+name+" which does not exist; doing nothing")
+  }
+  const selectedChar = getBaseCharacterFromName(name)
   const newCharacter: CharactersInCollection0_Mapping = {
     "key": {
-      "Name": name
+      "Name": selectedChar.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5
     },
     "value": {
       "Struct": {
@@ -196,7 +202,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                 "Other": "NameProperty"
               }
             },
-            "Name": "Verso"
+            "Name": selectedChar.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5
           },
           "CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854_0": {
             "tag": {
@@ -204,7 +210,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                 "Other": "IntProperty"
               }
             },
-            "Int": 1
+            "Int": selectedChar.CurrentLevel_49_97AB711D48E18088A93C8DADFD96F854
           },
           "CurrentExperience_9_F9C772C9454408DBD6E1269409F37747_0": {
             "tag": {
@@ -228,7 +234,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                 "Other": "DoubleProperty"
               }
             },
-            "Double": 150.0
+            "Double": selectedChar.CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32 != 0 ? selectedChar.CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32 : 2000
           },
           "CurrentMP_57_41D543664CC0A23407A2D4B4D32029F6_0": {
             "tag": {
@@ -251,56 +257,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                 }
               }
             },
-            "Map": [
-              {
-                "key": {
-                  "Name": "Attack"
-                },
-                "value": {
-                  "Int": 1
-                }
-              },
-              {
-                "key": {
-                  "Name": "Defend"
-                },
-                "value": {
-                  "Int": 1
-                }
-              },
-              {
-                "key": {
-                  "Name": "Items"
-                },
-                "value": {
-                  "Int": 1
-                }
-              },
-              {
-                "key": {
-                  "Name": "Flee"
-                },
-                "value": {
-                  "Int": 1
-                }
-              },
-              {
-                "key": {
-                  "Name": "Magic_Fireball"
-                },
-                "value": {
-                  "Int": 1
-                }
-              },
-              {
-                "key": {
-                  "Name": "Magic_Thunder"
-                },
-                "value": {
-                  "Int": 1
-                }
-              }
-            ]
+            "Map": selectedChar.CharacterActions_113_D080F16E432739A28E50959EABF1EEB0
           },
           "CharacterActionsOrder_151_4F0BD1CF4D6D664017CE0CAAF2C1F1FC_0": {
             "tag": {
@@ -395,7 +352,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                   }
                 },
                 "value": {
-                  "Name": "Verleso"
+                  "Name": selectedChar.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9.lastItem?.Value ?? "None"
                 }
               }
             ]
@@ -476,7 +433,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
             },
             "Array": {
               "Base": {
-                "Name": []
+                "Name": selectedChar.UnlockedSkills_197_FAA1BD934F68CFC542FB048E3C0F3592
               }
             }
           },
@@ -490,7 +447,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
             },
             "Array": {
               "Base": {
-                "Name": []
+                "Name": selectedChar.EquippedSkills_201_05B6B5E9490E2586B23751B11CDA521F
               }
             }
           },
@@ -508,7 +465,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
             "Struct": {
               "Struct": {
                 CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA_0: {
-                  Name: "None",
+                  Name: selectedChar.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C.CharacterSkin_4_D6F8B7E048CBA86E677340839167C4FA,
                   tag: {
                     data: {
                       Other: 'NameProperty'
@@ -516,7 +473,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                   }
                 },
                 CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD_0: {
-                  Name: "None",
+                  Name: selectedChar.CharacterCustomization_204_6208BA0E4E743356022DAEB14D88C37C.CharacterFace_6_069193A2473BA2E48EDF77841A8F3AFD,
                   tag: {
                     data: {
                       Other: 'NameProperty'
