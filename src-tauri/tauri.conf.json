@@ -10,8 +10,7 @@
     "frontendDist": "../dist"
   },
   "app": {
-        "withGlobalTauri": false,
-
+    "withGlobalTauri": false,
     "windows": [
       {
         "title": "CO:E33 Save Editor",
@@ -33,9 +32,6 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": [
-      "resources/**/*"
-    ],
     "longDescription": "A Save Editor for Clair Obscur: Expedition 33",
     "windows": {
       "webviewInstallMode": {
@@ -43,5 +39,4 @@
       }
     }
   }
-  
 }
