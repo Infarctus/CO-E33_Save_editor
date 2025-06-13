@@ -19,7 +19,7 @@ Installation :
 3. Depending on the file type, install or run. Some files have specific instructions in their descriptions.
 
 Available editors include:
-- Characters editor (level, attribute points & luminae, unlocked skins (hair and body))
+- Characters editor (level, attribute points & luminae, unlocked skins (hair and body), hide/add/remove characters from team)
 - Pictos editor (unlock, master, set level)
 - Weapons (unlock, set level, per character sorting)
 - Monoco skills unlocker
@@ -30,15 +30,14 @@ Available editors include:
 - Esquie skills
 - Music disks (unlock)
 - Journals (unlock)
+- TP to any save flag
 - A powerful json editor for advanced users
 - A backup tab
 - Auto save discovery
 
 Will be done in the future (not in order):
-- Add, remove chars for a save ?
 - Relations
 - Backup clean
-- Teleport to a specific flag from anywhere to anywhere
 - Unkill bosses
 
 Disclaimer :
