@@ -155,7 +155,6 @@ export async function handleJsonAndConvertToSaveFile(
       message: `File '${fileName}' successfully updated from JSON and saved.`,
     }
   } catch (err: any) {
-    debugger
     error(`Error during uesave or file operations: ${err.message? err.message : String(err)}`)
     return {
       success: false,
