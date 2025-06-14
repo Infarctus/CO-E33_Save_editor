@@ -1,6 +1,6 @@
 [package]
 name = "CO-E33_Save_Editor"
-version = "1.8.0"
+version = "1.8.1"
 description = "A Tauri App"
 authors = ["infarctus, nopoape"]
 edition = "2021"
