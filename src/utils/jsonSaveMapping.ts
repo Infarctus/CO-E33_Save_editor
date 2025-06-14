@@ -254,7 +254,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                 }
               }
             },
-            "Map": selectedChar.CharacterActions_113_D080F16E432739A28E50959EABF1EEB0
+            "Map": selectedChar.CharacterActions_113_D080F16E432739A28E50959EABF1EEB0.map((el) => { return {key: { Name: el.Key}, value: { Int: el.Value}}})
           },
           "CharacterActionsOrder_151_4F0BD1CF4D6D664017CE0CAAF2C1F1FC_0": {
             "tag": {
