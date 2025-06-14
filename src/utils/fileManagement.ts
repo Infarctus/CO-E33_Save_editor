@@ -72,7 +72,7 @@ export async function handleSaveFileAndExtractToJson(savefilepath?: string): Pro
       error(`save_to_json invocation failed: ${invokeError}`)
       return {
         success: false,
-        message: `Failed to convert save file to JSON: ${invokeError.message || String(invokeError)}`,
+        message: `Failed to convert save file to JSON: ${invokeError || String(invokeError)}`,
       }
     }
 
@@ -82,11 +82,11 @@ export async function handleSaveFileAndExtractToJson(savefilepath?: string): Pro
       originalSavPath,
       message: `File '${fileName}' backed up and converted to JSON successfully. Ready for editing.`,
     }
-  } catch (error: any) {
-    error('Error during save file processing:' + error)
+  } catch (err: any) {
+    error('Error during save file processing:' + err)
     return {
       success: false,
-      message: `An unexpected error occurred: ${error.message || String(error)}`,
+      message: `An unexpected error occurred: ${err.message || String(err)}`,
     }
   }
 }
@@ -125,7 +125,7 @@ export async function handleJsonAndConvertToSaveFile(
       })
     } catch (invokeError: any) {
       error(`json_to_save invocation failed: ${invokeError}`)
-      throw new Error(`Failed to convert JSON to .sav: ${invokeError.message || String(invokeError)}`)
+      throw new Error(`Failed to convert JSON to .sav: ${invokeError || String(invokeError)}`)
     }
 
     trace(`JSON converted to intermediate SAV: ${intermediateSavPath}`)
@@ -141,7 +141,7 @@ export async function handleJsonAndConvertToSaveFile(
     }
     catch (invokeError: any) {
       error(`test_resave invocation failed: ${invokeError}`)
-      throw new Error(`Failed to validate the intermediate SAV file: ${invokeError.message || String(invokeError)}`)
+      throw new Error(`Failed to validate the intermediate SAV file: ${invokeError || String(invokeError)}`)
     }
     
     trace(`Intermediate SAV verified: ${intermediateSavPath}`)
@@ -154,11 +154,12 @@ export async function handleJsonAndConvertToSaveFile(
       success: true,
       message: `File '${fileName}' successfully updated from JSON and saved.`,
     }
-  } catch (error: any) {
-    error(`Error during uesave or file operations: ${error.message}`)
+  } catch (err: any) {
+    debugger
+    error(`Error during uesave or file operations: ${err.message? err.message : String(err)}`)
     return {
       success: false,
-      message: `Failed to convert JSON back to .sav or validate the file: ${error.message}`,
+      message: `Failed to convert JSON back to .sav or validate the file: ${err.message || String(err)}`,
     }
   } finally {
     // Clean up intermediate .sav file
