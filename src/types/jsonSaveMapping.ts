@@ -17,9 +17,18 @@ import type {
 
 
 
-interface CharacterActions {
+interface CharacterActionsRaw {
   Key: string;
   Value: number;
+}
+
+interface CharacterActions {
+  key: {
+    Name: string
+  },
+  value: {
+    Int: number
+  };
 }
 
 interface EquippedItemsPerSlot {
@@ -42,7 +51,7 @@ export interface Character {
   AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001: number;
   CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32: number;
   CurrentMP_57_41D543664CC0A23407A2D4B4D32029F6: number;
-  CharacterActions_113_D080F16E432739A28E50959EABF1EEB0: CharacterActions[];
+  CharacterActions_113_D080F16E432739A28E50959EABF1EEB0: CharacterActionsRaw[];
   CharacterActionsOrder_151_4F0BD1CF4D6D664017CE0CAAF2C1F1FC: string[];
   PassiveEffectProgressions_179_EB0DD7D2437EFED3D549E5BB92A5FF4E: any[];
   EquippedPassiveEffects_176_BE669BB547A1E730FDBF5AB2F0675853: any[];
@@ -171,6 +180,8 @@ export interface CharactersInCollection0_Mapping {
     }
   }
 }
+
+
 
 export interface InventoryItems_0Mapping {
   tag: MapTagSimple<'NameProperty', 'IntProperty'>
