@@ -31,6 +31,12 @@ function ResourcesPanel({ jsonMapping, triggerSaveNeeded }: GeneralPanelProps) {
     jsonMapping.root.properties.InventoryItems_0.Map.find(
       (el) => el.key.Name == 'Consumable_Respec',
     )?.value.Int ?? 0
+
+  const luminaValue =
+    jsonMapping.root.properties.InventoryItems_0.Map.find(
+      (el) => el.key.Name == 'Consumable_LuminaPoint',
+    )?.value.Int ?? 0
+  
   const MiscItemsInv: [string, string][] = [
     ['HealingTint_Shard', 'Healing Tint'],
     ['EnergyTint_Shard', 'Energy Tint'],
@@ -89,6 +95,10 @@ function ResourcesPanel({ jsonMapping, triggerSaveNeeded }: GeneralPanelProps) {
 
   const RecoatChange = (newValue: number) => {
     SetInventoryItems('Consumable_Respec', newValue)
+  }
+
+    const LuminaChange = (newValue: number) => {
+    SetInventoryItems('Consumable_LuminaPoint', newValue)
   }
 
   const SetInventoryItems = (name: string, newValue: number) => {
@@ -169,6 +179,7 @@ function ResourcesPanel({ jsonMapping, triggerSaveNeeded }: GeneralPanelProps) {
 
       {renderNumberInput(goldValue, 'Gold', 0, 2147483647, GoldChange, false, '0.5rem')}
       {renderNumberInput(recoatValue, 'Recoat', 0, 9999, RecoatChange, false, '0.5rem')}
+      {renderNumberInput(luminaValue, 'Luminae', 0, 9999, LuminaChange, false, '0.5rem')}
       {/* limit to 9999 is set randomly, not tested */}
       <h3>Tints</h3>
       <table>
