@@ -35,6 +35,34 @@ export function renderNumberInput(
   )
 }
 
+export function renderToggle(
+  value: boolean,
+  onChange: (newValue: boolean) => void,
+  label?: string,
+  disabled?: boolean,
+) {
+  return (
+    <span
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+      }}
+    >
+      {label && <span>{label}</span>}
+      <label className='switch' style={{ top: 0 }}>
+        <input
+          type='checkbox'
+          checked={value}
+          disabled={disabled}
+          onChange={(e) => onChange(e.target.checked)}
+        />
+        <div className='slider round'></div>
+      </label>
+    </span>
+  )
+}
+
 export class ErrorBoundary extends Component<
   { children: React.ReactNode },
   { hasError: boolean; error: Error | null }

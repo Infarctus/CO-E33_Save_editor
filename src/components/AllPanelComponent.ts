@@ -9,7 +9,7 @@ import WeaponsPanel from './Panels/WeaponsPanel'
 import ResourcesPanel from './Panels/ResourcesPanel'
 import MonocoSkillsPanel from './Panels/MonocoSkillsPanel'
 import QuestItemsPanel from './Panels/QuestItemsPanel'
-import EsquieSkillsPanel from './Panels/EsquieSkillsPanel'
+import ExplorationPanel from './Panels/ExplorationAbilitiesPanel'
 import FriendlyNevrons from './Panels/FriendlyNevrons'
 import SpawnLocationPanel from './Panels/SpawnLocationPanel'
 
@@ -28,7 +28,7 @@ export const navItems: NavItem[] = [
   { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
   { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
   { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
-  { id: 'EsquieSkills', label: 'Esquie Skills', icon: 'btnEsquie.png', requiresFile: true, component: EsquieSkillsPanel },
+  { id: 'EsquieSkills', label: 'Exploration Skills', icon: 'btnEsquie.png', requiresFile: true, component: ExplorationPanel },
   { id: 'Pictos', label: 'Pictos', icon: 'btnPicto.png', requiresFile: true, component: PictosPanel },
   { id: 'Resources', label: 'Resources & Misc', icon: 'btnResources.png', requiresFile: true, component: ResourcesPanel },
   { id: 'SpawnLocation', label: 'Spawn Location', icon: 'btnSpawnLocation.png', requiresFile: true, component: SpawnLocationPanel },

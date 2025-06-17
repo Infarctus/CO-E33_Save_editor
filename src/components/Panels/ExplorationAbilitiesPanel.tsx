@@ -3,6 +3,7 @@ import { E_WorldMapExplorationCapacity } from '../../types/enums'
 import { createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 } from '../../utils/jsonSaveMapping'
 import { GeneralPanelProps } from '../../types/panelTypes'
 import { trace } from '@tauri-apps/plugin-log'
+import { renderToggle } from '../../utils/HtmlElement'
 
 interface EsquieSkill {
   name: string
@@ -13,7 +14,7 @@ interface EsquieSkill {
 
 const esquieabilityenum = 'E_WorldMapExplorationCapacity::NewEnumerator'
 
-const EsquieSkillsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
+const ExplorationPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.ExplorationProgression_0) {
     return (
       <div id='JournalsPanel' className='tab-panel overflow-auto'>
@@ -81,12 +82,33 @@ const EsquieSkillsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeed
     trace(`${isUnlocked ? 'Unlocked' : 'Locked'} Esquie skill: ${skill?.friendlyName}`)
   }
 
+  const togglePaintBreak = (newbool : boolean) => {
+    if ( newbool == false ) {
+      if (!jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.FreeAimDamageLevel_4_CE1A4941408FA32FC2731D9BF52F53EC_0?.Int) {
+        throw new Error("Paint break toggled off even though it's undefined is not defined in the JSON mapping.")
+      }
+      jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.FreeAimDamageLevel_4_CE1A4941408FA32FC2731D9BF52F53EC_0.Int = 0
+    }
+    else{
+      jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.FreeAimDamageLevel_4_CE1A4941408FA32FC2731D9BF52F53EC_0 = {
+        Int: 1,
+        tag: {
+          data: {
+            Other: "IntProperty"
+          }
+        }
+      }
+    }
+  }
+
   return (
     <div id='EsquieSkillsPanel' className='tab-panel-esquie-skills overflow-auto'>
       <div className='header'>
-        <h2>Esquie Skills (World Map Exploration)</h2>
+        <h2>Exploration Abilities</h2>
       </div>
 
+      
+      <h3>Esquie Skills</h3>
       <table style={{ width: '100%', borderCollapse: 'collapse', tableLayout: 'fixed' }}>
         <thead>
           <tr>
@@ -144,8 +166,18 @@ const EsquieSkillsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeed
           ))}
         </tbody>
       </table>
+      <br/>
+      <h3>Misc</h3>
+      { renderToggle(
+        jsonMapping.root.properties.ExplorationProgression_0.Struct.Struct.FreeAimDamageLevel_4_CE1A4941408FA32FC2731D9BF52F53EC_0?.Int === 1,
+        (newbool) => {
+          togglePaintBreak(newbool)
+          triggerSaveNeeded()
+        },
+        'Paint Break',
+      )}
     </div>
   )
 }
 
-export default EsquieSkillsPanel
+export default ExplorationPanel
