@@ -94,7 +94,7 @@ export interface SpawnPointTagToLoadAt_0 {
 
 export interface BattledEnemies_0 {
   tag : MapTagSimple<"NameProperty","BoolProperty">
-  map : Array<{
+  Map : Array<{
     key : {
       Name: string
     }
