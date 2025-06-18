@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from 'react'
-import { GeneralPanelProps } from '../../types/panelTypes'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 import { getPossibleFlags } from '../../utils/gameMappingProvider'
 import { trace } from '@tauri-apps/plugin-log'
 

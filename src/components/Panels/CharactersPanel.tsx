@@ -17,7 +17,7 @@ import {
 import { trace } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
 import { clamp } from '../../utils/utils'
-import { GeneralPanelProps } from '../../types/panelTypes'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   // Hard-coded allowed values for dropdowns etc.

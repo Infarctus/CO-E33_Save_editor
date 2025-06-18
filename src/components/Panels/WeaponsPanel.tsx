@@ -4,7 +4,7 @@ import { WeaponInfoType } from '../../types/jsonCustomMapping'
 import { error, trace } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
 import { renderNumberInput } from '../../utils/HtmlElement'
-import { GeneralPanelProps } from '../../types/panelTypes'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 type SortField = 'friendlyName' | 'found' | 'level' | null
 type SortDirection = 'asc' | 'desc'
