@@ -1,6 +1,6 @@
 import { trace, error } from '@tauri-apps/plugin-log'
 import { useMemo, useState, type FC } from 'react'
-import { GeneralPanelProps } from '../../types/panelTypes'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 
 const FriendlyNevrons: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.QuestStatuses_0) {

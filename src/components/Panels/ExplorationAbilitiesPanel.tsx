@@ -1,7 +1,7 @@
 import { type FC, useState, useMemo } from 'react'
 import { E_WorldMapExplorationCapacity } from '../../types/enums'
 import { createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0 } from '../../utils/jsonSaveMapping'
-import { GeneralPanelProps } from '../../types/panelTypes'
+import type { GeneralPanelProps } from '../../types/panelTypes'
 import { trace } from '@tauri-apps/plugin-log'
 import { renderToggle } from '../../utils/HtmlElement'
 
