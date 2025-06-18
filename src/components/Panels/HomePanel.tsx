@@ -4,16 +4,16 @@ import { BeginMapping } from '../../types/jsonSaveMapping'
 import { openLocalFolder } from '../../utils/fileManagement'
 import { OpenProcessResult } from '../../types/fileTypes'
 
-interface SaveFilePanelProps {
+interface HomePanelProps {
   openResult: OpenProcessResult | null
   jsonMapping: BeginMapping | null
 }
 
-const HomePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
+const HomePanel: FC<HomePanelProps> = ({ openResult, jsonMapping }) => {
 
 
   return (
-    <div id='SaveFilePanel' className='tab-panel oveflow-auto'>
+    <div id='HomePanel' className='tab-panel oveflow-auto'>
       <div id='information-msg'>
         This tool allows you to edit your save files for the game. You can modify character
         attributes, inventory items, and more.
@@ -108,7 +108,6 @@ const HomePanel: FC<SaveFilePanelProps> = ({ openResult, jsonMapping }) => {
         <div style={{ display: 'flex' }}>
           <button onClick={() => openLocalFolder('data')}>Open editor folder</button>
           <button onClick={() => openLocalFolder('logs')}>Open logs folder</button>
-          {/* <button>Open editor logs</button> */}
         </div>
       </div>
 

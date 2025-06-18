@@ -23,7 +23,7 @@ import type { BeginMapping } from './types/jsonSaveMapping'
 import './styles.css'
 
 function App() {
-  const [activeTab, setActiveTab] = useState<string>('SaveFile')
+  const [activeTab, setActiveTab] = useState<string>('Home')
   const [workingFileCurrent, setWorkingFileCurrent] = useState<OpenProcessResult | null>(null)
   const [saveNeeded, setSaveNeeded] = useState<boolean>(false)
   const [jsonMapping, setJsonMapping] = useState<BeginMapping | null>(null)
@@ -65,7 +65,7 @@ function App() {
   }
 
   const handleOpenFile = async (forcedPath?: string) => {
-    if ((await switchTab('SaveFile')) === false) return
+    if ((await switchTab('Home')) === false) return
 
     if (workingFileCurrent != null && saveNeeded) {
       if (
@@ -213,11 +213,10 @@ function App() {
 
   const getComponentProps = (tabId: string) => {
     switch (tabId) {
-      case 'SaveFile':
+      case 'Home':
         return {
           openResult: workingFileCurrent,
           jsonMapping,
-          key: updateKey,
         }
       case 'RawJson':
         return {
@@ -244,7 +243,7 @@ function App() {
       const props = getComponentProps(item.id)
 
       return (
-        <ErrorBoundary key={item.id}>
+        <ErrorBoundary key={`${item.id}-${updateKey}`}>
           <Component {...props} />
         </ErrorBoundary>
       )
@@ -262,7 +261,10 @@ function App() {
         anyFileOpen={workingFileCurrent !== null}
       />
 
-      <main className='content'>{renderPanels()}</main>
+      <main className='content'>{(() => {
+        trace("renderingpannel :" + activeTab) 
+        return renderPanels()
+        })()}</main>
 
       <InfoBanner message={infoMessage} />
     </div>

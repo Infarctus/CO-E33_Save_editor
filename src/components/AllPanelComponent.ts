@@ -24,7 +24,7 @@ interface NavItem {
 
 // prettier-ignore
 export const navItems: NavItem[] = [
-  { id: 'SaveFile', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: HomePanel },
+  { id: 'Home', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: HomePanel },
   { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
   { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
   { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
