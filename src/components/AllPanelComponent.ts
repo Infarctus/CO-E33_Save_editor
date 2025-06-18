@@ -12,6 +12,7 @@ import QuestItemsPanel from './Panels/QuestItemsPanel'
 import ExplorationPanel from './Panels/ExplorationAbilitiesPanel'
 import FriendlyNevrons from './Panels/FriendlyNevrons'
 import SpawnLocationPanel from './Panels/SpawnLocationPanel'
+import UnkillEnemies from './Panels/UnkillEnemies'
 
 interface NavItem {
   id: string
@@ -33,6 +34,7 @@ export const navItems: NavItem[] = [
   { id: 'Resources', label: 'Resources & Misc', icon: 'btnResources.png', requiresFile: true, component: ResourcesPanel },
   { id: 'SpawnLocation', label: 'Spawn Location', icon: 'btnSpawnLocation.png', requiresFile: true, component: SpawnLocationPanel },
   { id: 'FriendlyNevrons', label: 'Friendly Nevrons', icon: 'btnFriendlyNevrons.png', requiresFile: true, component: FriendlyNevrons },
+  { id: 'UnkillEnemies', label: 'Unkill Enemies', icon: 'btnFriendlyNevrons.png', requiresFile: true, component: UnkillEnemies },
   { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
   { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
   { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
