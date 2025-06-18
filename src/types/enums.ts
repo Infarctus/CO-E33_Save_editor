@@ -19,7 +19,7 @@ export enum E_WorldMapExplorationCapacity {
   Base = 'Unlock Esquie',
   HardenLands = 'Break rocks',
   Swim = 'Swim',
-  SwimBoost = 'Swim through coral', // I think it's breaking coral ability
+  SwimBoost = 'Swim through coral',
   Fly = 'Fly',
 }
 

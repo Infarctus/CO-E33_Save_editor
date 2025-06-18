@@ -12,7 +12,8 @@ import type {
   MonocoSkillsMapping,
 } from '../types/jsonCustomMapping'
 import { trace, debug } from '@tauri-apps/plugin-log'
-import { BeginMapping, Character, Characters } from '../types/jsonSaveMapping'
+import { BeginMapping } from '../types/jsonSaveMapping'
+import { Character } from '../types/jsonSaveMappingsPlus.ts/characters'
 import { generateInventoryItems_0 } from './jsonSaveMapping'
 import { invoke } from '@tauri-apps/api/core'
 
@@ -26,7 +27,9 @@ let questItemsJson: QuestItemsMapping
 let gradientSkillsJson: GradientSkillsMapping
 let flagsJson: FlagsMapping 
 let manorDoorsJson: { ManorDoors: string[] } 
-let basecharactersavemappingJson :{ Characters: Characters }
+let basecharactersavemappingJson :{ Characters: {
+  [key: string]: Character;
+} }
 
 let mappingsInitialized = false
 
