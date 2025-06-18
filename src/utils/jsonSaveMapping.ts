@@ -6,8 +6,8 @@ import type {
   InventoryItems_0,
   RootProperties,
   ExplorationProgression_0,
-  CharactersInCollection0_Mapping,
 } from '../types/jsonSaveMapping'
+import type { CharactersInCollection0_Mapping } from '../types/jsonSaveMappingsPlus.ts/characters'
 import type { IntComponent, DoubleComponent, BoolComponent, StringComponent, StringsArrayComponent } from '../types/Tags'
 import { debug, error, trace } from '@tauri-apps/plugin-log'
 import { getBaseCharacterFromName } from './gameMappingProvider'

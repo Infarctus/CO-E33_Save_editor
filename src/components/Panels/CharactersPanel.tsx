@@ -2,7 +2,8 @@
 
 import { type FC, useState, useEffect, useMemo } from 'react'
 import { getECharacterAttributeEnumValue } from '../../types/enums'
-import type { BeginMapping, CharactersInCollection0_Mapping } from '../../types/jsonSaveMapping'
+import type { BeginMapping } from '../../types/jsonSaveMapping'
+import type { CharactersInCollection0_Mapping } from '../../types/jsonSaveMappingsPlus.ts/characters'
 import { createNewCharacter, getValueFromTag } from '../../utils/jsonSaveMapping'
 import {
   getPossibleSkinsFor,
