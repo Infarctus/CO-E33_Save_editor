@@ -15,7 +15,6 @@ initGameMappings()
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <InfoProvider>
-      {' '}
       {/* Wrap App with InfoProvider */}
       <App />
     </InfoProvider>
