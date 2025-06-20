@@ -176,7 +176,7 @@ const QuestItemsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
               }}
               onClick={() => handleSort('level')}
             >
-              Level {sortField === 'level' && (sortDirection === 'asc' ? '↑' : '↓')}
+              Quantity {sortField === 'level' && (sortDirection === 'asc' ? '↑' : '↓')}
             </th>
           </tr>
         </thead>

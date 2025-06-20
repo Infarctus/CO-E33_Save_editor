@@ -30,6 +30,7 @@ export interface RootProperties {
   TimePlayed_0: DoubleComponent
   InventoryItems_0: InventoryItems_0Mapping
   Gold_0: IntComponent
+  TransientBattledEnemies_0 : TransientBattledEnemies_0
   BattledEnemies_0 : BattledEnemies_0
   SpawnPointTagToLoadAt_0 : SpawnPointTagToLoadAt_0
   ReturnSpawnPointTag_0 : ReturnSpawnPointTag_0 // unsure of its use
@@ -40,10 +41,17 @@ export interface RootProperties {
   SaveDateTime_0: SaveDateTime_0
   PassiveEffectsProgressions_0: PassiveEffectsProgressions_0
   InteractedObjects_0 : InteractedObjects_0
+  EncounteredEnemies_0: BattledEnemies_0 // Not an exact copy but same structure
   FinishedGameCount_0: IntComponent | null
 }
 
-
+export interface TransientBattledEnemies_0 {
+  tag: MapTagSimple<'NameProperty', 'BoolProperty'>
+  Map: Array<{
+    key: { Name: string }
+    value: { Bool: boolean }
+  }>
+}
 
 export interface InventoryItems_0Mapping {
   tag: MapTagSimple<'NameProperty', 'IntProperty'>
@@ -94,7 +102,7 @@ export interface SpawnPointTagToLoadAt_0 {
 
 export interface BattledEnemies_0 {
   tag : MapTagSimple<"NameProperty","BoolProperty">
-  map : Array<{
+  Map : Array<{
     key : {
       Name: string
     }

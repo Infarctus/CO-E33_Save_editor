@@ -89,21 +89,22 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
 
   return (
     <div id='CharactersPanel' className='tab-panel'>
-     <div className='header'>
-  <h2>Characters</h2>
-  <div>
-    <select style={{padding: '0.5rem'}} onChange={(event) => handleAddCharacter(event.target.value)}>
-      <option value="Add Character">Add Character</option>
-      {availableCharacterNames.map(name => {
-        
-        
-        return (
-        
-        <option key={name[0]} value={name[1]}>{name[0]}</option>
-      )})}
-    </select>
-  </div>
-</div>
+      <div className='header'>
+        <h2>Characters</h2>
+        <div>
+          <select style={{ padding: '0.5rem' }} onChange={(event) => handleAddCharacter(event.target.value)}>
+            <option value="Add Character...">Add Character</option>
+            {availableCharacterNames.map(name => {
+
+
+              return (
+
+                <option key={name[0]} value={name[1]}>{name[0]}</option>
+              )
+            })}
+          </select>
+        </div>
+      </div>
       <div
         style={{
           display: 'flex',
