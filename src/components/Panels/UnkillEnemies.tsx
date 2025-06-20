@@ -43,7 +43,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     return { regularEnemies: bossOrSpecial, objectIdEnemies: objectId }
   }, [jsonMapping])
 
-  const [enemies, setEnemies] = useState([...regularEnemies, ...objectIdEnemies.reverse()])
+  const [enemies, setEnemies] = useState([...regularEnemies, ...objectIdEnemies])
   const [showObjectIdEnemies, setShowObjectIdEnemies] = useState(false)
   const [searchString, setSearchString] = useState<string>('')
 
