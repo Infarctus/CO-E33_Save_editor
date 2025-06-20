@@ -185,7 +185,6 @@ export function createWorldMapCapacities_18_A3C2B46042CDC1AD2B027BB41415D062_0()
 export function createNewCharacter(name: string): CharactersInCollection0_Mapping {
 
   const selectedChar = getBaseCharacterFromName(name)
-  console.log(selectedChar.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9)
   const newCharacter: CharactersInCollection0_Mapping = {
     "key": {
       "Name": selectedChar.CharacterHardcodedName_36_FB9BA9294D02CFB5AD3668B0C4FD85A5
@@ -223,7 +222,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                 "Other": "IntProperty"
               }
             },
-            "Int": 0
+            "Int": selectedChar.AvailableActionPoints_103_25B963504066FA8FD1210890DD45C001
           },
           "CurrentHP_56_2DE67B0A46F5E28BCD6D3CB6D6A88B32_0": {
             "tag": {
@@ -239,7 +238,7 @@ export function createNewCharacter(name: string): CharactersInCollection0_Mappin
                 "Other": "DoubleProperty"
               }
             },
-            "Double": 3.0
+            "Double": selectedChar.CurrentMP_57_41D543664CC0A23407A2D4B4D32029F6
           },
           "CharacterActions_113_D080F16E432739A28E50959EABF1EEB0_0": {
             "tag": {

@@ -40,6 +40,34 @@ const CharactersPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded
   const handleAddCharacter = (characterName: string) => {
     const newCharacter: CharactersInCollection0_Mapping = createNewCharacter(characterName)
 
+    if (newCharacter.value.Struct.Struct.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9_0.Map[0]?.value?.Name) {
+      const weaponName = newCharacter.value.Struct.Struct.EquippedItemsPerSlot_183_3B9D37B549426C770DB5E5BE821896E9_0.Map[0].value.Name
+
+      // might need to add a weapon to invenroty
+      if (jsonMapping.root.properties.InventoryItems_0.Map.findIndex((weapon) => weapon.key.Name == weaponName) == -1) {
+        trace("Adding a weapon to inventory as a result of adding " + characterName + " to the team")
+        jsonMapping.root.properties.InventoryItems_0.Map.push({
+          key: { Name: weaponName },
+          value: { Int: 1 },
+        })
+
+        console.log('adding To WeaponProg')
+        jsonMapping.root.properties.WeaponProgressions_0.Array.Struct.value.push({
+          Struct: {
+            DefinitionID_3_60EB24664894755B19F4EBA18A21AF1A_0: {
+              Name: weaponName,
+              tag: { data: { Other: 'NameProperty' } },
+            },
+            CurrentLevel_6_227A00644D035BDD595B2D86C8455B71_0: {
+              Int: 1,
+              tag: { data: { Other: 'IntProperty' } },
+            },
+          },
+        })
+      }
+
+    }
+
     jsonMapping.root.properties.CharactersCollection_0.Map = [...jsonMapping.root.properties.CharactersCollection_0.Map, newCharacter];
     setCharacters(jsonMapping.root.properties.CharactersCollection_0.Map)
     triggerSaveNeeded();
