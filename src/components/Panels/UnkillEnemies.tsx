@@ -4,10 +4,13 @@ import { renderToggle } from '../../utils/HtmlElement'
 import { error } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
 
+type SortField = 'name' | 'value' | null;
+type SortDirection = 'asc' | 'desc';
+
 const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.BattledEnemies_0) {
     return (
-      <div id='UnkillEnemies' className='tab-panel oveflow-auto'>
+      <div id='UnkillEnemies' className='tab-panel overflow-auto'>
         <h2>Unkill Enemies</h2>
         <p style={{ color: 'red' }}>
           The file you opened (if any) doesn't look like a CO:E33 save file
@@ -15,6 +18,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
       </div>
     )
   }
+
   const { setInfoMessage } = useInfo()
   function logAndError(message: string) {
     setInfoMessage(message)
@@ -44,25 +48,58 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
   }, [jsonMapping])
 
   const [enemies, setEnemies] = useState([...regularEnemies, ...objectIdEnemies])
-  const [showObjectIdEnemies, setShowObjectIdEnemies] = useState(false)
+  const [filterOption, setFilterOption] = useState('Unique enemies only')
   const [searchString, setSearchString] = useState<string>('')
+  const [sortField, setSortField] = useState<SortField>(null);
+  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
 
-  // Filter enemies based on search string
-  const filteredRegularEnemies = useMemo(() => {
-    if (!searchString) return regularEnemies
-    return regularEnemies.filter((enemy) =>
-      enemy.name.toLowerCase().includes(searchString.toLowerCase()),
-    )
-  }, [regularEnemies, searchString])
 
-  const filteredObjectIdEnemies = useMemo(() => {
-    if (!searchString) return objectIdEnemies
-    return objectIdEnemies.filter((enemy) =>
-      enemy.name.toLowerCase().includes(searchString.toLowerCase()),
-    )
-  }, [objectIdEnemies, searchString])
+  const handleSort = (field: SortField) => {
+    let direction: SortDirection = 'asc';
+    if (sortField === field) {
+      direction = sortDirection === 'asc' ? 'desc' : 'asc';
+    }
+    setSortField(field);
+    setSortDirection(direction);
+  };
 
-  function handleToggleEnemy(enemyName: string,newBool: boolean) {
+  // Filter enemies based on search string and selected filter option
+  const filteredEnemies = useMemo(() => {
+    let filtered = enemies.filter((enemy) =>
+      enemy.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+
+    if (filterOption === 'Unique enemies only') {
+      filtered = filtered.filter(enemy => !enemy.name.includes('ObjectID_Enemy_Level_'));
+    } else if (filterOption === 'Other enemies only') {
+      filtered = filtered.filter(enemy => enemy.name.includes('ObjectID_Enemy_Level_'));
+    }
+
+    return filtered;
+  }, [enemies, searchString, filterOption]);
+
+  const sortedEnemies = useMemo(() => {
+    const sorted = [...filteredEnemies];
+    if (sortField) {
+      sorted.sort((a, b) => {
+        let aVal: any = a[sortField];
+        let bVal: any = b[sortField];
+
+        if (sortField === 'name') {
+          aVal = a.name.toLowerCase();
+          bVal = b.name.toLowerCase();
+        }
+
+        if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
+        if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+        return 0;
+      });
+    }
+    return sorted;
+  }, [filteredEnemies, sortField, sortDirection]);
+
+
+  function handleToggleEnemy(enemyName: string, newBool: boolean) {
     if (enemies.findIndex((enemy) => enemy.name === enemyName) === -1) {
       logAndError(`Enemy ${enemyName} not found in the list.`)
       return
@@ -80,89 +117,101 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
         enemy.value.Bool = newBool
       }
     })
-    jsonMapping!.root.properties.EncounteredEnemies_0.Map.forEach((enemy) => {
-      if (enemy.key.Name === enemyName) {
-        enemy.value.Bool = newBool
-      }
-    })
-    jsonMapping!.root.properties.TransientBattledEnemies_0.Map.forEach((enemy) => {
-      if (enemy.key.Name === enemyName) {
-        enemy.value.Bool = newBool
-      }
-    })
-
-
     triggerSaveNeeded()
   }
 
   return (
     <div id='UnkillEnemies' className='tab-panel overflow-auto'>
-      <h2>Unkill Enemies</h2>
+      <div className='header'>
+        <h2>Unkill Enemies</h2>
+        <div>
+          <span style={{ marginLeft: '1rem' }}>Filter:</span>
+          <select
+            value={filterOption}
+            onChange={(e) => setFilterOption(e.target.value)}
+            style={{ marginLeft: '0.5rem', padding: '0.5rem' }}
+          >
+            <option value="Unique enemies only">Unique enemies only</option>
+            <option value="Other enemies only">Other enemies only</option>
+            <option value="All">All</option>
+          </select>
+        </div>
+      </div>
 
       {/* Search Bar */}
-      <div style={{ marginBottom: '20px' }}>
-        <input
-          type='text'
-          placeholder='Search enemies...'
-          value={searchString}
-          onChange={(e) => setSearchString(e.target.value)}
-          style={{
-            width: '100%',
-            padding: '8px 12px',
-            fontSize: '14px',
-            border: '1px solid #ccc',
-            borderRadius: '4px',
-            backgroundColor: '#2d2d2d',
-            color: 'white',
-          }}
-        />
-      </div>
+      <input
+        type='text'
+        placeholder='Search by name...'
+        value={searchString}
+        className='search-bar'
+        onChange={(e) => setSearchString(e.target.value)}
+      />
 
-      {/* Regular Enemies */}
-      <div>
-        <h3>Supposed Boss Enemies ({filteredRegularEnemies.length})</h3>
-        {filteredRegularEnemies.map((enemy) => (
-          <div key={enemy.name}>
-            {renderToggle(
-              enemies.find((e) => e.name === enemy.name)?.value || false,
-              (newBool) => handleToggleEnemy(enemy.name,newBool),
-              enemy.name,
-            )}
-          </div>
-        ))}
-      </div>
+      {/* Results Counter */}
+      <sup style={{ padding: '0.7em' }}>
+        {filteredEnemies.length > 0 ? `${filteredEnemies.length} results` : 'No results'}
+      </sup>
 
-      {/* ObjectID Enemies - Toggleable Section */}
-      <div style={{ marginTop: '20px' }}>
-        <button
-          onClick={() => setShowObjectIdEnemies(!showObjectIdEnemies)}
-          style={{
-            marginBottom: '10px',
-            padding: '5px 10px',
-            backgroundColor: '#444',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-          }}
-        >
-          {showObjectIdEnemies ? 'Hide' : 'Show'} Group Enemies ({filteredObjectIdEnemies.length})
-        </button>
+      {/* Table for Enemies */}
+      <table
+        style={{
+          width: '100%',
+          maxWidth: '500px',
+          borderCollapse: 'collapse',
+          marginTop: '1rem',
+        }}
+      >
+        <thead>
+          <tr>
+            <th
+              style={{
+                borderBottom: '1px solid #ccc',
+                padding: '0.5em',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleSort('name')}
+            >
+              Enemy Name {sortField === 'name' && (sortDirection === 'asc' ? '↑' : '↓')}
+            </th>
+            <th
+              style={{
+                borderBottom: '1px solid #ccc',
+                padding: '0.5em',
+                cursor: 'pointer',
+              }}
+              onClick={() => handleSort('value')}
+            >
+              Status {sortField === 'value' && (sortDirection === 'asc' ? '↑' : '↓')}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedEnemies.map((enemy) => (
+            <tr key={enemy.name}>
+              <td>{enemy.name}</td>
+              <td>
+                {renderToggle(enemy.value, (newBool) => {
+                  handleToggleEnemy(enemy.name, newBool);
+                })}
+              </td>
+            </tr>
+          ))}
+          {sortedEnemies.length === 0 && (
+            <tr>
+              <td
+                colSpan={2}
+                style={{
+                  padding: '0.5em',
+                  textAlign: 'center',
+                }}
+              >
+                No results found.
+              </td>
+            </tr>
+          )}
+        </tbody>
 
-        {showObjectIdEnemies && (
-          <div>
-            {filteredObjectIdEnemies.map((enemy) => (
-              <div key={enemy.name}>
-                {renderToggle(
-                  enemies.find((e) => e.name === enemy.name)?.value || false,
-                  (newBool) => handleToggleEnemy(enemy.name,newBool),
-                  enemy.name,
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      </table>
     </div>
   )
 }
