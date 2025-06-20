@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "tauri": "tauri",
     "buildjson": "python originalGameMapping/createcustommappings.py",
-    "format": "prettier --write ./src"
+    "format": "prettier --write ./src",
+    "version:bump": "node scripts/version-bump.cjs"
   },
   "dependencies": {
     "@tauri-apps/api": "^2",
