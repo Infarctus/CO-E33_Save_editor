@@ -1,6 +1,8 @@
 import { type FC, useMemo, useState } from 'react'
 import type { GeneralPanelProps } from '../../types/panelTypes'
 import { renderToggle } from '../../utils/HtmlElement'
+import { error } from '@tauri-apps/plugin-log'
+import { useInfo } from '../InfoContext'
 
 const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.BattledEnemies_0) {
@@ -13,13 +15,17 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
       </div>
     )
   }
-  console.log('UnkillEnemies', jsonMapping.root.properties.BattledEnemies_0)
+  const { setInfoMessage } = useInfo()
+  function logAndError(message: string) {
+    setInfoMessage(message)
+    error(message)
+  }
 
   const { regularEnemies, objectIdEnemies } = useMemo(() => {
     const allEnemies = jsonMapping.root.properties.BattledEnemies_0.Map.map((enemy) => ({
       name: enemy.key.Name,
       value: enemy.value.Bool,
-    })).reverse()
+    }))
 
     const bossOrSpecial = allEnemies.filter(
       (enemy) =>
@@ -37,7 +43,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     return { regularEnemies: bossOrSpecial, objectIdEnemies: objectId }
   }, [jsonMapping])
 
-  const [enemies, setEnemies] = useState([...regularEnemies, ...objectIdEnemies])
+  const [enemies, setEnemies] = useState([...regularEnemies, ...objectIdEnemies.reverse()])
   const [showObjectIdEnemies, setShowObjectIdEnemies] = useState(false)
   const [searchString, setSearchString] = useState<string>('')
 
@@ -56,14 +62,36 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     )
   }, [objectIdEnemies, searchString])
 
-  function handleToggleEnemy(enemyName: string) {
-    const newEnemies = enemies.map((enemy) => {
-      if (enemy.name === enemyName) {
-        return { ...enemy, value: !enemy.value }
+  function handleToggleEnemy(enemyName: string,newBool: boolean) {
+    if (enemies.findIndex((enemy) => enemy.name === enemyName) === -1) {
+      logAndError(`Enemy ${enemyName} not found in the list.`)
+      return
+    }
+    setEnemies((prev) =>
+      prev.map((enemy) => {
+        if (enemy.name === enemyName) {
+          return { ...enemy, value: newBool }
+        }
+        return enemy
+      }),
+    )
+    jsonMapping!.root.properties.BattledEnemies_0.Map.forEach((enemy) => {
+      if (enemy.key.Name === enemyName) {
+        enemy.value.Bool = newBool
       }
-      return enemy
     })
-    setEnemies(newEnemies)
+    jsonMapping!.root.properties.EncounteredEnemies_0.Map.forEach((enemy) => {
+      if (enemy.key.Name === enemyName) {
+        enemy.value.Bool = newBool
+      }
+    })
+    jsonMapping!.root.properties.TransientBattledEnemies_0.Map.forEach((enemy) => {
+      if (enemy.key.Name === enemyName) {
+        enemy.value.Bool = newBool
+      }
+    })
+
+
     triggerSaveNeeded()
   }
 
@@ -97,7 +125,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
           <div key={enemy.name}>
             {renderToggle(
               enemies.find((e) => e.name === enemy.name)?.value || false,
-              () => handleToggleEnemy(enemy.name),
+              (newBool) => handleToggleEnemy(enemy.name,newBool),
               enemy.name,
             )}
           </div>
@@ -127,7 +155,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
               <div key={enemy.name}>
                 {renderToggle(
                   enemies.find((e) => e.name === enemy.name)?.value || false,
-                  () => handleToggleEnemy(enemy.name),
+                  (newBool) => handleToggleEnemy(enemy.name,newBool),
                   enemy.name,
                 )}
               </div>
