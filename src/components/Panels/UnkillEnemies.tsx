@@ -4,9 +4,6 @@ import { renderToggle } from '../../utils/HtmlElement'
 import { error } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
 
-type SortField = 'name' | 'value' | null;
-type SortDirection = 'asc' | 'desc';
-
 const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) => {
   if (!jsonMapping || !jsonMapping?.root?.properties?.BattledEnemies_0) {
     return (
@@ -25,13 +22,13 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     error(message)
   }
 
-  const { regularEnemies, objectIdEnemies } = useMemo(() => {
+  const { UniqueEnemies, objectIdEnemies } = useMemo(() => {
     const allEnemies = jsonMapping.root.properties.BattledEnemies_0.Map.map((enemy) => ({
       name: enemy.key.Name,
       value: enemy.value.Bool,
     }))
 
-    const bossOrSpecial = allEnemies.filter(
+    const uniqueEnemies = allEnemies.filter(
       (enemy) =>
         !enemy.name.includes('ObjectID_Enemy_Level_') ||
         enemy.name.includes('EnemyWorld_Mime') ||
@@ -44,60 +41,31 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
         !enemy.name.includes('EnemyWorld_Petank'),
     )
 
-    return { regularEnemies: bossOrSpecial, objectIdEnemies: objectId }
+    return { UniqueEnemies: uniqueEnemies, objectIdEnemies: objectId }
   }, [jsonMapping])
 
-  const [enemies, setEnemies] = useState([...regularEnemies, ...objectIdEnemies])
+  const [enemies, setEnemies] = useState([...UniqueEnemies, ...objectIdEnemies])
   const [filterOption, setFilterOption] = useState('Unique enemies only')
   const [searchString, setSearchString] = useState<string>('')
-  const [sortField, setSortField] = useState<SortField>(null);
-  const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
-
-
-  const handleSort = (field: SortField) => {
-    let direction: SortDirection = 'asc';
-    if (sortField === field) {
-      direction = sortDirection === 'asc' ? 'desc' : 'asc';
-    }
-    setSortField(field);
-    setSortDirection(direction);
-  };
 
   // Filter enemies based on search string and selected filter option
   const filteredEnemies = useMemo(() => {
-    let filtered = enemies.filter((enemy) =>
+    let filtered = enemies;
+
+    // First apply the filter option
+    if (filterOption === 'Unique enemies only') {
+      filtered = UniqueEnemies;
+    } else if (filterOption === 'Other enemies only') {
+      filtered = objectIdEnemies;
+    }
+
+    // Then apply the search string filter
+    filtered = filtered.filter((enemy) =>
       enemy.name.toLowerCase().includes(searchString.toLowerCase())
     );
 
-    if (filterOption === 'Unique enemies only') {
-      filtered = filtered.filter(enemy => !enemy.name.includes('ObjectID_Enemy_Level_'));
-    } else if (filterOption === 'Other enemies only') {
-      filtered = filtered.filter(enemy => enemy.name.includes('ObjectID_Enemy_Level_'));
-    }
-
     return filtered;
-  }, [enemies, searchString, filterOption]);
-
-  const sortedEnemies = useMemo(() => {
-    const sorted = [...filteredEnemies];
-    if (sortField) {
-      sorted.sort((a, b) => {
-        let aVal: any = a[sortField];
-        let bVal: any = b[sortField];
-
-        if (sortField === 'name') {
-          aVal = a.name.toLowerCase();
-          bVal = b.name.toLowerCase();
-        }
-
-        if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
-        if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
-        return 0;
-      });
-    }
-    return sorted;
-  }, [filteredEnemies, sortField, sortDirection]);
-
+  }, [enemies, searchString, filterOption, UniqueEnemies, objectIdEnemies]);
 
   function handleToggleEnemy(enemyName: string, newBool: boolean) {
     if (enemies.findIndex((enemy) => enemy.name === enemyName) === -1) {
@@ -167,26 +135,22 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
               style={{
                 borderBottom: '1px solid #ccc',
                 padding: '0.5em',
-                cursor: 'pointer',
               }}
-              onClick={() => handleSort('name')}
             >
-              Enemy Name {sortField === 'name' && (sortDirection === 'asc' ? '↑' : '↓')}
+              Enemy Name
             </th>
             <th
               style={{
                 borderBottom: '1px solid #ccc',
                 padding: '0.5em',
-                cursor: 'pointer',
               }}
-              onClick={() => handleSort('value')}
             >
-              Status {sortField === 'value' && (sortDirection === 'asc' ? '↑' : '↓')}
+              Status
             </th>
           </tr>
         </thead>
         <tbody>
-          {sortedEnemies.map((enemy) => (
+          {filteredEnemies.map((enemy) => (
             <tr key={enemy.name}>
               <td>{enemy.name}</td>
               <td>
@@ -196,7 +160,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
               </td>
             </tr>
           ))}
-          {sortedEnemies.length === 0 && (
+          {filteredEnemies.length === 0 && (
             <tr>
               <td
                 colSpan={2}
