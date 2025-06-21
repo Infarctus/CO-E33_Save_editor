@@ -27,7 +27,8 @@ Available editors include:
   -  NG+ edit
   -  Open all manor doors
 - Unkill friendly Nevrons
-- Esquie skills
+- Exploration skills (Esquie skills, break paint)
+- Unkill bosses
 - Music disks (unlock)
 - Journals (unlock)
 - TP to any save flag
@@ -38,7 +39,6 @@ Available editors include:
 Will be done in the future (not in order):
 - Relations
 - Backup clean
-- Unkill bosses
 
 Disclaimer :
 Might break your files (even if very unlikely unless said otherwise, you will be able to get them back with the backup tab)
