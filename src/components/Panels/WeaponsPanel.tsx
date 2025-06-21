@@ -171,7 +171,7 @@ const WeaponsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded })
       updatedWeapons[owner] = updatedWeapons[owner].map((weapon) => {
         if (weapon.name === weaponName) {
           return {
-            name: thisWeaponWas.friendlyName,
+            name: thisWeaponWas.name,
             friendlyName: thisWeaponWas.friendlyName,
             found: newFound,
             level: newLevel,
