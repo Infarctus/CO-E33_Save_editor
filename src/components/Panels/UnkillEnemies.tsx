@@ -22,7 +22,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     error(message)
   }
 
-  const { UniqueEnemies, objectIdEnemies } = useMemo(() => {
+  const { UniqueEnemies: uniqueEnemies, objectIdEnemies } = useMemo(() => {
     const allEnemies = jsonMapping.root.properties.BattledEnemies_0.Map.map((enemy) => ({
       name: enemy.key.Name,
       value: enemy.value.Bool,
@@ -41,10 +41,10 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
         !enemy.name.includes('EnemyWorld_Petank'),
     )
 
-    return { UniqueEnemies: uniqueEnemies, objectIdEnemies: objectId }
+    return { UniqueEnemies: uniqueEnemies.reverse(), objectIdEnemies: objectId.reverse() }
   }, [jsonMapping])
 
-  const [enemies, setEnemies] = useState([...UniqueEnemies, ...objectIdEnemies])
+  const [enemies, setEnemies] = useState([...uniqueEnemies, ...objectIdEnemies])
   const [filterOption, setFilterOption] = useState('Unique enemies only')
   const [searchString, setSearchString] = useState<string>('')
 
@@ -54,7 +54,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
 
     // First apply the filter option
     if (filterOption === 'Unique enemies only') {
-      filtered = UniqueEnemies;
+      filtered = uniqueEnemies;
     } else if (filterOption === 'Other enemies only') {
       filtered = objectIdEnemies;
     }
@@ -65,7 +65,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     );
 
     return filtered;
-  }, [enemies, searchString, filterOption, UniqueEnemies, objectIdEnemies]);
+  }, [enemies, searchString, filterOption, uniqueEnemies, objectIdEnemies]);
 
   function handleToggleEnemy(enemyName: string, newBool: boolean) {
     if (enemies.findIndex((enemy) => enemy.name === enemyName) === -1) {
