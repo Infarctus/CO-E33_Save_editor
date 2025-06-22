@@ -26,7 +26,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     return jsonMapping.root.properties.BattledEnemies_0.Map.map((enemy) => ({
       name: enemy.key.Name,
       value: enemy.value.Bool,
-    }));
+    })).reverse();
   }, [jsonMapping]);
 
   const [enemies, setEnemies] = useState(allEnemies);
@@ -38,7 +38,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
         !enemy.name.includes('ObjectID_Enemy_Level_') ||
         enemy.name.includes('EnemyWorld_Mime') ||
         enemy.name.includes('EnemyWorld_Petank'),
-    ).reverse();
+    );
   }, [enemies]);
 
   const objectIdEnemies = useMemo(() => {
@@ -47,7 +47,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
         enemy.name.includes('ObjectID_Enemy_Level_') &&
         !enemy.name.includes('EnemyWorld_Mime') &&
         !enemy.name.includes('EnemyWorld_Petank'),
-    ).reverse();
+    );
   }, [enemies]);
 
   const [filterOption, setFilterOption] = useState('Unique enemies only');
