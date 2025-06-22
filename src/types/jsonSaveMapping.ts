@@ -30,7 +30,7 @@ export interface RootProperties {
   TimePlayed_0: DoubleComponent
   InventoryItems_0: InventoryItems_0Mapping
   Gold_0: IntComponent
-  TransientBattledEnemies_0 : TransientBattledEnemies_0
+  TransientBattledEnemies_0? : TransientBattledEnemies_0
   BattledEnemies_0 : BattledEnemies_0
   SpawnPointTagToLoadAt_0 : SpawnPointTagToLoadAt_0
   ReturnSpawnPointTag_0 : ReturnSpawnPointTag_0 // unsure of its use
