@@ -85,6 +85,16 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
         enemy.value.Bool = newBool
       }
     })
+    jsonMapping!.root.properties.EncounteredEnemies_0.Map.forEach((enemy) => {
+      if (enemy.key.Name === enemyName) {
+        enemy.value.Bool = newBool
+      }
+    })
+    jsonMapping!.root.properties.TransientBattledEnemies_0.Map.forEach((enemy) => {
+      if (enemy.key.Name === enemyName) {
+        enemy.value.Bool = newBool
+      }
+    })
     triggerSaveNeeded()
   }
 
