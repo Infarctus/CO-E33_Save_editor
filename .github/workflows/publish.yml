@@ -39,6 +39,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: false
+
       - name: setup node
         uses: actions/setup-node@v4
         with:
@@ -76,6 +82,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+          run_install: false
 
       - name: setup node
         uses: actions/setup-node@v4
@@ -141,13 +153,12 @@ jobs:
           $msiPath = Get-ChildItem -Path "./src-tauri/target/release/bundle/msi/*.msi" | Select-Object -First 1
           $newName = "co-e33-save-editor-windows-fixed-runtime_${{ steps.tauri-action.outputs.appVersion }}_x64_en-US.msi"
           Rename-Item -Path $msiPath.FullName -NewName $newName
-      
 
       - name: Publish Fixed Runtime Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: app-v${{ steps.tauri-action.outputs.appVersion }}
           append_body: true
-          files : ./src-tauri/target/release/bundle/msi/*.msi
+          files: ./src-tauri/target/release/bundle/msi/*.msi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
