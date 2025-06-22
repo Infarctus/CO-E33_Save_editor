@@ -1,14 +1,12 @@
 const fs = require('fs');
-const path = require('path');
+const { execSync } = require('child_process');
 
-console.log('Bumping version...');
-const newVersion = process.argv[2];
+const versionType = process.argv[2]; // patch, minor, major
 
-if (!newVersion || newVersion.split(".").length !== 3) {
-    console.error('Usage: npm run version:bump <newversion> (e.g., 1.0.1)');
-    process.exit(1);
+if (!versionType || !['patch', 'minor', 'major'].includes(versionType)) {
+  console.error('Usage: npm run version:bump:<patch|minor|major>');
+  process.exit(1);
 }
-console.log(`New version: ${newVersion}`);
 
 function updateFile(filePath, updateFn) {
   if (fs.existsSync(filePath)) {
@@ -19,25 +17,35 @@ function updateFile(filePath, updateFn) {
   }
 }
 
-updateFile('package.json', (content) => {
-  const pkg = JSON.parse(content);
-  pkg.version = newVersion;
-  return JSON.stringify(pkg, null, 2);
-});
+// Get current version from package.json
+const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+const currentVersion = packageJson.version;
 
-updateFile('package-lock.json', (content) => {
-  const lock = JSON.parse(content);
-  lock.version = newVersion;
-  if (lock.packages && lock.packages[""]) {
-    lock.packages[""].version = newVersion;
-  }
-  return JSON.stringify(lock, null, 2);
-});
+console.log(`Current version: ${currentVersion}`);
+console.log(`Running npm version ${versionType}...`);
 
+// Use npm version to update package.json and package-lock.json
+// This also creates a git commit and tag by default
+try {
+  // Use --no-git-tag-version if you don't want git tags created
+  execSync(`npm version ${versionType} --no-git-tag-version`, { stdio: 'inherit' });
+} catch (error) {
+  console.error('Failed to run npm version:', error);
+  process.exit(1);
+}
+
+// Read the new version after npm has updated it
+const updatedPackageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+const newVersion = updatedPackageJson.version;
+
+console.log(`Version bumped to: ${newVersion}`);
+
+// Update Cargo.toml (Tauri backend)
 updateFile('src-tauri/Cargo.toml', (content) => {
   return content.replace(/^version\s*=\s*"[^"]*"/m, `version = "${newVersion}"`);
 });
 
+// Update tauri.conf.json
 updateFile('src-tauri/tauri.conf.json', (content) => {
   const config = JSON.parse(content);
   if (config.version) {

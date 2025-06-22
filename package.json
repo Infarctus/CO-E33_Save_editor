@@ -11,7 +11,10 @@
     "tauri": "tauri",
     "buildjson": "python originalGameMapping/createcustommappings.py",
     "format": "prettier --write ./src",
-    "version:bump": "node scripts/version-bump.cjs"
+    "version:bump": "node scripts/version-bump.cjs",
+    "version:bump:patch": "node scripts/version-bump.cjs patch",
+    "version:bump:minor": "node scripts/version-bump.cjs minor",
+    "version:bump:major": "node scripts/version-bump.cjs major"
   },
   "dependencies": {
     "@tauri-apps/api": "^2",
