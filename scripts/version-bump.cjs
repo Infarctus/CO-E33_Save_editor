@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 const versionType = process.argv[2]; // patch, minor, major
 
 if (!versionType || !['patch', 'minor', 'major'].includes(versionType)) {
-  console.error('Usage: npm run version:bump:<patch|minor|major>');
+  console.error('Usage: pnpm run version:bump:<patch|minor|major>');
   process.exit(1);
 }
 
@@ -22,19 +22,19 @@ const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 const currentVersion = packageJson.version;
 
 console.log(`Current version: ${currentVersion}`);
-console.log(`Running npm version ${versionType}...`);
+console.log(`Running pnpm version ${versionType}...`);
 
-// Use npm version to update package.json and package-lock.json
+// Use pnpm version to update package.json and package-lock.json
 // This also creates a git commit and tag by default
 try {
   // Use --no-git-tag-version if you don't want git tags created
-  execSync(`npm version ${versionType} --no-git-tag-version`, { stdio: 'inherit' });
+  execSync(`pnpm version ${versionType} --no-git-tag-version`, { stdio: 'inherit' });
 } catch (error) {
-  console.error('Failed to run npm version:', error);
+  console.error('Failed to run pnpm version:', error);
   process.exit(1);
 }
 
-// Read the new version after npm has updated it
+// Read the new version after pnpm has updated it
 const updatedPackageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 const newVersion = updatedPackageJson.version;
 
