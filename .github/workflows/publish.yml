@@ -65,6 +65,7 @@ jobs:
         run: pnpm install
 
       - uses: tauri-apps/tauri-action@v0
+        id: tauri-action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -74,6 +75,16 @@ jobs:
           releaseDraft: true
           prerelease: false
           args: ${{ matrix.args }}
+
+      - name:  upload artifact windows
+        if: matrix.platform == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: CO-E33_Save_Editorv${{ steps.tauri-action.outputs.appVersion }}
+          path: src-tauri/target/release/*.exe
+          retention-days: 1
+          overwrite: true
+          if-no-files-found: error
 
   publish-tauri-windows-fixed-runtime:
     if: ${{ github.event.inputs.job == 'all' || github.event.inputs.job == 'fixed-runtime-only' || github.event_name == 'release' }}
