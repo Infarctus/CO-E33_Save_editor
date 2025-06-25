@@ -56,10 +56,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name:  upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: tauri-artifact${{ steps.tauri-action.outputs.appVersion }}
           path: |
             src-tauri/target/release/bundle/msi/*.msi
             src-tauri/target/release/*.exe
           retention-days: 1
+          overwrite: true
+          if-no-files-found: error
