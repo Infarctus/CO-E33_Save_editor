@@ -228,6 +228,7 @@ def genweaponmapping():
     print("Weapon mapping generated successfully.")
 
 def genjournalsmapping(): 
+    unavailablejournals = ["Journal - Renoir","Journal - Verso"]
     input_journals = "originalGameMapping/DT_Items_Journals.json"
 
     with open(input_journals, "r", encoding="utf-8") as f:
@@ -240,6 +241,8 @@ def genjournalsmapping():
     for journal in journalslist:
         journalname = journalslist[journal].get("Item_DisplayName_89_41C0C54E4A55598869C84CA3B5B5DECA").get("SourceString")
         if journalname:
+            if journalname in unavailablejournals:
+                journalname = journalname + "*"
             output_data["Journals"][journal] = journalname
 
     output_data["Journals"] = dict(
@@ -462,7 +465,7 @@ def genbasecharactersavemapping():
 #genmonocoskillsmapping()
 #genquestitemsmapping()
 #genweaponmapping()    
-#genjournalsmapping()
+genjournalsmapping()
 #genpictomapping()
 #genskinmapping()
 #genmusicdiskmapping()
