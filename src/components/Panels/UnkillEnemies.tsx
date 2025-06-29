@@ -22,9 +22,56 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
     error(message);
   }
 
+  function prettifyEnemyNames(name: string) {
+    if(name.startsWith("Merchant") && name.split('_').length === 2) {
+      return name.replace("_"," ")
+    }
+    else if(name.includes("Petank")){
+      if(name.includes("_BP_EnemyWorld_")){
+        name = name.replace("_BP_EnemyWorld_", ' ');
+      }
+      name = name.replace("Petank_", "Petank ");
+    } 
+    if(name.split('_').slice(-1)[0]?.length === 32 || name.split('_').slice(-1)[0]?.length === 33) {
+      name = name.split('_').slice(0, -1).join('_');
+    }
+    if(name.endsWith("_C")){
+      name = name.slice(0, -2);
+    }
+    if(name.includes('_BP_EnemyWorld_')) {
+      name = name.replace('_BP_EnemyWorld_', ' ');
+    }
+    else if(name.includes('_BP_Enemy_World_')) {
+      name = name.replace('_BP_Enemy_World_', ' ');
+    }
+    if(name.startsWith("BP_EnemyWorld_")){
+      name = name.replace(/^BP_EnemyWorld_/, '');
+    }
+    
+    if(name.startsWith('ObjectID_Enemy_Level_') ||name.startsWith("ObjectID_Enemy_SmallLevel_")) {
+      name = name.replace(/^ObjectID_Enemy_Level_/, '');
+      name = name.replace(/^ObjectID_Enemy_SmallLevel_/, '');
+      if(name.includes('_BP_jRPG_EnemyWorld_')) {
+        name = name.replace('_BP_jRPG_EnemyWorld_', ' ');
+      }
+      if(name.endsWith("_BP_EnemyGroup")){
+        name = name.replace("_BP_EnemyGroup", ' EnemyGroup');
+      }
+    }
+    else if(name.startsWith("ObjectID_Enemy_")){
+      name = name.replace(/^ObjectID_Enemy_/, '');
+    }
+    else if(name.startsWith("LD_")){
+      name = name.replace(/^LD_/, '');
+    }
+    
+    return name;
+  }
+
   const allEnemies = useMemo(() => {
     return jsonMapping.root.properties.BattledEnemies_0.Map.map((enemy) => ({
       name: enemy.key.Name,
+      friendlyName: prettifyEnemyNames(enemy.key.Name),
       value: enemy.value.Bool,
     })).reverse();
   }, [jsonMapping]);
@@ -69,11 +116,13 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
 
     // Then apply the search string filter
     filtered = filtered.filter((enemy) =>
-      enemy.name.toLowerCase().includes(searchString.toLowerCase())
+      enemy.friendlyName.toLowerCase().includes(searchString.toLowerCase())
     );
 
     return filtered;
   }, [enemies, searchString, filterOption, uniqueEnemies, objectIdEnemies]);
+
+  
 
   function handleToggleEnemy(enemyName: string, newBool: boolean) {
     const targetEnemyIndex = enemies.findIndex((enemy) => enemy.name === enemyName);
@@ -179,7 +228,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
         <tbody>
           {filteredEnemies.map((enemy) => (
             <tr key={enemy.name}>
-              <td>{enemy.name}</td>
+              <td>{enemy.friendlyName}</td>
               <td>
                 {renderToggle(enemy.value, (newBool) => {
                   handleToggleEnemy(enemy.name, newBool);
