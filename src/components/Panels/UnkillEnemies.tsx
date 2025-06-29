@@ -37,7 +37,8 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
       (enemy) =>
         !enemy.name.includes('ObjectID_Enemy_Level_') ||
         enemy.name.includes('EnemyWorld_Mime') ||
-        enemy.name.includes('EnemyWorld_Petank'),
+        enemy.name.includes('EnemyWorld_Petank') ||
+        enemy.name.toLowerCase().includes('alpha'),
     );
   }, [enemies]);
 
@@ -46,7 +47,8 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
       (enemy) =>
         enemy.name.includes('ObjectID_Enemy_Level_') &&
         !enemy.name.includes('EnemyWorld_Mime') &&
-        !enemy.name.includes('EnemyWorld_Petank'),
+        !enemy.name.includes('EnemyWorld_Petank') &&
+        !enemy.name.toLowerCase().includes('alpha'),
     );
   }, [enemies]);
 
