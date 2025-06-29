@@ -116,7 +116,7 @@ const UnkillEnemies: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }
 
     // Then apply the search string filter
     filtered = filtered.filter((enemy) =>
-      enemy.name.toLowerCase().includes(searchString.toLowerCase())
+      enemy.friendlyName.toLowerCase().includes(searchString.toLowerCase())
     );
 
     return filtered;
