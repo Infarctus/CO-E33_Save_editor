@@ -13,6 +13,7 @@ import ExplorationPanel from './Panels/ExplorationAbilitiesPanel'
 import FriendlyNevrons from './Panels/FriendlyNevrons'
 import SpawnLocationPanel from './Panels/SpawnLocationPanel'
 import UnkillEnemies from './Panels/UnkillEnemies'
+import BuildsPanel from './Panels/BuildsPanel'
 
 interface NavItem {
   id: string
@@ -27,6 +28,7 @@ interface NavItem {
 export const navItems: NavItem[] = [
   { id: 'Home', label: 'Home', icon: 'btnHome.png', requiresFile: false, component: HomePanel },
   { id: 'Characters', label: 'Characters', icon: 'btnCharacters.png', requiresFile: true, component: CharactersPanel },
+  { id: 'Builds', label: 'Builds', icon: 'btnBuilds.png', requiresFile: true, component: BuildsPanel },
   { id: 'Weapons', label: 'Weapons', icon: 'btnWeapon.png', requiresFile: true, component: WeaponsPanel },
   { id: 'MonocoSkills', label: 'Monoco Skills', icon: 'btnMonocoSkills.png', requiresFile: true, component: MonocoSkillsPanel },
   { id: 'EsquieSkills', label: 'Exploration Skills', icon: 'btnEsquie.png', requiresFile: true, component: ExplorationPanel },

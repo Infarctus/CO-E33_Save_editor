@@ -43,8 +43,8 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
   }
 
   // Initial global pictos data that uses mapping data from getPossiblePictos and jsonMapping
-  const allPictosMapping: [string, string][] = useMemo(() => {
-    return getPossiblePictos() // Call the function once when the component mounts
+  const allPictosMapping = useMemo(() => {
+    return getPossiblePictos() // Returns [InternalName, {name, effect, type, stats, cost}][]
   }, []) // Empty dependency array means this will only run once
 
   const inventoryDict: { [key: string]: boolean } = useMemo(
@@ -83,11 +83,11 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
   // Build initial picto info list from available pictos and the inventory info.
   const initialPictos: PictoInfo[] = useMemo(
     () =>
-      allPictosMapping.map(([name, friendlyName]) => {
+      allPictosMapping.map(([name, pictoData]) => {
         const found = !!inventoryDict[name.toLowerCase()]
         const mastered = !!masteryDict[name.toLowerCase()]
         const level = levelDict[name.toLowerCase()] || 1
-        return { name, friendlyName, found, mastered, level }
+        return { name, friendlyName: pictoData.name, found, mastered, level }
       }),
     [],
   )
@@ -532,7 +532,7 @@ const PictosPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded }) 
                   <div
                     className='slider round'
                     aria-disabled={!picto.found ? true : undefined}
-                    //  aria-disabled={!picto.found}
+                  //  aria-disabled={!picto.found}
                   ></div>
                 </label>
               </td>

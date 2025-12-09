@@ -1,5 +1,7 @@
+
 import os
 import json
+import glob
 
 rust_dir = "./src-tauri/src/"
 rust_json_dir = "./src-tauri/src/jsonmappings"
@@ -453,6 +455,53 @@ def genbasecharactersavemapping():
     jsondumprust(output_data, "basecharactersavemapping")
 
     print("Character mapping generated successfully.")
+
+def genweaponpassivemapping():
+    gear_dir = "originalGameMapping/Gear"
+    output_data = {
+        "WeaponPassives": {}
+    }
+
+    # Get all JSON files in the Gear directory
+    json_files = glob.glob(os.path.join(gear_dir, "*.json"))
+
+    for json_file in json_files:
+        filename = os.path.basename(json_file)
+        # Filter for weapon files
+        if not filename.startswith("DA_WeaponPictos_"):
+            continue
+            
+        weapon_name = filename.replace("DA_WeaponPictos_", "").replace(".json", "")
+        
+        try:
+            with open(json_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                
+                if data and isinstance(data, list) and len(data) > 0:
+                    props = data[0].get("Properties", {})
+                    passive_effects = props.get("PassiveEffects", [])
+                    
+                    found_passives = []
+                    for effect in passive_effects:
+                        # Iterate through keys to find the RowName, as the key is dynamic
+                        for key, val in effect.items():
+                            if isinstance(val, dict) and "RowName" in val:
+                                found_passives.append(val["RowName"])
+                    
+                    if found_passives:
+                        output_data["WeaponPassives"][weapon_name] = found_passives
+
+        except Exception as e:
+            print(f"Error processing {filename}: {e}")
+            continue
+
+    # Sort by weapon name
+    output_data["WeaponPassives"] = dict(
+        sorted(output_data["WeaponPassives"].items(), key=lambda x: x[0])
+    )
+
+    jsondumprust(output_data, "weaponpassivemapping")
+    print("Weapon passive mapping generated successfully.")
         
 
 
@@ -469,3 +518,4 @@ def genbasecharactersavemapping():
 #genmanordoormapping()
 #genflagmapping()
 #genbasecharactersavemapping()
+genweaponpassivemapping()

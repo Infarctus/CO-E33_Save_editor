@@ -3,8 +3,16 @@ export interface CharCustomizationMapping {
   Skins: any
 }
 
+export interface PictoData {
+  name: string
+  effect: string
+  type: string
+  stats: string
+  cost: number
+}
+
 export interface CustomPictosMapping {
-  Pictos: any
+  [internalName: string]: PictoData
 }
 
 export interface CustomMusicMapping {
@@ -47,11 +55,25 @@ export interface MusicDisckInfo {
   found: boolean
 }
 
+export interface WeaponData {
+  name: string
+  element: string
+  power: number
+  attributes: string
+  passives: {
+    lvl4: { desc: string; id?: string | null }
+    lvl10: { desc: string; id?: string | null }
+    lvl20: { desc: string; id?: string | null }
+  }
+  image: string
+}
+
 export interface WeaponInfoType {
   name: string
   friendlyName: string
   found: boolean
   level: number
+  data?: WeaponData
 }
 
 export interface BackupInfoType {
@@ -63,7 +85,7 @@ export interface BackupInfoType {
 export interface CustomWeaponsMapping {
   Weapons: {
     [charname: string]: {
-      [weaponKey: string]: string
+      [weaponKey: string]: WeaponData
     }
   }
 }
@@ -85,7 +107,7 @@ export interface FlagsMapping {
     [locationName: string]: {
       LevelKey: string
       MainSpawnPoint: string
-      SubFlags: { [key: string]: [flagname : string] }
+      SubFlags: { [key: string]: [flagname: string] }
     }
   }
 }

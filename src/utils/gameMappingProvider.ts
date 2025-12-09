@@ -10,6 +10,8 @@ import type {
   FlagsMapping,
   GradientSkillsMapping,
   MonocoSkillsMapping,
+  PictoData,
+  WeaponData,
 } from '../types/jsonCustomMapping'
 import { trace, debug } from '@tauri-apps/plugin-log'
 import { BeginMapping } from '../types/jsonSaveMapping'
@@ -23,19 +25,21 @@ let musicJson: CustomMusicMapping
 let weaponsJson: CustomWeaponsMapping
 let journalsJson: CustomJournalMapping
 let monocoSkillsJson: MonocoSkillsMapping
-let questItemsJson: QuestItemsMapping 
+let questItemsJson: QuestItemsMapping
 let gradientSkillsJson: GradientSkillsMapping
-let flagsJson: FlagsMapping 
-let manorDoorsJson: { ManorDoors: string[] } 
-let basecharactersavemappingJson :{ Characters: {
-  [key: string]: Character;
-} }
+let flagsJson: FlagsMapping
+let manorDoorsJson: { ManorDoors: string[] }
+let basecharactersavemappingJson: {
+  Characters: {
+    [key: string]: Character;
+  }
+}
 
 let mappingsInitialized = false
 
 export async function initGameMappings() {
   if (mappingsInitialized) return
-  
+
   try {
     // Load all mappings
     skinsJson = JSON.parse(await invoke('getskinmapping'))
@@ -54,7 +58,9 @@ export async function initGameMappings() {
     if (!('Faces' in skinsJson) || !('Skins' in skinsJson))
       throw 'Skins/Faces Json (characterCuztomization) not as expected'
 
-    if (!('Pictos' in pictosJson)) throw 'Pictos Json not as expected'
+    // Validate mappings (pictos is now a flat object, no Pictos wrapper)
+    if (!pictosJson || Object.keys(pictosJson).length === 0)
+      throw 'Pictos Json not as expected'
 
     if (!('MusicDisks' in musicJson)) throw 'Music Json not as expected'
 
@@ -134,13 +140,17 @@ export function getPossibleGrandientSkillsFor(characterName: string): string[] {
   return gradientSkillsJson.GradientSkills[characterName] || ['nothing']
 }
 
-export function getPossiblePictos(): [string, string][] {
+export function getPossiblePictos(): [string, { name: string; effect: string; type: string; stats: string; cost: number }][] {
   debug('getting pictos')
-  if (pictosJson.Pictos) {
-    return Object.entries(pictosJson.Pictos)
+  if (pictosJson) {
+    return Object.entries(pictosJson)
   } else {
-    return [['nothing', 'nothing']]
+    return []
   }
+}
+
+export function getPictoData(internalName: string): { name: string; effect: string; type: string; stats: string; cost: number } | undefined {
+  return pictosJson?.[internalName]
 }
 
 export function getPossibleMusicDisks(): [string, string][] {
@@ -152,13 +162,17 @@ export function getPossibleMusicDisks(): [string, string][] {
   }
 }
 
-export function getPossibleWeapons(): [string, { [weaponKey: string]: string }][] {
+export function getPossibleWeapons(): [string, { [weaponKey: string]: WeaponData }][] {
   debug('getting weapons')
   if (weaponsJson.Weapons) {
     return Object.entries(weaponsJson.Weapons)
   } else {
     return [['nothing', {}]]
   }
+}
+
+export function getWeaponData(charName: string, internalName: string): WeaponData | undefined {
+  return weaponsJson.Weapons?.[charName]?.[internalName]
 }
 
 export function getPossibleJournals(): [string, string][] {
@@ -233,9 +247,9 @@ export function getRawBaseCharacterSaveMapping(): { [nameshown: string]: string 
 
 
 export function getBaseCharacterFromName(name: string): Character {
-  debug('getting base character save mapping for '+name)
+  debug('getting base character save mapping for ' + name)
   if (name == "Frey") name = "Gustave"
-    return basecharactersavemappingJson.Characters[name]
+  return basecharactersavemappingJson.Characters[name]
 }
 
 export function SetInventoryItem(
@@ -266,4 +280,10 @@ export function SetInventoryItem(
     }
   }
   return 'How did we get here'
+}
+
+export function getLuminaCost(luminaName: string): number {
+  // Get cost from picto mapping, default to 5 if unknown
+  const pictoData = pictosJson?.[luminaName]
+  return pictoData?.cost ?? 5
 }

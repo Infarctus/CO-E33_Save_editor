@@ -9,3 +9,4 @@ pub mod skinmapping;
 pub mod musicdiskmapping;
 pub mod manordoormapping;
 pub mod basecharactersavemapping;
+pub mod weaponpassivemapping;

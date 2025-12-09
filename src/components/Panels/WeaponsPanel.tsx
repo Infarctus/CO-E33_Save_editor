@@ -1,6 +1,6 @@
 import { FC, useState, useMemo } from 'react'
 import { getPossibleWeapons } from '../../utils/gameMappingProvider'
-import { WeaponInfoType } from '../../types/jsonCustomMapping'
+import { WeaponInfoType, WeaponData } from '../../types/jsonCustomMapping'
 import { error, trace } from '@tauri-apps/plugin-log'
 import { useInfo } from '../InfoContext'
 import { renderNumberInput } from '../../utils/HtmlElement'
@@ -18,7 +18,7 @@ const WeaponsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded })
   }
 
   // Initial global weapons data that uses mapping data from getPossibleWeapons and jsonMapping
-  const allWeaponsMapping: [string, { [weaponKey: string]: string }][] = useMemo(() => {
+  const allWeaponsMapping: [string, { [weaponKey: string]: WeaponData }][] = useMemo(() => {
     return getPossibleWeapons()
   }, [])
 
@@ -72,11 +72,12 @@ const WeaponsPanel: FC<GeneralPanelProps> = ({ jsonMapping, triggerSaveNeeded })
     () =>
       Object.fromEntries(
         allWeaponsMapping.map(([owner, weapons]) => {
-          const weaponInfoTypes: WeaponInfoType[] = Object.keys(weapons).map((name) => {
-            const friendlyName = weapons[name]
-            const found = !!inventoryDict[name]
-            const level = levelDict[name] || 1
-            return { name, friendlyName, found, level }
+          const weaponInfoTypes: WeaponInfoType[] = Object.keys(weapons).map((key) => {
+            const data = weapons[key]
+            const friendlyName = data.name
+            const found = !!inventoryDict[key]
+            const level = levelDict[key] || 1
+            return { name: key, friendlyName, found, level, data }
           })
           return [owner, weaponInfoTypes]
         }),

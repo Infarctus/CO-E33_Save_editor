@@ -1,5 +1,6 @@
 [package]
 name = "CO-E33_Save_Editor"
+default-run = "CO-E33_Save_Editor"
 version = "1.9.3"
 description = "A Tauri App"
 authors = ["infarctus, nopoape"]
