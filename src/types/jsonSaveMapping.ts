@@ -43,6 +43,7 @@ export interface RootProperties {
   InteractedObjects_0 : InteractedObjects_0
   EncounteredEnemies_0: BattledEnemies_0 // Not an exact copy but same structure
   FinishedGameCount_0: IntComponent | null
+  Relationship_Level_0: Relationship_Level_0
 }
 
 export interface TransientBattledEnemies_0 {
@@ -222,4 +223,33 @@ export interface ExplorationProgression_0 {
       FreeAimDamageLevel_4_CE1A4941408FA32FC2731D9BF52F53EC_0?: IntComponent
     }
   }
+}
+
+export interface Relationship_Level_0 {
+  tag: MapTagSimple<'ByteProperty', 'IntProperty'>
+  Map: RelationshipLevelEntry[]
+}
+
+// export interface RelationshipLevelEntry {
+//   key: {
+//     EnumType: {
+//       Name: string
+//       Parameters: Array<{ Name: string }>
+//     }
+//     Value: string
+//   }
+//   value: {
+//     Int: number
+//   }
+// }
+
+export interface RelationshipLevelEntry {
+  key: {
+    Byte: {
+      Label: string;
+    };
+  };
+  value: {
+    Int: number;
+  };
 }

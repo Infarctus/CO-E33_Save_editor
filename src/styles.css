@@ -559,3 +559,35 @@ div.jsoneditor-value.jsoneditor-invalid {
   background-color: var(--col-4);
   color: var(--col-bg);
 }
+
+.relationshipCard {
+  border: 1px solid var(--col-border-1);
+  padding: 0.75rem;
+  width: 160px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+}
+
+.relationshipCard img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.relationshipCard h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.relationshipCard label {
+  font-size: 0.85rem;
+}
+
+.relationshipCard input {
+  width: 100%;
+  padding: 0.25rem 0.35rem;
+}

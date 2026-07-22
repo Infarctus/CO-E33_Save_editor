@@ -9,6 +9,7 @@ import WeaponsPanel from './Panels/WeaponsPanel'
 import ResourcesPanel from './Panels/ResourcesPanel'
 import MonocoSkillsPanel from './Panels/MonocoSkillsPanel'
 import QuestItemsPanel from './Panels/QuestItemsPanel'
+import RelationshipPanel from './Panels/RelationshipPanel'
 import ExplorationPanel from './Panels/ExplorationAbilitiesPanel'
 import FriendlyNevrons from './Panels/FriendlyNevrons'
 import SpawnLocationPanel from './Panels/SpawnLocationPanel'
@@ -38,6 +39,7 @@ export const navItems: NavItem[] = [
   { id: 'MusicDisks', label: 'Music Disks', icon: 'btnMusicRecordIcon.png', requiresFile: true, component: MusicDisksPanel },
   { id: 'Journals', label: 'Journals', icon: 'btnJournal.png', requiresFile: true, component: JournalsPanel },
   { id: 'QuestItems', label: 'Quest Items', icon: 'btnQuestItems.png', requiresFile: true, component: QuestItemsPanel },
+  { id: 'Relationship', label: 'Relationship', icon: 'btnRelationship.png', requiresFile: true, component: RelationshipPanel },
   { id: 'RawJson', label: 'Raw json', icon: 'btnRawEditor.png', requiresFile: true, component: RawJsonPanel },
   { id: 'Backups', label: 'Backups', icon: 'btnBackup.png', requiresFile: false, component: BackupsPanel },
 ]

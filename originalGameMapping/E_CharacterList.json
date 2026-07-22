@@ -1,0 +1,117 @@
+[
+  {
+    "Type": "UserDefinedEnum",
+    "Name": "E_CharacterList",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'UserDefinedEnum'",
+    "Package": "/Game/Gameplay/CharacterData/E_CharacterList",
+    "Properties": {
+      "DisplayNameMap": [
+        {
+          "Key": "NewEnumerator0",
+          "Value": {
+            "Namespace": "",
+            "Key": "0EF3E36944803DE8D098CEAB74FE7D08",
+            "SourceString": "Noah",
+            "LocalizedString": "Noah"
+          }
+        },
+        {
+          "Key": "NewEnumerator1",
+          "Value": {
+            "Namespace": "",
+            "Key": "05969E494B20174B21637BA7DFB519BD",
+            "SourceString": "Lune",
+            "LocalizedString": "Lune"
+          }
+        },
+        {
+          "Key": "NewEnumerator2",
+          "Value": {
+            "Namespace": "",
+            "Key": "11F56D8A4A8FE4FBF7A29EA35559804D",
+            "SourceString": "Maelle",
+            "LocalizedString": "Maelle"
+          }
+        },
+        {
+          "Key": "NewEnumerator3",
+          "Value": {
+            "Namespace": "",
+            "Key": "633C55E14A216FF54650F99A6B4FFB0B",
+            "SourceString": "Verso",
+            "LocalizedString": "Verso"
+          }
+        },
+        {
+          "Key": "NewEnumerator4",
+          "Value": {
+            "Namespace": "",
+            "Key": "10ACF5AC42E8A643F368BFBB6E9DEA33",
+            "SourceString": "Monoco",
+            "LocalizedString": "Monoco"
+          }
+        },
+        {
+          "Key": "NewEnumerator5",
+          "Value": {
+            "Namespace": "",
+            "Key": "B8F376D24D01C5FBB27C40B32FB6D32B",
+            "SourceString": "Sciel",
+            "LocalizedString": "Sciel"
+          }
+        },
+        {
+          "Key": "NewEnumerator6",
+          "Value": {
+            "Namespace": "",
+            "Key": "C7E49C0B42390EF45C187FA4815B97F6",
+            "SourceString": "Invalid",
+            "LocalizedString": "Invalid"
+          }
+        },
+        {
+          "Key": "NewEnumerator7",
+          "Value": {
+            "Namespace": "",
+            "Key": "7F84337E4E31C09DE41AAB989E22ECE0",
+            "SourceString": "Esquie",
+            "LocalizedString": "Esquie"
+          }
+        },
+        {
+          "Key": "NewEnumerator8",
+          "Value": {
+            "Namespace": "",
+            "Key": "40406D5B40B470C376F45EBE6B9FB14A",
+            "SourceString": "Sophie",
+            "LocalizedString": "Sophie"
+          }
+        },
+        {
+          "Key": "NewEnumerator9",
+          "Value": {
+            "Namespace": "",
+            "Key": "DFD54238481E7B2CFB0E058518571487",
+            "SourceString": "Alicia",
+            "LocalizedString": "Alicia"
+          }
+        }
+      ]
+    },
+    "Names": {
+      "E_CharacterList::NewEnumerator6": 0,
+      "E_CharacterList::NewEnumerator0": 1,
+      "E_CharacterList::NewEnumerator1": 2,
+      "E_CharacterList::NewEnumerator2": 3,
+      "E_CharacterList::NewEnumerator3": 4,
+      "E_CharacterList::NewEnumerator4": 5,
+      "E_CharacterList::NewEnumerator5": 6,
+      "E_CharacterList::NewEnumerator7": 7,
+      "E_CharacterList::NewEnumerator8": 8,
+      "E_CharacterList::NewEnumerator9": 9,
+      "E_CharacterList::E_MAX": 10
+    },
+    "CppForm": "Namespaced"
+  }
+]
