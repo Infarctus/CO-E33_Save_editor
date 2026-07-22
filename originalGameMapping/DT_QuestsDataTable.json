@@ -1,0 +1,888 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DT_QuestsDataTable",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'DataTable'",
+    "Package": "/Game/Gameplay/Quests/Data/DT_QuestsDataTable",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "UserDefinedStruct'S_Quest'",
+        "ObjectPath": "/Game/Gameplay/Quests/System/S_Quest.0"
+      }
+    },
+    "Rows": {
+      "Main_GoldenPath": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Main_GoldenPath'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Main_GoldenPath/DT_Objective_Main_GoldenPath.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "16B06D2B4EE243951D8DC58928FBA590",
+            "SourceString": "Main Path of the game.",
+            "LocalizedString": "Main Path of the game."
+          }
+        }
+      },
+      "Main_ForcedCamps": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Main_ForcedCamps'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Main_GoldenPath/DT_Objective_Main_ForcedCamps.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "TheExpeditionFestival": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Main_TheExpeditionFestival'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/TheExpeditionFestival/DT_Objective_Main_TheExpeditionFestival.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "TheGestralTournament": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Main_TheGestralTournament'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/TheGestralTournament/DT_Objective_Main_TheGestralTournament.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_LostGestrals": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_LostGestrals'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_LostGestrals.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "4A3DF0EB45648D7D9BC91C9D2CB82365",
+            "SourceString": "Find the Lost Gestrals and send them to the Manor kitchen.",
+            "LocalizedString": "Find the Lost Gestrals and send them to the Manor kitchen."
+          }
+        }
+      },
+      "Bonus_FlyingCasino": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_FlyingCasino'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_FlyingCasino.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_WarriorForest": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_WarriorForest'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_WarriorForest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "1E2377944E05F2EBC3DA7CB618BA4022",
+            "SourceString": "Aid the lone warrior of the Red Forest in defeating the local Nevron menace.",
+            "LocalizedString": "Aid the lone warrior of the Red Forest in defeating the local Nevron menace."
+          }
+        }
+      },
+      "Bonus_GustaveInvention": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_GustaveInvention'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_GustaveInvention.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "054D6E734CC3AA54E252C6AB69C882E4",
+            "SourceString": "The Gestral who attacked the expeditioners piloting the Ultimate Sakapatate asks Gustave to help him upgrade it.",
+            "LocalizedString": "The Gestral who attacked the expeditioners piloting the Ultimate Sakapatate asks Gustave to help him upgrade it."
+          }
+        }
+      },
+      "Bonus_JournalCollector": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_JournalCollector'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_JournalCollector.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "C2AE494F4312ABA881EED5A4D2610E29",
+            "SourceString": "Collect all the expedition journals.",
+            "LocalizedString": "Collect all the expedition journals."
+          }
+        }
+      },
+      "Bonus_HuntingBoard": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_HuntingBoard'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_HuntingBoard.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "1757B0724DD43FF3775812840AD9DBDE",
+            "SourceString": "Kill every Alpha Nevrons.",
+            "LocalizedString": "Kill every Alpha Nevrons."
+          }
+        }
+      },
+      "Bonus_HiddenGestralArena": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_HiddenGestralArena'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_HiddenGestralArena.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_StrongestPunch": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_StrongestPunch'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_StrongestPunch.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_HangingGestral": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_HangingGestral'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_HangingGestral.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_GrandisDefense": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_GrandisDefense'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_GrandisDefense.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_GrandisFashion": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_GrandisFashion'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_GrandisFashion.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_MonsterInBasement": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_MonsterInBasement'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_MonsterInBasement.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_ManBeforeFracture": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_ManBeforeFracture'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_ManBeforeFracture.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_OldDoor": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_OldDoor'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_OldDoor.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_CrushingWalls": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_CrushingWalls'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_CrushingWalls.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_GatesOfSkill": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_GatesOfSkill'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_GatesOfSkill.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_CleaTowers": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_CleaTowers'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_CleaTowers.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_Carrousel": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Carrousel'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_Carrousel.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_ChosenPath": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_ChosenPath'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_ChosenPath.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_KeyOldLumiere": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_KeyOldLumiere'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_KeyOldLumiere.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_ChromaDoorMime": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_ChromaDoorMime'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_ChromaDoorMime.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "DarkGestralArena_Golgra": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_DarkGestralArena_Golgra'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_DarkGestralArena_Golgra.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "FacelessBoy_OrangeForest": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_FacelessBoyOrangeForest'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_FacelessBoyOrangeForest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "CleaWorkshopQuest": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_CleaWorkshop'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_CleaWorkshop.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "CleaFlyingHouse_4Statues": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_CleaFlyingHouse_4Statues'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_CleaFlyingHouse_4Statues.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "F065484843403DA26004FC85EF38332C",
+            "SourceString": "Light the four status in the Flying House.",
+            "LocalizedString": "Light the four status in the Flying House."
+          }
+        }
+      },
+      "CleaTower_CleaDialogue": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_CleaTower_CleaDialogue'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_CleaTower_CleaDialogue.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Relationship_Maelle": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_MaelleSideQuest'",
+          "ObjectPath": "/Game/Narrative/Camps/Dialogues/SideQuests/Maelle/DT_Objective_MaelleSideQuest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "4E89068A4901E896F1AE9282F87073D9",
+            "SourceString": "Maelle relationship quest",
+            "LocalizedString": "Maelle relationship quest"
+          }
+        }
+      },
+      "Relationship_Lune": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_LuneSideQuest'",
+          "ObjectPath": "/Game/Narrative/Camps/Dialogues/SideQuests/Lune/DT_Objective_LuneSideQuest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "672E1CA646D2D53B47E435AC9E96B2AC",
+            "SourceString": "Lune Relationship Quest",
+            "LocalizedString": "Lune Relationship Quest"
+          }
+        }
+      },
+      "Relationship_Sciel": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_ScielSideQuest'",
+          "ObjectPath": "/Game/Narrative/Camps/Dialogues/SideQuests/Sciel/DT_Objective_ScielSideQuest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "F51520554C26B249E80A9CBFFE7770BD",
+            "SourceString": "Sciel Relationship Quest",
+            "LocalizedString": "Sciel Relationship Quest"
+          }
+        }
+      },
+      "Relationship_Monoco": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_MonocoSideQuest'",
+          "ObjectPath": "/Game/Narrative/Camps/Dialogues/SideQuests/Monoco/DT_Objective_MonocoSideQuest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Relationship_Esquie": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_EsquieSideQuest'",
+          "ObjectPath": "/Game/Narrative/Camps/Dialogues/SideQuests/Esquie/DT_Objective_EsquieSideQuest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "371BEDD4495AEE5C2D5D2CBECFE39C7E",
+            "SourceString": "Esquie Relationship Quest",
+            "LocalizedString": "Esquie Relationship Quest"
+          }
+        }
+      },
+      "Relationship_Noco": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_NocoSideQuest'",
+          "ObjectPath": "/Game/Narrative/Camps/Dialogues/SideQuests/Noco/DT_Objective_NocoSideQuest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Relationship_Conditions": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Relationship_Conditions'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_Relationship_Conditions.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Nevron_JarNeedLight": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_JarNeedLight'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_JarNeedLight.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "3BDE38B048D43FADA00914BEBDC45E90",
+            "SourceString": "This Jar wants you to find it a light.",
+            "LocalizedString": "This Jar wants you to find it a light."
+          }
+        }
+      },
+      "Nevron_DemineurMissingMine": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_DemineurMissingMine'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_DemineurMissingMine.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "B16248B642805B1507C8B7A25A961614",
+            "SourceString": "This mute Demineur seems like it misses its mine.",
+            "LocalizedString": "This mute Demineur seems like it misses its mine."
+          }
+        }
+      },
+      "Nevron_SmallBourgeon": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_SmallBourgeon'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_SmallBourgeon.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "CE9EA4B545534DA7EAF3F3A8AC00DE5A",
+            "SourceString": "Help the Bourgeon grow back to its normal size",
+            "LocalizedString": "Help the Bourgeon grow back to its normal size"
+          }
+        }
+      },
+      "Nevron_DanseuseDanceClass": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_DanseuseDanceClass'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_DanseuseDanceClass.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "1CA2ABEB4B35E4ABF49A31B7C01762BA",
+            "SourceString": "Parry every blow of Danseuse teacher",
+            "LocalizedString": "Parry every blow of Danseuse teacher"
+          }
+        }
+      },
+      "Nevron_PortierDoorMaze": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_PortierDoorMaze'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_PortierDoorMaze.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "439A1D7A4004B09DE34DB9A2A8132CC6",
+            "SourceString": "A spirit is asking you to bring it something, found past a maze of doors.",
+            "LocalizedString": "A spirit is asking you to bring it something, found past a maze of doors."
+          }
+        }
+      },
+      "Nevron_WeaponlessChalier": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_WeaponlessChalier'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_WeaponlessChalier.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "0770430441D6E6930D92D383CD50B354",
+            "SourceString": "The lone Chalier asks you to bring them a suitable weapon.",
+            "LocalizedString": "The lone Chalier asks you to bring them a suitable weapon."
+          }
+        }
+      },
+      "Nevron_Benisseur": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Benisseur'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_Benisseur.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Nevron_Hexga": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Hexga'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_Hexga.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Nevron_JudgeOfMercy": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_JudgeOfMercy'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_JudgeOfMercy.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Nevron_Troubadour": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Troubadour'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_Troubadour.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Festival_MaelleBattle": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Main_TheExpeditionFestival_MaelleBattle'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/TheExpeditionFestival/DT_Objective_Main_TheExpeditionFestival_MaelleBattle.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "SecondaryObjectives_MainPath": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_SecondaryObjectives_Mainpath'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Main_GoldenPath/DT_SecondaryObjectives_Mainpath.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "LumiereAct3_Teleporter": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_LumiereAct3_ActivateTeleporter'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_LumiereAct3_ActivateTeleporter.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Gestralbeach_Wipeout": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Gestralbeach_Wipeout'",
+          "ObjectPath": "/Game/Gameplay/GPE/BonusLevels/GestralBeach/WipeOut/DT_Objective_Gestralbeach_Wipeout.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Gestralbeach_ClimbWall": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Gestralbeach_ClimbWall'",
+          "ObjectPath": "/Game/Gameplay/GPE/BonusLevels/GestralBeach/ClimbWall/DT_Objective_Gestralbeach_ClimbWall.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Gestralbeach_OnlyUp": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Gestralbeach_ReachTheTop'",
+          "ObjectPath": "/Game/Gameplay/GPE/BonusLevels/GestralBeach/ReachTheTop/DT_Objective_Gestralbeach_ReachTheTop.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Gestralbeach_GestralRace": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Gestralbeach_GestralRace'",
+          "ObjectPath": "/Game/Gameplay/GPE/BonusLevels/GestralBeach/GestralRace/DT_Objective_Gestralbeach_GestralRace.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Gestralbeach_BeachVolley": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Gestralbeach_BeachVolley'",
+          "ObjectPath": "/Game/Gameplay/GPE/BonusLevels/GestralBeach/BeachVolley/DT_Objective_Gestralbeach_BeachVolley.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "AxonsHearts": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_AxonsHeart'",
+          "ObjectPath": "/Game/Gameplay/GPE/Cinematics/AxonsHeart/DT_Objective_AxonsHeart.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "CleasWorkshop_Deadzones": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_CleaWorkshop_Deadzones'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_CleaWorkshop_Deadzones.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "RedForestStates": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_RedForestStates'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_RedForestStates.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "MainPath_Epîlogue": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objectives_Ending'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Main_GoldenPath/DT_Objectives_Ending.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "12BACA5A4272D81E715DCDBF123FD1C0",
+            "SourceString": "Epilogue of the story for Maelle and Verso",
+            "LocalizedString": "Epilogue of the story for Maelle and Verso"
+          }
+        }
+      },
+      "GV_DefeatGolgraWithMonoco": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_DefeatGolgraWithMonoco'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_DefeatGolgraWithMonoco.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Main_EsquieNestBringStone": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_BringStoneEsquieNest'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_BringStoneEsquieNest.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Quests_LumiereAct1": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Lumiere_Act1Quests'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_Lumiere_Act1Quests.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Camp_WriteInGustaveJournal": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_Camp_WriteInGustaveJournal'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_Camp_WriteInGustaveJournal.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Main_ManorInterlude": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objectives_ManorInterludeAct3'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Main_GoldenPath/DT_Objectives_ManorInterludeAct3.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Main_BeatingMirrorRenoirOldLumiere": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objectives_BeatingMirrorRenoirOldLumiere'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Main_GoldenPath/DT_Objectives_BeatingMirrorRenoirOldLumiere.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "MM_StalactStuck": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_MM_StalactStuck'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Monoco/DT_Objective_MM_StalactStuck.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_AlphaEater": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_AlphaEater_Base'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/AlphaEater/DT_Objective_AlphaEater_Base.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "Namespace": "",
+            "Key": "F8F6DDF44F246E45C32578A50B00F95E",
+            "SourceString": "A strange locked entity asked you to bring it Chromatic Ink.",
+            "LocalizedString": "A strange locked entity asked you to bring it Chromatic Ink."
+          }
+        }
+      },
+      "Bonus_CoastalCave": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_CoastalCave'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/Nevrons/DT_Objective_CoastalCave.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_GustaveHomageEarlyUnlock": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_GustaveHomageEarlyUnlock'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_GustaveHomageEarlyUnlock.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "GPE_ExplosionsLumiereAct3": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_GPE_ExplosionsLumiereAct3'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_GPE_ExplosionsLumiereAct3.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_VD_WheeWhooBalance": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_VD_WheeWhooBalance'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_VD_WheeWhooBalance.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_VD_DivingBoard": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_VD_DivingBoard'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_VD_DivingBoard.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_VD_Ride": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_VD_Ride'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_VD_Ride.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      },
+      "Bonus_VD_PirateShip": {
+        "Objectives_2_94B61D96414C3C60F6BD4E8AAFDA9AA3": {
+          "ObjectName": "DataTable'DT_Objective_VD_PirateShip'",
+          "ObjectPath": "/Game/Gameplay/Quests/Data/BonusQuests/DT_Objective_VD_PirateShip.0"
+        },
+        "UIData_8_A11BED224591043708AC24BAFAC7D9C4": {
+          "Description_2_C3FAD12040BAE436D7CE018A4EA7A3E0": {
+            "CultureInvariantString": null
+          }
+        }
+      }
+    }
+  }
+]
