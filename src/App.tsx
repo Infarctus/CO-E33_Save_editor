@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { confirm } from '@tauri-apps/plugin-dialog'
 import { trace, error } from '@tauri-apps/plugin-log'
 import { extname } from '@tauri-apps/api/path'
+import { copyFile } from '@tauri-apps/plugin-fs'
 
 import Sidebar from './components/Sidebar'
 import InfoBanner from './components/InfoBanner'
@@ -111,9 +112,10 @@ function App() {
       // First, save the JSON mapping to the working temp path
       if (!(await saveMappingJsonToDisk(workingFileCurrent.tempJsonPath, jsonMapping))) {
         errorAndInfo('Could not serialize in-memory json to disk.')
+        return
       }
 
-      // Ask user where to save the save file (either .sav or no extension)
+      // Ask user where to export the game save or JSON file.
       let currentFileExt: string | null = null
       try {
         const ext = await extname(workingFileCurrent.originalSavPath)
@@ -142,11 +144,23 @@ function App() {
             name: `Export File`,
             extensions: currentFileExt ? [currentFileExt] : [],
           },
+          {
+            name: 'JSON File',
+            extensions: ['json'],
+          },
         ],
       })
 
       if (!targetSavPath) {
         errorAndInfo('Export canceled or no target save path selected.')
+        return
+      }
+
+      if (/\.json$/i.test(targetSavPath)) {
+        await copyFile(workingFileCurrent.tempJsonPath, targetSavPath)
+        const message = `JSON successfully exported to ${targetSavPath}`
+        setInfoMessage(message)
+        trace(message)
         return
       }
 

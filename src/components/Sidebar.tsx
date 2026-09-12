@@ -171,7 +171,7 @@ const Sidebar: FC<SidebarProps> = ({
           disabled={!anyFileOpen}
           style={{ width: '49%', marginRight: '2%' }}
           title={anyFileOpen
-            ? 'Export a file to wherever you want.\nYou will be prompted for the target destination.'
+            ? 'Export a game save or JSON file.\nChoose the format and destination in the save dialog.'
             : "Open a file before trying to export it\nIt's just over this button"}
         >
           Export
